@@ -21,7 +21,7 @@ Contribution guidelines:
 ## Questions
 
 If you have any questions, please feel free to ask on the
-[iRecord forum](http://www.brc.ac.uk/irecord/forum/26).
+[NPMS forum](http://www.npms.org.uk/forum).
 
 
 ## Configuration
