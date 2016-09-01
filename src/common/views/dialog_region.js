@@ -1,6 +1,8 @@
 /** ****************************************************************************
  * Messages the user
  *****************************************************************************/
+import '../styles/dialog.scss';
+
 import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'marionette';

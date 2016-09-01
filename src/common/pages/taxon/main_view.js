@@ -1,6 +1,8 @@
 /** ****************************************************************************
  * Taxon main view.
  *****************************************************************************/
+import './styles.scss';
+
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Marionette from 'marionette';

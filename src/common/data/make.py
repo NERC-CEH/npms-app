@@ -3,7 +3,6 @@ import subprocess
 
 sys.path.append('./scripts')
 
-import _clean
 import _json_translator
 
 #get file names

@@ -26,8 +26,6 @@ module.exports = (grunt) => {
     ],
 
     'run': [
-      // 'sass',
-      // 'cssmin',
       'jst',
       'replace:config',
     ],

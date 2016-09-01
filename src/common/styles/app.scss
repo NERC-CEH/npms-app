@@ -1,8 +1,22 @@
 /******************************************************************************
  * App wide styles. Only place where tag only selectors allowed.
  *****************************************************************************/
+@import "../../../dist/_build/styles/ratchet.css";
+@import "../../../dist/_build/styles/icons.css";
+@import "../../../dist/_build/vendor/leaflet/css/leaflet.css";
+@import "../../../dist/_build/vendor/photoswipe/css/photoswipe.css";
+@import "../../../dist/_build/vendor/photoswipe/css/default-skin.css";
 
-@import "common/tabs.scss";
+
+@import "../vendor/bootstrap/css/bootstrap.css";
+@import "../vendor/ionic/css/ionic.css";
+
+@import "./_variables.scss";
+@import "./bootstrap-ext.scss";
+@import "./ionic-ext.scss";
+@import "./app-wide.scss";
+@import "./cordova.scss";
+
 
 body {
   margin: 0;
@@ -446,27 +460,6 @@ input {
 //todo: should be automatic centering
 a.btn span:before {
   padding-top: 13px;
-}
-
-@mixin empty-list() {
-  &.empty {
-    font-size: 13.3333px;
-    line-height: 17.3333px;
-
-    height: initial!important;
-    min-height: initial!important;
-    padding: 13px 0;
-    border: none;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-    font-weight: normal;
-    color: $color-black;
-  }
-
-  &:hover {
-    background-color: $color-gray-light;
-  }
 }
 
 li.table-view-cell {

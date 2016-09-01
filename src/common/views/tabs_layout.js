@@ -1,3 +1,5 @@
+import '../styles/tabs.scss';
+
 import Backbone from 'backbone';
 import _ from 'lodash';
 import Marionette from 'marionette';

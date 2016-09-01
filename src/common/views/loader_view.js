@@ -1,6 +1,8 @@
 /** ****************************************************************************
  * Loader view with a spinner for async and other components.
  *****************************************************************************/
+import '../styles/loading.scss';
+
 import Marionette from 'marionette';
 
 export default Marionette.ItemView.extend({

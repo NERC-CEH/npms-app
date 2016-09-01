@@ -94,8 +94,8 @@ module.exports = (grunt) => {
 
     // need to remove Ratchet's default fonts to work with fontello ones
     ratchet_fonts: {
-      src: ['dist/_build/styles/ratchet.css'],
-      overwrite: true,
+      src: ['dist/_build/vendor/ratchet/css/ratchet.css'],
+      dest: BUILD + 'styles/ratchet.css',
       replacements: [
         {
           from: /font-family: Ratchicons;/g,
@@ -109,8 +109,8 @@ module.exports = (grunt) => {
 
     // moving the stylesheet to root makes the path different
     fontello_fonts: {
-      src: ['dist/_build/styles/icons.css'],
-      overwrite: true,
+      src: ['src/common/vendor/fontello/css/icons.css'],
+      dest: BUILD + 'styles/icons.css',
       replacements: [
         {
           from: /\.\.\/font\//g,

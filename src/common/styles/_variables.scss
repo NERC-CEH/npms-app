@@ -40,3 +40,24 @@ $text-font-size: 14px;
 
 $OS_MAP_KEY: '28994B5673A86451E0530C6CA40A91A5';
 $OS_MAP_URL: 'https://openspace.ordnancesurvey.co.uk/osmapapi/ts?KEY=#{$OS_MAP_KEY}&URL=file%3A%2F%2F%2F&SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&FORMAT=image%2Fpng&height=200&width=200&srs=EPSG%3A27700';
+
+@mixin empty-list() {
+  &.empty {
+    font-size: 13.3333px;
+    line-height: 17.3333px;
+
+    height: initial!important;
+    min-height: initial!important;
+    padding: 13px 0;
+    border: none;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    font-weight: normal;
+    color: $color-black;
+  }
+
+  &:hover {
+    background-color: $color-gray-light;
+  }
+}

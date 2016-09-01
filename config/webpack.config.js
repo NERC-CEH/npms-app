@@ -1,6 +1,15 @@
 var path = require('path');
 var webpack = require('webpack');
 
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const sassLoaders = [
+  'css-loader?-url',
+  'postcss-loader',
+  'sass-loader?includePaths[]=' + path.resolve(__dirname, './src')
+]
+
 module.exports = {
   context: './src/',
   entry: {
@@ -50,7 +59,7 @@ module.exports = {
       marionette: 'marionette/js/backbone.marionette',
       morel: 'morel/js/morel',
 
-      leaflet: 'leaflet/js/leaflet',
+      leaflet: 'leaflet/dist/leaflet',
       OSOpenSpace: 'os-leaflet/js/OSOpenSpace',
       'Leaflet.GridRef': 'leaflet.gridref/js/L.GridRef',
       proj4leaflet: 'proj4Leaflet/js/proj4leaflet',
@@ -71,13 +80,15 @@ module.exports = {
         loader: 'babel-loader',
       },
       { test: /\.json/, loader: 'json' },
+      // { test: /(\.png)|(\.svg)/, loader: 'file' },
       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        test: /\.s?css$/,
+        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
       },
     ],
   },
   plugins: [
+    new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       cacheFolder: path.resolve(__dirname, 'dist/_build/.cached_uglify/'),
       minimize: true,
@@ -85,6 +96,11 @@ module.exports = {
         warnings: false,
       },
     }),
+  ],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
   ],
   cache: true,
 };
