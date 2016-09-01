@@ -12,7 +12,7 @@ module.exports = {
       },
       // CSS
       {
-        src: 'src/vendor/**/css/*', dest: 'dist/_build/styles/',
+        src: 'src/common/vendor/**/css/*', dest: 'dist/_build/styles/',
         expand: true, flatten: true,
       },
       {
@@ -21,7 +21,7 @@ module.exports = {
       },
       // IMAGES
       {
-        src: 'src/vendor/**/images/*', dest: 'dist/main/images/',
+        src: 'src/common/vendor/**/images/*', dest: 'dist/main/images/',
         expand: true, flatten: true,
       },
       {
@@ -29,17 +29,17 @@ module.exports = {
         expand: true, flatten: true,
       },
       {
-        src: '**', cwd: 'src/images/', dest: 'dist/main/images/',
+        src: '**', cwd: 'src/common/images/', dest: 'dist/main/images/',
         expand: true, filter: 'isFile',
       },
       // FONTS
       {
-        src: 'src/vendor/fontello/font/*', dest: 'dist/main/font/',
+        src: 'src/common/vendor/fontello/font/*', dest: 'dist/main/font/',
         expand: true, flatten: true,
       },
       // DATA
       {
-        src: 'src/data/*.data.json', dest: 'dist/_build/',
+        src: 'src/common/data/*.data.json', dest: 'dist/_build/',
         expand: true, flatten: true,
       },
     ],

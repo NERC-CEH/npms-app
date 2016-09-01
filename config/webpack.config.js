@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  context: './src/scripts',
+  context: './src/',
   entry: {
     app: './main.js',
   },
@@ -14,8 +14,8 @@ module.exports = {
     root: [
       path.resolve('./dist/_build'),
       path.resolve('./dist/_build/vendor'),
-      path.resolve('./src/scripts'),
-      path.resolve('./src/vendor'),
+      path.resolve('./src/'),
+      path.resolve('./src/common/vendor'),
     ],
     alias: {
       // data
@@ -23,16 +23,17 @@ module.exports = {
       'species.data': 'species.data.json',
 
       // helpers
-      device: 'helpers/device',
-      gps: 'helpers/gps',
-      string: 'helpers/string',
-      date: 'helpers/date',
-      image: 'helpers/image',
-      log: 'helpers/log',
-      location: 'helpers/location',
-      analytics: 'helpers/analytics',
-      error: 'helpers/error',
-      validate: 'helpers/validate',
+      device: 'common/helpers/device',
+      gps: 'common/helpers/gps',
+      string: 'common/helpers/string',
+      date: 'common/helpers/date',
+      image: 'common/helpers/image',
+      log: 'common/helpers/log',
+      location: 'common/helpers/location',
+      analytics: 'common/helpers/analytics',
+      error: 'common/helpers/error',
+      validate: 'common/helpers/validate',
+      update: 'common/helpers/update',
 
       // vendor
       jquery: 'jquery/js/jquery',
@@ -70,6 +71,10 @@ module.exports = {
         loader: 'babel-loader',
       },
       { test: /\.json/, loader: 'json' },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
     ],
   },
   plugins: [
