@@ -69,7 +69,7 @@ module.exports = (grunt) => {
     },
 
     // App NAME and VERSION
-    main: {
+    config: {
       src: [
         CONFIG_DEV,
         CONFIG,
