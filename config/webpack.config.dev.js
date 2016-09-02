@@ -5,6 +5,6 @@ const development = _.cloneDeep(webpackConfig);
 
 // development configuration
 development.resolve.alias.config = 'config_dev';
-delete development.plugins;
+development.plugins.splice(1,1); // remove the UglifyJS
 
 module.exports = development;
