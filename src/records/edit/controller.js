@@ -161,9 +161,8 @@ const API = {
   photoUpload(recordModel, photo) {
     Log('Records:Edit:Controller: photo uploaded');
 
-    const occurrence = recordModel.occurrences.at(0);
     // show loader
-    API.addPhoto(occurrence, photo, (occErr) => {
+    API.addPhoto(recordModel, photo, (occErr) => {
       // hide loader
       if (occErr) {
         App.regions.dialog.error(occErr);
@@ -206,8 +205,6 @@ const API = {
   photoSelect(recordModel) {
     Log('Records:Edit:Controller: photo selection');
 
-    const occurrence = recordModel.occurrences.at(0);
-
     App.regions.dialog.show({
       title: 'Choose a method to upload a photo',
       buttons: [
@@ -215,7 +212,7 @@ const API = {
           title: 'Camera',
           onClick() {
             ImageHelp.getImage((entry) => {
-              API.addPhoto(occurrence, entry.nativeURL, (occErr) => {
+              API.addPhoto(recordModel, entry.nativeURL, (occErr) => {
                 if (occErr) {
                   App.regions.dialog.error(occErr);
                 }
@@ -228,7 +225,7 @@ const API = {
           title: 'Gallery',
           onClick() {
             ImageHelp.getImage((entry) => {
-              API.addPhoto(occurrence, entry.nativeURL, (occErr) => {
+              API.addPhoto(recordModel, entry.nativeURL, (occErr) => {
                 if (occErr) {
                   App.regions.dialog.error(occErr);
                 }
@@ -247,16 +244,16 @@ const API = {
   /**
    * Adds a new image to occurrence.
    */
-  addPhoto(occurrence, photo, callback) {
+  addPhoto(recordModel, photo, callback) {
     ImageHelp.getImageModel(photo, (err, image) => {
       if (err || !image) {
         const error = new Error('Missing image.');
         callback(error);
         return;
       }
-      occurrence.addImage(image);
+      recordModel.addImage(image);
 
-      occurrence.save(null, {
+      recordModel.save(null, {
         success: () => {
           callback();
         },

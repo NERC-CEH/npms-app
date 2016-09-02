@@ -7,7 +7,7 @@ import Morel from 'morel';
 import CONFIG from 'config'; // Replaced with alias
 import recordManager from '../record_manager';
 import Log from 'log';
-import userModel from './user_model';
+import ImageModel from './image';
 import Occurrence from './occurrence';
 import GeolocExtension from './sample_geoloc_ext';
 
@@ -17,12 +17,7 @@ let Sample = Morel.Sample.extend({
     Morel.Sample.prototype.constructor.apply(this, args);
   },
 
-  initialize() {
-    this.set('form', CONFIG.morel.manager.input_form);
-
-    this.checkExpiredGroup(); // activities
-    this.listenTo(userModel, 'sync:activities:end', this.checkExpiredGroup);
-  },
+  Image: ImageModel,
 
   Occurrence,
 
@@ -54,14 +49,9 @@ let Sample = Morel.Sample.extend({
       }
     }
 
-    // location type
-    if (!attrs.location_type) {
-      sample.location_type = 'can\'t be blank';
-    }
-
     // occurrences
     if (this.occurrences.length === 0) {
-      sample.occurrences = 'no occurrences';
+      sample.occurrences = 'no species selected';
     } else {
       this.occurrences.each((occurrence) => {
         const errors = occurrence.validate();
@@ -107,27 +97,6 @@ let Sample = Morel.Sample.extend({
     });
 
     return promise;
-  },
-
-  checkExpiredGroup() {
-    const activity = this.get('group');
-    if (activity) {
-      const expired = userModel.hasActivityExpired(activity);
-      if (expired) {
-        const newActivity = userModel.getActivity(activity.id);
-        if (!newActivity) {
-          // the old activity is expired and removed
-          Log('Sample:Group: removing exipired activity');
-          this.unset('group');
-          this.save();
-        } else {
-          // old activity has been updated
-          Log('Sample:Group: updating exipired activity');
-          this.set('group', newActivity);
-          this.save();
-        }
-      }
-    }
   },
 });
 

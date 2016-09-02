@@ -44,7 +44,13 @@ const API = {
         const recordModel = childView.model;
         API.recordDelete(recordModel);
       });
+
+      mainView.on('survey', (e) => {
+        API.addSurvey();
+      });
+
       App.regions.main.show(mainView);
+
     });
 
     // HEADER
@@ -110,7 +116,7 @@ const API = {
           });
 
           // create new sample
-          API.createNewRecord(level, (err, sample) => {
+          API.createNewRecord(option, (err, sample) => {
             if (err) {
               App.regions.dialog.error(err);
               return;
@@ -118,7 +124,7 @@ const API = {
             App.regions.dialog.hide();
 
             // open sample page
-            App.trigger('records:edit:attr', sample.id, 'habitat');
+            App.trigger('records:edit:attr', sample.cid, 'habitat');
           });
         }
       }
@@ -140,52 +146,24 @@ const API = {
     });
   },
 
-  photoSelect() {
-    Log('Records:List:Controller: photo select');
-
-    App.regions.dialog.show({
-      title: 'Choose a method to upload a photo',
-      buttons: [
-        {
-          title: 'Camera',
-          onClick() {
-            ImageHelp.getImage((entry) => {
-              API.createNewRecord(entry.nativeURL, () => {});
-            });
-            App.regions.dialog.hide();
-          },
-        },
-        {
-          title: 'Gallery',
-          onClick() {
-            ImageHelp.getImage((entry) => {
-              API.createNewRecord(entry.nativeURL, () => {});
-            }, {
-              sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
-              saveToPhotoAlbum: false,
-            });
-            App.regions.dialog.hide();
-          },
-        },
-      ],
-    });
-  },
-
   /**
    * Creates a new record with an image passed as an argument.
    */
   createNewRecord(level, callback) {
-      const sample = new Sample({
+    const sample = new Sample();
+    sample.set('level', level);
+    sample.set('location', { //todo remove
+      plot: 1,
+      gridref: 'SU7253398593',
+    });
 
-      });
-
-      recordManager.set(sample, (saveErr) => {
-        if (saveErr) {
-          callback(saveErr);
-          return;
-        }
-        callback();
-      });
+    recordManager.set(sample, (saveErr) => {
+      if (saveErr) {
+        callback(saveErr);
+        return;
+      }
+      callback(null, sample);
+    });
   },
 };
 

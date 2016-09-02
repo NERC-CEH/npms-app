@@ -195,21 +195,28 @@
 
       //record info
       .media-body {
-        .species {
-          display: block;
+        .gridref, .plot {
           font-size: 15px;
-          font-weight: 700;
           color: $button-black;
 
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-
-          &.error {
-            color: $color-orange;
-          }
         }
-
+        .gridref {
+          font-weight: bold;
+        }
+        .plot {
+          position: absolute;
+          top: 11px;
+          right: 35px;
+        }
+        .level {
+          text-transform: capitalize;
+          font-size: 12px;
+          color: #333;
+          margin-right: 10px;
+        }
         .date,
         .location{
           float: left;

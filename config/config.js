@@ -78,7 +78,100 @@ export default {
         },
       },
 
-      habitat: { id: 461 },
+      habitat: {
+        id: 481,
+        _values: {
+          'Arable margins': {
+            id: 3705,
+            values: {
+              'Arable field margins': 3717,
+            }
+          },
+          'Bog and wet heath': {
+            id: 3706,
+            values: {
+              'Raised bog': 3718,
+              'Blanket bog': 3719,
+              'Wet heath': 3720,
+            }
+          },
+          'Broadleaved woodland, hedges and scrub': {
+            id: 3707,
+            values: {
+              'Hedgerows of native species': 3721,
+              'Wet woodland': 3722,
+              'Dry deciduous woodland': 3723,
+            }
+          },
+          'Coast': {
+            id: 3708,
+            values: {
+              'Coastal saltmarsh': 3724,
+              'Coastal sand dunes': 3725,
+              'Machair': 3726,
+              'Coastal vegetated shingle': 3727,
+              'Maritime cliffs and slopes': 3728,
+            }
+          },
+          'Freshwater': {
+            id: 3709,
+            values: {
+              'Nutrient-poor lakes and ponds': 3729,
+              'Nutrient-rich lakes and ponds': 3730,
+              'Rivers and streams': 3731,
+            }
+          },
+          'Heathland': {
+            id: 3710,
+            values: {
+              'Dry heathland': 3732,
+              'Montane dry heathland': 3733,
+            }
+          },
+          'Lowland grassland': {
+            id: 3711,
+            values: {
+              'Dry calcareous grassland': 3734,
+              'Dry acid grassland': 3735,
+              'Neutral pastures and meadows': 3736,
+              'Neutral damp grassland': 3737,
+            }
+          },
+          'Marsh and fen': {
+            id: 3712,
+            values: {
+              'Acid fens, mires and springs': 738,
+              'Base-rich fens, mires and springs': 3739,
+            }
+          },
+          'Upland grassland': {
+            id: 3713,
+            values: {
+              'Montane calcareous grassland': 3740,
+              'Montane acid grassland': 3741,
+            }
+          },
+          'Native pinewood and juniper scrub': {
+            id: 3714,
+            values: {
+              'Native conifer woods and juniper scrub': 3742,
+            }
+          },
+          'Rock outcrops, cliffs and scree': {
+            id: 3715,
+            values: {
+              'Inland rocks and scree': 3743,
+              'Montane rocks and scree': 3744,
+            }
+          },
+          'Not in scheme': {
+            id: 3716,
+            values: {
+              'Not in scheme': 3745,
+            }
+          }
+        }
+      },
       identifiers: { id: 465 },
 
 

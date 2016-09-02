@@ -12,6 +12,7 @@ import appModel from '../common/models/app_model';
 import ListController from './list/controller';
 import ShowController from './show/controller';
 import EditController from './edit/controller';
+import EditAdditionalController from './edit_additional/controller';
 import EditAttrController from './attr/controller';
 import TaxonController from '../common/pages/taxon/controller';
 
@@ -40,6 +41,7 @@ const Router = Marionette.AppRouter.extend({
     'records/new(/)': TaxonController.show,
     'records/:id': ShowController.show,
     'records/:id/edit(/)': EditController.show,
+    'records/:id/edit/additional(/)': EditAdditionalController.show,
     'records/:id/edit/taxon(/)': TaxonController.show,
     'records/:id/edit/:attr(/)': EditAttrController.show,
     'records/*path': function () { App.trigger('404:show'); },
@@ -59,6 +61,11 @@ App.on('records:show', (recordID, options) => {
 App.on('records:edit', (recordID, options) => {
   App.navigate(`records/${recordID}/edit`, options);
   EditController.show(recordID);
+});
+
+App.on('records:edit:additional', (recordID, options) => {
+  App.navigate(`records/${recordID}/edit-additional`, options);
+  EditAdditionalController.show(recordID);
 });
 
 App.on('records:edit:attr', (recordID, attrID, options) => {

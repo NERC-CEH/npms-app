@@ -46,7 +46,7 @@ const RecordView = Marionette.ItemView.extend({
 
     const items = [];
 
-    this.model.occurrences.at(0).images.each((image, index) => {
+    this.model.images.each((image, index) => {
       items.push({
         src: image.getURL(),
         w: image.get('width') || 800,
@@ -106,46 +106,26 @@ const RecordView = Marionette.ItemView.extend({
 
   serializeData() {
     const recordModel = this.model;
-    const occ = recordModel.occurrences.at(0);
     const date = DateHelp.print(recordModel.get('date'));
-    const specie = occ.get('taxon') || {};
-    const images = occ.images;
-    let img = images.length && images.at(0).get('thumbnail');
-
-    if (!img) {
-      // backwards compatibility
-      img = images.length && images.at(0).getURL();
-    }
-
-    const taxon = specie[specie.found_in_name];
+    const location = recordModel.get('location');
+    const gridref = location.gridref;
+    const plot = location.plot;
+    const level = recordModel.get('level');
+    let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
 
     const syncStatus = this.model.getSyncStatus();
 
-    const locationPrint = recordModel.printLocation();
-    const location = recordModel.get('location') || {};
-
-    let number = occ.get('number') && StringHelp.limit(occ.get('number'));
-    if (!number) {
-      number = occ.get('number-ranges') && StringHelp.limit(occ.get('number-ranges'));
-    }
-
-    const group = recordModel.get('group');
-
     return {
       id: recordModel.id || recordModel.cid,
+      gridref,
+      plot,
+      level,
+      date,
       saved: recordModel.metadata.saved,
       onDatabase: syncStatus === Morel.SYNCED,
-      isLocating: recordModel.isGPSRunning(),
-      location: locationPrint,
-      location_name: location.name,
       isSynchronising: syncStatus === Morel.SYNCHRONISING,
-      date,
-      taxon,
-      number,
-      stage: occ.get('stage') && StringHelp.limit(occ.get('stage')),
-      comment: occ.get('comment'),
-      group,
       img: img ? `<img src="${img}"/>` : '',
+
     };
   },
 
@@ -204,6 +184,10 @@ export default Marionette.CollectionView.extend({
   className: 'table-view no-top',
   emptyView: NoRecordsView,
   childView: RecordView,
+
+  triggers: {
+    'click a#add-survey': 'survey',
+  },
 
   // inverse the collection
   attachHtml(collectionView, childView) {

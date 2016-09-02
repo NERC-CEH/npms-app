@@ -1,6 +1,7 @@
 /** ****************************************************************************
  * Record Attribute main view.
  *****************************************************************************/
+import _ from 'lodash';
 import $ from 'jquery';
 import Marionette from 'marionette';
 import Device from 'device';
@@ -8,6 +9,7 @@ import DateHelp from 'date';
 import StringHelp from 'string';
 import Log from 'log';
 import JST from 'JST';
+import CONFIG from 'config';
 
 // http://stackoverflow.com/questions/846221/logarithmic-slider
 function LogSlider(options = {}) {
@@ -34,6 +36,10 @@ const logsl = new LogSlider({ maxpos: 100, minval: 1, maxval: 500 });
 
 export default Marionette.ItemView.extend({
   initialize(options) {
+    if (options.attr === 'fine-habitat') {
+      this.template = this.generateTemplate(options.attr);
+      return;
+    }
     this.template = JST[`records/attr/${options.attr}`];
   },
 
@@ -64,22 +70,15 @@ export default Marionette.ItemView.extend({
         }
         break;
       }
-      case 'number':
-        value = this.$el.find('#rangeVal').val();
-        if (value) {
-          // slider
-          values[attr] = value;
-        } else {
-          // ranges selection
-          $inputs = this.$el.find('input[type="radio"]');
-          $inputs.each((int, elem) => {
-            if ($(elem).prop('checked')) {
-              values['number-ranges'] = $(elem).val();
-            }
-          });
-        }
+      case 'habitat':
+        $inputs = this.$el.find('input');
+        $inputs.each((int, elem) => {
+          if ($(elem).prop('checked')) {
+            values[attr] = $(elem).val();
+          }
+        });
         break;
-      case 'stage':
+      case 'fine-habitat':
         $inputs = this.$el.find('input');
         $inputs.each((int, elem) => {
           if ($(elem).prop('checked')) {
@@ -110,25 +109,17 @@ export default Marionette.ItemView.extend({
         templateData.date = DateHelp.toDateInputValue(this.model.get('date'));
         templateData.maxDate = DateHelp.toDateInputValue(new Date());
         break;
-      case 'number': {
-        let number = occ.get('number');
-        if (number) {
-          templateData.number = number;
-          templateData.numberPosition = logsl.position(number).toFixed(0);
-        } else {
-          number = occ.get('number-ranges') || 'default';
-          templateData[number] = true;
-        }
+      case 'habitat':
+        templateData[this.model.get('habitat')] = true;
         break;
-      }
-      case 'stage':
-        templateData[occ.get('stage')] = true;
+      case 'fine-habitat':
+        templateData[this.model.get('fine-habitat')] = true;
         break;
       case 'identifiers':
-        templateData.identifiers = occ.get('identifiers');
+        templateData.identifiers = this.model.get('identifiers');
         break;
       case 'comment':
-        templateData.comment = occ.get('comment');
+        templateData.comment = this.model.get('comment');
         break;
       default:
         Log('Records:Attribute:MainView: no such attribute', 'e');
@@ -209,6 +200,31 @@ export default Marionette.ItemView.extend({
         break;
       default:
     }
+  },
+
+  generateTemplate(attr) {
+    let template = '';
+    const habitat = this.model.get('habitat');
+    const specificHabitats = CONFIG.morel.sample.habitat._values[habitat];
+
+    const specificHabitatsKeys = Object.keys(specificHabitats.values);
+
+    specificHabitatsKeys.forEach((habitat) => {
+      template += `
+
+  <label class="item item-radio">
+    <input type="radio" name="group" value="${habitat}" <%- obj['${habitat}'] ? 'checked' : ''%>>
+    <div class="radio-content">
+      <div class="item-content">
+        ${habitat}
+      </div>
+      <i class="radio-icon icon-check"></i>
+    </div>
+  </label>
+`;
+
+    })
+    return _.template(template);
   },
 });
 

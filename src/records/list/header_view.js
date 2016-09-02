@@ -14,7 +14,7 @@ export default Marionette.ItemView.extend({
   },
 
   triggers: {
-    'click #add-survey': 'survey',
+    'click button#add-survey': 'survey',
   },
 
   photoUpload(e) {

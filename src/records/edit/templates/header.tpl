@@ -3,6 +3,6 @@
 </div>
 <div class="pull-right">
   <button  id="record-save-btn"
-           class="icon <%- obj.isSynchronising ? 'icon-plus icon-spin disabled' : 'icon-send' %>"></button>
+           class="icon <%- obj.isSynchronising ? 'icon-plus icon-spin disabled' : 'icon-send' %>">Send</button>
 </div>
-<h1 class="title">Edit</h1>
+<h1 class="title">Survey</h1>

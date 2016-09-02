@@ -43,7 +43,9 @@ const API = {
       // HEADER
       const headerView = new HeaderView({
         onExit() {
-          API.onExit(mainView, recordModel, attr);
+          API.onExit(mainView, recordModel, attr, () => {
+            window.history.back();
+          });
         },
         model: new Backbone.Model({ title: attr }),
       });
@@ -52,7 +54,17 @@ const API = {
 
       // if exit on selection click
       mainView.on('save', () => {
-        API.onExit(mainView, recordModel, attr);
+        const habitat = recordModel.get('habitat');
+
+        API.onExit(mainView, recordModel, attr, () => {
+          // editing existing record
+          if (attr === 'habitat' && habitat) {
+            window.history.back();
+            return;
+          }
+          // todo: skipping habitat makes two back clicks
+          App.trigger('records:edit', recordModel.cid, { replace: true });
+        });
       });
 
       // FOOTER
@@ -61,10 +73,11 @@ const API = {
   },
 
 
-  onExit(mainView, recordModel, attr) {
+  onExit(mainView, recordModel, attr, callback) {
     Log('Records:Attr:Controller: exiting');
     const values = mainView.getValues();
-    API.save(attr, values, recordModel);
+    // todo: remove the record if the habitat is empty
+    API.save(attr, values, recordModel, callback);
   },
 
   /**
@@ -72,7 +85,7 @@ const API = {
    * @param values
    * @param recordModel
    */
-  save(attr, values, recordModel) {
+  save(attr, values, recordModel, callback) {
     let currentVal;
     let newVal;
     const occ = recordModel.occurrences.at(0);
@@ -87,56 +100,36 @@ const API = {
           recordModel.set('date', newVal);
         }
         break;
-      case 'number':
-        currentVal = occ.get('number');
-
-        // todo: validate before setting up
-        if (values.number) {
-          // specific number
-          newVal = values.number;
-          occ.set('number', newVal);
-          occ.unset('number-ranges');
-        } else {
-          // number ranges
-          attr = 'number-ranges';
-          // don't save default values
-          newVal = values['number-ranges'] === 'default' ?
-            null : values['number-ranges'];
-          occ.set('number-ranges', newVal);
-          occ.unset('number');
-        }
-        break;
-      case 'stage':
-        currentVal = occ.get('stage');
-
+      case 'habitat':
         // todo:validate before setting up
-        // don't save default values
-        newVal = values.stage === 'default' ? null : values.stage;
-        occ.set('stage', newVal);
+        recordModel.set('habitat', values.habitat);
+        recordModel.unset('fine-habitat');
+        break;
+      case 'fine-habitat':
+        // todo:validate before setting up
+        recordModel.set('fine-habitat', values['fine-habitat']);
         break;
       case 'identifiers':
-        currentVal = occ.get('identifiers');
+        currentVal = recordModel.get('identifiers');
 
         // todo:validate before setting up
         // don't save default values
         newVal = values.identifiers;
-        occ.set('identifiers', newVal);
+        recordModel.set('identifiers', newVal);
         break;
       case 'comment':
         currentVal = occ.get('comment');
 
         // todo:validate before setting up
         newVal = values.comment;
-        occ.set('comment', newVal);
+        recordModel.set('comment', newVal);
         break;
       default:
     }
 
     // save it
     recordModel.save(null, {
-      success: () => {
-        window.history.back();
-      },
+      success: callback,
       error: (err) => {
         Log(err, 'e');
         App.regions.dialog.error(err);
