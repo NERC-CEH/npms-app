@@ -1,5 +1,5 @@
 <label class="item item-radio item-small">
-  <input type="radio" name="group" value="wildflower" checked>
+  <input type="radio" name="group" value="wildflower">
   <div class="radio-content">
     <div class="item-content">
       Wildflower

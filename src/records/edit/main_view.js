@@ -10,7 +10,7 @@ import DateHelp from 'date';
 import StringHelp from 'string';
 
 export default Marionette.ItemView.extend({
-  template: JST['records/edit/record'],
+  template: JST['records/edit/main'],
 
   initialize() {
     const recordModel = this.model.get('recordModel');

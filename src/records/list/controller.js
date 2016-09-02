@@ -1,17 +1,16 @@
 /** ****************************************************************************
  * Record List controller.
  *****************************************************************************/
+import $ from 'jquery';
 import Morel from 'morel';
 import Marionette from 'marionette';
 import App from '../../app';
 import Log from 'log';
-import Error from 'error';
 import ImageHelp from 'image';
 import Analytics from 'analytics';
 import appModel from '../../common/models/app_model';
 import recordManager from '../../common/record_manager';
 import Sample from '../../common/models/sample';
-import Occurrence from '../../common/models/occurrence';
 import MainView from './main_view';
 import HeaderView from './header_view';
 import LoaderView from '../../common/views/loader_view';
@@ -97,7 +96,7 @@ const API = {
 
   addSurvey() {
     Log('Records:List:Controller: adding survey');
-    const View = Marionette.View.extend({
+    const View = Marionette.ItemView.extend({
       template: JST['records/list/levels'],
       events: {
         'click input[type="radio"]'() {
@@ -110,13 +109,17 @@ const API = {
             }
           });
 
-          // // create new sample
-          // API.createNewRecord(option, () => {
-          //   App.regions.dialog.hide();
-          //
-          //   // open sample page
-          //   //App.
-          // });
+          // create new sample
+          API.createNewRecord(level, (err, sample) => {
+            if (err) {
+              App.regions.dialog.error(err);
+              return;
+            }
+            App.regions.dialog.hide();
+
+            // open sample page
+            App.trigger('records:edit:attr', sample.id, 'habitat');
+          });
         }
       }
     });
@@ -171,18 +174,10 @@ const API = {
   /**
    * Creates a new record with an image passed as an argument.
    */
-  createNewRecord(photo, callback) {
-    ImageHelp.getImageModel(photo, (err, image) => {
-      if (err || !image) {
-        const err = new Error('Missing image.');
-        callback(err);
-        return;
-      }
-      const occurrence = new Occurrence();
-      occurrence.addImage(image);
+  createNewRecord(level, callback) {
+      const sample = new Sample({
 
-      const sample = new Sample();
-      sample.addOccurrence(occurrence);
+      });
 
       recordManager.set(sample, (saveErr) => {
         if (saveErr) {
@@ -191,7 +186,6 @@ const API = {
         }
         callback();
       });
-    });
   },
 };
 
