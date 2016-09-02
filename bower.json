@@ -14,11 +14,6 @@
     "fastclick": "1.0.3",
     "photoswipe": "4.1.1",
     "hammerjs": "hammerjs/hammer.js",
-    "proj4": "latest",
-    "proj4Leaflet": "kartena/Proj4Leaflet#0.7.2",
-    "leaflet": "latest",
-    "leaflet.gridref": "kazlauskis/Leaflet.GridRef#b5bdcbfcc7a1585a8ced3d2765e9fccdb0f8f6c5",
-    "os-leaflet": "rob-murray/os-leaflet",
     "typeahead.js": "~0.11.1"
   },
   "exportsOverride": {
@@ -30,12 +25,6 @@
       "css": [
         "dist/css/ratchet.css",
         "dist/css/ratchet.min.css"
-      ],
-      "fonts": [
-        "dist/fonts/ratchicons.eot",
-        "dist/fonts/ratchicons.svg",
-        "dist/fonts/ratchicons.ttf",
-        "dist/fonts/ratchicons.woff"
       ]
     },
     "jquery": {
@@ -62,27 +51,9 @@
     "fastclick": {
       "js": "lib/fastclick.js"
     },
-    "d3": {
-      "js": [
-        "d3.js",
-        "d3.min.js"
-      ]
-    },
     "IndexedDBShim": {
       "js": [
         "dist/IndexedDBShim.js"
-      ]
-    },
-    "zepto": {
-      "js": [
-        "zepto.js",
-        "zepto.min.js"
-      ]
-    },
-    "deferred": {
-      "js": [
-        "deferred.js",
-        "deferred.min.js"
       ]
     },
     "latlon": {
@@ -126,39 +97,6 @@
     },
     "touchswipe": {
       "js": "jquery.touchSwipe.min.js"
-    },
-    "leaflet": {
-      "js": [
-        "dist/leaflet-src.js",
-        "dist/leaflet.js"
-      ],
-      "css": [
-        "dist/leaflet.css"
-      ],
-      "images": [
-        "dist/images/layers-2x.png",
-        "dist/images/layers.png"
-      ]
-    },
-    "leaflet.gridref": {
-      "js": [
-        "L.GridRef.js"
-      ]
-    },
-    "proj4Leaflet": {
-      "js": [
-        "src/proj4leaflet.js"
-      ]
-    },
-    "proj4": {
-      "js": [
-        "dist/proj4.js"
-      ]
-    },
-    "os-leaflet": {
-      "js": [
-        "OSOpenSpace.js"
-      ]
     },
     "typeahead.js": {
       "js": [

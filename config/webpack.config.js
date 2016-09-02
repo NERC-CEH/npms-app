@@ -59,15 +59,10 @@ module.exports = {
       marionette: 'marionette/js/backbone.marionette',
       morel: 'morel/js/morel',
 
-      leaflet: 'leaflet/dist/leaflet',
-      OSOpenSpace: 'os-leaflet/js/OSOpenSpace',
-      'Leaflet.GridRef': 'leaflet.gridref/js/L.GridRef',
-      proj4leaflet: 'proj4Leaflet/js/proj4leaflet',
+
       LatLon: 'latlon/js/latlon-ellipsoidal',
       OsGridRef: 'latlon/js/osgridref',
       'latlon-ellipsoidal': 'latlon/js/latlon-ellipsoidal',
-      proj4: 'proj4/js/proj4',
-
       'photoswipe-lib': 'photoswipe/js/photoswipe',
       'photoswipe-ui-default': 'photoswipe/js/photoswipe-ui-default',
 },

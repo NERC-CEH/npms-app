@@ -6,7 +6,7 @@ import Backbone from 'backbone';
 import Marionette from 'marionette';
 import FastClick from 'fastclick';
 import Analytics from 'analytics';
-import RouterExt from './common/router_extension';
+import './common/router_extension';
 import Update from 'update';
 import Log from 'log';
 import Device from 'device';
