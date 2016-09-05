@@ -1,5 +1,5 @@
 /** ****************************************************************************
- * Record List main view.
+ * Record Taxa List main view.
  *****************************************************************************/
 
 import $ from 'jquery';
@@ -9,7 +9,7 @@ import Hammer from 'hammer';
 import Log from 'log';
 import Device from 'device';
 import DateHelp from 'date';
-import Gallery from '../../common/gallery';
+import Gallery from '../../../common/gallery';
 import StringHelp from 'string';
 import JST from 'JST';
 

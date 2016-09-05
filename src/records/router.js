@@ -14,7 +14,9 @@ import ShowController from './show/controller';
 import EditController from './edit/controller';
 import EditAdditionalController from './edit_additional/controller';
 import EditAttrController from './attr/controller';
-import TaxonController from '../common/pages/taxon/controller';
+import TaxaController from './taxa/list/controller';
+import TaxaEditController from './taxa/edit/controller';
+import TaxaSearchController from './taxa/search/controller';
 
 App.records = {};
 
@@ -38,11 +40,12 @@ const Router = Marionette.AppRouter.extend({
         scroll = scrollY;
       },
     },
-    'records/new(/)': TaxonController.show,
     'records/:id': ShowController.show,
     'records/:id/edit(/)': EditController.show,
     'records/:id/edit/additional(/)': EditAdditionalController.show,
-    'records/:id/edit/taxon(/)': TaxonController.show,
+    'records/:id/edit/taxa(/)': TaxaController.show,
+    'records/:id/edit/taxa/edit(/)': TaxaEditController.show,
+    'records/:id/edit/taxa/search(/)': TaxaSearchController.show,
     'records/:id/edit/:attr(/)': EditAttrController.show,
     'records/*path': function () { App.trigger('404:show'); },
   },

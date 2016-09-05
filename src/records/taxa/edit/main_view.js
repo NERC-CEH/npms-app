@@ -1,7 +1,6 @@
 /** ****************************************************************************
- * Record List main view.
+ * Record Taxa Edit main view.
  *****************************************************************************/
-
 import $ from 'jquery';
 import Marionette from 'marionette';
 import Morel from 'morel';
@@ -9,7 +8,7 @@ import Hammer from 'hammer';
 import Log from 'log';
 import Device from 'device';
 import DateHelp from 'date';
-import Gallery from '../../common/gallery';
+import Gallery from '../../../common/gallery';
 import StringHelp from 'string';
 import JST from 'JST';
 

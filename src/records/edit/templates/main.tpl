@@ -15,13 +15,13 @@
     </a>
   </li>
   <li class="table-view-cell">
-    <a href="#records/<%- obj.id %>/edit/edit/taxa" class="navigate-right disabled">
+    <a href="#records/<%- obj.id %>/edit/taxa" class="navigate-right">
       <span class="media-object pull-left icon icon-plant"></span>
       Species
     </a>
   </li>
   <li class="table-view-cell">
-    <a href="#records/<%- obj.id %>/edit/edit/location" id="location-button"
+    <a href="#records/<%- obj.id %>/edit/location" id="location-button"
        class="navigate-right disabled">
       <span class="media-object pull-left icon icon-location"></span>
       <span class="media-object pull-right descript">
