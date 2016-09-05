@@ -2,6 +2,8 @@
  * Record Taxa List main view.
  *****************************************************************************/
 
+import './styles.scss';
+
 import $ from 'jquery';
 import Marionette from 'marionette';
 import Morel from 'morel';
@@ -13,30 +15,22 @@ import Gallery from '../../../common/gallery';
 import StringHelp from 'string';
 import JST from 'JST';
 
-const RecordView = Marionette.ItemView.extend({
+const SpeciesView = Marionette.ItemView.extend({
   tagName: 'li',
   className: 'table-view-cell',
+  template: JST['records/taxa/list/taxon'],
 
   triggers: {
-    'click #delete': 'record:delete',
+    'click #delete': 'species:delete',
   },
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
     'click .js-attr': function (e) {
       e.preventDefault();
-      this.trigger('record:edit:attr', $(e.target).data('attr'));
+      this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
     'click img': 'photoView',
-  },
-
-  modelEvents: {
-    'request sync error': 'render',
-    geolocation: 'render',
-  },
-
-  initialize() {
-    this.template = JST['records/list/record'];
   },
 
   photoView(e) {
@@ -58,13 +52,13 @@ const RecordView = Marionette.ItemView.extend({
   },
 
   onRender() {
-    Log('Records:List:MainView: rendering a record');
+    Log('Records:Taxa:List:MainView: rendering a species');
 
     // add mobile swipe events
     // early return
     if (!Device.isMobile()) return;
 
-    this.$record = this.$el.find('a');
+    this.$species = this.$el.find('a');
     this.docked = false;
     this.position = 0;
 
@@ -77,7 +71,7 @@ const RecordView = Marionette.ItemView.extend({
     const that = this;
 
     // on tap bring back
-    this.$record.on('tap click', $.proxy(this._swipeHome, this));
+    this.$species.on('tap click', $.proxy(this._swipeHome, this));
 
     hammertime.on('pan', (e) => {
       e.preventDefault();
@@ -89,7 +83,7 @@ const RecordView = Marionette.ItemView.extend({
   },
 
   remove() {
-    Log('Records:MainView: removing a record');
+    Log('Records:Taxa:List:MainView: removing a species');
     // removing the last element leaves emptyView + fading out entry for a moment
     if (this.model.collection && this.model.collection.length >= 1) {
       const that = this;
@@ -104,26 +98,12 @@ const RecordView = Marionette.ItemView.extend({
 
   serializeData() {
     const recordModel = this.model;
-    const date = DateHelp.print(recordModel.get('date'));
-    const location = recordModel.get('location');
-    const gridref = location.gridref;
-    const plot = location.plot;
-    const level = recordModel.get('level');
-    let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
+    const location = recordModel.get('taxon');
 
-    const syncStatus = this.model.getSyncStatus();
 
     return {
       id: recordModel.id || recordModel.cid,
-      gridref,
-      plot,
-      level,
-      date,
-      saved: recordModel.metadata.saved,
-      onDatabase: syncStatus === Morel.SYNCED,
-      isSynchronising: syncStatus === Morel.SYNCHRONISING,
-      img: img ? `<img src="${img}"/>` : '',
-
+      taxon,
     };
   },
 
@@ -140,7 +120,7 @@ const RecordView = Marionette.ItemView.extend({
     // protection of swipeing right too much
     if (this.position > 0) this.position = 0;
 
-    this.$record.css('transform', `translateX(${this.position}px)`);
+    this.$species.css('transform', `translateX(${this.position}px)`);
   },
 
   _swipeEnd(e, options) {
@@ -157,35 +137,38 @@ const RecordView = Marionette.ItemView.extend({
       this.position = -options.toolsWidth;
     }
 
-    this.$record.css('transform', `translateX(${this.position}px)`);
+    this.$species.css('transform', `translateX(${this.position}px)`);
   },
 
   _swipeHome(e) {
     if (this.docked) {
       e.preventDefault();
       this.position = 0;
-      this.$record.css('transform', `translateX(${this.position}px)`);
+      this.$species.css('transform', `translateX(${this.position}px)`);
       this.docked = false;
     }
   },
 });
 
-const NoRecordsView = Marionette.ItemView.extend({
+const NoSpeciesView = Marionette.ItemView.extend({
   tagName: 'li',
   className: 'table-view-cell empty',
-  template: JST['records/list/list-none'],
+  template: JST['records/taxa/list/list-none'],
+
+  serializeData() {
+    return {
+      id: this.options.recordModelID,
+    };
+  },
 });
 
 export default Marionette.CollectionView.extend({
   id: 'records-list',
   tagName: 'ul',
   className: 'table-view no-top',
-  emptyView: NoRecordsView,
-  childView: RecordView,
+  emptyView: NoSpeciesView,
+  childView: SpeciesView,
 
-  triggers: {
-    'click a#add-survey': 'survey',
-  },
 
   // inverse the collection
   attachHtml(collectionView, childView) {
@@ -195,6 +178,7 @@ export default Marionette.CollectionView.extend({
   childViewOptions() {
     return {
       appModel: this.options.appModel,
+      recordModelID: this.options.recordModelID,
     };
   },
 });

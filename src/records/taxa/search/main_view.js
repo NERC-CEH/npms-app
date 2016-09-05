@@ -18,7 +18,7 @@ const SpeciesView = Marionette.ItemView.extend({
     return `table-view-cell ${(this.model.get('selected') ? 'selected' : '')}`;
   },
 
-  template: JST['common/taxon/species'],
+  template: JST['records/taxa/search/species'],
 
   events: {
     click: 'select',
@@ -87,7 +87,7 @@ const SuggestionsView = Marionette.CollectionView.extend({
 });
 
 export default Marionette.LayoutView.extend({
-  template: JST['common/taxon/layout'],
+  template: JST['records/taxa/search/layout'],
 
   events: {
     'keydown #taxon': '_keydown',

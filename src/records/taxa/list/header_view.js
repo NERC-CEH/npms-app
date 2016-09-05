@@ -7,31 +7,22 @@ import JST from 'JST';
 export default Marionette.ItemView.extend({
   id: 'records-header',
   tagName: 'nav',
-  template: JST['records/list/header'],
+  template: JST['records/taxa/list/header'],
 
   events: {
-    'change input': 'photoUpload',
+    'click a[data-rel="back"]': 'navigateBack',
   },
 
-  triggers: {
-    'click button#add-survey': 'survey',
+  navigateBack() {
+    window.history.back();
   },
 
-  photoUpload(e) {
-    this.trigger('photo:upload', e);
-  },
+  serializeData() {
+    const recordModel = this.model.get('recordModel');
 
-  onShow() {
-    const that = this;
-
-    // create camera/gallery selection
-    if (window.cordova) {
-      this.$el.find('.img-picker input').remove();
-
-      this.$el.find('.img-picker').on('click', () => {
-        that.trigger('photo:selection');
-      });
-    }
+    return {
+      id: recordModel.id || recordModel.cid,
+    };
   },
 });
 

@@ -1,6 +1,7 @@
-<p>No surveys to show.</p>
+<p>No species to show.</p>
 
-<a id="add-survey" class="btn btn-positive btn-outlined">
+<a href="#records/<%- obj.id %>/edit/taxa/search" id="add-species"
+   class="btn btn-positive btn-outlined">
   <span class="icon icon-plus pull-left"></span>
-  Let's add one!
+  Add species
 </a>

@@ -1,6 +1,8 @@
 /** ****************************************************************************
  * Record List main view.
  *****************************************************************************/
+// import styles from '!sass!./styles/main.scss'
+import './styles.scss';
 
 import $ from 'jquery';
 import Marionette from 'marionette';
