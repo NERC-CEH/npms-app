@@ -25,7 +25,7 @@
   top: 20%;
   left: 50%;
   margin-left: -40%;
-  overflow: scroll;
+  overflow: auto;
 
   //ionic animations
   -webkit-animation-name: superScaleIn;
@@ -83,10 +83,15 @@
 
 .dialog-body {
   max-height: 70%;
-  overflow: scroll;
+  overflow: auto;
 
   div:not(.toggle .toggle-handle) {
     margin: 10px 0;
+  }
+
+  div {
+    overflow: auto;
+    overflow-x: hidden;
   }
 }
 
