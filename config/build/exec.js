@@ -2,9 +2,9 @@ module.exports = {
   data_init: {
     command:
     'cd src/records/taxa/search/data && ' +
-    'python make.py species && ' +
-    'mkdir -p ../../../../dist/_build &&' +
-    'mv species*json ../../../../dist/_build &&' +
+    'python make.py species && ls &&' +
+    'mkdir -p ../../../../../dist/_build &&' +
+    'mv species*json ../../../../../dist/_build &&' +
     'rm warnings.log',
     stdout: true,
   },
