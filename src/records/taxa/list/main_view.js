@@ -97,13 +97,15 @@ const SpeciesView = Marionette.ItemView.extend({
   },
 
   serializeData() {
-    const recordModel = this.model;
-    const location = recordModel.get('taxon');
-
+    const occurrence = this.model;
+    const sample = occurrence.sample;
+    const taxon = occurrence.get('taxon');
 
     return {
-      id: recordModel.id || recordModel.cid,
-      taxon,
+      id: sample.id || sample.cid,
+      occId: occurrence.id || occurrence.cid,
+      common_name: taxon.common_name,
+      scientific_name: taxon.scientific_name,
     };
   },
 

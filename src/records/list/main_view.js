@@ -111,7 +111,7 @@ const RecordView = Marionette.ItemView.extend({
     const gridref = location.gridref;
     const plot = location.plot;
     const level = recordModel.get('level');
-    let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
+    //let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
 
     const syncStatus = this.model.getSyncStatus();
 
@@ -124,7 +124,7 @@ const RecordView = Marionette.ItemView.extend({
       saved: recordModel.metadata.saved,
       onDatabase: syncStatus === Morel.SYNCED,
       isSynchronising: syncStatus === Morel.SYNCHRONISING,
-      img: img ? `<img src="${img}"/>` : '',
+      // img: img ? `<img src="${img}"/>` : '',
 
     };
   },
