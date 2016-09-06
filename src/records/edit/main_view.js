@@ -14,6 +14,7 @@ export default Marionette.ItemView.extend({
 
   serializeData() {
     const recordModel = this.model.get('recordModel');
+    const taxa = recordModel.occurrences.length;
     const identifiers = recordModel.get('identifiers');
     const location = recordModel.get('location');
     const gridref = location.gridref;
@@ -23,6 +24,7 @@ export default Marionette.ItemView.extend({
       id: recordModel.id || recordModel.cid,
       gridref,
       plot,
+      taxa,
       date: DateHelp.print(recordModel.get('date')),
       habitat: recordModel.get('habitat'),
       'fine-habitat': recordModel.get('fine-habitat'),

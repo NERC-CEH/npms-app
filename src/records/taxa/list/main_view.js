@@ -17,7 +17,7 @@ import JST from 'JST';
 
 const SpeciesView = Marionette.ItemView.extend({
   tagName: 'li',
-  className: 'table-view-cell',
+  className: 'table-view-cell swipe',
   template: JST['records/taxa/list/taxon'],
 
   triggers: {
@@ -100,12 +100,14 @@ const SpeciesView = Marionette.ItemView.extend({
     const occurrence = this.model;
     const sample = occurrence.sample;
     const taxon = occurrence.get('taxon');
+    const abundance = occurrence.get('abundance');
 
     return {
       id: sample.id || sample.cid,
       occId: occurrence.id || occurrence.cid,
       common_name: taxon.common_name,
       scientific_name: taxon.scientific_name,
+      abundance,
     };
   },
 
@@ -154,7 +156,7 @@ const SpeciesView = Marionette.ItemView.extend({
 
 const NoSpeciesView = Marionette.ItemView.extend({
   tagName: 'li',
-  className: 'table-view-cell empty',
+  className: 'table-view-cell empty swipe',
   template: JST['records/taxa/list/list-none'],
 
   serializeData() {
@@ -165,7 +167,7 @@ const NoSpeciesView = Marionette.ItemView.extend({
 });
 
 export default Marionette.CollectionView.extend({
-  id: 'records-list',
+  id: 'taxa-list',
   tagName: 'ul',
   className: 'table-view no-top',
   emptyView: NoSpeciesView,

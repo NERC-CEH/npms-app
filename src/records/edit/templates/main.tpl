@@ -17,6 +17,7 @@
   <li class="table-view-cell">
     <a href="#records/<%- obj.id %>/edit/taxa" class="navigate-right">
       <span class="media-object pull-left icon icon-plant"></span>
+      <span class="media-object pull-right descript"><%- obj.taxa %></span>
       Species
     </a>
   </li>

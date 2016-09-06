@@ -17,7 +17,7 @@ import JST from 'JST';
 
 const RecordView = Marionette.ItemView.extend({
   tagName: 'li',
-  className: 'table-view-cell',
+  className: 'table-view-cell swipe',
 
   triggers: {
     'click #delete': 'record:delete',
@@ -174,7 +174,7 @@ const RecordView = Marionette.ItemView.extend({
 
 const NoRecordsView = Marionette.ItemView.extend({
   tagName: 'li',
-  className: 'table-view-cell empty',
+  className: 'table-view-cell empty swipe',
   template: JST['records/list/list-none'],
 });
 

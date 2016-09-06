@@ -44,7 +44,7 @@ const Router = Marionette.AppRouter.extend({
     'records/:id/edit(/)': EditController.show,
     'records/:id/edit/additional(/)': EditAdditionalController.show,
     'records/:id/edit/taxa(/)': TaxaController.show,
-    'records/:id/edit/taxa/edit(/)': TaxaEditController.show,
+    'records/:id/edit/taxa/:id/edit(/)': TaxaEditController.show,
     'records/:id/edit/taxa/search(/)': TaxaSearchController.show,
     'records/:id/edit/:attr(/)': EditAttrController.show,
     'records/*path': function () { App.trigger('404:show'); },
@@ -65,6 +65,17 @@ App.on('records:edit', (recordID, options) => {
   App.navigate(`records/${recordID}/edit`, options);
   EditController.show(recordID);
 });
+
+App.on('records:taxa:edit', (recordID, occurrenceID, options) => {
+  App.navigate(`records/${recordID}/edit/taxa/${occurrenceID}/edit`, options);
+  TaxaEditController.show(recordID, occurrenceID);
+});
+
+App.on('records:taxa:search', (recordID, options) => {
+  App.navigate(`records/${recordID}/edit/taxa/search`, options);
+  TaxaSearchController.show(recordID);
+});
+
 
 App.on('records:edit:additional', (recordID, options) => {
   App.navigate(`records/${recordID}/edit-additional`, options);

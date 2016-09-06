@@ -48,7 +48,7 @@ const API = {
           return;
         }
 
-        App.trigger('records:taxa:edit', occurrence.cid, { replace: true });
+        App.trigger('records:taxa:edit', sampleID, occurrence.cid, { replace: true });
       });
     }, that);
 
