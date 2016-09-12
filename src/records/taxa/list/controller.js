@@ -30,6 +30,8 @@ const API = {
         appModel,
       });
 
+      mainView.on('childview:species:delete', API.delete);
+
       App.regions.main.show(mainView);
 
       // HEADER
@@ -43,6 +45,12 @@ const API = {
     App.regions.footer.hide().empty();
   },
 
+  delete(childView) {
+    Log('Records:Taxa:List:Controller: deleting occurrence.');
+
+    const occurrence = childView.model;
+    occurrence.destroy();
+  },
 };
 
 export { API as default };

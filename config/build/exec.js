@@ -1,11 +1,13 @@
 module.exports = {
   data_init: {
-    command:
-    'cd src/records/taxa/search/data && ' +
-    'python make.py species && ls &&' +
-    'mkdir -p ../../../../../dist/_build &&' +
-    'mv species*json ../../../../../dist/_build &&' +
-    'rm warnings.log',
+    command(list) {
+      console.log(arguments)
+     return 'cd src/records/taxa/search/data && ' +
+      'python make.py '+ list + ' &&' +
+      'mkdir -p ../../../../../dist/main/data &&' +
+      'mv *data.json ../../../../../dist/main/data &&' +
+      'rm warnings.log';
+    },
     stdout: true,
   },
   cordova_init: {

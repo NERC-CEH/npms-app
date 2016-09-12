@@ -1,6 +1,7 @@
 /** ****************************************************************************
  * Generates UKSI list search suggestions.
  *****************************************************************************/
+import $ from 'jquery';
 import Backbone from 'backbone';
 import _ from 'lodash';
 import searchCommonNames from './commonNamesSearch';
@@ -8,24 +9,31 @@ import searchSciNames from './scientificNamesSearch';
 import helpers from './searchHelpers';
 import Log from 'log';
 
-let species;
+let species = {};
 let loading = false;
-let commonNamePointers;
+let species_names = {};
 
 const MAX = 20;
 
 const API = {
-  init(callback) {
+  init(list, callback) {
     Log('Taxon search engine: initializing');
     const that = this;
 
     loading = true;
     require.ensure([], () => {
       loading = false;
-      species = require('species.data');
-      commonNamePointers = require('species_names.data');
-      that.trigger('data:loaded');
-      callback && callback();
+      $.getJSON(`data/${list}.data.json`, (data) => {
+        species[list] = data;
+      })
+        .done($.getJSON( `data/${list}_names.data.json`, (data) => {
+          species_names[list] = data;
+        })
+          .done(() => {
+            loading = false;
+            that.trigger('data:loaded');
+            callback && callback();
+          }))
     }, 'data');
   },
 
@@ -42,15 +50,15 @@ const API = {
      synonym: "Common name synonym"
    }
    */
-  search(searchPhrase, callback, maxResults = MAX, scientificOnly) {
-    if (!species) {
+  search(list = 'inventory', searchPhrase, callback, maxResults = MAX, scientificOnly) {
+    if (!species[list]) {
       // initialize
       function proceed() {
-        API.search(searchPhrase || '', callback, maxResults, scientificOnly);
+        API.search(list, searchPhrase || '', callback, maxResults, scientificOnly);
       }
 
       if (!loading) {
-        API.init(proceed);
+        API.init(list, proceed);
       } else {
         // the process has started, wait until done
         this.on('data:loaded', proceed);
@@ -67,15 +75,15 @@ const API = {
     const isScientific = helpers.isPhraseScientific(normSearchPhrase);
     if (isScientific || scientificOnly) {
       // search sci names
-      searchSciNames(species, normSearchPhrase, results, maxResults);
+      searchSciNames(species[list], normSearchPhrase, results, maxResults);
     } else {
       // search common names
-      results = searchCommonNames(species, commonNamePointers, normSearchPhrase);
+      results = searchCommonNames(species[list], species_names[list], normSearchPhrase);
 
       // if not enough
       if (results.length <= MAX) {
         // search sci names
-        searchSciNames(species, normSearchPhrase, results);
+        searchSciNames(species[list], normSearchPhrase, results);
       }
     }
 

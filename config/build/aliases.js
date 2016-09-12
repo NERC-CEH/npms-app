@@ -14,7 +14,11 @@ module.exports = (grunt) => {
       'vendor',
     ],
 
-    'init:data': ['exec:data_init'],
+    'init:data': [
+      'exec:data_init:inventory',
+      'exec:data_init:indicator',
+      'exec:data_init:wildflower',
+    ],
 
     'vendor': [
       'replace:bootstrap',

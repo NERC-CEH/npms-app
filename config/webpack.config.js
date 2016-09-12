@@ -27,10 +27,6 @@ module.exports = {
       path.resolve('./src/common/vendor'),
     ],
     alias: {
-      // data
-      'species_names.data': 'species_names.data.json',
-      'species.data': 'species.data.json',
-
       // helpers
       device: 'common/helpers/device',
       gps: 'common/helpers/gps',
@@ -58,7 +54,6 @@ module.exports = {
       'backbone.localStorage': 'backbone.localStorage/js/backbone.localStorage',
       marionette: 'marionette/js/backbone.marionette',
       morel: 'morel/js/morel',
-
 
       LatLon: 'latlon/js/latlon-ellipsoidal',
       OsGridRef: 'latlon/js/osgridref',
