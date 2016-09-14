@@ -14,6 +14,7 @@ import Sample from '../../common/models/sample';
 import MainView from './main_view';
 import HeaderView from './header_view';
 import LoaderView from '../../common/views/loader_view';
+import LocHelp from 'location';
 import JST from 'JST';
 
 
@@ -152,9 +153,13 @@ const API = {
   createNewRecord(level, callback) {
     const sample = new Sample();
     sample.set('level', level);
+    sample.set('location_type', 'british');
+    const latLon = LocHelp.grid2coord('SU7253398593');
     sample.set('location', { //todo remove
       plot: 1,
       gridref: 'SU7253398593',
+      latitude: latLon.lat,
+      longitude: latLon.lon,
     });
 
     recordManager.set(sample, (saveErr) => {

@@ -52,6 +52,7 @@ export default {
       appname: 'npms',
       appsecret: 'npmstest',
       website_id: 109,
+      survey_id: 195,
     },
     sample: {
       survey: {
@@ -61,6 +62,20 @@ export default {
           inventory: 196,
           wildflower: 197,
         },
+      },
+
+      location: {
+        id: 'location_id',
+        values(value, options) {
+
+          // add other location related attributes
+          options.flattener({
+            'sample:entered_sref': 'SU6026886618',
+            'sample:geom': 'POLYGON((-125983.040572545 6723680.35180039,-125983.021508514 6723681.96212819,-125981.415361486 6723681.94301437,-125981.434425832 6723680.33268658,-125983.040572545 6723680.35180039))',
+          }, options);
+
+          return 6761;
+        }
       },
       device: {
         id: 273,
@@ -80,6 +95,9 @@ export default {
 
       habitat: {
         id: 481,
+        values(value, options) {
+          return this._values[value].id;
+        },
         _values: {
           'Arable margins': {
             id: 3705,
@@ -231,7 +249,17 @@ export default {
       plot: { id: 479 },
     },
     occurrence: {
-      abundance: { id: 263 }, //1-10
+      taxon: {
+        values: function (taxon) {
+          return taxon.warehouse_id;
+        }
+      },
+      abundance: {
+        id: 263,
+        values(value) {
+         return Object.keys(rangeValues).indexOf(value) + 1;
+        }
+      }, //1-10
     },
   },
 };

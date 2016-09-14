@@ -50,17 +50,17 @@ let Sample = Morel.Sample.extend({
     }
 
     // occurrences
-    if (this.occurrences.length === 0) {
-      sample.occurrences = 'no species selected';
-    } else {
-      this.occurrences.each((occurrence) => {
-        const errors = occurrence.validate();
-        if (errors) {
-          const occurrenceID = occurrence.id || occurrence.cid;
-          occurrences[occurrenceID] = errors;
-        }
-      });
-    }
+    // if (this.occurrences.length === 0) {
+    //   sample.occurrences = 'no species selected';
+    // } else {
+    //   this.occurrences.each((occurrence) => {
+    //     const errors = occurrence.validate();
+    //     if (errors) {
+    //       const occurrenceID = occurrence.id || occurrence.cid;
+    //       occurrences[occurrenceID] = errors;
+    //     }
+    //   });
+    // }
 
     if (!_.isEmpty(sample) || !_.isEmpty(occurrences)) {
       const errors = {
