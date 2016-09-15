@@ -30,7 +30,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "src/webpack.config.dev.js"
+        "config": "config/webpack.config.dev.js"
       }
     }
   }
