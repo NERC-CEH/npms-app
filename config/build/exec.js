@@ -1,7 +1,6 @@
 module.exports = {
   data_init: {
     command(list) {
-      console.log(arguments)
      return 'cd src/records/taxa/search/data && ' +
       'python make.py '+ list + ' &&' +
       'mkdir -p ../../../../../dist/main/data &&' +
