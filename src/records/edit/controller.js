@@ -21,6 +21,11 @@ let record;
 
 const API = {
   show(recordID) {
+    if (!userModel.hasLogIn()) {
+      App.trigger('user:login', { replace: true });
+      return;
+    }
+
     Log('Records:Edit:Controller: showing');
 
     id = recordID;

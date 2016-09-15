@@ -6,17 +6,14 @@ import Morel from 'morel';
 import Marionette from 'marionette';
 import App from '../../app';
 import Log from 'log';
-import ImageHelp from 'image';
-import Analytics from 'analytics';
 import appModel from '../../common/models/app_model';
 import recordManager from '../../common/record_manager';
 import Sample from '../../common/models/sample';
 import MainView from './main_view';
 import HeaderView from './header_view';
 import LoaderView from '../../common/views/loader_view';
-import LocHelp from 'location';
+import userModel from '../../common/models/user_model';
 import JST from 'JST';
-
 
 const API = {
   show() {
@@ -101,6 +98,11 @@ const API = {
   },
 
   addSurvey() {
+    if (!userModel.hasLogIn()) {
+      App.trigger('user:login');
+      return;
+    }
+
     Log('Records:List:Controller: adding survey');
     const View = Marionette.ItemView.extend({
       template: JST['records/list/levels'],
