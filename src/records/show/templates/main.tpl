@@ -1,6 +1,6 @@
 <div class="info-message">
   <p>This record has been submitted and cannot be edited within this App.
-    Go to the <a href="http://npms.org.uk" target="_blank">NPMS website</a> to edit.</p>
+    Go to the <a href="http://www.npms.org.uk" target="_blank">NPMS website</a> to edit.</p>
 
 </div>
 <ul class="table-view core inputs info no-top">
