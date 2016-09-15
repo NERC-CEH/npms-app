@@ -42,25 +42,32 @@
   margin: 0;
   border-color: $color-blue-light;
 
-  //pull right
-  .online-status {
-    margin-right: 7px;
+  .pull-right {
+    position: relative;
+    height: 100%;
 
-    &.icon:before {
-      font-size: 15px;
-    }
+    //pull right
+    .online-status {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-right: 7px;
 
-    &.local {
-      color: $color-orange;
-    }
+      &.icon:before {
+        font-size: 15px;
+      }
 
-    &.cloud,
-    &.icon-plus{
-      font-size: 15px;
-      color: $color-blue;
+      &.local {
+        color: $color-orange;
+      }
+
+      &.cloud,
+      &.icon-plus {
+        font-size: 15px;
+        color: $color-blue;
+      }
     }
   }
-
 
   //record info
   .media-body {
