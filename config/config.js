@@ -70,12 +70,12 @@ export default {
 
           // add other location related attributes
           options.flattener({
-            'sample:entered_sref': 'SU6026886618',
+            'sample:entered_sref': value.plot,
             'sample:geom': 'POLYGON((-125983.040572545 6723680.35180039,-125983.021508514 6723681.96212819,-125981.415361486 6723681.94301437,-125981.434425832 6723680.33268658,-125983.040572545 6723680.35180039))',
           }, options);
 
-          return 6761;
-        }
+          return value.id;
+        },
       },
       device: {
         id: 273,

@@ -25,7 +25,7 @@ const API = {
 
       // MAIN
       const mainView = new MainView({
-        recordModelID: recordModel.id || recordModel.cid,recordModel,
+        recordModelID: recordModel.id || recordModel.cid, recordModel,
         collection: recordModel.occurrences,
         appModel,
       });
@@ -38,7 +38,6 @@ const API = {
       const model = new Backbone.Model({ appModel, recordModel });
       const headerView = new HeaderView({ model });
       App.regions.header.show(headerView);
-
     });
 
     // FOOTER

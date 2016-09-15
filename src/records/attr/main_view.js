@@ -222,8 +222,7 @@ export default Marionette.ItemView.extend({
     </div>
   </label>
 `;
-
-    })
+    });
     return _.template(template);
   },
 });

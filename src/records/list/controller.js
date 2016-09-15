@@ -51,7 +51,6 @@ const API = {
       });
 
       App.regions.main.show(mainView);
-
     });
 
     // HEADER
@@ -106,7 +105,7 @@ const API = {
     const View = Marionette.ItemView.extend({
       template: JST['records/list/levels'],
       events: {
-        'click input[type="radio"]'() {
+        'click input[type="radio"]': function () {
           // find the option
           let option;
           const $inputs = this.$el.find('input');
@@ -127,8 +126,8 @@ const API = {
             // open sample page
             App.trigger('records:edit:attr', sample.cid, 'habitat');
           });
-        }
-      }
+        },
+      },
     });
 
     const body = new View();
@@ -153,14 +152,6 @@ const API = {
   createNewRecord(level, callback) {
     const sample = new Sample();
     sample.set('level', level);
-    sample.set('location_type', 'british');
-    const latLon = LocHelp.grid2coord('SU7253398593');
-    sample.set('location', { //todo remove
-      plot: 1,
-      gridref: 'SU7253398593',
-      latitude: latLon.lat,
-      longitude: latLon.lon,
-    });
 
     recordManager.set(sample, (saveErr) => {
       if (saveErr) {

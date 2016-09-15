@@ -1,13 +1,12 @@
 /** ****************************************************************************
  * Record Edit main view.
  *****************************************************************************/
-import './styles.scss';
 
 import Marionette from 'marionette';
-import Morel from 'morel';
 import JST from 'JST';
 import DateHelp from 'date';
-import StringHelp from 'string';
+
+import './styles.scss';
 
 export default Marionette.ItemView.extend({
   template: JST['records/edit/main'],
@@ -16,13 +15,13 @@ export default Marionette.ItemView.extend({
     const recordModel = this.model.get('recordModel');
     const taxa = recordModel.occurrences.length;
     const identifiers = recordModel.get('identifiers');
-    const location = recordModel.get('location');
-    const gridref = location.gridref;
+    const location = recordModel.get('location') || {};
+    const square = location.square;
     const plot = location.plot;
 
     return {
       id: recordModel.id || recordModel.cid,
-      gridref,
+      square,
       plot,
       taxa,
       date: DateHelp.print(recordModel.get('date')),

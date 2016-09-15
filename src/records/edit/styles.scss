@@ -47,10 +47,6 @@ ul.table-view.inputs {
   text-overflow: ellipsis;
   overflow: hidden;
 
-  &.warn {
-    color: $color-yellow;
-  }
-
   &.error {
     color: $color-red;
   }

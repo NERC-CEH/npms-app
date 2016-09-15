@@ -27,6 +27,8 @@ module.exports = {
       path.resolve('./src/common/vendor'),
     ],
     alias: {
+      app: 'app',
+
       // helpers
       device: 'common/helpers/device',
       gps: 'common/helpers/gps',

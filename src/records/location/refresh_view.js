@@ -1,19 +1,15 @@
 /** ****************************************************************************
- * Record Taxa Edit main view.
+ * Locations list refresh view.
+ * Provides button for top right of header.
  *****************************************************************************/
-import $ from 'jquery';
 import Marionette from 'marionette';
 import JST from 'JST';
 
 export default Marionette.ItemView.extend({
-  tagName: 'div',
-  template: JST['records/taxa/edit/abundance'],
+  template: () => '<a id="refresh-btn" class="icon icon-arrows-cw">Refresh</a>',
 
-  events: {
-    'change input[type=radio]': function (e) {
-      const value = $(e.target).val();
-      this.trigger('save', value);
-    },
+  // Trigger a refresh even when the button is clicked
+  triggers: {
+    'click #refresh-btn': 'refreshClick',
   },
-
 });

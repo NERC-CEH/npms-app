@@ -23,11 +23,16 @@
   </li>
   <li class="table-view-cell">
     <a href="#records/<%- obj.id %>/edit/location" id="location-button"
-       class="navigate-right disabled">
+       class="navigate-right">
       <span class="media-object pull-left icon icon-location"></span>
+      <% if (!obj.plot) { %>
+      <span class="media-object pull-right descript error">
+          Required
+        <% } else { %>
       <span class="media-object pull-right descript">
-        <%- obj.gridref %> </br>
-        Plot <%- obj.plot %>
+          <%- obj.square %> </br>
+          <%- obj.plot %>
+        <% } %>
       </span>
       Location
     </a>

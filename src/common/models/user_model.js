@@ -7,6 +7,7 @@ import Store from 'backbone.localStorage';
 import Validate from 'validate';
 import Analytics from 'analytics';
 import CONFIG from 'config'; // Replaced with alias
+import squaresExtension from './user_model_squares_ext';
 
 let UserModel = Backbone.Model.extend({
   id: 'user',
@@ -16,6 +17,8 @@ let UserModel = Backbone.Model.extend({
     surname: '',
     email: '',
     secret: '',
+
+    squares: {},
   },
 
   localStorage: new Store(CONFIG.name),
@@ -25,6 +28,7 @@ let UserModel = Backbone.Model.extend({
    */
   initialize() {
     this.fetch();
+    this.syncSquares();
   },
 
   /**
@@ -35,6 +39,8 @@ let UserModel = Backbone.Model.extend({
     this.set('secret', '');
     this.set('name', '');
     this.set('surname', '');
+
+    this.resetSquares();
 
     this.save();
     this.trigger('logout');
@@ -52,6 +58,9 @@ let UserModel = Backbone.Model.extend({
     this.setContactDetails(user);
     this.save();
     this.trigger('login');
+
+    this.syncSquares();
+
     Analytics.trackEvent('User', 'login');
   },
 
@@ -147,6 +156,9 @@ let UserModel = Backbone.Model.extend({
     return null;
   },
 });
+
+// add Squares management
+UserModel = UserModel.extend(squaresExtension);
 
 const userModel = new UserModel();
 export { userModel as default, UserModel };

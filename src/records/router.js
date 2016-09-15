@@ -13,6 +13,7 @@ import ListController from './list/controller';
 import ShowController from './show/controller';
 import EditController from './edit/controller';
 import EditAdditionalController from './edit_additional/controller';
+import EditLocationController from './location/controller';
 import EditAttrController from './attr/controller';
 import TaxaController from './taxa/list/controller';
 import TaxaEditController from './taxa/edit/controller';
@@ -43,6 +44,7 @@ const Router = Marionette.AppRouter.extend({
     'records/:id': ShowController.show,
     'records/:id/edit(/)': EditController.show,
     'records/:id/edit/additional(/)': EditAdditionalController.show,
+    'records/:id/edit/location(/)': EditLocationController.show,
     'records/:id/edit/taxa(/)': TaxaController.show,
     'records/:id/edit/taxa/:id/edit(/)': TaxaEditController.show,
     'records/:id/edit/taxa/search(/)': TaxaSearchController.show,
@@ -76,21 +78,19 @@ App.on('records:taxa:search', (recordID, options) => {
   TaxaSearchController.show(recordID);
 });
 
-
 App.on('records:edit:additional', (recordID, options) => {
   App.navigate(`records/${recordID}/edit-additional`, options);
   EditAdditionalController.show(recordID);
 });
 
+App.on('records:edit:location', (recordID, options) => {
+  App.navigate(`records/${recordID}/edit/location`, options);
+  EditLocationController.show(recordID);
+});
+
 App.on('records:edit:attr', (recordID, attrID, options) => {
   App.navigate(`records/${recordID}/edit/${attrID}`, options);
   switch (attrID) {
-    case 'taxon':
-      TaxonController.show(recordID);
-      break;
-    case 'activity':
-      ActivityController.show(recordID);
-      break;
     default:
       EditAttrController.show(recordID, attrID);
   }

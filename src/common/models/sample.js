@@ -35,7 +35,7 @@ let Sample = Morel.Sample.extend({
 
     // location
     const location = attrs.location || {};
-    if (!location.latitude || !location.longitude) {
+    if (!location.id) {
       sample.location = 'missing';
     }
 

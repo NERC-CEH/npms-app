@@ -5,7 +5,7 @@ import Backbone from 'backbone';
 import Store from 'backbone.localStorage';
 import CONFIG from 'config'; // Replaced with alias
 
-let AppModel = Backbone.Model.extend({
+const AppModel = Backbone.Model.extend({
   id: 'app',
 
   defaults: {

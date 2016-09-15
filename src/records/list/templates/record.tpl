@@ -18,8 +18,13 @@
     </div>
 
     <div class="media-body">
-      <div class="gridref"><%= obj.gridref %></div>
+      <% if (!obj.plot) { %>
+      <div class="gridref error">Plot is missing</div>
+      <% } else { %>
+      <div class="gridref"><%= obj.square %></div>
       <div class="plot">Plot <%= obj.plot %></div>
+      <% } %>
+
       <div class="level"><%= obj.level %> survey</div>
 
       <% if (obj.date) { %>

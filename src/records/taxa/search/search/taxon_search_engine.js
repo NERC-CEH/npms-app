@@ -9,9 +9,9 @@ import searchSciNames from './scientificNamesSearch';
 import helpers from './searchHelpers';
 import Log from 'log';
 
-let species = {};
+const species = {};
 let loading = false;
-let species_names = {};
+const species_names = {};
 
 const MAX = 20;
 
@@ -26,14 +26,14 @@ const API = {
       $.getJSON(`data/${list}.data.json`, (data) => {
         species[list] = data;
       })
-        .done($.getJSON( `data/${list}_names.data.json`, (data) => {
+        .done($.getJSON(`data/${list}_names.data.json`, (data) => {
           species_names[list] = data;
         })
           .done(() => {
             loading = false;
             that.trigger('data:loaded');
             callback && callback();
-          }))
+          }));
     }, 'data');
   },
 

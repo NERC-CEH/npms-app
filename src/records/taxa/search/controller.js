@@ -23,14 +23,14 @@ const API = {
       // Not found
       if (!recordModel) {
         Log('No record model found', 'e');
-        App.trigger('404:show', {replace: true});
+        App.trigger('404:show', { replace: true });
         return;
       }
 
       const level = recordModel.get('level');
       SpeciesSearchEngine.init(level);
 
-      const mainView = new MainView({model: userModel});
+      const mainView = new MainView({ model: userModel });
       API._showMainView(mainView, this, level);
 
       // should be done in the view

@@ -107,17 +107,17 @@ const RecordView = Marionette.ItemView.extend({
   serializeData() {
     const recordModel = this.model;
     const date = DateHelp.print(recordModel.get('date'));
-    const location = recordModel.get('location');
-    const gridref = location.gridref;
+    const location = recordModel.get('location') || {};
+    const square = location.square;
     const plot = location.plot;
     const level = recordModel.get('level');
-    //let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
+    // let img = recordModel.images.length && recordModel.images.at(0).get('thumbnail');
 
     const syncStatus = this.model.getSyncStatus();
 
     return {
       id: recordModel.id || recordModel.cid,
-      gridref,
+      square,
       plot,
       level,
       date,
