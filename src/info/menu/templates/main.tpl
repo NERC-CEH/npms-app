@@ -48,7 +48,7 @@
   </a>
 </li>
 <li class="table-view-cell">
-  <a href="#user/register" class="navigate-right">
+  <a href="http://www.npms.org.uk/user/register" class="navigate-right" target="_blank">
     <span class="media-object pull-left icon icon-user-plus"></span>
     Register
   </a>
