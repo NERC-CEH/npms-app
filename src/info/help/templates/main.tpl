@@ -45,7 +45,7 @@
 
       If the record has reached the database a red
       <span class="icon icon-send" style="color: red;"></span>(set for submission & saved locally)
-      will become green <span class="icon icon-send" style="color: green;"></span>
+      will become blue <span class="icon icon-send" style="color: #3c479d;"></span>
       (synced to the database). Once it has successfully reached
       the database the record becomes unavailable for new edits.
       To further edit it
