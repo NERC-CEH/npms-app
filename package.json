@@ -28,6 +28,7 @@
     "test": "grunt"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "eslint-import-resolver-webpack": "^0.6.0"
   },
   "devDependencies": {

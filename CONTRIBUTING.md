@@ -1,4 +1,4 @@
-# Issues
+_# Issues
 
 
 ## Reporting a Bug
@@ -41,6 +41,11 @@ The code is packaged up by [Webpack](https://webpack.github.io) module bundler. 
 takes care of passing the ES6 code through Babel and pulling the code together
 to make an *dist/main/app.js* file that is loaded in the *index.html*.
 
+## Environment
+
+For the app to work correctly you will need to specify some backend variables.
+ The build process loads environment variables from a .env file.
+The required ones are: REGISTER_URL, REPORT_URL, RECORD_URL, APP_SECRET (iform mobile auth login)
 
 ## Style Guide
 
@@ -140,3 +145,4 @@ Run and upload binaries from cordova/dist
 grunt cordova:android
 grunt cordova:android:old
 ```
+_

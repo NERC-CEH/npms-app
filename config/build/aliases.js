@@ -1,13 +1,12 @@
-module.exports = (grunt) => {
+module.exports = grunt => {
   return {
-    'default': [
+    default: [
       'init',
       'run',
       'webpack:main',
-      'replace:development_code',
     ],
 
-    'init': [
+    init: [
       'init:data',
       'bower',
       'copy',
@@ -20,7 +19,7 @@ module.exports = (grunt) => {
       'exec:data_init:wildflower',
     ],
 
-    'vendor': [
+    vendor: [
       'replace:bootstrap',
       'replace:indexedDBShim',
       'replace:latlon',
@@ -29,20 +28,18 @@ module.exports = (grunt) => {
       'replace:fontello_fonts',
     ],
 
-    'run': [
+    run: [
       'jst',
-      'replace:config',
     ],
 
     // Development run
-    'update': [
+    update: [
       'run',
       'webpack:main',
-      'replace:development_code',
     ],
 
     // Development update
-    'dev': [
+    dev: [
       'init',
       'run',
       'webpack:dev',
@@ -54,11 +51,11 @@ module.exports = (grunt) => {
       'webpack:dev',
     ],
 
-    'test': ['karma:local'],
+    test: ['karma:local'],
     'test:sauce': ['karma:sauce'],
 
     // Cordova set up
-    'cordova': [
+    cordova: [
       // prepare www source
       'default',
 

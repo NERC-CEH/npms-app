@@ -21,7 +21,6 @@ module.exports = webpackMerge(commonConfig, {
     new webpack.DefinePlugin({
       'process.env': {
         ENV: JSON.stringify(ENV),
-        BUILD: JSON.stringify(process.env.TRAVIS_BUILD_ID || new Date().getTime()),
       },
     }),
   ],

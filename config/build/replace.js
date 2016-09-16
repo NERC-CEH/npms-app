@@ -1,7 +1,5 @@
 'use strict';
 
-const CONFIG = 'config/config.js';
-const CONFIG_DEV = 'config/config_dev.js';
 const BUILD = 'dist/_build/';
 
 const pkg = require('../../package.json');
@@ -68,30 +66,6 @@ module.exports = (grunt) => {
       }],
     },
 
-    // App NAME and VERSION
-    config: {
-      src: [
-        CONFIG_DEV,
-        CONFIG,
-      ],
-      dest: BUILD,
-      overwrite: false, // overwrite matched source files
-      replacements: [
-        {
-          from: /\{APP_VER\}/g, // string replacement
-          to: () => pkg.version,
-        },
-        {
-          from: /\{APP_NAME\}/g,
-          to: () => pkg.name,
-        },
-        {
-          from: /\{APP_BUILD\}/g,
-          to: () => pkg.build,
-        },
-      ],
-    },
-
     // need to remove Ratchet's default fonts to work with fontello ones
     ratchet_fonts: {
       src: ['dist/_build/vendor/ratchet/css/ratchet.css'],
@@ -110,22 +84,12 @@ module.exports = (grunt) => {
     // moving the stylesheet to root makes the path different
     fontello_fonts: {
       src: ['src/common/vendor/fontello/css/icons.css'],
-      dest: BUILD + 'styles/icons.css',
+      dest: `${BUILD}styles/icons.css`,
       replacements: [
         {
           from: /\.\.\/font\//g,
           to: '\.\/font\/',
         }],
-    },
-
-    // clean up dev only code
-    development_code: {
-      src: ['dist/main/index.html'],
-      overwrite: true,
-      replacements: [{
-        from: /<!-- DEVELOPMENT -->(.|\n)*<!-- \/DEVELOPMENT -->/g,
-        to: '',
-      }],
     },
 
     // Cordova config changes

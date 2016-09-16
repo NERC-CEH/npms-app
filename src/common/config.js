@@ -17,9 +17,12 @@ const rangeValues = {
 };
 
 export default {
-  version: '{APP_VER}', // replaced on build
-  build: '{APP_BUILD}', // replaced on build
-  name: '{APP_NAME}', // replaced on build
+  // variables replaced on build
+  /* global APP_VERSION, APP_BUILD, APP_NAME, REGISTER_URL,
+  REPORT_URL, RECORD_URL, APP_SECRET */
+  version: APP_VERSION,
+  build: APP_BUILD,
+  name: APP_NAME,
 
   gps_accuracy_limit: 100,
 
@@ -36,21 +39,21 @@ export default {
   },
 
   login: {
-    url: 'http://192.171.199.230/npms_training/user/mobile/register',
+    url: REGISTER_URL,
     timeout: 30000,
   },
 
   report: {
-    url: 'http://192.171.199.230/npms_training/mobile/report',
+    url: REPORT_URL,
     timeout: 80000,
   },
 
   // morel configuration
   morel: {
     manager: {
-      url: 'http://192.171.199.230/npms_training/mobile/submit',
+      url: RECORD_URL,
       appname: 'npms',
-      appsecret: 'npmstest',
+      appsecret: APP_SECRET,
       website_id: 109,
       survey_id: 195,
     },
@@ -67,7 +70,6 @@ export default {
       location: {
         id: 'location_id',
         values(value, options) {
-
           // add other location related attributes
           options.flattener({
             'sample:entered_sref': value.plot,
@@ -94,7 +96,7 @@ export default {
 
       habitat: {
         id: 481,
-        values(value, options) {
+        values(value) {
           return this._values[value].id;
         },
         _values: {
@@ -102,7 +104,7 @@ export default {
             id: 3705,
             values: {
               'Arable field margins': 3717,
-            }
+            },
           },
           'Bog and wet heath': {
             id: 3706,
@@ -110,7 +112,7 @@ export default {
               'Raised bog': 3718,
               'Blanket bog': 3719,
               'Wet heath': 3720,
-            }
+            },
           },
           'Broadleaved woodland, hedges and scrub': {
             id: 3707,
@@ -118,32 +120,32 @@ export default {
               'Hedgerows of native species': 3721,
               'Wet woodland': 3722,
               'Dry deciduous woodland': 3723,
-            }
+            },
           },
-          'Coast': {
+          Coast: {
             id: 3708,
             values: {
               'Coastal saltmarsh': 3724,
               'Coastal sand dunes': 3725,
-              'Machair': 3726,
+              Machair: 3726,
               'Coastal vegetated shingle': 3727,
               'Maritime cliffs and slopes': 3728,
-            }
+            },
           },
-          'Freshwater': {
+          Freshwater: {
             id: 3709,
             values: {
               'Nutrient-poor lakes and ponds': 3729,
               'Nutrient-rich lakes and ponds': 3730,
               'Rivers and streams': 3731,
-            }
+            },
           },
-          'Heathland': {
+          Heathland: {
             id: 3710,
             values: {
               'Dry heathland': 3732,
               'Montane dry heathland': 3733,
-            }
+            },
           },
           'Lowland grassland': {
             id: 3711,
@@ -152,42 +154,42 @@ export default {
               'Dry acid grassland': 3735,
               'Neutral pastures and meadows': 3736,
               'Neutral damp grassland': 3737,
-            }
+            },
           },
           'Marsh and fen': {
             id: 3712,
             values: {
               'Acid fens, mires and springs': 738,
               'Base-rich fens, mires and springs': 3739,
-            }
+            },
           },
           'Upland grassland': {
             id: 3713,
             values: {
               'Montane calcareous grassland': 3740,
               'Montane acid grassland': 3741,
-            }
+            },
           },
           'Native pinewood and juniper scrub': {
             id: 3714,
             values: {
               'Native conifer woods and juniper scrub': 3742,
-            }
+            },
           },
           'Rock outcrops, cliffs and scree': {
             id: 3715,
             values: {
               'Inland rocks and scree': 3743,
               'Montane rocks and scree': 3744,
-            }
+            },
           },
           'Not in scheme': {
             id: 3716,
             values: {
               'Not in scheme': 3745,
-            }
-          }
-        }
+            },
+          },
+        },
       },
       identifiers: { id: 465 },
 
@@ -196,8 +198,8 @@ export default {
         id: 473,
         values: {
           'Arable cropping': 3658,
-          'Burning': 3659,
-          'Coppicing': 3660,
+          Burning: 3659,
+          Coppicing: 3660,
           'Cutting / mowing': 3661,
           'Ditch-clearance': 3662,
           'Fenced to exclude grazing': 3663,
@@ -207,12 +209,12 @@ export default {
           'Hedge-laying': 3667,
           'Herbicides to control weeds': 3668,
           'Path, track or road works': 3669,
-          'Quarrying': 3670,
+          Quarrying: 3670,
           'Scrub clearance / tree felling': 3671,
           'Silage production (i.e. black bags)': 3672,
           'Tree planting': 3673,
           'Water regime regulation': 3674,
-          'Other': 3675,
+          Other: 3675,
         },
       },
       'management other': { id: 472 },
@@ -228,9 +230,9 @@ export default {
       wooded: {
         id: 463,
         values: {
-          'Woodland canopy':  1985,
+          'Woodland canopy': 1985,
           'Scattered trees or shrubs': 1986,
-          'Hedgerow': 1987,
+          Hedgerow: 1987,
           'No trees or shrubs': 1988,
         },
       },
@@ -249,15 +251,15 @@ export default {
     },
     occurrence: {
       taxon: {
-        values: function (taxon) {
+        values(taxon) {
           return taxon.warehouse_id;
-        }
+        },
       },
       abundance: {
         id: 263,
         values(value) {
-         return Object.keys(rangeValues).indexOf(value) + 1;
-        }
+          return Object.keys(rangeValues).indexOf(value) + 1;
+        },
       }, //1-10
     },
   },

@@ -1,8 +1,11 @@
+require('dotenv').config(); // get local environment variables from .env
+
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const pkg = require('../package.json');
 
 const sassLoaders = [
   'css-loader?-url',
@@ -29,6 +32,7 @@ module.exports = {
     ],
     alias: {
       app: 'app',
+      config: 'common/config',
       helpers: 'common/helpers/main',
 
       // vendor
@@ -75,11 +79,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new webpack.DefinePlugin({
+      APP_BUILD: JSON.stringify(process.env.TRAVIS_BUILD_ID || new Date().getTime()),
+      'APP_NAME': JSON.stringify(pkg.name),
+      'APP_VERSION': JSON.stringify(pkg.version),
+      REGISTER_URL: JSON.stringify(process.env.REGISTER_URL || ''),
+      REPORT_URL: JSON.stringify(process.env.REPORT_URL || ''),
+      RECORD_URL: JSON.stringify(process.env.RECORD_URL || ''),
+      APP_SECRET: JSON.stringify(process.env.APP_SECRET || ''),
+    }),
   ],
   postcss: [
     autoprefixer({
       browsers: ['last 2 versions'],
     }),
   ],
+  stats: {
+    children: false
+  },
   cache: true,
 };
