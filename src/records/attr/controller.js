@@ -3,10 +3,8 @@
  *****************************************************************************/
 import Backbone from 'backbone';
 import Morel from 'morel';
-import DateHelp from 'date';
-import Log from 'log';
+import { Log } from 'helpers';
 import App from '../../app';
-import appModel from '../../common/models/app_model';
 import recordManager from '../../common/record_manager';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';

@@ -4,9 +4,8 @@
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Store from 'backbone.localStorage';
-import Validate from 'validate';
-import Analytics from 'analytics';
 import CONFIG from 'config'; // Replaced with alias
+import { Validate, Analytics } from 'helpers';
 import squaresExtension from './user_model_squares_ext';
 
 let UserModel = Backbone.Model.extend({

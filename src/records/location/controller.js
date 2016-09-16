@@ -4,8 +4,7 @@
 
 import Backbone from 'backbone';
 import App from 'app';
-import Analytics from 'analytics';
-import Log from 'log';
+import { Log, Analytics } from 'helpers';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
 import RefreshView from './refresh_view';

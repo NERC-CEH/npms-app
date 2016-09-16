@@ -1,7 +1,7 @@
 /** ****************************************************************************
  * Main app configuration file.
  *****************************************************************************/
-import DateHelp from 'date';
+import { DateHelp } from 'helpers';
 
 const rangeValues = {
   '< 1% (1-2 indivs)': 3648,

@@ -2,15 +2,13 @@
  * Record Taxa Edit controller.
  *****************************************************************************/
 
-import App from '../../../app';
 import Backbone from 'backbone';
-import Log from 'log';
-import appModel from '../../../common/models/app_model';
+import App from '../../../app';
+import { Log } from 'helpers';
 import recordManager from '../../../common/record_manager';
 import MainView from './main_view';
 import HeaderView from '../../../common/views/header_view';
 import LoaderView from '../../../common/views/loader_view';
-
 
 const API = {
   show(recordID, occurrenceID) {

@@ -4,8 +4,9 @@
 import $ from 'jquery';
 import Morel from 'morel';
 import Marionette from 'marionette';
+import { Log } from 'helpers';
+import JST from 'JST';
 import App from '../../app';
-import Log from 'log';
 import appModel from '../../common/models/app_model';
 import recordManager from '../../common/record_manager';
 import Sample from '../../common/models/sample';
@@ -13,7 +14,6 @@ import MainView from './main_view';
 import HeaderView from './header_view';
 import LoaderView from '../../common/views/loader_view';
 import userModel from '../../common/models/user_model';
-import JST from 'JST';
 
 const API = {
   show() {

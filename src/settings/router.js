@@ -3,9 +3,10 @@
  *****************************************************************************/
 import Marionette from 'marionette';
 import App from '../app';
-import Log from 'log';
+import { Log } from 'helpers';
 import CommonController from '../common/controller';
 import MenuController from './menu/controller';
+
 
 App.settings = {};
 

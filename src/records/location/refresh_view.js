@@ -3,7 +3,6 @@
  * Provides button for top right of header.
  *****************************************************************************/
 import Marionette from 'marionette';
-import JST from 'JST';
 
 export default Marionette.ItemView.extend({
   template: () => '<a id="refresh-btn" class="icon icon-arrows-cw">Refresh</a>',

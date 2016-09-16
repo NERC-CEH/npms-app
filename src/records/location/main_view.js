@@ -4,8 +4,8 @@
 
 import $ from 'jquery';
 import Marionette from 'marionette';
-import LoaderView from '../../common/views/loader_view';
 import JST from 'JST';
+import LoaderView from '../../common/views/loader_view';
 
 const View = Marionette.ItemView.extend({
   id: 'record-locations',

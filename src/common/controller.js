@@ -1,8 +1,8 @@
 import Backbone from 'backbone';
 import Marionette from 'marionette';
-import App from '../app';
-import Log from 'log';
+import { Log } from 'helpers';
 import JST from 'JST';
+import App from '../app';
 import HeaderView from './views/header_view';
 
 const API = {

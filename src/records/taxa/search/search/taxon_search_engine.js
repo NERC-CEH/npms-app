@@ -4,10 +4,10 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 import _ from 'lodash';
+import { Log } from 'helpers';
 import searchCommonNames from './commonNamesSearch';
 import searchSciNames from './scientificNamesSearch';
 import helpers from './searchHelpers';
-import Log from 'log';
 
 const species = {};
 let loading = false;

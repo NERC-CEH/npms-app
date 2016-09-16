@@ -4,10 +4,7 @@
 import Morel from 'morel';
 import _ from 'lodash';
 import ImageModel from '../models/image';
-import Log from './log';
-import Analytics from 'analytics';
-import Error from './error';
-import Device from 'device';
+import { Log, Analytics, Error, Device } from 'helpers';
 
 const Image = {
   deleteInternalStorage(name, callback) {

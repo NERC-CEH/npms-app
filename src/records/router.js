@@ -2,13 +2,11 @@
  * Record router.
  *****************************************************************************/
 import Marionette from 'marionette';
-import Log from 'log';
-import Device from 'device';
+import { Log, Device } from 'helpers';
 import App from '../app';
 import recordManager from '../common/record_manager';
 import userModel from '../common/models/user_model';
 import appModel from '../common/models/app_model';
-
 import ListController from './list/controller';
 import ShowController from './show/controller';
 import EditController from './edit/controller';

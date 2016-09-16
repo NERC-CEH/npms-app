@@ -2,8 +2,9 @@
  * User Login main view.
  *****************************************************************************/
 import Marionette from 'marionette';
-import Validate from 'validate';
+import { Validate } from 'helpers';
 import JST from 'JST';
+
 
 export default Marionette.ItemView.extend({
   template: JST['user/login/main'],

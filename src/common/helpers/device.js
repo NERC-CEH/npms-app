@@ -7,7 +7,7 @@
  * Note: Chrome has to have and ID of both Chrome and Safari therefore
  * Safari has to have an ID of only Safari and not Chrome
  *****************************************************************************/
-import Log from './log';
+import { Log } from 'helpers';
 
 const ua = navigator.userAgent.toLowerCase();
 

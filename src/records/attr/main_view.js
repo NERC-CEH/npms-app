@@ -4,10 +4,7 @@
 import _ from 'lodash';
 import $ from 'jquery';
 import Marionette from 'marionette';
-import Device from 'device';
-import DateHelp from 'date';
-import StringHelp from 'string';
-import Log from 'log';
+import { Device, DateHelp, StringHelp, Log } from 'helpers';
 import JST from 'JST';
 import CONFIG from 'config';
 

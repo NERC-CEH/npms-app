@@ -4,7 +4,7 @@
 
 import Marionette from 'marionette';
 import JST from 'JST';
-import DateHelp from 'date';
+import { DateHelp } from 'helpers';
 
 import './styles.scss';
 

@@ -1,19 +1,13 @@
 /** ****************************************************************************
  * Record Taxa List main view.
  *****************************************************************************/
-
-import './styles.scss';
-
 import $ from 'jquery';
 import Marionette from 'marionette';
-import Morel from 'morel';
 import Hammer from 'hammer';
-import Log from 'log';
-import Device from 'device';
-import DateHelp from 'date';
+import { Log, Device } from 'helpers';
 import Gallery from '../../../common/gallery';
-import StringHelp from 'string';
 import JST from 'JST';
+import './styles.scss';
 
 const SpeciesView = Marionette.ItemView.extend({
   tagName: 'li',

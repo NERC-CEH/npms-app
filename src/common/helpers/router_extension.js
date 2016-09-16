@@ -3,7 +3,7 @@
  *****************************************************************************/
 
 import Backbone from 'backbone';
-import _ from '../../vendor/lodash';
+import _ from 'lodash';
 
 let leave, leaveArgs;
 

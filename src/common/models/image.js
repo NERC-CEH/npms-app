@@ -1,8 +1,7 @@
 import $ from 'jquery';
 import Morel from 'morel';
 import CONFIG from 'config';
-import ImageHelp from 'image';
-import Device from 'device';
+import { ImageHelp, Device } from 'helpers';
 
 export default Morel.Image.extend({
   destroy(options) {

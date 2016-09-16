@@ -2,9 +2,9 @@
  * Google analytics to track the page navigation.
  */
 import Backbone from 'backbone';
-import Device from 'device';
-import appModel from '../models/app_model';
+import { Device } from 'helpers';
 import CONFIG from 'config'; // Replaced with alias
+import appModel from '../models/app_model';
 
 // todo: do not track connection is not WIFI or 3G/4G
 

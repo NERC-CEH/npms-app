@@ -2,10 +2,9 @@
  * App update functionality.
  *****************************************************************************/
 
-import appModel from '../models/app_model';
-import Log from './log';
-import Analytics from 'analytics';
+import { Log, Analytics } from 'helpers';
 import CONFIG from 'config'; // Replaced with alias
+import appModel from '../models/app_model';
 
 const API = {
   /**

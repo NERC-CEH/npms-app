@@ -4,8 +4,7 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 import App from '../../app';
-import Log from 'log';
-import Device from 'device';
+import { Log, Device } from 'helpers';
 import CONFIG from 'config'; // Replaced with alias
 import userModel from '../../common/models/user_model';
 import MainView from './main_view';

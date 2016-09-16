@@ -3,7 +3,7 @@
  *****************************************************************************/
 import $ from 'jquery';
 import Marionette from 'marionette';
-import Device from 'device';
+import { Device } from 'helpers';
 import JST from 'JST';
 
 export default Marionette.ItemView.extend({

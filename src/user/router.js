@@ -2,7 +2,7 @@
  * User router.
  *****************************************************************************/
 import Marionette from 'marionette';
-import Log from 'log';
+import { Log } from 'helpers';
 import App from '../app';
 import LoginController from './login/controller';
 

@@ -28,19 +28,7 @@ module.exports = {
     ],
     alias: {
       app: 'app',
-
-      // helpers
-      device: 'common/helpers/device',
-      gps: 'common/helpers/gps',
-      string: 'common/helpers/string',
-      date: 'common/helpers/date',
-      image: 'common/helpers/image',
-      log: 'common/helpers/log',
-      location: 'common/helpers/location',
-      analytics: 'common/helpers/analytics',
-      error: 'common/helpers/error',
-      validate: 'common/helpers/validate',
-      update: 'common/helpers/update',
+      helpers: 'common/helpers/main',
 
       // vendor
       jquery: 'jquery/js/jquery',

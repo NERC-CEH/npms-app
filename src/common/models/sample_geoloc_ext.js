@@ -5,9 +5,7 @@
  * start, update, error, success, stop
  *****************************************************************************/
 import $ from 'jquery';
-import appModel from './app_model';
-import GPS from 'gps';
-import LocHelp from 'location';
+import { GPS, LocHelp } from 'helpers';
 
 const extension = {
   startGPS(accuracyLimit) {

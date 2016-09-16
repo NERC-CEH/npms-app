@@ -1,19 +1,15 @@
 /** ****************************************************************************
  * Record List main view.
  *****************************************************************************/
-// import styles from '!sass!./styles/main.scss'
-import './styles.scss';
 
 import $ from 'jquery';
 import Marionette from 'marionette';
 import Morel from 'morel';
 import Hammer from 'hammer';
-import Log from 'log';
-import Device from 'device';
-import DateHelp from 'date';
-import Gallery from '../../common/gallery';
-import StringHelp from 'string';
+import { Log, Device, DateHelp } from 'helpers';
 import JST from 'JST';
+import Gallery from '../../common/gallery';
+import './styles.scss';
 
 const RecordView = Marionette.ItemView.extend({
   tagName: 'li',

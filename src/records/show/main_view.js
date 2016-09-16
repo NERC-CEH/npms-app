@@ -4,10 +4,8 @@
 import './styles.scss';
 
 import Marionette from 'marionette';
-import Morel from 'morel';
 import JST from 'JST';
-import DateHelp from 'date';
-import StringHelp from 'string';
+import { DateHelp } from 'helpers';
 import Gallery from '../../common/gallery';
 
 export default Marionette.ItemView.extend({

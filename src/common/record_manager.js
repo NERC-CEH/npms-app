@@ -1,8 +1,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import Morel from 'morel';
-import Device from 'device';
-import Log from 'log';
+import { Device, Log } from 'helpers';
 import CONFIG from 'config'; // Replaced with alias
 import Sample from './models/sample';
 import userModel from './models/user_model';

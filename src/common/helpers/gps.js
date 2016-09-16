@@ -1,6 +1,4 @@
-import $ from 'jquery';
-import Error from './error';
-import Log from './log';
+import { Log, Error } from 'helpers';
 
 const API = {
   GPS_ACCURACY_LIMIT: 100, // meters

@@ -1,10 +1,10 @@
 /** ****************************************************************************
  * Info Menu main view.
  *****************************************************************************/
-import './styles.scss';
 
 import Marionette from 'marionette';
 import JST from 'JST';
+import './styles.scss';
 
 export default Marionette.ItemView.extend({
   tagName: 'ul',

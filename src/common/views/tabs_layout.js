@@ -1,9 +1,9 @@
-import '../styles/tabs.scss';
-
 import Backbone from 'backbone';
 import _ from 'lodash';
 import Marionette from 'marionette';
 import JST from 'JST';
+import '../styles/tabs.scss';
+
 
 const Tab = Marionette.ItemView.extend({
   tagName: 'li',

@@ -1,14 +1,13 @@
 /** ****************************************************************************
  * Taxon main view.
  *****************************************************************************/
-import './styles.scss';
-
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Marionette from 'marionette';
 import JST from 'JST';
-import Log from 'log';
-import Device from 'device';
+import { Log, Device } from 'helpers';
+import './styles.scss';
+
 
 const MIN_SEARCH_LENGTH = 2;
 

@@ -6,7 +6,6 @@ import _ from 'lodash';
 import Morel from 'morel';
 import CONFIG from 'config'; // Replaced with alias
 import recordManager from '../record_manager';
-import Log from 'log';
 import ImageModel from './image';
 import Occurrence from './occurrence';
 import GeolocExtension from './sample_geoloc_ext';

@@ -3,7 +3,6 @@
  *****************************************************************************/
 import Marionette from 'marionette';
 import JST from 'JST';
-import StringHelp from 'string';
 
 export default Marionette.ItemView.extend({
   template: JST['records/edit_additional/main'],

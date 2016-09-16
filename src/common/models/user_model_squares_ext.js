@@ -3,8 +3,8 @@
  *****************************************************************************/
 
 import $ from 'jquery';
-import Log from 'log';
 import CONFIG from 'config';
+import { Log } from 'helpers';
 
 const extension = {
   syncSquares(force) {
