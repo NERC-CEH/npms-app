@@ -4,7 +4,7 @@
 import Backbone from 'backbone';
 import Morel from 'morel';
 import { Log } from 'helpers';
-import App from '../../app';
+import App from 'app';
 import recordManager from '../../common/record_manager';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';

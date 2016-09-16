@@ -5,7 +5,7 @@ import Backbone from 'backbone';
 import _ from 'lodash';
 import Morel from 'morel';
 import { Device, ImageHelp, Analytics, Log } from 'helpers';
-import App from '../../app';
+import App from 'app';
 import appModel from '../../common/models/app_model';
 import userModel from '../../common/models/user_model';
 import recordManager from '../../common/record_manager';

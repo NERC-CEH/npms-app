@@ -6,7 +6,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'marionette';
 import _ from 'lodash';
-import App from '../../app';
+import App from 'app';
 import JST from 'JST';
 
 import '../styles/dialog.scss';

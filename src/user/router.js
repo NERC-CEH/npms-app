@@ -3,7 +3,7 @@
  *****************************************************************************/
 import Marionette from 'marionette';
 import { Log } from 'helpers';
-import App from '../app';
+import App from 'app';
 import LoginController from './login/controller';
 
 App.user = {};

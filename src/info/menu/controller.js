@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 import { Log } from 'helpers';
-import App from '../../app';
+import App from 'app';
 import userModel from '../../common/models/user_model';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';

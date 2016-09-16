@@ -5,7 +5,7 @@ import Backbone from 'backbone';
 import Marionette from 'marionette';
 import { Log } from 'helpers';
 import CONFIG from 'config'; // Replaced with alias
-import App from '../app';
+import App from 'app';
 import CommonController from '../common/controller';
 import InfoMenuController from './menu/controller';
 

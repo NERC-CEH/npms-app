@@ -3,7 +3,7 @@
  *****************************************************************************/
 
 import Backbone from 'backbone';
-import App from '../../../app';
+import App from 'app';
 import { Log } from 'helpers';
 import recordManager from '../../../common/record_manager';
 import MainView from './main_view';

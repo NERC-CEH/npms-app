@@ -2,7 +2,7 @@
  * Record Taxa List controller.
  *****************************************************************************/
 import Backbone from 'backbone';
-import App from '../../../app';
+import App from 'app';
 import { Log } from 'helpers';
 import appModel from '../../../common/models/app_model';
 import recordManager from '../../../common/record_manager';

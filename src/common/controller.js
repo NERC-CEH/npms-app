@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import Marionette from 'marionette';
 import { Log } from 'helpers';
 import JST from 'JST';
-import App from '../app';
+import App from 'app';
 import HeaderView from './views/header_view';
 
 const API = {

@@ -6,7 +6,7 @@ import Morel from 'morel';
 import Marionette from 'marionette';
 import { Log } from 'helpers';
 import JST from 'JST';
-import App from '../../app';
+import App from 'app';
 import appModel from '../../common/models/app_model';
 import recordManager from '../../common/record_manager';
 import Sample from '../../common/models/sample';

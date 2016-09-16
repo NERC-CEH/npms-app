@@ -2,7 +2,7 @@
  * Taxon controller.
  *****************************************************************************/
 import Backbone from 'backbone';
-import App from '../../../app';
+import App from 'app';
 import { Log } from 'helpers';
 import userModel from '../../../common/models/user_model';
 import recordManager from '../../../common/record_manager';
