@@ -1,7 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const sassLoaders = [
@@ -75,6 +76,9 @@ module.exports = {
       compressor: {
         warnings: false,
       },
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
     }),
   ],
   postcss: [
