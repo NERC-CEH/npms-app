@@ -15,6 +15,7 @@ module.exports = {
   context: './src/',
   entry: {
     app: './main.js',
+    vendor: './vendor.js',
   },
   output: {
     path: 'dist/main',
@@ -45,7 +46,6 @@ module.exports = {
       'backbone.localStorage': 'backbone.localStorage/js/backbone.localStorage',
       marionette: 'marionette/js/backbone.marionette',
       morel: 'morel/js/morel',
-
       LatLon: 'latlon/js/latlon-ellipsoidal',
       OsGridRef: 'latlon/js/osgridref',
       'latlon-ellipsoidal': 'latlon/js/latlon-ellipsoidal',
@@ -57,7 +57,7 @@ module.exports = {
     loaders: [
       {
         test: /^((?!data\.).)*\.js$/,
-        exclude: /(node_modules|bower_components|vendor)/,
+        exclude: /(node_modules|bower_components|vendor(?!\.js))/,
         loader: 'babel-loader',
       },
       { test: /\.json/, loader: 'json' },
@@ -70,6 +70,9 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor'],
+    }),
     new webpack.optimize.UglifyJsPlugin({
       cacheFolder: path.resolve(__dirname, 'dist/_build/.cached_uglify/'),
       minimize: true,
@@ -80,6 +83,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
   ],
   postcss: [
     autoprefixer({
