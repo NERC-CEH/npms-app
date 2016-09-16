@@ -1,15 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
-
-const autoprefixer = require('autoprefixer')
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const sassLoaders = [
   'css-loader?-url',
   'postcss-loader',
-  'sass-loader?includePaths[]=' + path.resolve(__dirname, './src')
-]
+  'sass-loader?includePaths[]=' + path.resolve(__dirname, './src'),
+];
 
 module.exports = {
   context: './src/',
@@ -73,23 +72,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor'],
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      cacheFolder: path.resolve(__dirname, 'dist/_build/.cached_uglify/'),
-      minimize: true,
-      compressor: {
-        warnings: false,
-      },
-    }),
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.DedupePlugin(),
   ],
   postcss: [
     autoprefixer({
-      browsers: ['last 2 versions']
-    })
+      browsers: ['last 2 versions'],
+    }),
   ],
   cache: true,
 };
