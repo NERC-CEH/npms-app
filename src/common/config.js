@@ -58,6 +58,8 @@ export default {
       survey_id: 195,
     },
     sample: {
+      // todo: add input form
+      // todo: change survey id dynamically
       survey: {
         id: 'survey_id',
         values: {
