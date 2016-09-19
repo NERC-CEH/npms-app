@@ -36,7 +36,7 @@ export default function (species, commonNamePointersArray, searchPhrase, results
     otherWordsRegex = new RegExp(otherWordsRegexStr, 'i');
   }
 
-  // for each word
+  // for each word index
   for (let wordCount = 0;
        wordCount < commonNamePointersArray.length && results.length < maxResults;
        wordCount++) {

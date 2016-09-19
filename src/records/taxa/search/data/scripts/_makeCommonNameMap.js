@@ -52,7 +52,7 @@ function make() {
   }
 
   // go through all taxa in array
-  for (let i = 1, length = species.length; i < length; i++) {
+  for (let i = 0, length = species.length; i < length; i++) {
     const speciesEntry = species[i];
 
     // if genus or above
