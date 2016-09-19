@@ -67,6 +67,11 @@ export default {
         },
       },
 
+      // todo implement the survey 2
+      // survey_1: {
+      //   id: 474,
+      // },
+
       location: {
         id: 'location_id',
         values(value, options) {

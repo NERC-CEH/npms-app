@@ -1,5 +1,5 @@
 /** ****************************************************************************
- *
+ * Common name search.
  *****************************************************************************/
 import helpers from './searchHelpers';
 
@@ -51,7 +51,7 @@ export default function (species, commonNamePointersArray, searchPhrase, results
     );
 
     // go through all common name pointers
-    while (pointersArrayIndex &&
+    while (pointersArrayIndex !== null && pointersArrayIndex >= 0 &&
     pointersArrayIndex < pointerArrayLength &&
     results.length < maxResults) {
       const p = commonNamePointers[pointersArrayIndex];
