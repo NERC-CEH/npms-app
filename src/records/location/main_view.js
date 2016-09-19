@@ -15,7 +15,7 @@ const View = Marionette.ItemView.extend({
     'click li'(e) {
       const elem = $(e.target);
       const plotID = parseInt(elem.data('id'));
-      this.trigger('select', plotID);
+      if (plotID) this.trigger('select', plotID);
     },
   },
 
