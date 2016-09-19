@@ -1,1 +1,1 @@
-No photo has been added
+No site photo has been added
