@@ -107,10 +107,12 @@ export default Marionette.ItemView.extend({
         templateData.maxDate = DateHelp.toDateInputValue(new Date());
         break;
       case 'habitat':
-        templateData[this.model.get('habitat')] = true;
+        const habitat = this.model.get('habitat') || {};
+        templateData[habitat.broad] = true;
         break;
       case 'fine-habitat':
-        templateData[this.model.get('fine-habitat')] = true;
+        const habitat2 = this.model.get('habitat') || {};
+        templateData[habitat2.fine] = true;
         break;
       case 'identifiers':
         templateData.identifiers = this.model.get('identifiers');
@@ -201,12 +203,12 @@ export default Marionette.ItemView.extend({
 
   generateTemplate(attr) {
     let template = '';
-    const habitat = this.model.get('habitat');
-    const specificHabitats = CONFIG.morel.sample.habitat._values[habitat];
+    const habitat = this.model.get('habitat') || {};
+    const specificHabitats = CONFIG.morel.sample.habitat._values[habitat.broad];
 
-    const specificHabitatsKeys = Object.keys(specificHabitats.values);
+    const fineHabitatsKeys = Object.keys(specificHabitats.values);
 
-    specificHabitatsKeys.forEach((habitat) => {
+    fineHabitatsKeys.forEach((habitat) => {
       template += `
 
   <label class="item item-radio">

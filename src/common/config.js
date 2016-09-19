@@ -19,7 +19,7 @@ const rangeValues = {
 export default {
   // variables replaced on build
   /* global APP_VERSION, APP_BUILD, APP_NAME, REGISTER_URL,
-  REPORT_URL, RECORD_URL, APP_SECRET */
+   REPORT_URL, RECORD_URL, APP_SECRET */
   version: APP_VERSION,
   build: APP_BUILD,
   name: APP_NAME,
@@ -101,8 +101,19 @@ export default {
 
       habitat: {
         id: 481,
-        values(value) {
-          return this._values[value].id;
+        values(value, options) {
+        let key = `smpAttr:${this.id}`;
+          let habitat = this._values[value.broad].id;
+
+          if (value.fine) {
+            // add fine habitat
+            key = `${key}:${habitat}`;
+            habitat = this._values[value.broad].values[value.fine];
+          }
+
+          const attrs = {};
+          attrs[key] = habitat;
+          options.flattener(attrs, options);
         },
         _values: {
           'Arable margins': {
@@ -196,7 +207,14 @@ export default {
           },
         },
       },
-      identifiers: { id: 465 },
+      identifiers: {
+        values(value, options) {
+          // todo: clean up once morel is updated
+          options.flattener({
+            'sample:recorder_names': value,
+          }, options);
+        },
+      },
 
 
       management: {

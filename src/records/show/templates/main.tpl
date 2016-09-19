@@ -9,7 +9,7 @@
     <span class="media-object pull-right descript"><%- obj.habitat %></span>
     Habitat
   </li>
-  <% if (obj.habitat_specific) { %>
+  <% if (obj['fine-habitat']) { %>
   <li class="table-view-cell">
     <span class="media-object pull-left icon icon-habitat"></span>
     <span class="media-object pull-right descript"><%- obj['fine-habitat'] %></span>
@@ -38,7 +38,7 @@
   <li class="table-view-cell">
     <span class="media-object pull-left icon icon-user-plus"></span>
     <span class="media-object pull-right descript"><%- obj.identifiers %></span>
-    Identifiers
+    Recorder Names
   </li>
   <% } %>
   <% if (obj.comment) { %>

@@ -52,11 +52,11 @@ const API = {
 
       // if exit on selection click
       mainView.on('save', () => {
-        const habitat = recordModel.get('habitat');
+        const habitat = recordModel.get('habitat') || {};
 
         API.onExit(mainView, recordModel, attr, () => {
           // editing existing record
-          if (attr === 'habitat' && habitat) {
+          if (attr === 'habitat' && habitat.broad) {
             window.history.back();
             return;
           }
@@ -100,12 +100,16 @@ const API = {
         break;
       case 'habitat':
         // todo:validate before setting up
-        recordModel.set('habitat', values.habitat);
-        recordModel.unset('fine-habitat');
+        const habitat = recordModel.get('habitat') || {};
+        habitat.broad = values.habitat;
+        delete habitat.fine;
+        recordModel.set('habitat', habitat);
         break;
       case 'fine-habitat':
         // todo:validate before setting up
-        recordModel.set('fine-habitat', values['fine-habitat']);
+        const oldhabitat = recordModel.get('habitat') || {};
+        oldhabitat.fine = values['fine-habitat'];
+        recordModel.set('habitat', oldhabitat);
         break;
       case 'identifiers':
         currentVal = recordModel.get('identifiers');

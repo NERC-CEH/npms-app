@@ -20,6 +20,7 @@ export default Marionette.ItemView.extend({
     const square = location.square;
     const plot = location.plot;
 
+    const habitat = recordModel.get('habitat') || {};
     return {
       id: recordModel.id || recordModel.cid,
       level,
@@ -27,8 +28,8 @@ export default Marionette.ItemView.extend({
       plot,
       taxa,
       date: DateHelp.print(recordModel.get('date')),
-      habitat: recordModel.get('habitat'),
-      'fine-habitat': recordModel.get('fine-habitat'),
+      habitat: habitat.broad,
+      'fine-habitat': habitat.fine,
       identifiers,
     };
   },

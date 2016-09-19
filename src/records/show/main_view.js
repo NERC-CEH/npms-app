@@ -42,11 +42,15 @@ export default Marionette.ItemView.extend({
     const gridref = location.gridref;
     const plot = location.plot;
 
+    const habitat = recordModel.get('habitat') || {};
+
     return {
       id: recordModel.cid,
       taxa: occ.length,
       gridref,
       plot,
+      habitat: habitat.broad,
+      'fine-habitat': habitat.fine,
       date: DateHelp.print(recordModel.get('date')),
       identifiers,
       images: recordModel.images || {},
