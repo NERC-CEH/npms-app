@@ -50,7 +50,7 @@
     <a href="#records/<%- obj.id %>/edit/identifiers" class="navigate-right">
       <span class="media-object pull-left icon icon-user-plus"></span>
       <span class="media-object pull-right descript"><%- obj.identifiers %></span>
-      Identifiers
+      Recorder Names
     </a>
   </li>
   <li class="table-view-cell">
