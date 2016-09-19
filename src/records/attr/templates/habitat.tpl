@@ -1,4 +1,9 @@
-  <label class="item item-radio">
+<div class="info-message"><p>
+  Please select a broad habitat. Please ensure your choice of habitat matches the species list
+  you used in the field e.g. if you used a longer species list associated with a broad habitat
+  definition, then please only select a broad habitat.
+</p></div>
+<label class="item item-radio">
      <input type="radio" name="group" value="Arable margins" <%- obj['Arable margins'] ? 'checked' : ''%>>   
   <div class="radio-content">      
  <div class="item-content">     
