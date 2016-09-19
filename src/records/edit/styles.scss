@@ -7,6 +7,12 @@
   overflow: visible;
 }
 
+#level-indicator {
+  background-image: none;
+  text-transform: capitalize;
+  padding: 5px 0px;
+}
+
 #record-save-btn {
   width: 70% !important;
   max-width: 100px;

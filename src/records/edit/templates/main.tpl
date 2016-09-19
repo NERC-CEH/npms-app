@@ -1,3 +1,4 @@
+<div id="level-indicator" class="info-message"><%- obj.level %></div>
 <ul class="table-view core inputs no-top <%- obj.isSynchronising ? 'disabled' : '' %>">
   <li class="table-view-cell">
     <a href="#records/<%- obj.id %>/edit/habitat" class="navigate-right">

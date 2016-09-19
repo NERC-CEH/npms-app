@@ -13,6 +13,7 @@ export default Marionette.ItemView.extend({
 
   serializeData() {
     const recordModel = this.model.get('recordModel');
+    const level = recordModel.get('level');
     const taxa = recordModel.occurrences.length;
     const identifiers = recordModel.get('identifiers');
     const location = recordModel.get('location') || {};
@@ -21,6 +22,7 @@ export default Marionette.ItemView.extend({
 
     return {
       id: recordModel.id || recordModel.cid,
+      level,
       square,
       plot,
       taxa,
