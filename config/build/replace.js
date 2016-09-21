@@ -7,17 +7,6 @@ const pkg = require('../../package.json');
 module.exports = (grunt) => {
   return {
     // Fix double define problem
-    bootstrap: {
-      src: ['dist/_build/vendor/bootstrap/js/bootstrap.js'],
-      overwrite: true,
-      replacements: [
-        {
-          from: 'if (typeof jQuery === \'undefined\') {',
-          to: 'var jQuery = require(\'jquery\'); \nif (false) {',
-        },
-      ],
-    },
-    // Fix double define problem
     latlon: {
       src: ['dist/_build/vendor/latlon/js/latlon-ellipsoidal.js',
         'dist/_build/vendor/latlon/js/latlon-spherical.js'],

@@ -20,7 +20,6 @@ module.exports = grunt => {
     ],
 
     vendor: [
-      'replace:bootstrap',
       'replace:indexedDBShim',
       'replace:latlon',
       'replace:ratchet',
