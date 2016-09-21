@@ -5,7 +5,7 @@ import Marionette from 'marionette';
 import Morel from 'morel';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'nav',
   template: JST['records/edit/header'],
 

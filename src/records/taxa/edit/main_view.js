@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Marionette from 'marionette';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'div',
   template: JST['records/taxa/edit/abundance'],
 

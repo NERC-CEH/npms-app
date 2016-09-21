@@ -20,7 +20,7 @@ const API = {
 
     // MAIN
     const mainView = new MainView();
-    App.regions.main.show(mainView);
+    App.regions.getRegion('main').show(mainView);
 
     // HEADER
     const headerView = new HeaderView({
@@ -28,11 +28,11 @@ const API = {
         title: 'Login',
       }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
 
     mainView.on('form:submit', (data) => {
       if (!Device.isOnline()) {
-        App.regions.dialog.show({
+        App.regions.getRegion('dialog').show({
           title: 'Sorry',
           body: 'Looks like you are offline!',
         });
@@ -42,7 +42,7 @@ const API = {
       const validationError = userModel.validateLogin(data);
       if (!validationError) {
         mainView.triggerMethod('form:data:invalid', {}); // update form
-        App.regions.dialog.showLoader();
+        App.regions.getRegion('dialog').showLoader();
 
         API.login(data, (err) => {
           if (err) {
@@ -54,11 +54,11 @@ const API = {
               response = err.xhr.responseText;
             }
 
-            App.regions.dialog.error({ message: response });
+            App.regions.getRegion('dialog').error({ message: response });
             return;
           }
 
-          App.regions.dialog.hideLoader();
+          App.regions.getRegion('dialog').hideLoader();
           window.history.back();
         });
       } else {
@@ -67,7 +67,7 @@ const API = {
     });
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
   /**

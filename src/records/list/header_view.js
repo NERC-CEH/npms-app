@@ -4,7 +4,7 @@
 import Marionette from 'marionette';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   id: 'records-header',
   tagName: 'nav',
   template: JST['records/list/header'],
@@ -21,7 +21,7 @@ export default Marionette.ItemView.extend({
     this.trigger('photo:upload', e);
   },
 
-  onShow() {
+  onAttach() {
     const that = this;
 
     // create camera/gallery selection

@@ -18,13 +18,13 @@ import userModel from '../../common/models/user_model';
 const API = {
   show() {
     const loaderView = new LoaderView();
-    App.regions.main.show(loaderView);
+    App.regions.getRegion('main').show(loaderView);
 
     recordManager.getAll((getError, recordsCollection) => {
       Log('Records:List:Controller: showing');
       if (getError) {
         Log(getError, 'e');
-        App.regions.dialog.error(getError);
+        App.regions.getRegion('dialog').error(getError);
         return;
       }
 
@@ -47,7 +47,7 @@ const API = {
         API.addSurvey();
       });
 
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
     });
 
     // HEADER
@@ -57,10 +57,10 @@ const API = {
       API.addSurvey();
     });
 
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
   recordDelete(recordModel) {
@@ -74,14 +74,14 @@ const API = {
       body = 'Are you sure you want to remove this record from your device?';
       body += '</br><i><b>Note:</b> it will remain on the server.</i>';
     }
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Delete',
       body,
       buttons: [
         {
           title: 'Cancel',
           onClick() {
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
         {
@@ -89,7 +89,7 @@ const API = {
           class: 'btn-negative',
           onClick() {
             recordModel.destroy();
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
             Analytics.trackEvent('List', 'record remove');
           },
         },
@@ -104,7 +104,7 @@ const API = {
     }
 
     Log('Records:List:Controller: adding survey');
-    const View = Marionette.ItemView.extend({
+    const View = Marionette.View.extend({
       template: JST['records/list/levels'],
       events: {
         'click input[type="radio"]': function () {
@@ -120,10 +120,10 @@ const API = {
           // create new sample
           API.createNewRecord(option, (err, sample) => {
             if (err) {
-              App.regions.dialog.error(err);
+              App.regions.getRegion('dialog').error(err);
               return;
             }
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
 
             // open sample page
             App.trigger('records:edit:attr', sample.cid, 'habitat');
@@ -134,14 +134,14 @@ const API = {
 
     const body = new View();
 
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Survey level',
       body,
       buttons: [
         {
           title: 'Cancel',
           onClick() {
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
       ],

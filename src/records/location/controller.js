@@ -41,7 +41,7 @@ const API = {
           title: 'Location',
         }),
       });
-      App.regions.header.show(headerView);
+      App.regions.getRegion('header').show(headerView);
 
       // MAIN
       const mainView = new MainView({
@@ -52,10 +52,10 @@ const API = {
         API.selectPlot(recordModel, plotID);
       });
 
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // FOOTER
-      App.regions.footer.hide();
+      App.regions.getRegion('footer').hide();
     });
   },
 

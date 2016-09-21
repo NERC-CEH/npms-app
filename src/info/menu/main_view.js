@@ -6,7 +6,7 @@ import Marionette from 'marionette';
 import JST from 'JST';
 import './styles.scss';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'ul',
   className: 'table-view buttons',
 

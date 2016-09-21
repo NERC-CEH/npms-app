@@ -9,7 +9,7 @@ import Gallery from '../../../common/gallery';
 import JST from 'JST';
 import './styles.scss';
 
-const SpeciesView = Marionette.ItemView.extend({
+const SpeciesView = Marionette.View.extend({
   tagName: 'li',
   className: 'table-view-cell swipe',
   template: JST['records/taxa/list/taxon'],
@@ -83,10 +83,10 @@ const SpeciesView = Marionette.ItemView.extend({
       const that = this;
       this.$el.addClass('shrink');
       setTimeout(() => {
-        Marionette.ItemView.prototype.remove.call(that);
+        Marionette.View.prototype.remove.call(that);
       }, 300);
     } else {
-      Marionette.ItemView.prototype.remove.call(this);
+      Marionette.View.prototype.remove.call(this);
     }
   },
 
@@ -148,7 +148,7 @@ const SpeciesView = Marionette.ItemView.extend({
   },
 });
 
-const NoSpeciesView = Marionette.ItemView.extend({
+const NoSpeciesView = Marionette.View.extend({
   tagName: 'li',
   className: 'table-view-cell empty swipe',
   template: JST['records/taxa/list/list-none'],

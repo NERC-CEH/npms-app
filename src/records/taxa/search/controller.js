@@ -34,7 +34,7 @@ const API = {
       API._showMainView(mainView, this, level);
 
       // should be done in the view
-      App.regions.main.$el.find('#taxon').select();
+      App.regions.getRegion('main').$el.find('#taxon').select();
     });
 
     const headerView = new HeaderView({
@@ -42,10 +42,10 @@ const API = {
         title: 'Species',
       }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
   _showMainView(mainView, that, level) {
@@ -54,7 +54,7 @@ const API = {
       API.addTaxon(sampleID, taxon, (err, occurrence) => {
         if (err) {
           Log(err, 'e');
-          App.regions.dialog.error(err);
+          App.regions.getRegion('dialog').error(err);
           return;
         }
 
@@ -68,7 +68,7 @@ const API = {
       });
     });
 
-    App.regions.main.show(mainView);
+    App.regions.getRegion('main').show(mainView);
   },
 
   addTaxon(sampleID, taxon, callback) {

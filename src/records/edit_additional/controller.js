@@ -22,7 +22,7 @@ const API = {
       const mainView = new MainView({
         model: new Backbone.Model({ recordModel, appModel }),
       });
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // HEADER
       const headerView = new HeaderView({
@@ -30,10 +30,10 @@ const API = {
           title: 'Additional',
         }),
       });
-      App.regions.header.show(headerView);
+      App.regions.getRegion('header').show(headerView);
 
       // FOOTER
-      App.regions.footer.hide().empty();
+      App.regions.getRegion('footer').hide().empty();
     });
   },
 };

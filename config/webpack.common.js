@@ -47,6 +47,7 @@ module.exports = {
       underscore: 'lodash/js/lodash',
       backbone: 'backbone/js/backbone',
       'backbone.localStorage': 'backbone.localStorage/js/backbone.localStorage',
+      'backbone.radio': 'backbone.radio/js/backbone.radio',
       marionette: 'marionette/js/backbone.marionette',
       morel: 'morel/js/morel',
       LatLon: 'latlon/js/latlon-ellipsoidal',

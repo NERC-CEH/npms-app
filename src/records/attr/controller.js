@@ -36,7 +36,7 @@ const API = {
         attr,
         model: recordModel,
       });
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // HEADER
       const headerView = new HeaderView({
@@ -48,7 +48,7 @@ const API = {
         model: new Backbone.Model({ title: attr }),
       });
 
-      App.regions.header.show(headerView);
+      App.regions.getRegion('header').show(headerView);
 
       // if exit on selection click
       mainView.on('save', () => {
@@ -66,7 +66,7 @@ const API = {
       });
 
       // FOOTER
-      App.regions.footer.hide().empty();
+      App.regions.getRegion('footer').hide().empty();
     });
   },
 
@@ -134,7 +134,7 @@ const API = {
       success: callback,
       error: (err) => {
         Log(err, 'e');
-        App.regions.dialog.error(err);
+        App.regions.getRegion('dialog').error(err);
       },
     });
   },

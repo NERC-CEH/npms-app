@@ -13,7 +13,7 @@ import LoaderView from '../../../common/views/loader_view';
 const API = {
   show(recordID, occurrenceID) {
     const loaderView = new LoaderView();
-    App.regions.main.show(loaderView);
+    App.regions.getRegion('main').show(loaderView);
 
     recordManager.get(recordID, (err, recordModel) => {
       if (err) {
@@ -40,7 +40,7 @@ const API = {
       const occurrenceModel = occurrences[0];
 
       const mainView = new MainView({ model: occurrenceModel });
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // if exit on selection click
       mainView.on('save', (value) => {
@@ -62,10 +62,10 @@ const API = {
     const headerView = new HeaderView({
       model: new Backbone.Model({ title: 'Cover' }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
 
@@ -82,7 +82,7 @@ const API = {
       success: callback,
       error: (err) => {
         Log(err, 'e');
-        App.regions.dialog.error(err);
+        App.regions.getRegion('dialog').error(err);
       },
     });
   },

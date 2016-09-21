@@ -7,7 +7,7 @@ import Morel from 'morel';
 import JST from 'JST';
 import Gallery from '../../common/gallery';
 
-const SavedImageView = Marionette.ItemView.extend({
+const SavedImageView = Marionette.View.extend({
   template: _.template('<span class="delete icon icon-cancel">' +
     '</span><img src="<%- obj.data %>" alt="">'),
   className: 'img',
@@ -32,7 +32,7 @@ const SavedImageView = Marionette.ItemView.extend({
   },
 });
 
-const EmptyView = Marionette.ItemView.extend({
+const EmptyView = Marionette.View.extend({
   template: JST['records/edit/image_picker_empty'],
   tagName: 'span',
   className: 'empty',
@@ -87,7 +87,7 @@ export default Marionette.CompositeView.extend({
     gallery.init();
   },
 
-  onShow() {
+  onAttach() {
     const that = this;
 
     // create camera/gallery selection

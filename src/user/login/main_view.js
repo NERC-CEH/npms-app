@@ -6,7 +6,7 @@ import { Validate } from 'helpers';
 import JST from 'JST';
 
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   template: JST['user/login/main'],
 
   events: {

@@ -32,16 +32,16 @@ const API = {
 
       mainView.on('childview:species:delete', API.delete);
 
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // HEADER
       const model = new Backbone.Model({ appModel, recordModel });
       const headerView = new HeaderView({ model });
-      App.regions.header.show(headerView);
+      App.regions.getRegion('header').show(headerView);
     });
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
   delete(childView) {

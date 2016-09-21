@@ -30,7 +30,7 @@ const API = {
         model: new Backbone.Model({ recordModel, appModel }),
       });
 
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
     });
 
     // HEADER
@@ -39,10 +39,10 @@ const API = {
         title: 'Record',
       }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
 
     // FOOTER
-    App.regions.footer.hide().empty();
+    App.regions.getRegion('footer').hide().empty();
   },
 
   syncRecord(recordModel) {
@@ -57,11 +57,11 @@ const API = {
         success: () => {},
         error: (err) => {
           Log(err, 'e');
-          App.regions.dialog.error(err);
+          App.regions.getRegion('dialog').error(err);
         },
       });
     } else {
-      App.regions.dialog.error({
+      App.regions.getRegion('dialog').error({
         message: 'Looks like you are offline!',
       });
     }

@@ -50,7 +50,7 @@ const API = {
       const mainView = new MainView({
         model: new Backbone.Model({ recordModel, appModel }),
       });
-      App.regions.main.show(mainView);
+      App.regions.getRegion('main').show(mainView);
 
       // on finish sync move to show
       function checkIfSynced() {
@@ -75,7 +75,7 @@ const API = {
         API.save(recordModel);
       });
 
-      App.regions.header.show(headerView);
+      App.regions.getRegion('header').show(headerView);
 
       // FOOTER
       const footerView = new FooterView({
@@ -97,14 +97,14 @@ const API = {
         API.photoSelect(recordModel);
       });
 
-      App.regions.footer.show(footerView);
+      App.regions.getRegion('footer').show(footerView);
     });
   },
 
   save(recordModel) {
     const valid = API.saveRecord(recordModel, (saveErr) => {
       if (saveErr) {
-        App.regions.dialog.error(saveErr);
+        App.regions.getRegion('dialog').error(saveErr);
       }
     });
 
@@ -153,7 +153,7 @@ const API = {
       });
     }
 
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Sorry',
       body: missing,
       timeout: 2000,
@@ -167,13 +167,13 @@ const API = {
     API.addPhoto(recordModel, photo, (occErr) => {
       // hide loader
       if (occErr) {
-        App.regions.dialog.error(occErr);
+        App.regions.getRegion('dialog').error(occErr);
       }
     });
   },
 
   photoDelete(photo) {
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Delete',
       body: 'Are you sure you want to remove this photo from the record?' +
       '</br><i><b>Note:</b> it will remain in the gallery.</i>',
@@ -181,7 +181,7 @@ const API = {
         {
           title: 'Cancel',
           onClick() {
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
         {
@@ -196,7 +196,7 @@ const API = {
                 // hide loader
               },
             });
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
             Analytics.trackEvent('Record', 'photo remove');
           },
         },
@@ -207,7 +207,7 @@ const API = {
   photoSelect(recordModel) {
     Log('Records:Edit:Controller: photo selection');
 
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Choose a method to upload a photo',
       buttons: [
         {
@@ -216,11 +216,11 @@ const API = {
             ImageHelp.getImage((entry) => {
               API.addPhoto(recordModel, entry.nativeURL, (occErr) => {
                 if (occErr) {
-                  App.regions.dialog.error(occErr);
+                  App.regions.getRegion('dialog').error(occErr);
                 }
               });
             });
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
         {
@@ -229,14 +229,14 @@ const API = {
             ImageHelp.getImage((entry) => {
               API.addPhoto(recordModel, entry.nativeURL, (occErr) => {
                 if (occErr) {
-                  App.regions.dialog.error(occErr);
+                  App.regions.getRegion('dialog').error(occErr);
                 }
               });
             }, {
               sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
               saveToPhotoAlbum: false,
             });
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
       ],

@@ -4,7 +4,7 @@
 import Marionette from 'marionette';
 import '../styles/loading.scss';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'span',
   className: 'icon icon-plus icon-spin centered color-positive',
   template: false,

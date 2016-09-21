@@ -11,7 +11,7 @@ import './styles.scss';
 
 const MIN_SEARCH_LENGTH = 2;
 
-const SpeciesView = Marionette.ItemView.extend({
+const SpeciesView = Marionette.View.extend({
   tagName: 'li',
   className() {
     return `table-view-cell ${(this.model.get('selected') ? 'selected' : '')}`;
@@ -66,7 +66,7 @@ const SpeciesView = Marionette.ItemView.extend({
 });
 
 
-const NoSuggestionsView = Marionette.ItemView.extend({
+const NoSuggestionsView = Marionette.View.extend({
   tagName: 'li',
   className: 'table-view-cell empty',
   template: _.template('No species found with this name'),
@@ -85,7 +85,7 @@ const SuggestionsView = Marionette.CollectionView.extend({
   },
 });
 
-export default Marionette.LayoutView.extend({
+export default Marionette.View.extend({
   template: JST['records/taxa/search/layout'],
 
   events: {
@@ -102,7 +102,7 @@ export default Marionette.LayoutView.extend({
     this.selectedIndex = 0;
   },
 
-  onShow() {
+  onAttach() {
     // preselect the input for typing
     const $input = this.$el.find('#taxon').focus();
     if (window.cordova && Device.isAndroid()) {
@@ -143,9 +143,9 @@ export default Marionette.LayoutView.extend({
       searchPhrase,
     });
     suggestionsColView.on('childview:taxon:selected',
-      (view, speciesID, edit) => this.trigger('taxon:selected', speciesID, edit));
+      (speciesID, edit) => this.trigger('taxon:selected', speciesID, edit));
 
-    this.suggestions.show(suggestionsColView);
+    this.getRegion('suggestions').show(suggestionsColView);
   },
 
   _keydown(e) {

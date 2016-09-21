@@ -27,7 +27,7 @@ const API = {
     mainView.on('records:submit:all', API.sendAllRecords);
     mainView.on('records:delete:all', API.deleteAllRecords);
     mainView.on('app:reset', () => {
-      App.regions.dialog.show({
+      App.regions.getRegion('dialog').show({
         title: 'Reset',
         class: 'error',
         body: 'Are you sure you want to reset the application to its initial state? ' +
@@ -36,7 +36,7 @@ const API = {
           {
             title: 'Cancel',
             onClick() {
-              App.regions.dialog.hide();
+              App.regions.getRegion('dialog').hide();
             },
           },
           {
@@ -45,7 +45,7 @@ const API = {
             onClick() {
               // delete all
               API.resetApp(() => {
-                App.regions.dialog.show({
+                App.regions.getRegion('dialog').show({
                   title: 'Done!',
                   timeout: 1000,
                 });
@@ -56,28 +56,28 @@ const API = {
       });
     });
 
-    App.regions.main.show(mainView);
+    App.regions.getRegion('main').show(mainView);
 
     const headerView = new HeaderView({
       model: new Backbone.Model({
         title: 'Settings',
       }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
   },
 
   deleteAllRecords() {
     let body = 'Are you sure you want to delete all submitted records?';
     body += '</br><i><b>Note:</b> submitted ones will remain on the server.</i>';
 
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Delete All',
       body,
       buttons: [
         {
           title: 'Cancel',
           onClick() {
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
         {
@@ -88,7 +88,7 @@ const API = {
 
             // delete all
             recordManager.removeAllSynced(() => {
-              App.regions.dialog.show({
+              App.regions.getRegion('dialog').show({
                 title: 'Done!',
                 timeout: 1000,
               });
@@ -101,14 +101,14 @@ const API = {
   },
 
   sendAllRecords() {
-    App.regions.dialog.show({
+    App.regions.getRegion('dialog').show({
       title: 'Submit All',
       body: 'Are you sure you want to set all valid records for submission?',
       buttons: [
         {
           title: 'Cancel',
           onClick() {
-            App.regions.dialog.hide();
+            App.regions.getRegion('dialog').hide();
           },
         },
         {
@@ -120,10 +120,10 @@ const API = {
             // delete all
             recordManager.setAllToSend((err) => {
               if (err) {
-                App.regions.dialog.error(err);
+                App.regions.getRegion('dialog').error(err);
                 return;
               }
-              App.regions.dialog.show({
+              App.regions.getRegion('dialog').show({
                 title: 'Done!',
                 timeout: 1000,
               });

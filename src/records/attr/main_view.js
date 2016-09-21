@@ -31,7 +31,7 @@ LogSlider.prototype = {
 
 const logsl = new LogSlider({ maxpos: 100, minval: 1, maxval: 500 });
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   initialize(options) {
     if (options.attr === 'fine-habitat') {
       this.template = this.generateTemplate(options.attr);
@@ -160,7 +160,7 @@ export default Marionette.ItemView.extend({
     });
   },
 
-  onShow() {
+  onAttach() {
     let $input;
     switch (this.options.attr) {
       case 'date':

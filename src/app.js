@@ -29,7 +29,7 @@ App.getCurrentRoute = () => Backbone.history.fragment;
 
 App.on('before:start', () => {
   Log('App: initializing main regions');
-  const RegionContainer = Marionette.LayoutView.extend({
+  const RegionContainer = Marionette.View.extend({
     el: '#app',
 
     regions: {

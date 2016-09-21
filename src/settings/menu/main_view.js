@@ -6,7 +6,7 @@ import Marionette from 'marionette';
 import { Device } from 'helpers';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'ul',
   className: 'table-view',
   template: JST['settings/menu/main'],

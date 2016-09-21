@@ -4,7 +4,7 @@
  *****************************************************************************/
 import Marionette from 'marionette';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   template: () => '<a id="refresh-btn" class="icon icon-arrows-cw">Refresh</a>',
 
   // Trigger a refresh even when the button is clicked

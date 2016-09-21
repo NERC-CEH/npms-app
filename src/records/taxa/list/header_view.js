@@ -4,7 +4,7 @@
 import Marionette from 'marionette';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   id: 'records-header',
   tagName: 'nav',
   template: JST['records/taxa/list/header'],

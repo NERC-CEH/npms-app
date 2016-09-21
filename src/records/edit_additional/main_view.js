@@ -4,7 +4,7 @@
 import Marionette from 'marionette';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   template: JST['records/edit_additional/main'],
 
   serializeData() {

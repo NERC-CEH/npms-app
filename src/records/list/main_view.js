@@ -11,7 +11,7 @@ import JST from 'JST';
 import Gallery from '../../common/gallery';
 import './styles.scss';
 
-const RecordView = Marionette.ItemView.extend({
+const RecordView = Marionette.View.extend({
   tagName: 'li',
   className: 'table-view-cell swipe',
 
@@ -93,10 +93,10 @@ const RecordView = Marionette.ItemView.extend({
       const that = this;
       this.$el.addClass('shrink');
       setTimeout(() => {
-        Marionette.ItemView.prototype.remove.call(that);
+        Marionette.View.prototype.remove.call(that);
       }, 300);
     } else {
-      Marionette.ItemView.prototype.remove.call(this);
+      Marionette.View.prototype.remove.call(this);
     }
   },
 
@@ -168,7 +168,7 @@ const RecordView = Marionette.ItemView.extend({
   },
 });
 
-const NoRecordsView = Marionette.ItemView.extend({
+const NoRecordsView = Marionette.View.extend({
   tagName: 'li',
   className: 'table-view-cell empty swipe',
   template: JST['records/list/list-none'],

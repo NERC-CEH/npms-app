@@ -8,7 +8,7 @@ import JST from 'JST';
 import { DateHelp } from 'helpers';
 import Gallery from '../../common/gallery';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   template: JST['records/show/main'],
 
   events: {

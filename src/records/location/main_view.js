@@ -7,7 +7,7 @@ import Marionette from 'marionette';
 import JST from 'JST';
 import LoaderView from '../../common/views/loader_view';
 
-const View = Marionette.ItemView.extend({
+const View = Marionette.View.extend({
   id: 'record-locations',
   template: JST['records/location/main'],
 

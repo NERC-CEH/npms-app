@@ -8,7 +8,7 @@ import HeaderView from '../../common/views/header_view';
 const API = {
   show() {
     const mainView = new MainView({ model: userModel });
-    App.regions.main.show(mainView);
+    App.regions.getRegion('main').show(mainView);
 
     mainView.on('user:logout', API.logout);
 
@@ -17,7 +17,7 @@ const API = {
         title: 'Info',
       }),
     });
-    App.regions.header.show(headerView);
+    App.regions.getRegion('header').show(headerView);
   },
 
   logout() {

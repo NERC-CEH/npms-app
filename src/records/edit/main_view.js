@@ -8,7 +8,7 @@ import { DateHelp } from 'helpers';
 
 import './styles.scss';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   template: JST['records/edit/main'],
 
   serializeData() {
