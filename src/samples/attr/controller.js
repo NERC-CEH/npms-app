@@ -6,6 +6,7 @@ import Indicia from 'indicia';
 import Log from 'helpers/log';
 import radio from 'radio';
 import savedSamples from 'saved_samples';
+import CONFIG from 'config';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
 
@@ -101,14 +102,19 @@ const API = {
         }
         break;
       case 'habitat':
-        // todo:validate before setting up
         const habitat = sample.get('habitat') || {};
         habitat.broad = values.habitat;
-        delete habitat.fine;
+
+        const allHabitats = CONFIG.indicia.sample.habitat._values;
+        const fineHabitats = Object.keys(allHabitats[habitat.broad].values);
+        if (fineHabitats.length === 1) {
+          habitat.fine = fineHabitats[0];
+        } else {
+          delete habitat.fine;
+        }
         sample.set('habitat', habitat);
         break;
       case 'fine-habitat':
-        // todo:validate before setting up
         const oldhabitat = sample.get('habitat') || {};
         oldhabitat.fine = values['fine-habitat'];
         sample.set('habitat', oldhabitat);
