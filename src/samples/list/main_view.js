@@ -176,12 +176,14 @@ const NoSamplesView = Marionette.View.extend({
   template: JST['samples/list/list-none'],
 });
 
-export default Marionette.CollectionView.extend({
-  id: 'samples-list',
-  tagName: 'ul',
-  className: 'table-view no-top',
+export default Marionette.CompositeView.extend({
+  id: 'samples-list-container',
   emptyView: NoSamplesView,
   childView: SampleView,
+
+  template: JST['samples/list/main'],
+
+  childViewContainer: '#samples-list',
 
   triggers: {
     'click a#add-survey': 'survey',
