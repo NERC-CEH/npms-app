@@ -1,1 +1,0 @@
-No site photo has been added
