@@ -90,11 +90,21 @@
         font-weight: bold;
         color: $color-red;
       }
+      .identifiers.error {
+        font-weight: bold;
+        color: $color-red;
+      }
       .gridref.error + .habitat.error {
         display: none;
       }
+      .gridref.error + .identifiers.error {
+        display: none;
+      }
+      .habitat.error + .identifiers.error {
+        display: none;
+      }
 
-      .gridref, .plot, .habitat {
+      .gridref, .plot, .habitat, .identifiers {
         font-size: $text-font-size - 2;
         color: $button-black;
 

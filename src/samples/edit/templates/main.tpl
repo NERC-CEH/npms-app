@@ -56,7 +56,14 @@
   <li class="table-view-cell">
     <a href="#samples/<%- obj.id %>/edit/identifiers" class="navigate-right">
       <span class="media-object pull-left icon icon-user-plus"></span>
-      <span class="media-object pull-right descript"><%- obj.identifiers %></span>
+      <% if (!obj.identifiers) { %>
+      <span class="media-object pull-right descript error">
+          Required
+        <% } else { %>
+      <span class="media-object pull-right descript">
+          <%- obj.identifiers %> </br>
+        <% } %>
+      </span>
       Recorder Names
     </a>
   </li>
