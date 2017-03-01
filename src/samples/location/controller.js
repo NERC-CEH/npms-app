@@ -83,7 +83,10 @@ const API = {
   },
 
   refresh() {
-    userModel.syncSquares(true);
+    userModel.syncSquares(true)
+      .catch((err) => {
+        radio.trigger('app:dialog:error', err);
+      });
     Analytics.trackEvent('Statistics', 'refresh');
   },
 

@@ -10,17 +10,19 @@ const extension = {
   syncSquares(force) {
     const that = this;
     if (this.synchronizingSquares) {
-      return;
+      return this.synchronizingSquares;
     }
 
     if (this.hasLogIn() && this._lastSquaresSyncExpired() || force) {
       // init or refresh
-      this.synchronizingSquares = true;
-
-      this.fetchSquaresSpecies(() => {
-        that.synchronizingSquares = false;
+      this.synchronizingSquares = this.fetchSquaresSpecies(() => {
+        delete that.synchronizingSquares;
       });
+
+      return this.synchronizingSquares;
     }
+
+    return Promise.resolve();
   },
 
   resetSquares() {
@@ -94,9 +96,9 @@ const extension = {
         that.trigger('sync:user:squares:end');
       })
       .catch((err) => {
-        Log('Squares load failed');
-        callback(err);
+        Log('UserModel:SquaresExt: fetch failed');
         that.trigger('sync:user:squares:end');
+        return Promise.reject(err);
       });
 
     return promise;
