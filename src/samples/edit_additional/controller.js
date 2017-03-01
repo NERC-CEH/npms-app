@@ -3,7 +3,7 @@
  *****************************************************************************/
 import Backbone from 'backbone';
 import Log from 'helpers/log';
-import App from 'app';
+import radio from 'radio';
 import appModel from '../../common/models/app_model';
 import savedSamples from 'saved_samples';
 import MainView from './main_view';
@@ -30,7 +30,7 @@ const API = {
           title: 'Additional',
         }),
       });
-  radio.trigger('app:header', headerView);
+      radio.trigger('app:header', headerView);
 
       // FOOTER
       radio.trigger('app:footer:hide'); ;

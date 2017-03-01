@@ -38,7 +38,7 @@ const Sample = Indicia.Sample.extend({
    */
   defaults() {
     let identifiers = '';
-    if (userModel.hasLogin()) {
+    if (userModel.hasLogIn()) {
       identifiers = `${userModel.get('firstname')} ${userModel.get('secondname')}`;
     }
     return {
@@ -88,17 +88,13 @@ const Sample = Indicia.Sample.extend({
     }
 
     // occurrences
-    // if (this.occurrences.length === 0) {
-    //   sample.occurrences = 'no species selected';
-    // } else {
-    //   this.occurrences.each((occurrence) => {
-    //     const errors = occurrence.validate();
-    //     if (errors) {
-    //       const occurrenceID = occurrence.id || occurrence.cid;
-    //       occurrences[occurrenceID] = errors;
-    //     }
-    //   });
-    // }
+    this.occurrences.each((occurrence) => {
+      const errors = occurrence.validate(null, { remote: true });
+      if (errors) {
+        const occurrenceID = occurrence.id || occurrence.cid;
+        occurrences[occurrenceID] = errors;
+      }
+    });
 
     if (!_.isEmpty(sample) || !_.isEmpty(occurrences)) {
       const errors = {
