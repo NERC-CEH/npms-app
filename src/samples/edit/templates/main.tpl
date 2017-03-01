@@ -3,8 +3,15 @@
   <li class="table-view-cell">
     <a href="#samples/<%- obj.id %>/edit/habitat" class="navigate-right">
       <span class="media-object pull-left icon icon-habitat"></span>
-      <span class="media-object pull-right descript"><%- obj.habitat %></span>
-      Habitat
+      <% if (!obj.habitat) { %>
+      <span class="media-object pull-right descript error">
+          Required
+        <% } else { %>
+      <span class="media-object pull-right descript">
+          <%- obj.habitat %> </br>
+        <% } %>
+      </span>
+        Habitat
     </a>
   </li>
   <li class="table-view-cell">

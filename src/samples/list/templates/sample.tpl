@@ -3,7 +3,6 @@
   <% } else { %>
   <a href="#samples/<%- obj.id %>/edit/" class="mobile">
     <% } %>
-    <div class="media-object pull-left photo"><%= obj.img %></div>
     <div class="pull-right">
       <% if (obj.saved) { %>
       <% if (obj.isSynchronising) { %>
@@ -23,6 +22,10 @@
       <% } else { %>
       <div class="gridref"><%= obj.square %></div>
       <div class="plot">Plot <%= obj.plot %></div>
+      <% } %>
+
+      <% if (!obj.habitat) { %>
+      <div class="habitat error">Habitat is missing</div>
       <% } %>
 
       <div class="level"><%= obj.level %> survey</div>

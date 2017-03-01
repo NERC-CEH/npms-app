@@ -11,9 +11,9 @@
     background-color: $color-white;
     border-bottom: 1px solid $header-color;
 
-   button {
-     color: $header-color;
-   }
+    button {
+      color: $header-color;
+    }
   }
 }
 
@@ -86,7 +86,15 @@
         color: $color-red;
       }
 
-      .gridref, .plot {
+      .habitat.error {
+        font-weight: bold;
+        color: $color-red;
+      }
+      .gridref.error + .habitat.error {
+        display: none;
+      }
+
+      .gridref, .plot, .habitat {
         font-size: $text-font-size - 2;
         color: $button-black;
 

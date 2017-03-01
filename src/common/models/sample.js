@@ -72,6 +72,11 @@ const Sample = Indicia.Sample.extend({
       }
     }
 
+    // habitat
+    if (!attrs.habitat || !attrs.habitat.broad) {
+      sample.habitat = 'missing';
+    }
+
     // occurrences
     // if (this.occurrences.length === 0) {
     //   sample.occurrences = 'no species selected';
