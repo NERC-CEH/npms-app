@@ -1,25 +1,10 @@
 import _ from 'lodash';
-import Occurrence from '../occurrence';
-import Sample from '../sample';
-import { AppModel } from '../app_model';
+import { AppModel } from 'app_model';
+import { getRandomSample } from 'test-helpers';
+
+/* eslint-disable no-unused-expressions */
 
 describe('App Model', () => {
-  function getRandomSample() {
-    const occurrence = new Occurrence({
-      taxon: { warehouse_id: 166205 },
-    });
-    const sample = new Sample({
-      location: {
-        latitude: 12.12,
-        longitude: -0.23,
-        name: 'automatic test' },
-    }, {
-      occurrences: [occurrence],
-      onSend: () => {}, // overwrite manager's one checking for user login
-    });
-    return sample;
-  }
-
   before(() => {
     const appModel = new AppModel();
     appModel.clear();
@@ -28,12 +13,13 @@ describe('App Model', () => {
 
   it('has default values', () => {
     const appModel = new AppModel();
-    expect(_.keys(appModel.attributes).length).to.be.equal(6);
+    expect(_.keys(appModel.attributes).length).to.be.equal(7);
     // should set the exact value checks in the modules requiring them
-    expect(appModel.get('locations')).to.be.an.array;
-    expect(appModel.get('attrLocks')).to.be.an.object;
-    expect(appModel.get('autosync')).to.be.equal.true;
-    expect(appModel.get('useGridRef')).to.be.equal.true;
+    expect(appModel.get('locations')).to.be.an('array');
+    expect(appModel.get('attrLocks')).to.be.an('object');
+    expect(appModel.get('autosync')).to.be.equal(true);
+    expect(appModel.get('useGridRef')).to.be.equal(true);
+    expect(appModel.get('useTraining')).to.be.equal(false);
   });
 
   describe('Locking attributes extension', () => {
@@ -56,7 +42,7 @@ describe('App Model', () => {
       appModel.appendAttrLocks(sample);
 
       // check if correct
-      const number = sample.occurrences.at(0).get('number');
+      const number = sample.getOccurrence().get('number');
       expect(number).to.be.equal(123);
     });
 
@@ -78,21 +64,21 @@ describe('App Model', () => {
       const lockNum = appModel.getAttrLock('number');
       lockNum.num = 2;
 
-      let number = sample2.occurrences.at(0).get('number');
+      let number = sample2.getOccurrence().get('number');
       expect(number).to.deep.equal({ num: 1 });
 
       // check if references between samples
-      const num = sample.occurrences.at(0).get('number');
+      const num = sample.getOccurrence().get('number');
       num.num = 3;
 
-      number = sample2.occurrences.at(0).get('number');
+      number = sample2.getOccurrence().get('number');
       expect(number).to.deep.equal({ num: 1 });
 
       // check if haven't overwritten
       numberObject.num = 4;
-      sample.occurrences.at(0).set('number', numberObject);
+      sample.getOccurrence().set('number', numberObject);
 
-      number = sample2.occurrences.at(0).get('number');
+      number = sample2.getOccurrence().get('number');
       expect(number).to.deep.equal({ num: 1 });
     });
   });

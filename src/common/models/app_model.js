@@ -2,15 +2,15 @@
  * App model. Persistent.
  *****************************************************************************/
 import Backbone from 'backbone';
-import Store from 'backbone.localStorage';
-import CONFIG from 'config'; // Replaced with alias
+import Store from 'backbone.localstorage';
+import CONFIG from 'config';
 
 const AppModel = Backbone.Model.extend({
   id: 'app',
 
   defaults: {
-    exceptions: [],
     autosync: true,
+    useTraining: false,
   },
 
   localStorage: new Store(CONFIG.name),

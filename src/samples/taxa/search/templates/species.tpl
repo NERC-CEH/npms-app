@@ -1,0 +1,1 @@
+<h3 class="taxon"><%= obj.name %></h3>

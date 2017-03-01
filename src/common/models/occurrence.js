@@ -1,10 +1,9 @@
-import $ from 'jquery';
-import Morel from 'morel';
+import Indicia from 'indicia';
+import CONFIG from 'config';
 import ImageModel from './image';
-import CONFIG from 'config'; // Replaced with alias
 
-$.extend(true, Morel.Occurrence.keys, CONFIG.morel.occurrence);
-
-export default Morel.Occurrence.extend({
+export default Indicia.Occurrence.extend({
   Image: ImageModel,
+
+  keys: CONFIG.indicia.occurrence, // warehouse attribute keys
 });

@@ -2,7 +2,7 @@
  * Info Menu main view.
  *****************************************************************************/
 
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import JST from 'JST';
 import './styles.scss';
 
@@ -20,9 +20,11 @@ export default Marionette.View.extend({
     change: 'render',
   },
 
-  serializeDate() {
+  serializeData() {
     return {
-      surname: this.model.get('surname'),
+      login: this.model.hasLogIn(),
+      firstname: this.model.get('firstname'),
+      secondname: this.model.get('secondname'),
     };
   },
 

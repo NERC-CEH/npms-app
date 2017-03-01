@@ -33,11 +33,11 @@
 
 <li class="table-view-divider">Account</li>
 
-<% if (obj.surname) { %>
+<% if (obj.login) { %>
 <li class="table-view-cell">
   <a id="logout-button" class="navigate-right">
     <span class="media-object pull-left icon icon-logout"></span>
-    Logout: <%- obj.name %> <%- obj.surname %>
+    Logout: <%- obj.firstname %> <%- obj.secondname %>
   </a>
 </li>
 <% } else { %>
@@ -45,12 +45,6 @@
   <a href="#user/login" class="navigate-right">
     <span class="media-object pull-left icon icon-user"></span>
     Login
-  </a>
-</li>
-<li class="table-view-cell">
-  <a href="http://www.npms.org.uk/user/register" class="navigate-right" target="_blank">
-    <span class="media-object pull-left icon icon-user-plus"></span>
-    Register
   </a>
 </li>
 <% } %>

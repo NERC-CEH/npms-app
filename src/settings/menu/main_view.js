@@ -2,8 +2,8 @@
  * Setting Menu main view.
  *****************************************************************************/
 import $ from 'jquery';
-import Marionette from 'marionette';
-import { Device } from 'helpers';
+import Marionette from 'backbone.marionette';
+import Device from 'helpers/device';
 import JST from 'JST';
 
 export default Marionette.View.extend({
@@ -17,8 +17,8 @@ export default Marionette.View.extend({
   },
 
   triggers: {
-    'click #delete-all-btn': 'records:delete:all',
-    'click #submit-all-btn': 'records:submit:all',
+    'click #delete-all-btn': 'samples:delete:all',
+    'click #submit-all-btn': 'samples:submit:all',
     'click #app-reset-btn': 'app:reset',
   },
 
@@ -39,8 +39,7 @@ export default Marionette.View.extend({
   serializeData() {
     const appModel = this.model;
     return {
-      useGridRef: appModel.get('useGridRef'),
-      useGridMap: appModel.get('useGridMap'),
+      useTraining: appModel.get('useTraining'),
       autosync: appModel.get('autosync'),
     };
   },

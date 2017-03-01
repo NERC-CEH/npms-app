@@ -1,34 +1,58 @@
 /** ****************************************************************************
- * Morel Sample.
+ * Indicia Sample.
  *****************************************************************************/
-import $ from 'jquery';
 import _ from 'lodash';
-import Morel from 'morel';
-import CONFIG from 'config'; // Replaced with alias
-import recordManager from '../record_manager';
+import Indicia from 'indicia';
+import CONFIG from 'config';
+import userModel from 'user_model';
+import appModel from 'app_model';
+import Occurrence from 'occurrence';
+import Log from 'helpers/log';
 import ImageModel from './image';
-import Occurrence from './occurrence';
-import GeolocExtension from './sample_geoloc_ext';
+import Device from 'helpers/device';
+import store from '../store';
 
-let Sample = Morel.Sample.extend({
-  constructor(...args) {
-    this.manager = recordManager;
-    Morel.Sample.prototype.constructor.apply(this, args);
-  },
+const Sample = Indicia.Sample.extend({
+  api_key: CONFIG.indicia.api_key,
+  host_url: CONFIG.indicia.host,
+  user: userModel.getUser.bind(userModel),
+  password: userModel.getPassword.bind(userModel),
 
-  Image: ImageModel,
+  store, // offline store
+
+  Media: ImageModel,
 
   Occurrence,
 
-  validate(attributes) {
+  keys: CONFIG.indicia.sample, // warehouse attribute keys
+
+  metadata() {
+    return {
+      training: appModel.get('useTraining'),
+    };
+  },
+
+  /**
+   * Need a function because Device might not be ready on module load.
+   * @returns {{device: *, device_version: *}}
+   */
+  defaults() {
+    return {
+      // attach device information
+      device: Device.getPlatform(),
+      device_version: Device.getVersion(),
+    };
+  },
+
+  validateRemote(attributes) {
     const attrs = _.extend({}, this.attributes, attributes);
 
     const sample = {};
     const occurrences = {};
 
     // todo: remove this bit once sample DB update is possible
-    // check if saved
-    if (!this.metadata.saved) {
+    // check if saved or already send
+    if (!this.metadata.saved || this.getSyncStatus() === Indicia.SYNCED) {
       sample.send = false;
     }
 
@@ -44,7 +68,7 @@ let Sample = Morel.Sample.extend({
     } else {
       const date = new Date(attrs.date);
       if (date === 'Invalid Date' || date > new Date()) {
-        sample.date = (new Date(date) > new Date) ? 'future date' : 'invalid';
+        sample.date = (new Date(date) > new Date()) ? 'future date' : 'invalid';
       }
     }
 
@@ -73,34 +97,41 @@ let Sample = Morel.Sample.extend({
   },
 
   /**
-   * Set the record for submission and send it.
+   * Set the sample for submission and send it.
    */
-  setToSend(callback) {
+  setToSend() {
+    // don't change it's status if already saved
+    if (this.metadata.saved) {
+      return Promise.resolve(this);
+    }
+
     this.metadata.saved = true;
 
-    if (!this.isValid()) {
+    if (!this.isValid({ remote: true })) {
       // since the sample was invalid and so was not saved
       // we need to revert it's status
       this.metadata.saved = false;
       return false;
     }
 
-    // save record
-    const promise = this.save(null, {
-      success: () => {
-        callback && callback();
-      },
-      error: (err) => {
-        callback && callback(err);
-      },
-    });
+    Log('SampleModel: was set to send.');
 
-    return promise;
+    // save sample
+    return this.save();
+  },
+
+  isLocalOnly() {
+    const status = this.getSyncStatus();
+    return this.metadata.saved &&
+      (status === Indicia.LOCAL || status === Indicia.SYNCHRONISING);
+  },
+
+  timeout() {
+    if (!Device.connectionWifi()) {
+      return 180000; // 3 min
+    }
+    return 60000; // 1 min
   },
 });
 
-// add geolocation functionality
-Sample = Sample.extend(GeolocExtension);
-
-$.extend(true, Morel.Sample.keys, CONFIG.morel.sample);
 export { Sample as default };
