@@ -37,10 +37,15 @@ const Sample = Indicia.Sample.extend({
    * @returns {{device: *, device_version: *}}
    */
   defaults() {
+    let identifiers = '';
+    if (userModel.hasLogin()) {
+      identifiers = `${userModel.get('firstname')} ${userModel.get('secondname')}`;
+    }
     return {
       // attach device information
       device: Device.getPlatform(),
       device_version: Device.getVersion(),
+      identifiers,
     };
   },
 
