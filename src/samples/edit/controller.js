@@ -156,7 +156,7 @@ const API = {
 
     let missing = '';
     if (invalids.occurrences) {
-      _.each(invalids.occurrences, () => {
+      _.each(invalids.occurrences, (b) => {
         missing += `<b>occurrence cover</b> - missing</br>`;
       });
     }
