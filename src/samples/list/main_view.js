@@ -171,7 +171,7 @@ const SampleView = Marionette.View.extend({
 
 const NoSamplesView = Marionette.View.extend({
   tagName: 'li',
-  className: 'table-view-cell empty',
+  className: 'table-view-cell swipe empty',
   template: JST['samples/list/list-none'],
 });
 
