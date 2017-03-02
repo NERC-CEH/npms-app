@@ -140,7 +140,9 @@ const API = {
    */
   createNewSample(level, callback) {
     const survey_id = CONFIG.indicia.sample.surveys[level]; // eslint-disable-line
-    const sample = new Sample(null, { survey_id });
+    let input_form = `content/${level}-recording-form`; // eslint-disable-line
+
+    const sample = new Sample(null, { survey_id, input_form });
     sample.set('level', level);
 
     savedSamples.add(sample);

@@ -1,7 +1,11 @@
 <div class="info-message">
   <p>This record has been submitted and cannot be edited within this App.
-    Go to the <a href="http://www.npms.org.uk" target="_blank">NPMS website</a> to edit.</p>
-
+    <% if (obj.id) { %>
+    <a href="<%= obj.editUrl %>" class="btn btn-block btn-narrow" target="_blank">
+      View on NPMS
+      <span class="pull-right icon icon-link-ext"></span>
+    </a>
+    <% } %>
 </div>
 <ul class="table-view core inputs info no-top">
   <li class="table-view-cell">

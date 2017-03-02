@@ -31,6 +31,8 @@ const CONFIG = {
 
   gps_accuracy_limit: 100,
 
+  site_url: HOST,
+
   // logging
   log: true,
 

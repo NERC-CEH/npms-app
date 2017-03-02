@@ -1,12 +1,10 @@
 /** ****************************************************************************
  * Sample Show main view.
  *****************************************************************************/
-import Indicia from 'indicia';
 import Marionette from 'backbone.marionette';
 import JST from 'JST';
 import CONFIG from 'config';
 import DateHelp from 'helpers/date';
-import StringHelp from 'helpers/string';
 import Gallery from '../../common/gallery';
 import './styles.scss';
 
@@ -46,9 +44,13 @@ export default Marionette.View.extend({
 
     const habitat = sample.get('habitat') || {};
 
+    const editUrl = `${CONFIG.site_url}${sample.metadata.input_form}?sample_id=${sample.id}`;
+
     return {
       id: sample.cid,
       taxa: occ.length,
+      site_url: CONFIG.site_url,
+      editUrl,
       gridref,
       plot,
       habitat: habitat.broad,

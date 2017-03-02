@@ -13,6 +13,8 @@ const newConfig = $.extend(true, config, {
     status: false,
   },
 
+  site_url: HOST,
+
   // use prod logging if testing otherwise full log
   log: process.env.ENV !== 'testing',
 
