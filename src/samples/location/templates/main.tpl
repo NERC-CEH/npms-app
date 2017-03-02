@@ -4,7 +4,7 @@
   var square = obj.squares[squareKey];
   %>
 
-<li class="table-view-divider">Square <%= square.sref %></li>
+<li class="table-view-divider dark">Square <%= square.sref %></li>
   <%
   Object.keys(square.plots).forEach(function(plotKey) {
   var plot = square.plots[plotKey];
