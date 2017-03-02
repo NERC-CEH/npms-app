@@ -12,8 +12,8 @@ export default Marionette.View.extend({
   template: JST['settings/menu/main'],
 
   events: {
-    'toggle #use-autosync-btn': 'onSettingToggled',
-    'click #use-autosync-btn': 'onSettingToggled',
+    'toggle #use-training-btn': 'onSettingToggled',
+    'click #use-training-btn': 'onSettingToggled',
   },
 
   triggers: {
@@ -40,7 +40,6 @@ export default Marionette.View.extend({
     const appModel = this.model;
     return {
       useTraining: appModel.get('useTraining'),
-      autosync: appModel.get('autosync'),
     };
   },
 });
