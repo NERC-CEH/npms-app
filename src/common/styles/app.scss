@@ -221,7 +221,17 @@ header .subtitle {
 }
 
 .warn {
-  color: $color-orange;
+  color: $color-yellow;
+}
+
+.badge.warn {
+  color: $color-white;
+  background-color: $color-yellow;
+}
+
+.badge.error {
+  color: $color-white;
+  background-color: $color-orange;
 }
 
 //todo: alert is absolete
@@ -342,6 +352,17 @@ li h3 {
   a {
     color: $color-white;
     font-weight: bold;
+  }
+
+  .btn {
+    color: $color-black;
+    padding: 15px 0;
+
+    span.pull-right {
+      position: absolute;
+      right: 15px;
+      top: 0;
+    }
   }
 }
 
@@ -483,6 +504,11 @@ li.table-view-cell {
   }
 }
 
+ul.no-style {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 p a {
   color: $header-color;
@@ -664,6 +690,20 @@ header .pull-right {
     }
   }
 }
+
+// main page component header
+.main-header {
+  margin-left: -$main-content-margin;
+  margin-right: -$main-content-margin;
+  text-align: center;
+  padding: 8px 0;
+
+  &.training {
+    color: $color-white;
+    background-color: $color-black;
+  }
+}
+
 
 // increase margin on pull left list items
 .table-view .media-object.pull-left {

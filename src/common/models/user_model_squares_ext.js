@@ -2,25 +2,27 @@
  * User Model squares locations extension.
  *****************************************************************************/
 
-import $ from 'jquery';
+import Indicia from 'indicia';
 import CONFIG from 'config';
-import { Log } from 'helpers';
+import Log from 'helpers/log';
 
 const extension = {
   syncSquares(force) {
     const that = this;
     if (this.synchronizingSquares) {
-      return;
+      return this.synchronizingSquares;
     }
 
     if (this.hasLogIn() && this._lastSquaresSyncExpired() || force) {
       // init or refresh
-      this.synchronizingSquares = true;
-
-      this.fetchSquaresSpecies(() => {
-        that.synchronizingSquares = false;
+      this.synchronizingSquares = this.fetchSquaresSpecies(() => {
+        delete that.synchronizingSquares;
       });
+
+      return this.synchronizingSquares;
     }
+
+    return Promise.resolve();
   },
 
   resetSquares() {
@@ -34,40 +36,35 @@ const extension = {
    * collection in the main view.
    */
   fetchSquaresSpecies(callback) {
-    Log('UserModel: fetching squares');
+    Log('UserModel:Squares: fetching');
     this.trigger('sync:user:squares:start');
     const that = this;
     const squares = this.get('squares');
 
-    const data = {
+    const report = new Indicia.Report({
       report: 'reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml',
-      // user_id filled in by iform_mobile_auth proxy
-      path: CONFIG.morel.manager.input_form,
-      email: this.get('email'),
-      appname: CONFIG.morel.manager.appname,
-      appsecret: CONFIG.morel.manager.appsecret,
-      usersecret: this.get('secret'),
 
-      // todo check which ones will change per user
-      core_square_location_type_id: 3297,
-      additional_square_location_type_id: 3748,
-      current_user_id: 178,
-      vice_county_location_attribute_id: 66,
-      no_vice_county_found_message: '1km%20square',
-      user_square_attr_id: 6,
-    };
+      api_key: CONFIG.indicia.api_key,
+      host_url: CONFIG.indicia.host,
+      user: this.getUser.bind(this),
+      password: this.getPassword.bind(this),
+      params: {
+        // todo check which ones will change per user
+        core_square_location_type_id: 3297,
+        additional_square_location_type_id: 3748,
+        current_user_id: 178,
+        vice_county_location_attribute_id: 66,
+        no_vice_county_found_message: '1km%20square',
+        user_square_attr_id: 6,
+      },
+    });
 
-    $.ajax({
-      url: CONFIG.report.url,
-      type: 'POST',
-      data,
-      dataType: 'JSON',
-      timeout: CONFIG.report.timeout,
-      success(receivedData) {
+    const promise = report.run()
+      .then((receivedData) => {
         const data = {};
         receivedData.forEach((location) => {
-          const parent = parseInt(location.parent_id);
-          const id = parseInt(location.id);
+          const parent = parseInt(location.parent_id, 10);
+          const id = parseInt(location.id, 10);
           if (!parent) {
             // square
             data[id] = {
@@ -97,13 +94,14 @@ const extension = {
         that.save();
         callback();
         that.trigger('sync:user:squares:end');
-      },
-      error(err) {
-        Log('Squares load failed');
-        callback(err);
+      })
+      .catch((err) => {
+        Log('UserModel:SquaresExt: fetch failed');
         that.trigger('sync:user:squares:end');
-      },
-    });
+        return Promise.reject(err);
+      });
+
+    return promise;
   },
 
   /**

@@ -1,16 +1,17 @@
-require('dotenv').config(); // get local environment variables from .env
+require('dotenv').config({ silent: true }); // get local environment variables from .env
 
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('../package.json');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const sassLoaders = [
   'css-loader?-url',
   'postcss-loader',
-  'sass-loader?includePaths[]=' + path.resolve(__dirname, './src'),
+  `sass-loader?includePaths[]=${path.resolve(__dirname, './src')}`,
 ];
 
 module.exports = {
@@ -26,36 +27,28 @@ module.exports = {
   resolve: {
     root: [
       path.resolve('./dist/_build'),
-      path.resolve('./dist/_build/vendor'),
+      path.resolve('./node_modules/'),
       path.resolve('./src/'),
       path.resolve('./src/common/vendor'),
     ],
     alias: {
       app: 'app',
-      config: 'common/config',
-      helpers: 'common/helpers/main',
+      config: 'common/config/config',
+      helpers: 'common/helpers',
+      radio: 'common/radio',
+      saved_samples: 'common/saved_samples',
+      sample: 'common/models/sample',
+      occurrence: 'common/models/occurrence',
+      app_model: 'common/models/app_model',
+      user_model: 'common/models/user_model',
 
       // vendor
-      jquery: 'jquery/js/jquery',
-      lodash: 'lodash/js/lodash',
-      fastclick: 'fastclick/js/fastclick',
-      typeahead: 'typeahead.js/js/typeahead.jquery',
+      typeahead: 'typeahead.js/dist/typeahead.jquery',
       bootstrap: 'bootstrap/js/bootstrap',
-      ratchet: 'ratchet/js/ratchet',
-      indexedDBShim: 'IndexedDBShim/js/IndexedDBShim',
-      hammer: 'hammerjs/js/hammer',
-      underscore: 'lodash/js/lodash',
-      backbone: 'backbone/js/backbone',
-      'backbone.localStorage': 'backbone.localStorage/js/backbone.localStorage',
-      'backbone.radio': 'backbone.radio/js/backbone.radio',
-      marionette: 'marionette/js/backbone.marionette',
-      morel: 'morel/js/morel',
-      LatLon: 'latlon/js/latlon-ellipsoidal',
-      OsGridRef: 'latlon/js/osgridref',
-      'latlon-ellipsoidal': 'latlon/js/latlon-ellipsoidal',
-      'photoswipe-lib': 'photoswipe/js/photoswipe',
-      'photoswipe-ui-default': 'photoswipe/js/photoswipe-ui-default',
-},
+      ratchet: 'ratchet/dist/js/ratchet',
+      'photoswipe-lib': 'photoswipe/dist/photoswipe',
+      'photoswipe-ui-default': 'photoswipe/dist/photoswipe-ui-default',
+    },
   },
   module: {
     loaders: [
@@ -65,10 +58,11 @@ module.exports = {
         loader: 'babel-loader',
       },
       { test: /\.json/, loader: 'json' },
-      // { test: /(\.png)|(\.svg)/, loader: 'file' },
+      { test: /(\.png)|(\.svg)|(\.jpg)/, loader: 'file?name=images/[name].[ext]' },
+      { test: /(\.woff)|(\.ttf)/, loader: 'file?name=font/[name].[ext]' },
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
       },
     ],
   },
@@ -81,14 +75,13 @@ module.exports = {
       template: 'index.html',
     }),
     new webpack.DefinePlugin({
-      APP_BUILD: JSON.stringify(process.env.TRAVIS_BUILD_ID || new Date().getTime()),
-      'APP_NAME': JSON.stringify(pkg.name),
-      'APP_VERSION': JSON.stringify(pkg.version),
-      REGISTER_URL: JSON.stringify(process.env.REGISTER_URL || ''),
-      REPORT_URL: JSON.stringify(process.env.REPORT_URL || ''),
-      RECORD_URL: JSON.stringify(process.env.RECORD_URL || ''),
-      APP_SECRET: JSON.stringify(process.env.APP_SECRET || ''),
+      'process.env.TRAINING': process.env.TRAINING || false,
+      APP_BUILD: JSON.stringify(process.env.TRAVIS_BUILD_ID || pkg.build || new Date().getTime()),
+      APP_NAME: JSON.stringify(pkg.name),
+      APP_VERSION: JSON.stringify(pkg.version),
+      API_KEY: JSON.stringify(process.env.API_KEY || ''),
     }),
+    new CircularDependencyPlugin(),
   ],
   postcss: [
     autoprefixer({
@@ -96,7 +89,7 @@ module.exports = {
     }),
   ],
   stats: {
-    children: false
+    children: false,
   },
   cache: true,
 };

@@ -8,8 +8,8 @@ module.exports = (grunt) => {
   return {
     // Fix double define problem
     latlon: {
-      src: ['dist/_build/vendor/latlon/js/latlon-ellipsoidal.js',
-        'dist/_build/vendor/latlon/js/latlon-spherical.js'],
+      src: ['node_modules/geodesy/latlon-ellipsoidal.js',
+        'node_modules/geodesy/latlon-spherical.js'],
       overwrite: true,
       replacements: [
         {
@@ -29,25 +29,10 @@ module.exports = (grunt) => {
         },
       ],
     },
-    // Fix iOS 8 readonly broken IndexedDB
-    indexedDBShim: {
-      src: ['dist/_build/vendor/IndexedDBShim/js/IndexedDBShim.js'],
-      overwrite: true,
-      replacements: [
-        {
-          from: 'shim(\'indexedDB\', idbModules.shimIndexedDB);',
-          to: 'shim(\'_indexedDB\', idbModules.shimIndexedDB);',
-        },
-        {
-          from: 'shim(\'IDBKeyRange\', idbModules.IDBKeyRange);',
-          to: 'shim(\'_IDBKeyRange\', idbModules.IDBKeyRange);',
-        },
-      ],
-    },
 
     // ratchet's modal functionality is not compatable with spa routing
     ratchet: {
-      src: ['dist/_build/vendor/ratchet/js/ratchet.js'],
+      src: ['node_modules/ratchet/dist/js/ratchet.js'],
       overwrite: true,
       replacements: [{
         from: 'getModal(event)',
@@ -57,8 +42,8 @@ module.exports = (grunt) => {
 
     // need to remove Ratchet's default fonts to work with fontello ones
     ratchet_fonts: {
-      src: ['dist/_build/vendor/ratchet/css/ratchet.css'],
-      dest: BUILD + 'styles/ratchet.css',
+      src: ['node_modules/ratchet/dist/css/ratchet.css'],
+      overwrite: true,
       replacements: [
         {
           from: /font-family: Ratchicons;/g,
@@ -67,6 +52,17 @@ module.exports = (grunt) => {
         {
           from: /src: url\(\"\.\.\/fonts.*;/g,
           to: '',
+        }],
+    },
+
+    // need to remove Ratchet's default fonts to work with fontello ones
+    photoswipe: {
+      src: ['node_modules/photoswipe/dist/default-skin/default-skin.css'],
+      overwrite: true,
+      replacements: [
+        {
+          from: 'url(default-skin.',
+          to: 'url(images/default-skin.',
         }],
     },
 
@@ -84,13 +80,15 @@ module.exports = (grunt) => {
     // Cordova config changes
     cordova_config: {
       src: [
-        'config/cordova.xml',
+        'config/cordova/cordova.xml',
       ],
       dest: 'dist/cordova/config.xml',
       replacements: [
         {
           from: /\{ID\}/g, // string replacement
-          to: () => pkg.id,
+          to: () => {
+            return grunt.option('android') ? 'uk.ac.ceh.irecord' : pkg.id;
+          },
         },
         {
           from: /\{APP_VER\}/g, // string replacement

@@ -3,8 +3,8 @@
 </div>
 <div class="input-group">
   <div class="input-row">
-    <label class="media-object pull-left icon icon-mail"></label>
-    <input id="user-email" name="email" type="email" placeholder="Email">
+    <label class="media-object pull-left icon icon-user"></label>
+    <input id="user-name" name="name" type="email" placeholder="Username or email">
   </div>
   <div class="input-row">
     <label class="media-object pull-left icon icon-key"></label>
@@ -12,19 +12,3 @@
   </div>
 </div>
 <button id="login-button" class="btn btn-narrow btn-positive btn-block">Sign in</button>
-
-<ul class="table-view space-top">
-  <li class="table-view-cell">
-    <a href="http://www.npms.org.uk/user/register" class="navigate-right" target="_blank">
-      <span class="media-object pull-left icon icon-user-plus"></span>
-      Create new account
-    </a>
-  </li>
-  <li class="table-view-cell">
-    <a href="http://www.npms.org.uk/user/password"
-       class="navigate-right" rel="external">
-      <span class="media-object pull-left icon icon-key"></span>
-      Request new password
-    </a>
-  </li>
-</ul>

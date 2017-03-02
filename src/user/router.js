@@ -1,9 +1,10 @@
 /** ****************************************************************************
  * User router.
  *****************************************************************************/
-import Marionette from 'marionette';
-import { Log } from 'helpers';
+import Marionette from 'backbone.marionette';
+import Log from 'helpers/log';
 import App from 'app';
+import radio from 'radio';
 import LoginController from './login/controller';
 
 App.user = {};
@@ -11,16 +12,16 @@ App.user = {};
 const Router = Marionette.AppRouter.extend({
   routes: {
     'user/login(/)': LoginController.show,
-    'user/*path': function () { App.trigger('404:show'); },
+    'user/*path': () => { radio.trigger('app:404:show'); },
   },
 });
 
-App.on('user:login', (options) => {
+radio.on('user:login', (options) => {
   App.navigate('user/login', options);
   LoginController.show();
 });
 
 App.on('before:start', () => {
-  Log('User:router: initializing');
+  Log('User:router: initializing.');
   App.user.router = new Router();
 });

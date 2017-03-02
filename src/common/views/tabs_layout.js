@@ -1,9 +1,8 @@
 import Backbone from 'backbone';
 import _ from 'lodash';
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import JST from 'JST';
 import '../styles/tabs.scss';
-
 
 const Tab = Marionette.View.extend({
   tagName: 'li',
@@ -20,7 +19,7 @@ const Tab = Marionette.View.extend({
   },
 
   triggers: {
-    click: 'openTab',
+    click: 'open:tab',
   },
 });
 
@@ -28,15 +27,11 @@ const Tabs = Marionette.CollectionView.extend({
   tagName: 'ul',
   childView: Tab,
 
-  onAddChild(childView) {
-    childView.on('openTab', this.tabClicked, this);
-  },
-
-  tabClicked(e) {
-    const tabId = e.view.model.id;
+  onChildviewOpenTab(view) {
+    const tabId = view.model.id;
     const active = this.collection.find(model => model.get('active'));
     active.set('active', false);
-    e.view.model.set('active', true);
+    view.model.set('active', true);
 
     this.render();
 

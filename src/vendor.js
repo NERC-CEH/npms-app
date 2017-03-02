@@ -1,21 +1,23 @@
 /** ***************************************************************************
  * Load all vendor code here.
  *****************************************************************************/
+
+// shims
+import 'es6-promise/auto';
+import 'indexeddbshim';
+
 import 'jquery';
 import 'lodash';
 import 'fastclick';
 import 'typeahead';
 import 'bootstrap';
 import 'ratchet';
-import 'indexedDBShim';
-import 'hammer';
+import 'hammerjs';
 import 'underscore';
 import 'backbone';
-import 'backbone.localStorage';
-import 'marionette';
-import 'morel';
-import 'LatLon';
-import 'OsGridRef';
-import 'latlon-ellipsoidal';
+import 'backbone.localstorage';
+import 'backbone.marionette';
+import 'indicia';
+import { LatLon, OsGridRef, LatLonEllipsoidal } from 'geodesy';
 import 'photoswipe-lib';
 import 'photoswipe-ui-default';
