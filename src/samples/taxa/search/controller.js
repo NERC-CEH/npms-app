@@ -57,6 +57,10 @@ const API = {
 
   _showMainView(mainView, that, level) {
     const sampleID = that.id;
+
+    let existingSelection; // cache selection
+    let occurrences;
+
     mainView.on('taxon:selected', (taxon) => {
       API.addTaxon(sampleID, taxon)
         .then(occurrence =>
@@ -71,7 +75,23 @@ const API = {
 
     mainView.on('taxon:searched', (searchPhrase) => {
       SpeciesSearchEngine.search(level, searchPhrase, (selection) => {
-        mainView.updateSuggestions(new Backbone.Collection(selection), searchPhrase);
+        // remove already selected ones
+        const uniqueSelection = [];
+
+        if (!occurrences || !existingSelection) {
+          existingSelection = [];
+          occurrences = savedSamples.get(sampleID).occurrences;
+          occurrences.each((occ) => {
+            existingSelection.push(occ.get('taxon').warehouse_id);
+          });
+        }
+
+        selection.forEach((taxa) => {
+          if (existingSelection.indexOf(taxa.warehouse_id) === -1) {
+            uniqueSelection.push(taxa);
+          }
+        });
+        mainView.updateSuggestions(new Backbone.Collection(uniqueSelection), searchPhrase);
       });
     });
 
