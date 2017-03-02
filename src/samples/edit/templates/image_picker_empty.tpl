@@ -1,1 +1,1 @@
-No site photo has been added
+No plot photo has been added
