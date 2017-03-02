@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Indicia from 'indicia';
 import config from './config';
 
-const HOST = 'http://192.171.199.230/irecord7/'; // Backend URL - needs trailing slash
+const HOST = 'http://192.171.199.230/npms_training/'; // Backend URL - needs trailing slash
 
 const newConfig = $.extend(true, config, {
   // google analytics
@@ -24,6 +24,10 @@ const newConfig = $.extend(true, config, {
   reports: {
     url: `${HOST + Indicia.API_BASE + Indicia.API_VER + Indicia.API_REPORTS_PATH}`,
     timeout: 80000,
+  },
+
+  indicia: {
+    host: HOST,
   },
 });
 

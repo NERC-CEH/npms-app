@@ -103,15 +103,19 @@ const API = {
         break;
       case 'habitat':
         const habitat = sample.get('habitat') || {};
-        habitat.broad = values.habitat;
 
-        const allHabitats = CONFIG.indicia.sample.habitat._values;
-        const fineHabitats = Object.keys(allHabitats[habitat.broad].values);
-        if (fineHabitats.length === 1) {
-          habitat.fine = fineHabitats[0];
-        } else {
-          delete habitat.fine;
+        if (values.habitat) {
+          habitat.broad = values.habitat;
+
+          const allHabitats = CONFIG.indicia.sample.habitat._values;
+          const fineHabitats = Object.keys(allHabitats[habitat.broad].values);
+          if (fineHabitats.length === 1) {
+            habitat.fine = fineHabitats[0];
+          } else {
+            delete habitat.fine;
+          }
         }
+
         sample.set('habitat', habitat);
         break;
       case 'fine-habitat':

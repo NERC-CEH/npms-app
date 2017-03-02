@@ -113,7 +113,7 @@ const SampleView = Marionette.View.extend({
     const syncStatus = this.model.getSyncStatus();
 
     return {
-      id: sample.id || sample.cid,
+      id: sample.cid,
       training: sample.metadata.training,
       square,
       plot,

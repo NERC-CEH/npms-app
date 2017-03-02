@@ -73,25 +73,22 @@ const CONFIG = {
 
     sample: {
       // todo: add input form
-      // todo: change survey id dynamically
       surveys: {
-        values: {
-          indicator: 195,
-          inventory: 196,
-          wildflower: 197,
-        },
+        indicator: 195,
+        inventory: 196,
+        wildflower: 197,
       },
 
       // todo implement the survey 2
-      // survey_1: {
-      //   id: 474,
-      // },
+      survey_1: {
+        id: 474,
+      },
 
       location: {
         id: 'location_id',
         values(value, submission) {
           // add other location related attributes
-          submission.entered_sref = value.plot;
+          submission.fields.entered_sref = value.plot;
 
           return value.id;
         },
@@ -114,19 +111,17 @@ const CONFIG = {
 
       habitat: {
         id: 481,
-        values(value, options) {
-        let key = `smpAttr:${this.id}`;
+        values(value, submission) {
+          // add broad habitat
           let habitat = this._values[value.broad].id;
+          submission.fields[this.id] = habitat;
 
+          // add fine habitat
           if (value.fine) {
-            // add fine habitat
-            key = `${key}:${habitat}`;
+            const key = `${this.id}:${habitat}`;
             habitat = this._values[value.broad].values[value.fine];
+            submission.fields[key] = habitat;
           }
-
-          const attrs = {};
-          attrs[key] = habitat;
-          options.flattener(attrs, options);
         },
         _values: {
           'Arable margins': {
@@ -221,12 +216,7 @@ const CONFIG = {
         },
       },
       identifiers: {
-        values(value, options) {
-          // todo: clean up once morel is updated
-          options.flattener({
-            'sample:recorder_names': value,
-          }, options);
-        },
+        id: 'recorder_names',
       },
 
 

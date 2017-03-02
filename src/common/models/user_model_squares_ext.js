@@ -42,7 +42,7 @@ const extension = {
     const squares = this.get('squares');
 
     const report = new Indicia.Report({
-      report: 'reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml',
+      report: '/reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml',
 
       api_key: CONFIG.indicia.api_key,
       host_url: CONFIG.indicia.host,
@@ -61,8 +61,15 @@ const extension = {
 
     const promise = report.run()
       .then((receivedData) => {
+        if (typeof receivedData.data !== 'object' ) {
+          const err = new Error('Error while retrieving response.');
+          reject(err);
+          return;
+        }
+
+
         const data = {};
-        receivedData.forEach((location) => {
+        receivedData.data.forEach((location) => {
           const parent = parseInt(location.parent_id, 10);
           const id = parseInt(location.id, 10);
           if (!parent) {

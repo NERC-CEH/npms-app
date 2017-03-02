@@ -3,13 +3,13 @@
  *****************************************************************************/
 import Marionette from 'backbone.marionette';
 import $ from 'jquery';
-import App from 'app';
 import Indicia from 'indicia';
 import radio from 'radio';
 import Log from 'helpers/log';
 import Analytics from 'helpers/analytics';
 import appModel from 'app_model';
 import JST from 'JST';
+import CONFIG from 'config';
 import savedSamples from 'saved_samples';
 import Sample from 'sample';
 import MainView from './main_view';
@@ -139,7 +139,8 @@ const API = {
    * Creates a new sample with an image passed as an argument.
    */
   createNewSample(level, callback) {
-    const sample = new Sample();
+    const survey_id = CONFIG.indicia.sample.surveys[level]; // eslint-disable-line
+    const sample = new Sample(null, { survey_id });
     sample.set('level', level);
 
     savedSamples.add(sample);
