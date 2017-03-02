@@ -9,6 +9,7 @@ import App from 'app';
 import radio from 'radio';
 import CommonController from '../common/controller';
 import InfoMenuController from './menu/controller';
+import './credits/sponsor_logo.png';
 
 App.info = {};
 

@@ -1,4 +1,5 @@
 <ul class="table-view">
+  <li><img src="images/sponsor_logo.png" alt=""></li>
   <li>
     <p>
       <strong>We are very grateful for all the people that helped to
