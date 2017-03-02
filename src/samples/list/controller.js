@@ -7,6 +7,7 @@ import Indicia from 'indicia';
 import radio from 'radio';
 import Log from 'helpers/log';
 import Analytics from 'helpers/analytics';
+import userModel from 'user_model';
 import appModel from 'app_model';
 import JST from 'JST';
 import CONFIG from 'config';
@@ -87,11 +88,10 @@ const API = {
   },
 
   addSurvey() {
-    // todo: enable
-    // if (!userModel.hasLogIn()) {
-    //   radio.trigger('user:login');
-    //   return;
-    // }
+    if (!userModel.hasLogIn()) {
+      radio.trigger('user:login');
+      return;
+    }
 
     Log('Samples:List:Controller: adding survey');
     const View = Marionette.View.extend({
