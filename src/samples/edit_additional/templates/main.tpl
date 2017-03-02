@@ -17,14 +17,14 @@
     <a href="#samples/<%- obj.id %>/edit/wooded" class="navigate-right disabled">
       <span class="media-object pull-left icon icon-additional"></span>
       <span class="media-object pull-right descript"><%= obj.wooded %></span>
-      How wooded
+      Woody cover
     </a>
   </li>
   <li class="table-view-cell">
     <a href="#samples/<%- obj.id %>/edit/vegetation" class="navigate-right disabled">
       <span class="media-object pull-left icon icon-additional"></span>
       <span class="media-object pull-right descript"><%= obj.vegetation %></span>
-      Vegetation
+      Vegetation height
     </a>
   </li>
   <li class="table-view-cell">
