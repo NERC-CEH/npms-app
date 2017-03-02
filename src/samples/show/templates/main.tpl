@@ -11,7 +11,7 @@
   <li class="table-view-cell">
     <span class="media-object pull-left icon icon-habitat"></span>
     <span class="media-object pull-right descript"><%- obj.habitat %></span>
-    Habitat
+    Broad Habitat
   </li>
   <% if (obj['fine-habitat']) { %>
   <li class="table-view-cell">

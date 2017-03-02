@@ -15,7 +15,7 @@
           <%- obj.habitat %> </br>
         <% } %>
       </span>
-        Habitat
+        Broad Habitat
     </a>
   </li>
   <li class="table-view-cell">

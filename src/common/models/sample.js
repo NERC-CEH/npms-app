@@ -79,7 +79,7 @@ const Sample = Indicia.Sample.extend({
 
     // habitat
     if (!attrs.habitat || !attrs.habitat.broad) {
-      sample.habitat = 'missing';
+      sample['broad habitat'] = 'missing';
     }
 
     // habitat

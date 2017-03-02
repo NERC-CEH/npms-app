@@ -25,7 +25,7 @@
       <% } %>
 
       <% if (!obj.habitat) { %>
-      <div class="habitat error">Habitat is missing</div>
+      <div class="habitat error">Broad habitat is missing</div>
       <% } %>
 
       <div class="level"><%= obj.level %> survey</div>
