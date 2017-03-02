@@ -122,7 +122,7 @@
     </p>
   </li>
   <li>
-    For more help please visit the NPMS <a href="http://www.npms.org.uk/forum" target="_blank">forum</a>.
+    For more help, please email the NPMS coordinator at <a href="mailto:support@npms.org.uk">support@npms.org.uk</a>.
   </li>
 </ul>
 <br>
