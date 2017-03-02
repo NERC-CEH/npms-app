@@ -107,6 +107,20 @@ let UserModel = Backbone.Model.extend({
 
     return null;
   },
+
+  validateReset(attrs) {
+    const errors = {};
+
+    if (!attrs.name) {
+      errors.name = "can't be blank";
+    }
+
+    if (!_.isEmpty(errors)) {
+      return errors;
+    }
+
+    return null;
+  },
 });
 
 // add Squares management
