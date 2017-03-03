@@ -7,7 +7,12 @@
     </a>
     <% } %>
 </div>
-<ul class="table-view core inputs info no-top">
+
+<% if (obj.show_survey2) { %>
+<button class="btn btn-narrow btn-positive btn-block">Add Survey 2</button>
+<% } %>
+
+<ul class="table-view core inputs info">
   <li class="table-view-cell">
     <span class="media-object pull-left icon icon-habitat"></span>
     <span class="media-object pull-right descript"><%- obj.habitat %></span>

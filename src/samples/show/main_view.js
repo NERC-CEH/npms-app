@@ -15,6 +15,10 @@ export default Marionette.View.extend({
     'click img': 'photoView',
   },
 
+  triggers: {
+    'click button': 'survey',
+  },
+
   photoView(e) {
     e.preventDefault();
 
@@ -48,6 +52,7 @@ export default Marionette.View.extend({
 
     return {
       id: sample.cid,
+      show_survey2: !sample.get('survey_1'), // show if empty
       taxa: occ.length,
       site_url: CONFIG.site_url,
       editUrl,
