@@ -80,6 +80,11 @@ const extension = {
             };
           } else {
             // plot
+            // show only user plots
+            if (location.my_plot !== 'YES') {
+              return;
+            }
+
             if (!data[parent]) {
               // create new square if doesn't exist
               data[parent] = {
