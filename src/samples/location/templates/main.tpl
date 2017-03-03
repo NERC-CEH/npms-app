@@ -10,7 +10,9 @@
   var plot = square.plots[plotKey];
   %>
 
-  <li class="table-view-cell" data-id="<%- plotKey %>">Plot <%= plot.sref %></li>
+  <li class="table-view-cell wide" data-id="<%- plotKey %>">
+    <b><%= plot.label ? plot.label : 'Plot' %>:</b> <%= plot.sref %>
+  </li>
 
   <% }) %>
 <% }) %>

@@ -94,6 +94,7 @@ const extension = {
 
             data[parent].plots[id] = {
               sref: location.location_entered_sref,
+              label: location.plot_label,
             };
           }
 
