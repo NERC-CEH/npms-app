@@ -1,7 +1,6 @@
 /** ****************************************************************************
  * Sample Attribute main view.
  *****************************************************************************/
-import _ from 'lodash';
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 import Device from 'helpers/device';
@@ -36,11 +35,29 @@ const logsl = new LogSlider({ maxpos: 100, minval: 1, maxval: 500 });
 
 export default Marionette.View.extend({
   initialize(options) {
-    if (options.attr === 'fine-habitat') {
-      this.template = this.generateTemplate(options.attr);
-      return;
+    switch (options.attr) {
+      case 'habitat':
+      case 'fine-habitat':
+      case 'wooded':
+      this.template = JST['common/radio'];
+      break;
+
+      case 'management':
+        this.template = JST['common/checkbox'];
+        break;
+
+      case 'identifiers':
+      case 'grazing':
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
+        this.template = JST['common/input'];
+        break;
+
+      default:
+        this.template = JST[`samples/attr/${options.attr}`];
     }
-    this.template = JST[`samples/attr/${options.attr}`];
   },
 
   events: {
@@ -70,14 +87,8 @@ export default Marionette.View.extend({
         }
         break;
       }
+      case 'wooded':
       case 'habitat':
-        $inputs = this.$el.find('input');
-        $inputs.each((int, elem) => {
-          if ($(elem).prop('checked')) {
-            values[attr] = $(elem).val();
-          }
-        });
-        break;
       case 'fine-habitat':
         $inputs = this.$el.find('input');
         $inputs.each((int, elem) => {
@@ -86,12 +97,28 @@ export default Marionette.View.extend({
           }
         });
         break;
-      case 'identifiers':
-        value = this.$el.find('input').val();
-        values[attr] = StringHelp.escape(value);
-        break;
       case 'comment':
         value = this.$el.find('textarea').val();
+        values[attr] = StringHelp.escape(value);
+        break;
+
+      case 'management':
+        values[attr] = [];
+        $inputs = this.$el.find('input');
+        $inputs.each((int, elem) => {
+          if ($(elem).prop('checked')) {
+            values[attr].push($(elem).val());
+          }
+        });
+        break;
+
+      case 'identifiers':
+      case 'grazing':
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
+        value = this.$el.find('input').val();
         values[attr] = StringHelp.escape(value);
         break;
       default:
@@ -101,25 +128,61 @@ export default Marionette.View.extend({
   },
 
   serializeData() {
-    const templateData = {};
+    let templateData = {};
+    let selected;
     switch (this.options.attr) {
       case 'date':
         templateData.date = DateHelp.toDateInputValue(this.model.get('date'));
         templateData.maxDate = DateHelp.toDateInputValue(new Date());
         break;
+
       case 'habitat':
-        const habitat = this.model.get('habitat') || {};
-        templateData[habitat.broad] = true;
+        selected = this.model.get('habitat') || {};
+        templateData = {
+          message: 'Please select a broad habitat. Please ensure your choice of habitat matches the species list you are using.',
+          selection: Object.keys(CONFIG.indicia.sample.habitat._values),
+          selected: selected.broad,
+        };
         break;
+
       case 'fine-habitat':
-        const habitat2 = this.model.get('habitat') || {};
-        templateData[habitat2.fine] = true;
+        selected = this.model.get('habitat') || {};
+        const fineHabitat = CONFIG.indicia.sample.habitat._values[selected.broad];
+        templateData = {
+          message: 'Please select your fine habitat.',
+          selection: Object.keys(fineHabitat.values),
+          selected: selected.fine,
+        };
         break;
-      case 'identifiers':
-        templateData.identifiers = this.model.get('identifiers');
+
+      case 'wooded':
+        selected = this.model.get('wooded');
+        templateData = {
+          message: 'How wooded is your plot?',
+          selection: Object.keys(CONFIG.indicia.sample.wooded.values),
+          selected,
+        };
         break;
+
+      case 'management':
+        selected = this.model.get('management') || [];
+        templateData = {
+          selection: Object.keys(CONFIG.indicia.sample.management.values),
+          selected,
+        };
+
+        break;
+
       case 'comment':
-        templateData.comment = this.model.get('comment');
+      case 'identifiers':
+        templateData.message = 'Please add additional recorders here.';
+      case 'grazing':
+        templateData.message = 'Which animals were grazing?';
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
+        templateData.value = this.model.get(this.options.attr);
         break;
       default:
         Log('Samples:Attribute:MainView: no such attribute', 'e');
@@ -200,30 +263,6 @@ export default Marionette.View.extend({
         break;
       default:
     }
-  },
-
-  generateTemplate(attr) {
-    let template = '';
-    const habitat = this.model.get('habitat') || {};
-    const specificHabitats = CONFIG.indicia.sample.habitat._values[habitat.broad];
-
-    const fineHabitatsKeys = Object.keys(specificHabitats.values);
-
-    fineHabitatsKeys.forEach((habitat) => {
-      template += `
-
-  <label class="item item-radio">
-    <input type="radio" name="group" value="${habitat}" <%- obj['${habitat}'] ? 'checked' : ''%>>
-    <div class="radio-content">
-      <div class="item-content">
-        ${habitat}
-      </div>
-      <i class="radio-icon icon-check"></i>
-    </div>
-  </label>
-`;
-    });
-    return _.template(template);
   },
 });
 

@@ -11,15 +11,16 @@ export default Marionette.View.extend({
     const sample = this.model.get('sample');
 
     return {
-      // management,
-      // grazing,
-      // wooded,
-      // vegetation,
-      // comment,
-      // soil,
-      // gravel,
-      // litter,
-      // lichens,
+      id: sample.cid,
+      management: sample.get('management'),
+      grazing: sample.get('grazing'),
+      wooded: sample.get('wooded'),
+      vegetation: sample.get('vegetation'),
+      comment: sample.get('comment'),
+      soil: sample.get('soil'),
+      gravel: sample.get('gravel'),
+      litter: sample.get('litter'),
+      lichens: sample.get('lichens'),
     };
   },
 });

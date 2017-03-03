@@ -11,30 +11,40 @@ import HeaderView from '../../common/views/header_view';
 
 const API = {
   show(sampleID) {
-    Log('Samples:Edit:Controller: showing');
-
-    savedSamples.get(sampleID, (err, sample) => {
-      if (err) {
-        Log(err, 'e');
-      }
-
-      // MAIN
-      const mainView = new MainView({
-        model: new Backbone.Model({ sample, appModel }),
+    // wait till savedSamples is fully initialized
+    if (savedSamples.fetching) {
+      const that = this;
+      savedSamples.once('fetching:done', () => {
+        API.show.apply(that, [sampleID]);
       });
-      radio.trigger('app:main', mainView);
+      return;
+    }
 
-      // HEADER
-      const headerView = new HeaderView({
-        model: new Backbone.Model({
-          title: 'Additional',
-        }),
-      });
-      radio.trigger('app:header', headerView);
+    Log('Samples:EditAditional:Controller: showing');
 
-      // FOOTER
-      radio.trigger('app:footer:hide'); ;
+    const sample = savedSamples.get(sampleID);
+    // Not found
+    if (!sample) {
+      Log('No sample model found.', 'e');
+      radio.trigger('app:404:show', { replace: true });
+      return;
+    }
+    // MAIN
+    const mainView = new MainView({
+      model: new Backbone.Model({ sample, appModel }),
     });
+    radio.trigger('app:main', mainView);
+
+    // HEADER
+    const headerView = new HeaderView({
+      model: new Backbone.Model({
+        title: 'Additional',
+      }),
+    });
+    radio.trigger('app:header', headerView);
+
+    // FOOTER
+    radio.trigger('app:footer:hide'); ;
   },
 };
 

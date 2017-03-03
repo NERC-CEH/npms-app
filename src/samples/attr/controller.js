@@ -63,12 +63,12 @@ const API = {
 
       API.onExit(mainView, sample, attr, () => {
         // editing existing sample
-        if (attr === 'habitat' && habitat.broad) {
-          window.history.back();
+        if (attr === 'habitat' && !habitat.broad) {
+          // todo: skipping habitat makes two back clicks
+          radio.trigger('samples:edit', sample.cid, { replace: true });
           return;
         }
-        // todo: skipping habitat makes two back clicks
-        radio.trigger('samples:edit', sample.cid, { replace: true });
+        window.history.back();
       });
     });
 
@@ -104,7 +104,8 @@ const API = {
       case 'habitat':
         const habitat = sample.get('habitat') || {};
 
-        if (values.habitat) {
+        // reset habitat only if new selection
+        if (values.habitat && values.habitat !== habitat.broad) {
           habitat.broad = values.habitat;
 
           const allHabitats = CONFIG.indicia.sample.habitat._values;
@@ -123,16 +124,19 @@ const API = {
         oldhabitat.fine = values['fine-habitat'];
         sample.set('habitat', oldhabitat);
         break;
-      case 'identifiers':
-        // todo:validate before setting up
-        // don't save default values
-        newVal = values.identifiers;
-        sample.set('identifiers', newVal);
-        break;
       case 'comment':
-        // todo:validate before setting up
-        newVal = values.comment;
-        sample.set('comment', newVal);
+
+      // extra attributes
+      case 'identifiers':
+      case 'management':
+      case 'grazing':
+      case 'wooded':
+      case 'vegetation':
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
+        sample.set(attr, values[attr]);
         break;
       default:
     }
