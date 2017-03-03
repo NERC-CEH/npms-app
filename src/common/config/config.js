@@ -8,6 +8,21 @@ import LocHelp from 'helpers/location';
 
 const HOST = 'http://www.npms.org.uk/';
 
+// wildflower survey
+const rangeValuesWildflower = [
+  '< 1% (1-2 indivs)',
+  '< 1% (several indivs)',
+  '1-4%',
+  '5-10%',
+  '11-25%',
+  '26-33%',
+  '34-50%',
+  '51-75%',
+  '76-90%',
+  '91-100%',
+];
+
+// indicator and inventory surveys
 const rangeValues = {
   '< 1% (1-2 indivs)': 3648,
   '< 1% (several indivs)': 3649,
@@ -71,7 +86,6 @@ const CONFIG = {
     host: HOST,
     api_key: API_KEY,
     website_id: 109,
-    survey_id: 195,
 
     sample: {
       // todo: add input form
@@ -284,9 +298,16 @@ const CONFIG = {
         },
       },
       abundance: {
-        id: 263,
-        values(value) {
-          return Object.keys(rangeValues).indexOf(value) + 1;
+        id_wild: 263,
+        id: 264,
+        values(value, submission, occ) {
+          // wildflower uses different abundance attribute and values
+          if (occ.parent.metadata.survey_id === CONFIG.indicia.sample.surveys.wildflower) {
+            submission.fields[this.id_wild] = rangeValuesWildflower.indexOf(value) + 1;
+            return null;
+          }
+
+          return rangeValues[value];
         },
       }, //1-10
     },
