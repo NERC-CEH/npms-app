@@ -61,10 +61,9 @@ const extension = {
 
     const promise = report.run()
       .then((receivedData) => {
-        if (typeof receivedData.data !== 'object' ) {
+        if (typeof receivedData.data !== 'object') {
           const err = new Error('Error while retrieving response.');
-          reject(err);
-          return;
+          return Promise.reject(err);
         }
 
 
@@ -97,6 +96,8 @@ const extension = {
               sref: location.location_entered_sref,
             };
           }
+
+          return null;
         });
 
         // save and exit
