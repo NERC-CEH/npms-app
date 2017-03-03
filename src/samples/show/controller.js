@@ -87,54 +87,24 @@ const API = {
     }
 
     Log('Samples:List:Controller: adding survey');
-    const View = Marionette.View.extend({
-      template: JST['samples/list/levels'],
-      events: {
-        'click input[type="radio"]'() {
-          // find the option
-          let option;
-          const $inputs = this.$el.find('input');
-          $inputs.each((int, elem) => {
-            if ($(elem).prop('checked')) {
-              option = $(elem).val();
-            }
-          });
+    API.createNewSample(sampleID, (sample) => {
+      radio.trigger('app:dialog:hide');
 
-          // create new sample
-          API.createNewSample(option, sampleID, (sample) => {
-            radio.trigger('app:dialog:hide');
-
-            // open sample page
-            radio.trigger('samples:edit:attr', sample.cid, 'habitat');
-          });
-        },
-      },
-    });
-
-    const body = new View();
-
-    radio.trigger('app:dialog', {
-      title: 'Survey level',
-      body,
-      buttons: [
-        {
-          title: 'Cancel',
-          onClick() {
-            radio.trigger('app:dialog:hide');
-          },
-        },
-      ],
+      // open sample page
+      radio.trigger('samples:edit:attr', sample.cid, 'habitat');
     });
   },
 
   /**
    * Creates a new sample with an image passed as an argument.
    */
-  createNewSample(level, sampleID, callback) {
+  createNewSample(sampleID, callback) {
+    const sample1 = savedSamples.get(sampleID);
+    const level = sample1.get('level');
+
     const survey_id = CONFIG.indicia.sample.surveys[level]; // eslint-disable-line
     let input_form = `content/${level}-recording-form`; // eslint-disable-line
 
-    const sample1 = savedSamples.get(sampleID);
     const survey_1 = sample1.id; // eslint-disable-line
 
     const sample = new Sample({ survey_1 }, { survey_id, input_form });
