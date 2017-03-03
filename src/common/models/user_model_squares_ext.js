@@ -52,10 +52,10 @@ const extension = {
         // todo check which ones will change per user
         core_square_location_type_id: 3297,
         additional_square_location_type_id: 3748,
-        current_user_id: 178,
         vice_county_location_attribute_id: 66,
         no_vice_county_found_message: '1km%20square',
         user_square_attr_id: 6,
+        plot_number_attr_id: 68,
       },
     });
 
