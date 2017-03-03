@@ -126,6 +126,7 @@ const CONFIG = {
       },
 
       habitat: {
+        type: 'radio',
         id: 481,
         values(value, submission) {
           // add broad habitat
@@ -232,13 +233,23 @@ const CONFIG = {
         },
       },
       identifiers: {
+        type: 'input',
         id: 'recorder_names',
       },
 
 
       management: {
-        id: 473,
-        values: {
+        type: 'checkbox',
+        id: 472,
+        values(value) {
+          const that = this;
+          const values = [];
+          value.forEach((option) => {
+            values.push(that._values[option]);
+          });
+          return values;
+        },
+        _values: {
           'Arable cropping': 3658,
           Burning: 3659,
           Coppicing: 3660,
@@ -259,8 +270,11 @@ const CONFIG = {
           Other: 3675,
         },
       },
+
       'management other': { id: 472 },
+
       grazing: {
+        type: 'radio',
         id: 462,
         values: {
           low: 1982,
@@ -268,8 +282,10 @@ const CONFIG = {
           high: 1984,
         },
       },
+
       'grazing other': { id: 471 },
       wooded: {
+        type: 'radio',
         id: 463,
         values: {
           'Woodland canopy': 1985,
@@ -278,11 +294,24 @@ const CONFIG = {
           'No trees or shrubs': 1988,
         },
       },
-      'veg 10': { id: 466 },
-      'veg 11-30': { id: 467 },
-      'veg 31-100': { id: 468 },
-      'veg 101-300': { id: 469 },
-      'veg 300': { id: 470 },
+
+      vegetation: {
+        values(value, submission) {
+          const that = this;
+          const selection = Object.keys(value);
+
+          selection.forEach((key) => {
+            submission.fields[that._values[key]] = value[key];
+          });
+        },
+        _values: {
+          '<=10cm': 466,
+          '11-30cm': 467,
+          '31-100cm': 468,
+          '101-300cm': 469,
+          '>300cm': 470,
+        },
+      },
 
       soil: { id: 475, values: rangeValues },
       gravel: { id: 477, values: rangeValues },
@@ -298,6 +327,7 @@ const CONFIG = {
         },
       },
       abundance: {
+        type: 'radio',
         id_wild: 263,
         id: 264,
         values(value, submission, occ) {

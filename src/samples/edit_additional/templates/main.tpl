@@ -23,7 +23,7 @@
   <li class="table-view-cell">
     <a href="#samples/<%- obj.id %>/edit/vegetation" class="navigate-right">
       <span class="media-object pull-left icon icon-additional"></span>
-      <span class="media-object pull-right descript"><%= obj.vegetation %></span>
+      <span class="media-object pull-right descript"></span>
       Vegetation height
     </a>
   </li>

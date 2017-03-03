@@ -39,19 +39,19 @@ export default Marionette.View.extend({
       case 'habitat':
       case 'fine-habitat':
       case 'wooded':
-      this.template = JST['common/radio'];
-      break;
+      case 'grazing':
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
+        this.template = JST['common/radio'];
+        break;
 
       case 'management':
         this.template = JST['common/checkbox'];
         break;
 
       case 'identifiers':
-      case 'grazing':
-      case 'soil':
-      case 'gravel':
-      case 'litter':
-      case 'lichens':
         this.template = JST['common/input'];
         break;
 
@@ -90,6 +90,11 @@ export default Marionette.View.extend({
       case 'wooded':
       case 'habitat':
       case 'fine-habitat':
+      case 'grazing':
+      case 'soil':
+      case 'gravel':
+      case 'litter':
+      case 'lichens':
         $inputs = this.$el.find('input');
         $inputs.each((int, elem) => {
           if ($(elem).prop('checked')) {
@@ -97,6 +102,7 @@ export default Marionette.View.extend({
           }
         });
         break;
+
       case 'comment':
         value = this.$el.find('textarea').val();
         values[attr] = StringHelp.escape(value);
@@ -113,13 +119,25 @@ export default Marionette.View.extend({
         break;
 
       case 'identifiers':
-      case 'grazing':
-      case 'soil':
-      case 'gravel':
-      case 'litter':
-      case 'lichens':
         value = this.$el.find('input').val();
         values[attr] = StringHelp.escape(value);
+        break;
+
+      case 'vegetation':
+        const vegetation = {};
+        // todo: validate
+        value = this.$el.find('input[name="<=10cm"]').val();
+        vegetation['<=10cm'] = parseInt(value, 10);
+        value = this.$el.find('input[name="11-30cm"]').val();
+        vegetation['11-30cm'] = parseInt(value, 10);
+        value = this.$el.find('input[name="31-100cm"]').val();
+        vegetation['31-100cm'] = parseInt(value, 10);
+        value = this.$el.find('input[name="101-300cm"]').val();
+        vegetation['101-300cm'] = parseInt(value, 10);
+        value = this.$el.find('input[name=">300cm"]').val();
+        vegetation['>300cm'] = parseInt(value, 10);
+
+        values[attr] = vegetation;
         break;
       default:
     }
@@ -164,26 +182,37 @@ export default Marionette.View.extend({
         };
         break;
 
-      case 'management':
-        selected = this.model.get('management') || [];
-        templateData = {
-          selection: Object.keys(CONFIG.indicia.sample.management.values),
-          selected,
-        };
-
-        break;
-
-      case 'comment':
-      case 'identifiers':
-        templateData.message = 'Please add additional recorders here.';
       case 'grazing':
         templateData.message = 'Which animals were grazing?';
       case 'soil':
       case 'gravel':
       case 'litter':
       case 'lichens':
+        selected = this.model.get(this.options.attr);
+        templateData.selection = Object.keys(CONFIG.indicia.sample[this.options.attr].values);
+        templateData.selected = selected;
+        break;
+
+      case 'management':
+        selected = this.model.get('management') || [];
+        templateData = {
+          selection: Object.keys(CONFIG.indicia.sample.management._values),
+          selected,
+        };
+        break;
+
+      case 'comment':
         templateData.value = this.model.get(this.options.attr);
         break;
+      case 'identifiers':
+        templateData.message = 'Please add additional recorders here.';
+        templateData.value = this.model.get(this.options.attr);
+        break;
+
+      case 'vegetation':
+        templateData.value = this.model.get(this.options.attr) || {};
+        break;
+
       default:
         Log('Samples:Attribute:MainView: no such attribute', 'e');
         return null;

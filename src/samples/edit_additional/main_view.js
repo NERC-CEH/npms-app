@@ -12,7 +12,7 @@ export default Marionette.View.extend({
 
     return {
       id: sample.cid,
-      management: sample.get('management'),
+      management: sample.get('management') || [],
       grazing: sample.get('grazing'),
       wooded: sample.get('wooded'),
       vegetation: sample.get('vegetation'),
