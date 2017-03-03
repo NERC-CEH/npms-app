@@ -3,7 +3,7 @@
     <p><strong>Use of your name</strong></p>
 
     <p>If you choose to create a user account for the app, this will be created on the
-      <a href="http://npms.org.uk" rel="external">NPMS system</a>.
+      <a href="http://www.npms.org.uk" rel="external">NPMS system</a>.
       This enables you to log in and see your records and those submitted by other people for all
       species. Your name, as specified when you create the account, will appear next to your
       records and will be viewable by other users of NPMS.</p>

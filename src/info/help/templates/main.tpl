@@ -49,7 +49,7 @@
       (synced to the database). Once it has successfully reached
       the database the record becomes unavailable for new edits.
       To further edit it
-      please use the <a href="http://npms.org.uk">NPMS Website</a>.
+      please use the <a href="http://www.npms.org.uk">NPMS Website</a>.
       <br>
       <br>
       <b>Note:</b> you have to be signed in to your NPMS account and have a network connection,
