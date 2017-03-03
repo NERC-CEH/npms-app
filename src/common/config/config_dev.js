@@ -30,6 +30,17 @@ const newConfig = $.extend(true, config, {
 
   indicia: {
     host: HOST,
+
+    sample: {
+      device: {
+        id: 829,
+        values: {
+          iOS: 14317,
+          Android: 14318,
+        },
+      },
+      device_version: { id: 836 },
+    },
   },
 });
 
