@@ -85,6 +85,12 @@ module.exports = (grunt) => {
       dest: 'dist/cordova/config.xml',
       replacements: [
         {
+          from: /\{ID\}/g, // string replacement
+          to: () => {
+            return pkg.id;
+          },
+        },
+        {
           from: /\{APP_VER\}/g, // string replacement
           to: () => pkg.version,
         },

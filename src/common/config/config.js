@@ -106,6 +106,11 @@ const CONFIG = {
           // add other location related attributes
           submission.fields.entered_sref = value.plot;
 
+          // lat lon
+          if (value.plot.match(/\d+\.\d+N \d+\.\d+W/g)) {
+            submission.fields.entered_sref_system = 4326;
+          }
+
           return value.id;
         },
       },
