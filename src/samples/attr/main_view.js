@@ -74,6 +74,15 @@ export default Marionette.View.extend({
   },
 
   getValues() {
+    function parseVegetation(value) {
+      const parsedValue = parseInt(value, 10);
+      if (isNaN(parsedValue) || parsedValue > 3 || parsedValue < 0) {
+        return null;
+      }
+
+      return parsedValue;
+    }
+
     const values = {};
     let value;
     const attr = this.options.attr;
@@ -125,17 +134,21 @@ export default Marionette.View.extend({
 
       case 'vegetation':
         const vegetation = {};
-        // todo: validate
+
         value = this.$el.find('input[name="<=10cm"]').val();
-        vegetation['<=10cm'] = parseInt(value, 10);
+        vegetation['<=10cm'] = parseVegetation(value);
+
         value = this.$el.find('input[name="11-30cm"]').val();
-        vegetation['11-30cm'] = parseInt(value, 10);
+        vegetation['11-30cm'] = parseVegetation(value);
+
         value = this.$el.find('input[name="31-100cm"]').val();
-        vegetation['31-100cm'] = parseInt(value, 10);
+        vegetation['31-100cm'] = parseVegetation(value);
+
         value = this.$el.find('input[name="101-300cm"]').val();
-        vegetation['101-300cm'] = parseInt(value, 10);
+        vegetation['101-300cm'] = parseVegetation(value);
+
         value = this.$el.find('input[name=">300cm"]').val();
-        vegetation['>300cm'] = parseInt(value, 10);
+        vegetation['>300cm'] = parseVegetation(value);
 
         values[attr] = vegetation;
         break;
