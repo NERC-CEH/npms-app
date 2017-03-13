@@ -10,7 +10,7 @@ export default Marionette.View.extend({
   template: JST['samples/taxa/edit/abundance'],
 
   events: {
-    'change input[type=radio]': function (e) {
+    'change input[type=radio]'(e) { // eslint-disable-line
       const value = $(e.target).val();
       this.trigger('save', value);
     },

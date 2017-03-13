@@ -6,7 +6,6 @@ import Marionette from 'backbone.marionette';
 import Indicia from 'indicia';
 import Hammer from 'hammerjs';
 import Log from 'helpers/log';
-import StringHelp from 'helpers/string';
 import Device from 'helpers/device';
 import DateHelp from 'helpers/date';
 import JST from 'JST';

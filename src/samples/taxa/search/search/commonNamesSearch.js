@@ -19,7 +19,8 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function (species, commonNamePointersArray, searchPhrase, results = [], maxResults = MAX) {
+export default function (species, commonNamePointersArray, searchPhrase,
+                         results = [], maxResults = MAX) {
   const searchWords = searchPhrase.split(' ');
 
   // prepare first word regex

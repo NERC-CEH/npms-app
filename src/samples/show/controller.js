@@ -1,8 +1,6 @@
 /** ****************************************************************************
  * Sample Show controller.
  *****************************************************************************/
-import Marionette from 'backbone.marionette';
-import $ from 'jquery';
 import Backbone from 'backbone';
 import radio from 'radio';
 import Log from 'helpers/log';
@@ -10,7 +8,6 @@ import Device from 'helpers/device';
 import Sample from 'sample';
 import appModel from 'app_model';
 import userModel from 'user_model';
-import JST from 'JST';
 import CONFIG from 'config';
 import savedSamples from 'saved_samples';
 import MainView from './main_view';
@@ -96,8 +93,9 @@ const API = {
   },
 
   /**
-   * Creates a new sample with an image passed as an argument.
+   * Creates a new sample.
    */
+  // TODO: copy survey 1 attrs
   createNewSample(sampleID, callback) {
     const sample1 = savedSamples.get(sampleID);
     const level = sample1.get('level');

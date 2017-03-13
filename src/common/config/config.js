@@ -1,10 +1,8 @@
 /** ****************************************************************************
  * Main app configuration file.
  *****************************************************************************/
-import $ from 'jquery';
 import Indicia from 'indicia';
 import DateHelp from 'helpers/date';
-import LocHelp from 'helpers/location';
 
 const HOST = 'http://www.npms.org.uk/';
 
@@ -76,7 +74,7 @@ const CONFIG = {
   // mapping
   map: {
     os_api_key: '28994B5673A86451E0530C6CA40A91A5',
-    mapbox_api_key: 'pk.eyJ1IjoiY2VoYXBwcyIsImEiOiJjaXBxdTZyOWYwMDZoaWVuYjI3Y3Z0a2x5In0.YXrZA_DgWCdjyE0vnTCrmw',
+    mapbox_api_key: 'pk.eyJ1IjoiY2VoYXBwcyIsImEiOiJjaXBxdTZyOWYwMDZoaWVuYjI3Y3Z0a2x5In0.YXrZA_DgWCdjyE0vnTCrmw', // eslint-disable-line
     mapbox_osm_id: 'cehapps.0fenl1fe',
     mapbox_satellite_id: 'cehapps.0femh3mh',
   },
@@ -104,11 +102,11 @@ const CONFIG = {
         id: 'location_id',
         values(value, submission) {
           // add other location related attributes
-          submission.fields.entered_sref = value.plot;
+          submission.fields.entered_sref = value.plot; // eslint-disable-line
 
           // lat lon
           if (value.plot.match(/\d+\.\d+N \d+\.\d+W/g)) {
-            submission.fields.entered_sref_system = 4326;
+            submission.fields.entered_sref_system = 4326; // eslint-disable-line
           }
 
           return value.id;
@@ -136,13 +134,13 @@ const CONFIG = {
         values(value, submission) {
           // add broad habitat
           let habitat = this._values[value.broad].id;
-          submission.fields[this.id] = habitat;
+          submission.fields[this.id] = habitat; // eslint-disable-line
 
           // add fine habitat
           if (value.fine) {
             const key = `${this.id}:${habitat}`;
             habitat = this._values[value.broad].values[value.fine];
-            submission.fields[key] = habitat;
+            submission.fields[key] = habitat; // eslint-disable-line
           }
         },
         _values: {
@@ -306,7 +304,7 @@ const CONFIG = {
           const selection = Object.keys(value);
 
           selection.forEach((key) => {
-            submission.fields[that._values[key]] = value[key];
+            submission.fields[that._values[key]] = value[key]; // eslint-disable-line
           });
         },
         _values: {
@@ -338,7 +336,7 @@ const CONFIG = {
         values(value, submission, occ) {
           // wildflower uses different abundance attribute and values
           if (occ.parent.metadata.survey_id === CONFIG.indicia.sample.surveys.wildflower) {
-            submission.fields[this.id_wild] = rangeValuesWildflower.indexOf(value) + 1;
+            submission.fields[this.id_wild] = rangeValuesWildflower.indexOf(value) + 1; // eslint-disable-line
             return null;
           }
 

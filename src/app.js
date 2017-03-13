@@ -138,10 +138,10 @@ radio.on('app:header:hide', (options) => {
 radio.on('app:footer:hide', (options) => {
   App.regions.getRegion('footer').hide(options).empty();
 });
-radio.on('app:loader', (options) => {
+radio.on('app:loader', () => {
   App.regions.getRegion('dialog').showLoader();
 });
-radio.on('app:loader:hide', (options) => {
+radio.on('app:loader:hide', () => {
   App.regions.getRegion('dialog').hideLoader();
 });
 

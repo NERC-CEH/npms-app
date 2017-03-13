@@ -2,10 +2,8 @@
  * Sample Edit main view.
  *****************************************************************************/
 import Marionette from 'backbone.marionette';
-import Indicia from 'indicia';
 import JST from 'JST';
 import DateHelp from 'helpers/date';
-import StringHelp from 'helpers/string';
 
 import './styles.scss';
 

@@ -6,8 +6,8 @@ import Marionette from 'backbone.marionette';
 import Hammer from 'hammerjs';
 import Device from 'helpers/device';
 import Log from 'helpers/log';
-import Gallery from '../../../common/gallery';
 import JST from 'JST';
+import Gallery from '../../../common/gallery';
 import './styles.scss';
 
 const SpeciesView = Marionette.View.extend({
@@ -21,7 +21,7 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    'click .js-attr': function (e) {
+    'click .js-attr'(e) { // eslint-disable-line
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
@@ -33,7 +33,7 @@ const SpeciesView = Marionette.View.extend({
 
     const items = [];
 
-    this.model.images.each((image, index) => {
+    this.model.images.each((image) => {
       items.push({
         src: image.getURL(),
         w: image.get('width') || 800,

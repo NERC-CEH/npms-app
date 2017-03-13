@@ -9,7 +9,7 @@ import Log from 'helpers/log';
 import Analytics from 'helpers/analytics';
 import squaresExtension from './user_model_squares_ext';
 
-let UserModel = Backbone.Model.extend({
+const UserModel = Backbone.Model.extend({
   id: 'user',
 
   defaults: {
@@ -124,7 +124,7 @@ let UserModel = Backbone.Model.extend({
 });
 
 // add Squares management
-UserModel = UserModel.extend(squaresExtension);
+const UserModelSquares = UserModel.extend(squaresExtension);
 
-const userModel = new UserModel();
-export { userModel as default, UserModel };
+const userModel = new UserModelSquares();
+export { userModel as default, UserModelSquares };

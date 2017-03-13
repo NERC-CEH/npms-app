@@ -97,7 +97,7 @@ const API = {
     const View = Marionette.View.extend({
       template: JST['samples/list/levels'],
       events: {
-        'click input[type="radio"]'() {
+        'click input[type="radio"]'() { // eslint-disable-line
           // find the option
           let option;
           const $inputs = this.$el.find('input');

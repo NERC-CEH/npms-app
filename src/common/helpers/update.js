@@ -4,11 +4,9 @@
 
 import radio from 'radio';
 import CONFIG from 'config';
-import savedSamples from 'saved_samples';
+import appModel from 'app_model';
 import Log from './log';
 import Analytics from './analytics';
-import appModel from 'app_model';
-import userModel from 'user_model';
 
 const MIN_UPDATE_TIME = 5000; // show updating dialog for minimum seconds
 
@@ -36,17 +34,20 @@ const MIN_UPDATE_TIME = 5000; // show updating dialog for minimum seconds
  * @since 2011-07-14
  */
 function versionCompare(left, right) {
-  if (typeof left + typeof right !== 'stringstring')
+  if (typeof left + typeof right !== 'stringstring') {
     return false;
+  }
 
-  let a = left.split('.')
-    , b = right.split('.')
-    , i = 0, len = Math.max(a.length, b.length);
+  const a = left.split('.');
+  const b = right.split('.');
+  const len = Math.max(a.length, b.length);
 
-  for (; i < len; i++) {
-    if ((a[i] && !b[i] && parseInt(a[i], 10) > 0) || (parseInt(a[i], 10) > parseInt(b[i], 10))) {
+  for (let i = 0; i < len; i++) {
+    if ((a[i] && !b[i] && parseInt(a[i], 10) > 0) ||
+      (parseInt(a[i], 10) > parseInt(b[i], 10))) {
       return 1;
-    } else if ((b[i] && !a[i] && parseInt(b[i], 10) > 0) || (parseInt(a[i], 10) < parseInt(b[i], 10))) {
+    } else if ((b[i] && !a[i] && parseInt(b[i], 10) > 0) ||
+      (parseInt(a[i], 10) < parseInt(b[i], 10))) {
       return -1;
     }
   }
@@ -93,7 +94,8 @@ const API = {
       return API._applyUpdates(firstUpdate, (error) => {
         if (error) {
           if (!silent) {
-            radio.trigger('app:dialog:error', 'Sorry, an error has occurred while updating the app');
+            radio.trigger('app:dialog:error',
+              'Sorry, an error has occurred while updating the app');
           }
           return null;
         }

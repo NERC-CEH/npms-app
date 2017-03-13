@@ -13,7 +13,7 @@ const extension = {
       return this.synchronizingSquares;
     }
 
-    if (this.hasLogIn() && this._lastSquaresSyncExpired() || force) {
+    if (this.hasLogIn() && (this._lastSquaresSyncExpired() || force)) {
       // init or refresh
       this.synchronizingSquares = this.fetchSquaresSpecies(() => {
         delete that.synchronizingSquares;
@@ -66,7 +66,6 @@ const extension = {
           return Promise.reject(err);
         }
 
-
         const data = {};
         receivedData.data.forEach((location) => {
           const parent = parseInt(location.parent_id, 10);
@@ -97,8 +96,6 @@ const extension = {
               label: location.plot_label,
             };
           }
-
-          return null;
         });
 
         // save and exit
@@ -108,6 +105,7 @@ const extension = {
         that.save();
         callback();
         that.trigger('sync:user:squares:end');
+        return null;
       })
       .catch((err) => {
         Log('UserModel:SquaresExt: fetch failed');

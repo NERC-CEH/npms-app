@@ -4,8 +4,8 @@
 import Backbone from 'backbone';
 import Log from 'helpers/log';
 import radio from 'radio';
-import appModel from '../../common/models/app_model';
 import savedSamples from 'saved_samples';
+import appModel from '../../common/models/app_model';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
 
@@ -44,7 +44,7 @@ const API = {
     radio.trigger('app:header', headerView);
 
     // FOOTER
-    radio.trigger('app:footer:hide'); ;
+    radio.trigger('app:footer:hide');
   },
 };
 

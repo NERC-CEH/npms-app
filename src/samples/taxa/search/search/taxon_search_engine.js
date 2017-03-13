@@ -11,7 +11,7 @@ import helpers from './searchHelpers';
 
 const species = {};
 let loading = false;
-const species_names = {};
+const speciesNames = {};
 
 const MAX = 20;
 
@@ -27,7 +27,7 @@ const API = {
         species[list] = data;
       })
         .done($.getJSON(`data/${list}_names.data.json`, (data) => {
-          species_names[list] = data;
+          speciesNames[list] = data;
         })
           .done(() => {
             loading = false;
@@ -51,12 +51,12 @@ const API = {
    }
    */
   search(list = 'inventory', searchPhrase, callback, maxResults = MAX, scientificOnly) {
+    function proceed() {
+      API.search(list, searchPhrase || '', callback, maxResults, scientificOnly);
+    }
+
     if (!species[list]) {
       // initialize
-      function proceed() {
-        API.search(list, searchPhrase || '', callback, maxResults, scientificOnly);
-      }
-
       if (!loading) {
         API.init(list, proceed);
       } else {
@@ -78,7 +78,7 @@ const API = {
       searchSciNames(species[list], normSearchPhrase, results, maxResults);
     } else {
       // search common names
-      results = searchCommonNames(species[list], species_names[list], normSearchPhrase);
+      results = searchCommonNames(species[list], speciesNames[list], normSearchPhrase);
 
       // if not enough
       if (results.length <= MAX) {

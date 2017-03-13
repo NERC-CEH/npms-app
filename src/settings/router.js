@@ -5,7 +5,6 @@ import Marionette from 'backbone.marionette';
 import App from 'app';
 import radio from 'radio';
 import Log from 'helpers/log';
-import CommonController from '../common/controller';
 import MenuController from './menu/controller';
 
 App.settings = {};

@@ -33,6 +33,7 @@ module.exports = {
     ],
     alias: {
       app: 'app',
+      JST: 'JST',
       config: 'common/config/config',
       helpers: 'common/helpers',
       radio: 'common/radio',

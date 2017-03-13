@@ -157,7 +157,8 @@ export default Marionette.View.extend({
       case 'habitat':
         selected = this.model.get('habitat') || {};
         templateData = {
-          message: 'Please select a broad habitat. Please ensure your choice of habitat matches the species list you are using.',
+          message: 'Please select a broad habitat. Please ensure your choice of ' +
+          'habitat matches the species list you are using.',
           selection: Object.keys(CONFIG.indicia.sample.habitat._values),
           selected: selected.broad,
         };

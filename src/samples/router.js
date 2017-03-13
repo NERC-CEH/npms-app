@@ -98,22 +98,6 @@ radio.on('samples:edit:attr', (sampleID, attrID, options) => {
   }
 });
 
-radio.on('samples:new', (options) => {
-  App.navigate('samples/new', options);
-  EditController.show();
-});
-
-radio.on('samples:new:attr', (attrID, options) => {
-  App.navigate(`samples/new/${attrID}`, options);
-  switch (attrID) {
-    case 'taxon':
-      TaxonController.show();
-      break;
-    default:
-      EditAttrController.show(null, attrID);
-  }
-});
-
 radio.on('sample:saved', () => {
   window.history.back();
 });

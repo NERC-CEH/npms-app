@@ -1,9 +1,10 @@
 <div class="info-message">
   <p>Please enter in the box how much of the vegetation falls in to each category where:
-    0 = 0
-    1 = < 1/3rd
-    2 = between 1/3rd and 2/3rds
-    3= >2/3rds
+    </br>
+    0 = 0 </br>
+    1 = < 1/3rd </br>
+    2 = between 1/3rd and 2/3rds </br>
+    3= >2/3rds </br>
     E.g. if up to 1/3rd is 30-100cm enter 1 in the box.
   </p>
 </div>

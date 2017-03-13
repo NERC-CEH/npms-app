@@ -156,8 +156,8 @@ const API = {
 
     let missing = '';
     if (invalids.occurrences) {
-      _.each(invalids.occurrences, (b) => {
-        missing += `<b>occurrence cover</b> - missing</br>`;
+      _.each(invalids.occurrences, () => {
+        missing += '<b>occurrence cover</b> - missing</br>';
       });
     }
     if (invalids.sample) {
@@ -179,8 +179,8 @@ const API = {
     // show loader
     API.addPhoto(sample, photo).catch((err) => {
       Log(err, 'e');
-    radio.trigger('app:dialog:error', err);
-  });
+      radio.trigger('app:dialog:error', err);
+    });
   },
 
   photoDelete(photo) {
@@ -217,8 +217,6 @@ const API = {
 
   photoSelect(sample) {
     Log('Samples:Edit:Controller: photo selection.');
-    const occurrence = sample.getOccurrence();
-
     radio.trigger('app:dialog', {
       title: 'Choose a method to upload a photo',
       buttons: [

@@ -17,38 +17,38 @@ const Router = Marionette.AppRouter.extend({
   routes: {
     'info(/)': InfoMenuController.show,
     'info/about(/)': () => {
-    CommonController.show({
-    title: 'About',
-    App,
-    route: 'info/about/main',
-    model: new Backbone.Model({
-      version: CONFIG.version,
-      build: CONFIG.build,
-    }),
-  });
-},
-'info/help(/)': () => {
-  CommonController.show({
-    title: 'Help',
-    App,
-    route: 'info/help/main',
-    model: new Backbone.Model({
-      irecord_url: CONFIG.irecord_url,
-    }),
-  });
-},
-'info/privacy(/)': () => {
-  CommonController.show({
-    title: 'Privacy Policy', App, route: 'info/privacy/main',
-  });
-},
-'info/credits(/)': () => {
-  CommonController.show({
-    title: 'Credits', App, route: 'info/credits/main',
-  });
-},
-'info/*path': () => { radio.trigger('app:404:show'); },
-},
+      CommonController.show({
+        title: 'About',
+        App,
+        route: 'info/about/main',
+        model: new Backbone.Model({
+          version: CONFIG.version,
+          build: CONFIG.build,
+        }),
+      });
+    },
+    'info/help(/)': () => {
+      CommonController.show({
+        title: 'Help',
+        App,
+        route: 'info/help/main',
+        model: new Backbone.Model({
+          irecord_url: CONFIG.irecord_url,
+        }),
+      });
+    },
+    'info/privacy(/)': () => {
+      CommonController.show({
+        title: 'Privacy Policy', App, route: 'info/privacy/main',
+      });
+    },
+    'info/credits(/)': () => {
+      CommonController.show({
+        title: 'Credits', App, route: 'info/credits/main',
+      });
+    },
+    'info/*path': () => { radio.trigger('app:404:show'); },
+  },
 });
 
 App.on('before:start', () => {

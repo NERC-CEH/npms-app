@@ -18,7 +18,8 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function (species, searchPhrase, results = [], maxResults = MAX, hybridRun) {
+export default function (species, searchPhrase, results = [],
+                         maxResults = MAX, hybridRun) {
   const searchWords = searchPhrase.split(' ');
 
   // prepare first word regex
@@ -81,7 +82,11 @@ export default function (species, searchPhrase, results = [], maxResults = MAX, 
       // if this is genus
       if (speciesArray) {
         // go through all species
-        for (let speciesIndex = 0, length = speciesArray.length; speciesIndex < length && results.length < maxResults; speciesIndex++) {
+        for (
+          let speciesIndex = 0, length = speciesArray.length;
+          speciesIndex < length && results.length < maxResults;
+          speciesIndex++
+        ) {
           const speciesInArray = speciesArray[speciesIndex];
           if (otherWordsRegex) {
             // if search through species
@@ -94,7 +99,7 @@ export default function (species, searchPhrase, results = [], maxResults = MAX, 
                 found_in_name: 'scientific_name',
                 warehouse_id: speciesInArray[WAREHOUSE_INDEX],
                 group: speciesEntry[GROUP_INDEX],
-                scientific_name: speciesEntry[SCI_NAME_INDEX] + ' ' + speciesInArray[SPECIES_SCI_NAME_INDEX],
+                scientific_name: `${speciesEntry[SCI_NAME_INDEX]} ${speciesInArray[SPECIES_SCI_NAME_INDEX]}`, // eslint-disable-line
                 common_name: speciesInArray[SPECIES_COMMON_INDEX],
                 synonym: speciesInArray[SPECIES_COMMON_SYN_INDEX],
               };
