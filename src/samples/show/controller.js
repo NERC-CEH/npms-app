@@ -1,6 +1,7 @@
 /** ****************************************************************************
  * Sample Show controller.
  *****************************************************************************/
+import _ from 'lodash';
 import Backbone from 'backbone';
 import radio from 'radio';
 import Log from 'helpers/log';
@@ -88,25 +89,22 @@ const API = {
       radio.trigger('app:dialog:hide');
 
       // open sample page
-      radio.trigger('samples:edit:attr', sample.cid, 'habitat');
+      radio.trigger('samples:edit', sample.cid);
     });
   },
 
   /**
    * Creates a new sample.
    */
-  // TODO: copy survey 1 attrs
   createNewSample(sampleID, callback) {
     const sample1 = savedSamples.get(sampleID);
-    const level = sample1.get('level');
 
-    const survey_id = CONFIG.indicia.sample.surveys[level]; // eslint-disable-line
-    let input_form = `content/${level}-recording-form`; // eslint-disable-line
+    const attributes = _.extend({}, sample1.attributes, { survey_1: sample1.id });
 
-    const survey_1 = sample1.id; // eslint-disable-line
-
-    const sample = new Sample({ survey_1 }, { survey_id, input_form });
-    sample.set('level', level);
+    const sample = new Sample(attributes, {
+      survey_id: sample1.metadata.survey_id,
+      input_form: sample1.metadata.input_form,
+    });
 
     savedSamples.add(sample);
     sample.save()
