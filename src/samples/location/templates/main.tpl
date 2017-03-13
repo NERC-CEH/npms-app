@@ -1,7 +1,7 @@
 <ul class="table-view">
   <% if (!Object.keys(obj.squares).length) { %>
   <li class="table-view-cell">Sorry, you have no plots to select.
-    </br>Please create your plots at the main NPMS website.</li>
+    Please create your plots at the main NPMS website.</li>
   <% } %>
 <%
   Object.keys(obj.squares).forEach(function(squareKey) {
