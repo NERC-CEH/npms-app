@@ -2,17 +2,6 @@
   <li class="table-view-divider">Records</li>
   <li class="table-view-cell">
     <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c1" aria-expanded="false" aria-controls="c1">
-      <span class="icon icon-collapse pull-left"></span>
-      How to make a new record
-    </a>
-    <p id="c1" class="collapse"
-       aria-labelledby="headingOne" aria-expanded="false">
-      TODO
-    </p>
-  </li>
-  <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
        href="#c2" aria-expanded="false" aria-controls="c2">
       <span class="icon icon-collapse pull-left"></span>
       Searching for species
