@@ -161,6 +161,7 @@ export default Marionette.View.extend({
   serializeData() {
     let templateData = {};
     let selected;
+
     switch (this.options.attr) {
       case 'date':
         templateData.date = DateHelp.toDateInputValue(this.model.get('date'));
@@ -228,7 +229,7 @@ export default Marionette.View.extend({
         break;
 
       default:
-        Log('Samples:Attribute:MainView: no such attribute', 'e');
+        Log('Samples:Attribute:MainView: no such attribute.', 'e');
         return null;
     }
 
