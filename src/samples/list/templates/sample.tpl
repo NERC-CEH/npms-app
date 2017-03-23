@@ -3,6 +3,7 @@
   <% } else { %>
   <a href="#samples/<%- obj.id %>/edit/" class="mobile">
     <% } %>
+    <div class="media-object pull-left photo"><%= obj.img %></div>
     <div class="pull-right">
       <% if (obj.saved) { %>
       <% if (obj.isSynchronising) { %>

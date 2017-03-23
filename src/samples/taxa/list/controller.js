@@ -6,6 +6,7 @@ import radio from 'radio';
 import Log from 'helpers/log';
 import savedSamples from 'saved_samples';
 import appModel from '../../../common/models/app_model';
+import PhotoPicker from '../../../common/photo_picker';
 import MainView from './main_view';
 import HeaderView from './header_view';
 
@@ -39,6 +40,20 @@ const API = {
     });
 
     mainView.on('childview:species:delete', API.delete);
+
+    mainView.on('childview:photo:upload', (e, model) => {
+      const photo = e.target.files[0];
+      PhotoPicker.photoUpload(model, photo);
+    });
+
+    mainView.on('childview:photo:delete', (model) => {
+      PhotoPicker.photoDelete(model);
+    });
+
+    // android gallery/camera selection
+    mainView.on('childview:photo:selection', (model) => {
+      PhotoPicker.photoSelect(model);
+    });
 
     radio.trigger('app:main', mainView);
 

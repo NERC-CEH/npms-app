@@ -15,6 +15,11 @@ const SpeciesView = Marionette.View.extend({
   className: 'table-view-cell swipe',
   template: JST['samples/taxa/list/taxon'],
 
+  initialize() {
+    const images = this.model.media;
+    this.listenTo(images, 'add remove set', this.render);
+  },
+
   triggers: {
     'click #delete': 'species:delete',
   },
@@ -25,7 +30,18 @@ const SpeciesView = Marionette.View.extend({
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
+    'click span.delete': 'delete',
     'click img': 'photoView',
+    'change input'(e) { // eslint-disable-line
+      e.preventDefault();
+      this.trigger('photo:upload', e, this.model);
+    },
+  },
+
+  delete(e) {
+    e.preventDefault();
+    const img = this.model.media.at(0);
+    this.trigger('photo:delete', img);
   },
 
   photoView(e) {
@@ -33,15 +49,14 @@ const SpeciesView = Marionette.View.extend({
 
     const items = [];
 
-    this.model.images.each((image) => {
-      items.push({
-        src: image.getURL(),
-        w: image.get('width') || 800,
-        h: image.get('height') || 800,
-      });
+    const img = this.model.media.at(0);
+    items.push({
+      src: img.getURL(),
+      w: img.get('width') || 800,
+      h: img.get('height') || 800,
     });
 
-// Initializes and opens PhotoSwipe
+    // Initializes and opens PhotoSwipe
     const gallery = new Gallery(items);
     gallery.init();
   },
@@ -92,18 +107,38 @@ const SpeciesView = Marionette.View.extend({
   },
 
   serializeData() {
-    const occurrence = this.model;
-    const sample = occurrence.parent;
-    const taxon = occurrence.get('taxon');
-    const abundance = occurrence.get('abundance');
+    const occ = this.model;
+    const sample = occ.parent;
+    const taxon = occ.get('taxon');
+    const abundance = occ.get('abundance');
+
+    let img;
+    if (occ.media.length) {
+      img = occ.media.at(0).get('thumbnail');
+    }
 
     return {
       id: sample.id || sample.cid,
-      occId: occurrence.id || occurrence.cid,
+      occId: occ.id || occ.cid,
       common_name: taxon.common_name,
       scientific_name: taxon.scientific_name,
       abundance,
+      img,
     };
+  },
+
+  onAttach() {
+    const that = this;
+
+    // create camera/gallery selection
+    if (window.cordova) {
+      this.$el.find('.img-picker input').remove();
+
+      this.$el.find('.img-picker').on('click', (e) => {
+        e.preventDefault();
+        that.trigger('photo:selection', that.model);
+      });
+    }
   },
 
   _swipe(e, options) {

@@ -108,6 +108,7 @@ const SampleView = Marionette.View.extend({
     const plot = location.plot;
     const level = sample.get('level');
     const habitat = sample.get('habitat') || {};
+    const img = sample.media.length && sample.media.at(0).get('thumbnail');
 
     const syncStatus = this.model.getSyncStatus();
 
@@ -122,6 +123,7 @@ const SampleView = Marionette.View.extend({
       saved: sample.metadata.saved,
       onDatabase: syncStatus === Indicia.SYNCED,
       isSynchronising: syncStatus === Indicia.SYNCHRONISING,
+      img: img ? `<img src="${img}"/>` : '',
     };
   },
 
