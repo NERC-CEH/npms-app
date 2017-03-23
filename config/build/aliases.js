@@ -69,6 +69,7 @@ module.exports = (grunt) => {
       'exec:cordova_copy_dist',
       // 'cordova:_prepAndroid', // !!!!! use this to switch between android and ios
       'replace:cordova_config',
+      'replace:cordova_build',
       'exec:cordova_add_platforms',
     ],
 
@@ -81,6 +82,7 @@ module.exports = (grunt) => {
       'exec:cordova_clean_www',
       'exec:cordova_copy_dist',
       'replace:cordova_config',
+      'replace:cordova_build',
       'exec:cordova_rebuild',
     ],
 
@@ -89,11 +91,13 @@ module.exports = (grunt) => {
       // new
       'cordova:_prepAndroid',
       'replace:cordova_config',
+      'replace:cordova_build',
       'exec:cordova_android_build',
 
       // old
       'cordova:_prepAndroidOld',
       'replace:cordova_config',
+      'replace:cordova_build',
       'exec:cordova_android_build_old',
     ],
 

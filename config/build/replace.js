@@ -86,9 +86,7 @@ module.exports = (grunt) => {
       replacements: [
         {
           from: /\{ID\}/g, // string replacement
-          to: () => {
-            return pkg.id;
-          },
+          to: () => pkg.id,
         },
         {
           from: /\{APP_VER\}/g, // string replacement
@@ -121,6 +119,18 @@ module.exports = (grunt) => {
             }
             return version;
           },
+        },
+      ],
+    },
+    cordova_build: {
+      src: [
+        'config/cordova/build.json',
+      ],
+      dest: 'dist/cordova/build.json',
+      replacements: [
+        {
+          from: /\{DEV_TEAM_ID\}/g, // string replacement
+          to: () => process.env.DEV_TEAM_ID,
         },
       ],
     },

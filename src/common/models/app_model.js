@@ -10,7 +10,7 @@ const AppModel = Backbone.Model.extend({
 
   defaults: {
     autosync: true,
-    useTraining: false,
+    useTraining: process.env.TRAINING,
   },
 
   localStorage: new Store(CONFIG.name),
