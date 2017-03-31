@@ -86,14 +86,12 @@ const CONFIG = {
     website_id: 109,
 
     sample: {
-      // todo: add input form
       surveys: {
         indicator: 195,
         inventory: 196,
         wildflower: 197,
       },
 
-      // todo implement the survey 2
       survey_1: {
         id: 474,
       },
@@ -277,16 +275,19 @@ const CONFIG = {
       'management other': { id: 472 },
 
       grazing: {
-        type: 'radio',
         id: 462,
-        values: {
+        id_text: 471,
+        values(value, submission) {
+          submission.fields[this.id_text] = value.text;
+          return this._values[value.selected];
+        },
+        _values: {
           low: 1982,
           moderate: 1983,
           high: 1984,
         },
       },
 
-      'grazing other': { id: 471 },
       wooded: {
         type: 'radio',
         id: 463,

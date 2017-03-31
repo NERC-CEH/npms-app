@@ -230,7 +230,6 @@ export default Marionette.View.extend({
         };
         break;
 
-      case 'grazing':
       case 'comment':
         templateData.value = this.model.get(this.options.attr);
         break;
@@ -239,6 +238,7 @@ export default Marionette.View.extend({
         templateData.value = this.model.get(this.options.attr);
         break;
 
+      case 'grazing':
       case 'vegetation':
         templateData.value = this.model.get(this.options.attr) || {};
         break;
