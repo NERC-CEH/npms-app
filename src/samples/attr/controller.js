@@ -54,6 +54,9 @@ const API = {
       case 'gravel':
         title = 'Bare Rock/Gravel';
         break;
+      case 'soi':
+        title = 'Bare Soil';
+        break;
       default:
     }
     const headerView = new HeaderView({
