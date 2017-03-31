@@ -14,6 +14,7 @@
       <br><i>lin cat</i>
       <br><i>l cat</i>
       <br><i>l .cum</i>
+      <br><br>Note: searches can also be made using common names.
     </p>
   </li>
   <li class="table-view-cell">
