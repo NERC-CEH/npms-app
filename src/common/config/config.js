@@ -267,7 +267,7 @@ const CONFIG = {
           'Path, track or road works': 3669,
           Quarrying: 3670,
           'Scrub clearance / tree felling': 3671,
-          'Silage production (i.e. black bags)': 3672,
+          'Silage production': 3672,
           'Tree planting': 3673,
           'Water regime regulation': 3674,
           Other: 3675,

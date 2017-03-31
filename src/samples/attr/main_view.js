@@ -39,7 +39,6 @@ export default Marionette.View.extend({
       case 'habitat':
       case 'fine-habitat':
       case 'wooded':
-      case 'grazing':
       case 'soil':
       case 'gravel':
       case 'litter':
@@ -67,6 +66,10 @@ export default Marionette.View.extend({
   },
 
   saveNumber() {
+    // grazing option has free text as well
+    if (this.options.attr === 'grazing') {
+      return;
+    }
     // unset slider val
     const $rangeOutput = this.$el.find('#rangeVal');
     $rangeOutput.val('');
@@ -99,7 +102,6 @@ export default Marionette.View.extend({
       case 'wooded':
       case 'habitat':
       case 'fine-habitat':
-      case 'grazing':
       case 'soil':
       case 'gravel':
       case 'litter':
@@ -125,6 +127,20 @@ export default Marionette.View.extend({
             values[attr].push($(elem).val());
           }
         });
+        break;
+
+      case 'grazing':
+        const text = this.$el.find('input[type="text"]').val();
+        values.grazing = {
+          text: StringHelp.escape(text),
+        };
+        $inputs = this.$el.find('input');
+        $inputs.each((int, elem) => {
+          if ($(elem).prop('checked')) {
+            values.grazing.selected = $(elem).val();
+          }
+        });
+
         break;
 
       case 'identifiers':
@@ -197,8 +213,6 @@ export default Marionette.View.extend({
         };
         break;
 
-      case 'grazing':
-        templateData.message = 'Which animals were grazing?';
       case 'soil':
       case 'gravel':
       case 'litter':
@@ -216,11 +230,12 @@ export default Marionette.View.extend({
         };
         break;
 
+      case 'grazing':
       case 'comment':
         templateData.value = this.model.get(this.options.attr);
         break;
       case 'identifiers':
-        templateData.message = 'Please add additional recorders here.';
+        templateData.message = 'Please only add additional recorders here.';
         templateData.value = this.model.get(this.options.attr);
         break;
 

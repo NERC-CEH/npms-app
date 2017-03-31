@@ -46,13 +46,23 @@ const API = {
     radio.trigger('app:main', mainView);
 
     // HEADER
+    let title = attr;
+    switch (attr) {
+      case 'identifiers':
+        title = 'Recorder Names';
+        break;
+      case 'gravel':
+        title = 'Bare Rock/Gravel';
+        break;
+      default:
+    }
     const headerView = new HeaderView({
       onExit() {
         API.onExit(mainView, sample, attr, () => {
           window.history.back();
         });
       },
-      model: new Backbone.Model({ title: attr }),
+      model: new Backbone.Model({ title }),
     });
 
     radio.trigger('app:header', headerView);

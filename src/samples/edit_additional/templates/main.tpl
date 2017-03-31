@@ -9,7 +9,6 @@
   <li class="table-view-cell">
     <a href="#samples/<%- obj.id %>/edit/grazing" class="navigate-right">
       <span class="media-object pull-left icon icon-additional"></span>
-      <span class="media-object pull-right descript"><%= obj.grazing %></span>
       Grazing
     </a>
   </li>
