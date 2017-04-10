@@ -1,7 +1,7 @@
 <div class="info-message">
   <p>This record has been submitted and cannot be edited within this App.
     <% if (obj.id) { %>
-    <a href="<%= obj.editUrl %>" class="btn btn-block btn-narrow" target="_blank">
+    <a href="<%= obj.editUrl %>" class="btn btn-block btn-narrow">
       View on NPMS
       <span class="pull-right icon icon-link-ext"></span>
     </a>
