@@ -15,7 +15,7 @@ const API = {
     // Turn on the error logging
     Raven
       .config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
-        environment: process.env.ENV,
+        environment: CONFIG.environment,
         release: CONFIG.version,
         ignoreErrors: [
           'setSelectionRange', // there is some fastclick issue (does not affect ux)

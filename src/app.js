@@ -11,15 +11,11 @@ import FastClick from 'fastclick';
 import radio from 'radio';
 import Log from 'helpers/log';
 import Update from 'helpers/update';
-import Analytics from 'helpers/analytics';
 import Device from 'helpers/device';
 import CommonController from './common/controller';
 import DialogRegion from './common/views/dialog_region';
 import HideableRegion from './common/views/hideable_region';
 import './common/router_extension';
-
-// init Analytics
-Analytics.init();
 
 const App = new Marionette.Application();
 
@@ -95,14 +91,6 @@ App.on('start', () => {
           $('#loader').remove();
         });
       }
-
-      /**
-       import savedSamples from 'saved_samples';
-       $(document).ready(() => {
-         // For screenshots capture only
-          window.testing.screenshotsPopulate(savedSamples);
-        });
-       */
     }
   });
 });

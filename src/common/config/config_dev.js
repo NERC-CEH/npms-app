@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Indicia from 'indicia';
 import config from './config';
 
-// const HOST = 'http://test.brc.ac.uk/npms_training/'; // Backend URL - needs trailing slash
+const HOST = 'http://test.brc.ac.uk/npms_training/'; // Backend URL - needs trailing slash
 
 // indicator and inventory surveys
 const rangeValues = {
@@ -22,15 +22,7 @@ const rangeValues = {
 };
 
 const newConfig = $.extend(true, config, {
-  // google analytics
-  ga: {
-    status: false,
-  },
-
   site_url: HOST,
-
-  // use prod logging if testing otherwise full log
-  log: process.env.ENV !== 'testing',
 
   users: {
     url: `${HOST + Indicia.API_BASE + Indicia.API_VER}/users/`,
