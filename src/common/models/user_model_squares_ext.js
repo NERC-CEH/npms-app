@@ -50,12 +50,12 @@ const extension = {
       password: this.getPassword.bind(this),
       params: {
         // todo check which ones will change per user
-        core_square_location_type_id: 3297,
-        additional_square_location_type_id: 3748,
-        vice_county_location_attribute_id: 66,
-        no_vice_county_found_message: '1km%20square',
-        user_square_attr_id: 6,
-        plot_number_attr_id: 68,
+        core_square_location_type_id: CONFIG.indicia.reports.core_square_location_type_id,
+        additional_square_location_type_id: CONFIG.indicia.reports.additional_square_location_type_id,
+        vice_county_location_attribute_id: CONFIG.indicia.reports.vice_county_location_attribute_id,
+        no_vice_county_found_message: CONFIG.indicia.reports.no_vice_county_found_message,
+        user_square_attr_id: CONFIG.indicia.reports.user_square_attr_id,
+        plot_number_attr_id: CONFIG.indicia.reports.plot_number_attr_id,
       },
     });
 

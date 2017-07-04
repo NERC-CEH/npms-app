@@ -22,16 +22,16 @@ const rangeValuesWildflower = [
 
 // indicator and inventory surveys
 const rangeValues = {
-  '< 1% (1-2 indivs)': 3648,
-  '< 1% (several indivs)': 3649,
-  '1-4%': 3650,
-  '5-10%': 3651,
-  '11-25%': 3652,
-  '26-33%': 3653,
-  '34-50%': 3654,
-  '51-75%': 3655,
-  '76-90%': 3656,
-  '91-100%': 3657,
+  '< 1% (1-2 indivs)': 3333,
+  '< 1% (several indivs)': 3334,
+  '1-4%': 3335,
+  '5-10%': 3336,
+  '11-25%': 3337,
+  '26-33%': 3338,
+  '34-50%': 3339,
+  '51-75%': 3340,
+  '76-90%': 3341,
+  '91-100%': 3342,
 };
 
 const CONFIG = {
@@ -83,17 +83,17 @@ const CONFIG = {
   indicia: {
     host: HOST,
     api_key: API_KEY,
-    website_id: 109,
+    website_id: 32,
 
     sample: {
       surveys: {
-        indicator: 195,
-        inventory: 196,
-        wildflower: 197,
+        indicator: 155,
+        inventory: 154,
+        wildflower: 87,
       },
 
       survey_1: {
-        id: 474,
+        id: 227,
       },
 
       location: {
@@ -128,7 +128,7 @@ const CONFIG = {
 
       habitat: {
         type: 'radio',
-        id: 481,
+        id: 565,
         values(value, submission) {
           // add broad habitat
           let habitat = this._values[value.broad].id;
@@ -143,92 +143,92 @@ const CONFIG = {
         },
         _values: {
           'Arable margins': {
-            id: 3705,
+            id: 4871,
             values: {
-              'Arable field margins': 3717,
+              'Arable field margins': 4872,
             },
           },
           'Bog and wet heath': {
-            id: 3706,
+            id: 4873,
             values: {
-              'Raised bog': 3718,
-              'Blanket bog': 3719,
-              'Wet heath': 3720,
+              'Raised bog': 4874,
+              'Blanket bog': 4875,
+              'Wet heath': 4877,
             },
           },
           'Broadleaved woodland, hedges and scrub': {
-            id: 3707,
+            id: 4876,
             values: {
-              'Hedgerows of native species': 3721,
-              'Wet woodland': 3722,
-              'Dry deciduous woodland': 3723,
+              'Hedgerows of native species': 4879,
+              'Wet woodland': 4880,
+              'Dry deciduous woodland': 4881,
             },
           },
           Coast: {
-            id: 3708,
+            id: 4878,
             values: {
-              'Coastal saltmarsh': 3724,
-              'Coastal sand dunes': 3725,
-              Machair: 3726,
-              'Coastal vegetated shingle': 3727,
-              'Maritime cliffs and slopes': 3728,
+              'Coastal saltmarsh': 4882,
+              'Coastal sand dunes': 4883,
+              Machair: 4884,
+              'Coastal vegetated shingle': 4885,
+              'Maritime cliffs and slopes': 4886,
             },
           },
           Freshwater: {
-            id: 3709,
+            id: 4887,
             values: {
-              'Nutrient-poor lakes and ponds': 3729,
-              'Nutrient-rich lakes and ponds': 3730,
-              'Rivers and streams': 3731,
+              'Nutrient-poor lakes and ponds': 4888,
+              'Nutrient-rich lakes and ponds': 4889,
+              'Rivers and streams': 4890,
             },
           },
           Heathland: {
-            id: 3710,
+            id: 4891,
             values: {
-              'Dry heathland': 3732,
-              'Montane dry heathland': 3733,
+              'Dry heathland': 4892,
+              'Montane dry heathland': 4893,
             },
           },
           'Lowland grassland': {
-            id: 3711,
+            id: 4894,
             values: {
-              'Dry calcareous grassland': 3734,
-              'Dry acid grassland': 3735,
-              'Neutral pastures and meadows': 3736,
-              'Neutral damp grassland': 3737,
+              'Dry calcareous grassland': 4895,
+              'Dry acid grassland': 4896,
+              'Neutral pastures and meadows': 4897,
+              'Neutral damp grassland': 4899,
             },
           },
           'Marsh and fen': {
-            id: 3712,
+            id: 4898,
             values: {
-              'Acid fens, mires and springs': 738,
-              'Base-rich fens, mires and springs': 3739,
+              'Acid fens, mires and springs': 4900,
+              'Base-rich fens, mires and springs': 4901,
             },
           },
           'Upland grassland': {
-            id: 3713,
+            id: 4902,
             values: {
-              'Montane calcareous grassland': 3740,
-              'Montane acid grassland': 3741,
+              'Montane calcareous grassland': 4903,
+              'Montane acid grassland': 4904,
             },
           },
           'Native pinewood and juniper scrub': {
-            id: 3714,
+            id: 4905,
             values: {
-              'Native conifer woods and juniper scrub': 3742,
+              'Native conifer woods and juniper scrub': 4906,
             },
           },
           'Rock outcrops, cliffs and scree': {
-            id: 3715,
+            id: 4907,
             values: {
-              'Inland rocks and scree': 3743,
-              'Montane rocks and scree': 3744,
+              'Inland rocks and scree': 4908,
+              'Montane rocks and scree': 4909,
             },
           },
           'Not in scheme': {
-            id: 3716,
+            id: 4910,
             values: {
-              'Not in scheme': 3745,
+              'Not in scheme': 4911,
             },
           },
         },
@@ -241,7 +241,7 @@ const CONFIG = {
 
       management: {
         type: 'checkbox',
-        id: 472,
+        id: 225,
         values(value) {
           const that = this;
           const values = [];
@@ -251,51 +251,51 @@ const CONFIG = {
           return values;
         },
         _values: {
-          'Arable cropping': 3658,
-          Burning: 3659,
-          Coppicing: 3660,
-          'Cutting / mowing': 3661,
-          'Ditch-clearance': 3662,
-          'Fenced to exclude grazing': 3663,
-          'Fertilised to improve soil fertility': 3664,
-          'Grazing - livestock': 3665,
-          'Grazing - rabbits / deer': 3666,
-          'Hedge-laying': 3667,
-          'Herbicides to control weeds': 3668,
-          'Path, track or road works': 3669,
-          Quarrying: 3670,
-          'Scrub clearance / tree felling': 3671,
-          'Silage production': 3672,
-          'Tree planting': 3673,
-          'Water regime regulation': 3674,
-          Other: 3675,
+          'Arable cropping': 1799,
+          Burning: 1800,
+          Coppicing: 1801,
+          'Cutting / mowing': 1802,
+          'Ditch-clearance': 1803,
+          'Fenced to exclude grazing': 1804,
+          'Fertilised to improve soil fertility': 1805,
+          'Grazing - livestock': 1806,
+          'Grazing - rabbits / deer': 1807,
+          'Hedge-laying': 1808,
+          'Herbicides to control weeds': 1809,
+          'Path, track or road works': 1810,
+          Quarrying: 1811,
+          'Scrub clearance / tree felling': 1812,
+          'Silage production': 1813,
+          'Tree planting': 1814,
+          'Water regime regulation': 1815,
+          Other: 1816,
         },
       },
 
-      'management other': { id: 472 },
+      'management other': { id: 226 },
 
       grazing: {
-        id: 462,
-        id_text: 471,
+        id: 215,
+        id_text: 224,
         values(value, submission) {
           submission.fields[this.id_text] = value.text;
           return this._values[value.selected];
         },
         _values: {
-          low: 1982,
-          moderate: 1983,
-          high: 1984,
+          low: 1817,
+          moderate: 1818,
+          high: 1819,
         },
       },
 
       wooded: {
         type: 'radio',
-        id: 463,
+        id: 216,
         values: {
-          'Woodland canopy': 1985,
-          'Scattered trees or shrubs': 1986,
-          Hedgerow: 1987,
-          'No trees or shrubs': 1988,
+          'Woodland canopy': 1820,
+          'Scattered trees or shrubs': 1821,
+          Hedgerow: 1822,
+          'No trees or shrubs': 1823,
         },
       },
 
@@ -309,20 +309,20 @@ const CONFIG = {
           });
         },
         _values: {
-          '<=10cm': 466,
-          '11-30cm': 467,
-          '31-100cm': 468,
-          '101-300cm': 469,
-          '>300cm': 470,
+          '<=10cm': 219,
+          '11-30cm': 220,
+          '31-100cm': 221,
+          '101-300cm': 222,
+          '>300cm': 223,
         },
       },
 
-      soil: { id: 475, values: rangeValues },
-      gravel: { id: 477, values: rangeValues },
-      litter: { id: 476, values: rangeValues },
-      lichens: { id: 478, values: rangeValues },
+      soil: { id: 403, values: rangeValues },
+      gravel: { id: 405, values: rangeValues },
+      litter: { id: 404, values: rangeValues },
+      lichens: { id: 408, values: rangeValues },
 
-      plot: { id: 479 },
+      plot: { id: 417 },
     },
     occurrence: {
       taxon: {
@@ -332,8 +332,8 @@ const CONFIG = {
       },
       abundance: {
         type: 'radio',
-        id_wild: 263,
-        id: 264,
+        id_wild: 104,
+        id: 214,
         values(value, submission, occ) {
           // wildflower uses different abundance attribute and values
           if (occ.parent.metadata.survey_id === CONFIG.indicia.sample.surveys.wildflower) {
@@ -344,6 +344,15 @@ const CONFIG = {
           return rangeValues[value];
         },
       }, //1-10
+    },
+
+    reports: {
+      core_square_location_type_id: 4009,
+      additional_square_location_type_id: 4009,
+      vice_county_location_attribute_id: 90,
+      no_vice_county_found_message: '1km%20square',
+      user_square_attr_id: 2,
+      plot_number_attr_id: 118,
     },
   },
 };
