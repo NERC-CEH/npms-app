@@ -4,7 +4,7 @@
   "title": "NPMS App",
   "description": "NPMS application.",
   "version": "1.0.0",
-  "build": "3",
+  "build": "4",
   "homepage": "http://www.npms.org.uk/",
   "author": {
     "name": "Karolis Kazlauskis",
