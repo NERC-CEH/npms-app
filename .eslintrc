@@ -4,15 +4,26 @@
   },
   "extends": "airbnb/base",
   "rules": {
-     "no-unused-expressions": [2, {
-          "allowShortCircuit": true, // eg. a || a()
-          "allowTernary": true // eg. a ? b() : c()
-     }],
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": 0, // TODO: remove once Webpack fixes it
+    "import/no-unresolved": 0, // TODO: remove once Webpack fixes it
+    "prefer-rest-params": 0,
+    "no-fallthrough": 0,
+    "no-case-declarations": 0,
+    "no-console": 0,
+    "no-plusplus": 0,
+    "no-mutable-exports": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": [2, {
+      "allowShortCircuit": true, // eg. a || a()
+      "allowTernary": true // eg. a ? b() : c()
+    }],
     "new-cap": ["error", {
       "capIsNewExceptions": ["Log", "UUID"]
     }]
   },
   "globals": {
+    "sinon": true,
     "before": true,
     "beforeEach": true,
     "after": true,
@@ -30,7 +41,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "src/webpack.config.dev.js"
+        "config": "config/webpack.common.js"
       }
     }
   }

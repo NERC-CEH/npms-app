@@ -1,8 +1,7 @@
 /** ****************************************************************************
  * Some location transformation logic.
  *****************************************************************************/
-import LatLon from 'latlon-ellipsoidal';
-import OsGridRef from 'OsGridRef';
+import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy';
 
 const helpers = {
   coord2grid(location) {
@@ -95,7 +94,7 @@ const helpers = {
 
     // calculate granularity
     const digits = Math.log(accuracy) / Math.LN10;
-    locationGranularity = 10 - digits * 2; // MAX GR ACC -
+    locationGranularity = 10 - (digits * 2); // MAX GR ACC -
     locationGranularity = Number((locationGranularity).toFixed(0)); // round the float
 
     // normalize granularity

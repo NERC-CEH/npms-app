@@ -1,10 +1,25 @@
-import $ from 'jquery';
-import Morel from 'morel';
+import Indicia from 'indicia';
+import _ from 'lodash';
+import CONFIG from 'config';
 import ImageModel from './image';
-import CONFIG from 'config'; // Replaced with alias
 
-$.extend(true, Morel.Occurrence.keys, CONFIG.morel.occurrence);
-
-export default Morel.Occurrence.extend({
+export default Indicia.Occurrence.extend({
   Image: ImageModel,
+
+  keys: CONFIG.indicia.occurrence, // warehouse attribute keys
+
+  validateRemote(attributes) {
+    const attrs = _.extend({}, this.attributes, attributes);
+    const errors = {};
+
+    if (!attrs.abundance) {
+      errors.abundance = 'missing';
+    }
+
+    if (!_.isEmpty(errors)) {
+      return errors;
+    }
+
+    return null;
+  },
 });

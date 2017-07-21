@@ -2,6 +2,8 @@
 import Backbone from 'backbone';
 import _ from 'lodash';
 
+/* eslint-disable */
+
 let leave, leaveArgs;
 
 _.extend(Backbone.Router.prototype, Backbone.Events, {
@@ -40,14 +42,6 @@ _.extend(Backbone.Router.prototype, Backbone.Events, {
       if (before && before.apply(this, args) === false) return;
 
       fn.apply(this, args);
-
-      /** ****************
-       * My Modification - every page scroll to start
-       ******************/
-      scrollTo(0, 0);
-      /** ****************
-       * End
-       ******************/
 
       if (after && after.apply(this, args) === false) return;
 

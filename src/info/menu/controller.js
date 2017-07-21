@@ -1,14 +1,14 @@
 import Backbone from 'backbone';
-import App from '../../app';
-import Log from 'log';
-import userModel from '../../common/models/user_model';
+import Log from 'helpers/log';
+import radio from 'radio';
+import userModel from 'user_model';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
 
 const API = {
   show() {
     const mainView = new MainView({ model: userModel });
-    App.regions.main.show(mainView);
+    radio.trigger('app:main', mainView);
 
     mainView.on('user:logout', API.logout);
 
@@ -17,11 +17,11 @@ const API = {
         title: 'Info',
       }),
     });
-    App.regions.header.show(headerView);
+    radio.trigger('app:header', headerView);
   },
 
   logout() {
-    Log('Info:Menu:Controller: logging out');
+    Log('Info:Menu:Controller: logging out.');
     userModel.logOut();
   },
 };

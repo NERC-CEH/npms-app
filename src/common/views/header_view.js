@@ -1,7 +1,7 @@
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import JST from 'JST';
 
-export default Marionette.LayoutView.extend({
+export default Marionette.View.extend({
   id: 'common-header',
   tagName: 'nav',
   template: JST['common/header'],
@@ -17,7 +17,7 @@ export default Marionette.LayoutView.extend({
 
   onRender() {
     if (this.options.rightPanel) {
-      this.rightPanel.show(this.options.rightPanel);
+      this.getRegion('rightPanel').show(this.options.rightPanel);
     }
   },
 

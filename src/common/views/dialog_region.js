@@ -1,16 +1,28 @@
 /** ****************************************************************************
  * Messages the user
  *****************************************************************************/
-import '../styles/dialog.scss';
-
 import $ from 'jquery';
 import Backbone from 'backbone';
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import _ from 'lodash';
-import App from '../../app';
+import radio from 'radio';
 import JST from 'JST';
+import '../styles/dialog.scss';
 
-const StandardDialogView = Marionette.LayoutView.extend({
+const errorsTable = {
+  25: {
+    body: 'Sorry, looks like there was a problem with the internal database.</br> ' +
+    '<b>Please close the app and start it again.</b>',
+    buttons: [{
+      title: 'Restart',
+      onClick: function onClick() {
+        radio.trigger('app:restart');
+      },
+    }],
+  },
+};
+
+const StandardDialogView = Marionette.View.extend({
   template: JST['common/dialog'],
   className() {
     let classes = 'content';
@@ -30,38 +42,38 @@ const StandardDialogView = Marionette.LayoutView.extend({
     this.template = options.template || this.template;
   },
 
-  onShow() {
+  onAttach() {
     // add header
     if (this.options.title) {
-      if (this.options.title instanceof Marionette.ItemView) {
-        this.header.show(this.options.title);
+      if (this.options.title instanceof Marionette.View) {
+        this.showChildView('header', this.options.title);
       } else {
-        const title = new Marionette.ItemView({
+        const title = new Marionette.View({
           tagName: 'h3',
           template: _.template(this.options.title),
         });
-        this.header.show(title);
+        this.showChildView('header', title);
       }
     }
 
     // add body
     if (this.options.body) {
-      if (this.options.body instanceof Marionette.ItemView) {
-        this.body.show(this.options.body);
+      if (this.options.body instanceof Marionette.View) {
+        this.showChildView('body', this.options.body);
       } else {
-        const body = new Marionette.ItemView({
+        const body = new Marionette.View({
           template: _.template(this.options.body),
         });
-        this.body.show(body);
+        this.showChildView('body', body);
       }
     }
 
     // add buttons
     if (this.options.buttons) {
-      if (this.options.buttons instanceof Marionette.ItemView) {
-        this.footer.show(this.options.buttons);
+      if (this.options.buttons instanceof Marionette.View) {
+        this.showChildView('footer', this.options.buttons);
       } else {
-        const ButtonView = Marionette.ItemView.extend({
+        const ButtonView = Marionette.View.extend({
           id() {
             return this.model.id || Math.floor(Math.random() * 10000);
           },
@@ -85,7 +97,7 @@ const StandardDialogView = Marionette.LayoutView.extend({
           childView: ButtonView,
         });
 
-        this.footer.show(new ButtonsArrayView());
+        this.showChildView('footer', new ButtonsArrayView());
       }
     }
   },
@@ -94,9 +106,9 @@ const StandardDialogView = Marionette.LayoutView.extend({
 export default Marionette.Region.extend({
   el: '#dialog',
 
-  constructor() {
+  constructor(...args) {
     _.bindAll(this);
-    Marionette.Region.prototype.constructor.apply(this, arguments);
+    Marionette.Region.prototype.constructor.apply(this, args);
 
     // attach events
     this.on('view:show', this.showModal, this);
@@ -114,7 +126,7 @@ export default Marionette.Region.extend({
   /**
    * Creates dialog
    *
-   * @param view
+   * @param options
    * className
    * hideAllowed
    *
@@ -135,7 +147,7 @@ export default Marionette.Region.extend({
     this.onHide = options.onHide;
     this.hideAllowed = typeof options.hideAllowed !== 'undefined' ? options.hideAllowed : true;
 
-    if (!options.view || !(options.view instanceof Marionette.ItemView)) {
+    if (!options.view || !(options.view instanceof Marionette.View)) {
       // create a standard dialog
       if (options.timeout) {
         this.timeout = setTimeout(() => {
@@ -156,10 +168,12 @@ export default Marionette.Region.extend({
     Marionette.Region.prototype.show.call(this, view);
   },
 
-  hide() {
-    if (!this.hideAllowed) {
+  hide(permission) {
+    if (!permission && !this.hideAllowed) {
       return;
     }
+
+    this.hideAllowed = true;
 
     // turn off timeout
     if (this.timeout) {
@@ -172,7 +186,7 @@ export default Marionette.Region.extend({
   },
 
   showLoader() {
-    const view = new Marionette.ItemView({
+    const view = new Marionette.View({
       template: _.template('<span class="icon icon-plus spin"></span>'),
     });
 
@@ -184,11 +198,11 @@ export default Marionette.Region.extend({
     this.hide();
   },
 
-  error: function error(error = {}) {
+  error: function error(err = {}) {
     let options = {
       class: 'error',
       title: 'Yikes!',
-      body: error.message || error,
+      body: err.message || err,
       buttons: [{
         id: 'ok',
         title: 'OK',
@@ -197,8 +211,8 @@ export default Marionette.Region.extend({
     };
 
     // lookup for codes
-    if (error.code) {
-      const tableErrorOptions = errorsTable[error.code];
+    if (err.code) {
+      const tableErrorOptions = errorsTable[err.code];
       if (tableErrorOptions) {
         options = _.extend(options, tableErrorOptions);
       }
@@ -213,15 +227,3 @@ export default Marionette.Region.extend({
     }
   },
 });
-
-const errorsTable = {
-  25: {
-    body: 'Sorry, looks like there was a problem with the internal database.</br> ' + '<b>Please close the app and start it again.</b>',
-    buttons: [{
-      title: 'Restart',
-      onClick: function onClick() {
-        App.restart();
-      },
-    }],
-  },
-};

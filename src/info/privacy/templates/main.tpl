@@ -1,11 +1,18 @@
 <ul class="table-view">
   <li>
+    <p><strong>NPMS data access policy</strong></p>
+
+    <p>
+      Please see the website for our <a href="http://www.npms.org.uk/content/data-access-policy-public">full data access policy</a>.
+      Surveyors should have read and accepted the NPMS data access policy on registering for the scheme.
+    </p>
+  </li>
+  <li>
     <p><strong>Use of your name</strong></p>
 
     <p>If you choose to create a user account for the app, this will be created on the
-      <a href="http://npms.org.uk" rel="external">NPMS system</a>.
-      This enables you to log in and see your records and those submitted by other people for all
-      species. Your name, as specified when you create the account, will appear next to your
+      <a href="http://www.npms.org.uk" >NPMS system</a>.
+      This enables you to log in and see your records. Your name, as specified when you create the account, will appear next to your
       records and will be viewable by other users of NPMS.</p>
   </li>
   <li>
@@ -20,9 +27,7 @@
   <li>
     <p><strong>Other information collected by the application</strong></p>
 
-    <p>All records submitted will be stored permanently on a secure server at the Biological Record
-      Centre. Records will be made accessible to Local Environmental Record Centres, conservation
-      organisations, scientific researchers, the NBN Gateway and the public.</p>
+    <p>Records will be made accessible to anyone on request.</p>
   </li>
   <li>
     <p><strong>How long will my data be stored?</strong></p>
@@ -35,31 +40,15 @@
 
     <p>Only those directly involved in developing this app and running this recording scheme
       or verifying records as experts, will have access to your email address.
-      Unless required by law, data will not be made available to any third parties unless we have
+      Unless required by law, these data will not be made available to any third parties unless we have
       obtained your permission to do so.</p>
   </li>
   <li>
     <p><strong>Use of images submitted with the app</strong></p>
 
-    <p>By submitting a photograph with this app you:</p>
-    <ul>
-      <li>
-        <p>Give the project and its partners permission to publish the file/s on their respective websites
-          and to use the file/s in any publicity materials they produce.</p>
-      </li>
-      <li>
-        <p>Grant the project and its partners a non-exclusive, worldwide licence to republish the file/s
-          in any format including, without limitation, in print and electronic formats.</p>
-      </li>
-      <li>
-        <p>Warrant that the file is entirely your own work and has not been copied in whole, or in part,
-          from any 3rd party and does not infringe any 3rd party intellectual property rights.</p>
-      </li>
-      <li>
-        <p>Waive all moral rights in, and arising from your photograph(s), but retain
-          ownership of the copyright in your file(s) as its author.</p>
-      </li>
-    </ul>
+    <p>By submitting a photo with this app you agree to your photos being
+      licensed under an <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence with attribution</a>.
+    </p>
   </li>
   <li>
     <p>Wherever possible you will receive credit for the reproduction of your work on, or next to, your

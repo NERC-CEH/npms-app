@@ -2,17 +2,6 @@
   <li class="table-view-divider">Records</li>
   <li class="table-view-cell">
     <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c1" aria-expanded="false" aria-controls="c1">
-      <span class="icon icon-collapse pull-left"></span>
-      How to make a new record
-    </a>
-    <p id="c1" class="collapse"
-       aria-labelledby="headingOne" aria-expanded="false">
-      TODO
-    </p>
-  </li>
-  <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
        href="#c2" aria-expanded="false" aria-controls="c2">
       <span class="icon icon-collapse pull-left"></span>
       Searching for species
@@ -25,6 +14,7 @@
       <br><i>lin cat</i>
       <br><i>l cat</i>
       <br><i>l .cum</i>
+      <br><br>Note: searches can also be made using common names.
     </p>
   </li>
   <li class="table-view-cell">
@@ -45,11 +35,11 @@
 
       If the record has reached the database a red
       <span class="icon icon-send" style="color: red;"></span>(set for submission & saved locally)
-      will become green <span class="icon icon-send" style="color: green;"></span>
+      will become blue <span class="icon icon-send" style="color: #3c479d;"></span>
       (synced to the database). Once it has successfully reached
       the database the record becomes unavailable for new edits.
       To further edit it
-      please use the <a href="http://npms.org.uk">NPMS Website</a>.
+      please use the <a href="http://www.npms.org.uk">NPMS Website</a>.
       <br>
       <br>
       <b>Note:</b> you have to be signed in to your NPMS account and have a network connection,
@@ -80,7 +70,6 @@
        aria-labelledby="headingTwo" aria-expanded="false">
       To delete a record, swipe it left in the home-list page and click
       the delete <span class="icon icon-delete"></span> button.
-      <img src="images/swipe_record.png">
       <br><br>
       You can also delete all the locally saved records that have been
       successfully synchronised
@@ -123,7 +112,7 @@
     </p>
   </li>
   <li>
-    For more help please visit the NPMS <a href="http://www.npms.org.uk/forum" target="_blank">forum</a>.
+    For more help, please email the NPMS coordinator at <a href="mailto:support@npms.org.uk">support@npms.org.uk</a>.
   </li>
 </ul>
 <br>

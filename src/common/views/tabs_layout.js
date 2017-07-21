@@ -1,11 +1,10 @@
-import '../styles/tabs.scss';
-
 import Backbone from 'backbone';
 import _ from 'lodash';
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import JST from 'JST';
+import '../styles/tabs.scss';
 
-const Tab = Marionette.ItemView.extend({
+const Tab = Marionette.View.extend({
   tagName: 'li',
   template: _.template('<%= obj.title %>'),
 
@@ -20,7 +19,7 @@ const Tab = Marionette.ItemView.extend({
   },
 
   triggers: {
-    click: 'openTab',
+    click: 'open:tab',
   },
 });
 
@@ -28,15 +27,11 @@ const Tabs = Marionette.CollectionView.extend({
   tagName: 'ul',
   childView: Tab,
 
-  onAddChild(childView) {
-    childView.on('openTab', this.tabClicked, this);
-  },
-
-  tabClicked(e) {
-    const tabId = e.view.model.id;
+  onChildviewOpenTab(view) {
+    const tabId = view.model.id;
     const active = this.collection.find(model => model.get('active'));
     active.set('active', false);
-    e.view.model.set('active', true);
+    view.model.set('active', true);
 
     this.render();
 
@@ -44,7 +39,7 @@ const Tabs = Marionette.CollectionView.extend({
   },
 });
 
-export default Marionette.LayoutView.extend({
+export default Marionette.View.extend({
   template: JST['common/tabs_container'],
 
   className: 'tabs-container',
@@ -60,7 +55,7 @@ export default Marionette.LayoutView.extend({
     };
   },
 
-  onShow() {
+  onAttach() {
     if (!this.options.tabs) {
       return;
     }
@@ -69,7 +64,7 @@ export default Marionette.LayoutView.extend({
     const tabsCollectionView = new Tabs({
       collection: this.tabsCollection,
     });
-    this.tabs.show(tabsCollectionView);
+    this.getRegion('tabs').show(tabsCollectionView);
 
     tabsCollectionView.on('showTab', this._showContent, this);
 
@@ -87,6 +82,6 @@ export default Marionette.LayoutView.extend({
       model: this.model,
       vent: this.options.vent,
     });
-    this.content.show(contentView);
+    this.getRegion('content').show(contentView);
   },
 });

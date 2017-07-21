@@ -2,23 +2,23 @@
  * Setting Menu main view.
  *****************************************************************************/
 import $ from 'jquery';
-import Marionette from 'marionette';
-import Device from 'device';
+import Marionette from 'backbone.marionette';
+import Device from 'helpers/device';
 import JST from 'JST';
 
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'ul',
   className: 'table-view',
   template: JST['settings/menu/main'],
 
   events: {
-    'toggle #use-autosync-btn': 'onSettingToggled',
-    'click #use-autosync-btn': 'onSettingToggled',
+    'toggle #use-training-btn': 'onSettingToggled',
+    'click #use-training-btn': 'onSettingToggled',
   },
 
   triggers: {
-    'click #delete-all-btn': 'records:delete:all',
-    'click #submit-all-btn': 'records:submit:all',
+    'click #delete-all-btn': 'samples:delete:all',
+    'click #submit-all-btn': 'samples:submit:all',
     'click #app-reset-btn': 'app:reset',
   },
 
@@ -39,9 +39,7 @@ export default Marionette.ItemView.extend({
   serializeData() {
     const appModel = this.model;
     return {
-      useGridRef: appModel.get('useGridRef'),
-      useGridMap: appModel.get('useGridMap'),
-      autosync: appModel.get('autosync'),
+      useTraining: appModel.get('useTraining'),
     };
   },
 });

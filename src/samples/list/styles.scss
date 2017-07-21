@@ -1,0 +1,176 @@
+@import "../../common/styles/_variables.scss";
+@import "../../common/styles/swipe-list.scss";
+
+//HEADER
+#samples-header {
+  border-bottom: 1px $header-color solid;
+
+  .pull-right {
+    width: auto;
+    max-width: 200px;
+    background-color: $color-white;
+    border-bottom: 1px solid $header-color;
+
+    button {
+      color: $header-color;
+    }
+  }
+}
+
+.img-picker {
+  width: 45%;
+  display: inline-block;
+  text-align: center;
+
+  input {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    padding: .4em;
+    opacity: 0;
+    margin: -8px 0 !important;
+    height: inherit!important;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+//LIST
+#samples-list-container {
+  #samples-list {
+    margin: 0;
+
+    .training {
+      width: 7px;
+      height: 100%;
+      margin: 0;
+      background-color: $color-black;
+      z-index: 100;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .pull-right {
+      position: relative;
+      height: 100%;
+
+      //pull right
+      .online-status {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 7px;
+
+        &.icon:before {
+          font-size: 15px;
+        }
+
+        &.local {
+          color: $color-orange;
+        }
+
+        &.cloud,
+        &.icon-plus {
+          font-size: 15px;
+          color: $color-blue;
+        }
+      }
+    }
+
+    //sample info
+    .media-body {
+      .gridref.error {
+        color: $color-red;
+      }
+
+      .habitat.error {
+        font-weight: bold;
+        color: $color-red;
+      }
+      .identifiers.error {
+        font-weight: bold;
+        color: $color-red;
+      }
+      .gridref.error + .habitat.error {
+        display: none;
+      }
+      .gridref.error + .identifiers.error {
+        display: none;
+      }
+      .habitat.error + .identifiers.error {
+        display: none;
+      }
+
+      .gridref, .plot, .habitat, .identifiers {
+        font-size: $text-font-size - 2;
+        color: $button-black;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .gridref {
+        font-weight: bold;
+      }
+      .plot {
+        position: absolute;
+        top: 11px;
+        right: 35px;
+      }
+      .level {
+        text-transform: capitalize;
+        font-size: $text-font-size - 2;
+        color: #333;
+        margin-right: 10px;
+      }
+      .date,
+      .location {
+        float: left;
+        font-size: $text-font-size - 2;
+        color: $button-black;
+        margin-right: 10px;
+        &.error {
+          color: $color-orange;
+        }
+
+        &.warn {
+          color: $color-yellow;
+        }
+      }
+
+      .location {
+        width: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .attributes {
+        clear: both;
+      }
+
+      div.stage,
+      div.number {
+        @extend .date;
+        margin-right: 10px;
+      }
+
+      div.comment {
+        @extend .date;
+        float: none;
+        overflow: hidden;
+
+        word-wrap: normal;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        font-size: 12px;
+        color: $color-gray-dark;
+      }
+
+    }
+  }
+}

@@ -1,12 +1,13 @@
 /** ****************************************************************************
  * Info Menu main view.
  *****************************************************************************/
+
+import Marionette from 'backbone.marionette';
+import JST from 'JST';
+import CONFIG from 'config';
 import './styles.scss';
 
-import Marionette from 'marionette';
-import JST from 'JST';
-
-export default Marionette.ItemView.extend({
+export default Marionette.View.extend({
   tagName: 'ul',
   className: 'table-view buttons',
 
@@ -20,9 +21,12 @@ export default Marionette.ItemView.extend({
     change: 'render',
   },
 
-  serializeDate() {
+  serializeData() {
     return {
-      surname: this.model.get('surname'),
+      siteUrl: CONFIG.site_url,
+      login: this.model.hasLogIn(),
+      firstname: this.model.get('firstname'),
+      secondname: this.model.get('secondname'),
     };
   },
 

@@ -1,0 +1,1 @@
+No plot photo has been added
