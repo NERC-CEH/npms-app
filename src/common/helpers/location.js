@@ -4,6 +4,35 @@
 import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy';
 
 const helpers = {
+
+  /**
+   * Detects these variants:
+   *
+   * 'ST9582050850' - british
+   * 'J2623239903' - irish
+   * 'WV7048' - channel
+   * '54.57975N 6.87218W' - latlon
+   *
+   * @param location
+   * @returns {*}
+   */
+  getLocationType(location) {
+    if (/^[A-Z]{1,2}\d{2}(?:[A-Z]|[NS][EW]|(?:\d{2}){0,4})?$/.test(location)) {
+      // have simple well-formed grid ref
+      if (/^.\d/.test(location)) {
+        return 'irish';
+      } else if (location.charAt(0) === 'W') {
+        return 'channel';
+      }
+
+      return 'british';
+    } else if (location.match(/\d+\.\d+N \d+\.\d+W/g)) {
+      return 'latlon';
+    }
+
+    throw new Error('Unrecognised location type');
+  },
+
   coord2grid(location) {
     const locationGranularity = helpers._getGRgranularity(location);
 

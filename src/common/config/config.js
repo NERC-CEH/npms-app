@@ -3,6 +3,7 @@
  *****************************************************************************/
 import Indicia from 'indicia';
 import DateHelp from 'helpers/date';
+import LocHelp from 'helpers/location';
 
 const HOST = process.env.APP_INDICIA_API_HOST || 'http://www.npms.org.uk/';
 
@@ -102,11 +103,9 @@ const CONFIG = {
         values(value, submission) {
           // add other location related attributes
           submission.fields.entered_sref = value.plot; // eslint-disable-line
-
-          // lat lon
-          if (value.plot.match(/\d+\.\d+N \d+\.\d+W/g)) {
-            submission.fields.entered_sref_system = 4326; // eslint-disable-line
-          }
+          // eslint-disable-next-line
+          submission.fields.entered_sref_system =
+            LocHelp.getLocationType(value.plot);
 
           return value.id;
         },
