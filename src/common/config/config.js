@@ -73,14 +73,6 @@ const CONFIG = {
     timeout: 80000,
   },
 
-  // mapping
-  map: {
-    os_api_key: process.env.APP_OS_MAP_KEY,
-    mapbox_api_key: process.env.APP_MAPBOX_MAP_KEY,
-    mapbox_osm_id: 'cehapps.0fenl1fe',
-    mapbox_satellite_id: 'cehapps.0femh3mh',
-  },
-
   // indicia configuration
   indicia: {
     host: HOST,
