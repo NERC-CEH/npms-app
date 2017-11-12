@@ -73,14 +73,6 @@ const CONFIG = {
     timeout: 80000,
   },
 
-  // mapping
-  map: {
-    os_api_key: process.env.APP_OS_MAP_KEY,
-    mapbox_api_key: process.env.APP_MAPBOX_MAP_KEY,
-    mapbox_osm_id: 'cehapps.0fenl1fe',
-    mapbox_satellite_id: 'cehapps.0femh3mh',
-  },
-
   // indicia configuration
   indicia: {
     host: HOST,
@@ -104,8 +96,24 @@ const CONFIG = {
           // add other location related attributes
           submission.fields.entered_sref = value.plot; // eslint-disable-line
           // eslint-disable-next-line
-          submission.fields.entered_sref_system =
-            LocHelp.getLocationType(value.plot);
+          switch (LocHelp.getLocationType(value.plot)) {
+            case 'british':
+              submission.fields.entered_sref_system = 'OSGB';
+              break;
+            case 'irish':
+              submission.fields.entered_sref_system = 'OSIE';
+              break;
+            case 'channel':
+              submission.fields.entered_sref_system = 'utm30ed50';
+              break;
+            case 'latlon':
+              submission.fields.entered_sref_system = 4326;
+              break;
+
+            default:
+            //No such location type
+            //todo error
+          }
 
           return value.id;
         },

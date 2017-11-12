@@ -7,9 +7,10 @@ const pkg = require('../../package.json');
 module.exports = (grunt) => {
   return {
     // Fix double define problem
+    // Does nothing at the moment since we have bundled geodesy together
     latlon: {
-      src: ['node_modules/geodesy/latlon-ellipsoidal.js',
-        'node_modules/geodesy/latlon-spherical.js'],
+      src: ['src/common/vendor/geodesy/latlon-ellipsoidal.js',
+        'src/common/vendor/geodesy/latlon-spherical.js'],
       overwrite: true,
       replacements: [
         {
