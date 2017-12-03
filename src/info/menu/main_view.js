@@ -5,6 +5,7 @@
 import Marionette from 'backbone.marionette';
 import JST from 'JST';
 import CONFIG from 'config';
+import Device from 'helpers/device';
 import './styles.scss';
 
 export default Marionette.View.extend({
@@ -27,6 +28,7 @@ export default Marionette.View.extend({
       login: this.model.hasLogIn(),
       firstname: this.model.get('firstname'),
       secondname: this.model.get('secondname'),
+      isAndroid: Device.isAndroid(),
     };
   },
 

@@ -47,10 +47,12 @@
     Login
   </a>
 </li>
-<li class="table-view-cell">
-  <a href="<%= obj.siteUrl %>user/register" class="navigate-right" target="_blank">
-    <span class="media-object pull-left icon icon-user-plus"></span>
-    Register
-  </a>
-</li>
+  <% if (obj.isAndroid) { %>
+    <li class="table-view-cell">
+      <a href="<%= obj.siteUrl %>user/register" class="navigate-right" target="_blank">
+        <span class="media-object pull-left icon icon-user-plus"></span>
+        Register
+      </a>
+    </li>
+  <% } %>
 <% } %>
