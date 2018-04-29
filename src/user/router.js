@@ -7,12 +7,14 @@ import App from 'app';
 import radio from 'radio';
 import LoginController from './login/controller';
 import ResetController from './reset/controller';
+import RegisterController from './register/controller';
 
 App.user = {};
 
 const Router = Marionette.AppRouter.extend({
   routes: {
     'user/login(/)': LoginController.show,
+    'user/register(/)': RegisterController.show,
     'user/reset(/)': ResetController.show,
     'user/*path': () => {
       radio.trigger('app:404:show');

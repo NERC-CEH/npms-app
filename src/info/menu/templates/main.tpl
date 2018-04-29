@@ -1,3 +1,35 @@
+<% if (obj.login) { %>
+<li class="table-view-cell">
+  <a id="logout-button" class="navigate-right">
+    <span class="media-object pull-left icon icon-logout"></span>
+    Logout: <%- obj.firstname %> <%- obj.secondname %>
+  </a>
+</li>
+<% } else { %>
+<li class="table-view-cell">
+  <a href="#user/login" class="navigate-right">
+    <span class="media-object pull-left icon icon-user"></span>
+    Login
+  </a>
+</li>
+<li class="table-view-cell">
+  <a href="#user/register" class="navigate-right">
+    <span class="media-object pull-left icon icon-user-plus"></span>
+    Register
+  </a>
+</li>
+<% } %>
+
+<li class="table-view-divider">Settings</li>
+<li class="table-view-cell">
+  <a href="#settings" class="navigate-right">
+    <span class="media-object pull-left icon icon-settings"></span>
+    App
+  </a>
+</li>
+
+
+<li class="table-view-divider">Info</li>
 <li class="table-view-cell">
   <a href="#info/about" class="navigate-right">
     <span class="media-object pull-left icon icon-info"></span>
@@ -22,35 +54,3 @@
     Credits
   </a>
 </li>
-
-<li class="table-view-divider">Settings</li>
-<li class="table-view-cell">
-  <a href="#settings" class="navigate-right">
-    <span class="media-object pull-left icon icon-settings"></span>
-    App
-  </a>
-</li>
-
-<li class="table-view-divider">Account</li>
-
-<% if (obj.login) { %>
-<li class="table-view-cell">
-  <a id="logout-button" class="navigate-right">
-    <span class="media-object pull-left icon icon-logout"></span>
-    Logout: <%- obj.firstname %> <%- obj.secondname %>
-  </a>
-</li>
-<% } else { %>
-<li class="table-view-cell">
-  <a href="#user/login" class="navigate-right">
-    <span class="media-object pull-left icon icon-user"></span>
-    Login
-  </a>
-</li>
-<li class="table-view-cell">
-  <a href="<%= obj.siteUrl %>user/register" class="navigate-right" target="_blank">
-    <span class="media-object pull-left icon icon-user-plus"></span>
-    Register
-  </a>
-</li>
-<% } %>

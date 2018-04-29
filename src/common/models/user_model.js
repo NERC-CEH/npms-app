@@ -7,6 +7,7 @@ import Store from 'backbone.localstorage';
 import CONFIG from 'config';
 import Log from 'helpers/log';
 import Analytics from 'helpers/analytics';
+import Validate from 'helpers/validate';
 import squaresExtension from './user_model_squares_ext';
 
 const UserModel = Backbone.Model.extend({
@@ -99,6 +100,47 @@ const UserModel = Backbone.Model.extend({
 
     if (!attrs.password) {
       errors.password = "can't be blank";
+    }
+
+    if (!_.isEmpty(errors)) {
+      return errors;
+    }
+
+    return null;
+  },
+
+
+  validateRegistration(attrs) {
+    const errors = {};
+
+    if (!attrs.email) {
+      errors.email = "can't be blank";
+    } else if (!Validate.email(attrs.email)) {
+      errors.email = 'invalid';
+    }
+
+    if (!attrs.firstname) {
+      errors.firstName = "can't be blank";
+    }
+
+    if (!attrs.secondname) {
+      errors.secondname = "can't be blank";
+    }
+
+    if (!attrs.password) {
+      errors.password = "can't be blank";
+    } else if (attrs.password.length < 2) {
+      errors.password = 'is too short';
+    }
+
+    if (!attrs['password-confirm']) {
+      errors['password-confirm'] = "can't be blank";
+    } else if (attrs['password-confirm'] !== attrs.password) {
+      errors['password-confirm'] = 'passwords are not equal';
+    }
+
+    if (!attrs['terms-agree']) {
+      errors['terms-agree'] = 'you must agree to the terms';
     }
 
     if (!_.isEmpty(errors)) {
