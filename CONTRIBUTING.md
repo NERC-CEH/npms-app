@@ -1,4 +1,4 @@
-_# Issues
+# Issues
 
 
 ## Reporting a Bug
@@ -41,11 +41,13 @@ The code is packaged up by [Webpack](https://webpack.github.io) module bundler. 
 takes care of passing the ES6 code through Babel and pulling the code together
 to make an *dist/main/app.js* file that is loaded in the *index.html*.
 
-## Environment
 
-For the app to work correctly you will need to specify some backend variables.
- The build process loads environment variables from a .env file.
-The required ones are: REGISTER_URL, REPORT_URL, RECORD_URL, APP_SECRET (iform mobile auth login)
+## Environmental Variables
+
+The app's build process requires certain environmental variables to be present. 
+If any missing then the build will fail. If you want to bypass this and force the build you
+can use `APP_FORCE=true` set to your environment. Alternatively, you can
+set all your vars to an `.env` file in the root dir.
 
 ## Style Guide
 
@@ -54,8 +56,12 @@ important to lint your code before commiting the changes to the repository.
 To do that you can run eslint command line tool or choose one of the numerous 
 eslint plugins for your IDE.
 
-Project uses [AirBnB Style Guide](https://github.com/airbnb/javascript).
+Please see the `.eslintrc` file for rules in use.
 
+## Branching
+
+Please use `feature/NAME`, `hotfix/VERSION`. 
+Once finished please create a pull request into `master`.
 
 # Architecture
 
@@ -67,25 +73,6 @@ provide, so we use Backbone plugin [Marionette](marionettejs.org) to extend and
 improve the Backbone Views. Since Backbone doesn't provide a controller - 
 the logic is shared between Views (making them somewhat presenter like), 
 we have introduced simple controllers which hold the internal app logic. 
-The app is structured in such a way:  
-
-```
-├── images
-├── scripts
-│   ├── components
-│   │   ├── common
-│   │   │   ├── pages
-│   │   │   └── templates
-│   │   └── **component**
-│   │       └── **sub component**
-│   │           └── templates
-│   ├── data
-│   └── helpers
-├── styles
-│   ├── common
-│   └── **component**
-└── vendor
-```
 
 ## Components folder
 
@@ -101,14 +88,6 @@ includes: list, edit, attribute, show sub components.
 
 * Common page level components (common sub components) are placed in *pages* 
 folder within common folder.
-
-
-## Helpers folder
-
-* App helper libraries
-* Independent from Marionette, otherwise should be in *common*
-* Too small to be put into vendor
-
 
 ## Other
 
@@ -126,10 +105,22 @@ as possible so for that we are using Travis CI. It detects new repository
 commits and runs the app tests on 20+ browsers using Sauce Labs. To see the build
 test output visit [Travis project builds](https://travis-ci.org/NERC-CEH/npms-app).
 
-- To run the tests locally:
+- To run the tests locally install Chromium browser and run:
 
 ```bash
-grunt test
+npm test
+```
+
+- Auto watch:
+
+```bash
+npm run test:watch
+```
+
+- Generate coverage report:
+
+```bash
+npm run test:coverage
 ```
 
 # Cordova
@@ -142,7 +133,5 @@ Use XCode to build and upload
 
 Run and upload binaries from cordova/dist
 ```bash
-grunt cordova:android
-grunt cordova:android:old
+npm run build:cordova:android
 ```
-_

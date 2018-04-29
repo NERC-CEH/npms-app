@@ -26,19 +26,17 @@ If you have any questions, please feel free to ask on the
 
 ## Configuration
 
-App configuration is hosted in `config/config.js`. **Note:** it should be done
- *before* building the code.
+App configuration is hosted in multiple places. **Note:** config changes should be done *before* building the code.
+
+* **Main configuration** in `src/common/config.js`.
+* App version/build is set in the package.json
+* Cordova config is `config/cordova/cordova.xml`
+* [Environmental variables](https://wiki.archlinux.org/index.php/environment_variables) like *INDICIA_API_KEY* can optionally be placed in `.env` file
 
 
 ## Building
 
 - Install [NodeJS](http://nodejs.org/)
-- Install SASS 
-
-```bash
-gem install sass
-```
-
 - Get a copy of the code by running:
 
 ```bash
@@ -48,22 +46,10 @@ git clone git://github.com/NERC-CEH/npms-app.git
 - Enter the `npms-app` directory and install the npm build dependencies:
 
 ```bash
-cd npms-app && npm install
+cd npms-app
 ```
-
-
-### Cordova mobile app
-
-- Build the project:
-
 ```bash
-grunt cordova
-```
-
-- Update Cordova project with new web pages (replaces the www)
-
-```bash
-grunt cordova:update
+npm install
 ```
 
 ### Web app
@@ -73,29 +59,61 @@ If you are building for the web platform only:
 `Production`
 
 ```bash
-grunt
+npm run build
 ```
 
 `Development`
 
 ```bash
-grunt dev
+npm run build:dev
 ```
 
 This will create a `dist` folder with the app code and its dependencies.
 
 
-## Running app locally
+#### Running app locally
 
 - [Express](http://expressjs.com/) framework is provided for a quick
 launch of a web server.
 
 ```bash
-node config/server.js
+npm start
 ```
 
 - Open the app on a browser [http://localhost:8000](http://localhost:8000)
 
+
+### Cordova app
+
+Building a cordova application requires cordova 7.1.0
+
+- Initialize the project:
+
+```bash
+npm run build:cordova
+```
+
+- This will create a `dist/cordova` folder with the cordova project
+
+- *(optionally)* Update Cordova project with new web pages if you have initialized
+ but have made some source code changes (ie. only replaces the www folder contents)
+
+```bash
+npm run build:cordova:update
+```
+
+- **Android build**:
+
+```bash
+npm run build:cordova:android
+```
+
+- **iOS build** open `dist/cordova/platforms/ios/NPMS App.xcodeproj` in XCode
+
+
+### Shortcuts
+
+For more shortcuts please see the `package.json` and dig in the `config/build/aliases.js` file that is used by grunt runner.
 
 ## Authors
 
