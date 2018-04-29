@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Sample Attribute controller.
- *****************************************************************************/
+ **************************************************************************** */
 import Backbone from 'backbone';
 import Indicia from 'indicia';
 import Log from 'helpers/log';
@@ -139,7 +139,7 @@ const API = {
       case 'comment':
 
       // extra attributes
-      case 'identifiers':
+      case 'identifiers':  // eslint-disable-line
       case 'management':
       case 'grazing':
       case 'wooded':

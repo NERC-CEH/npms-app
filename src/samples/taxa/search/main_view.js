@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Taxon main view.
- *****************************************************************************/
+ **************************************************************************** */
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
@@ -247,9 +247,9 @@ export default Marionette.View.extend({
     switch (e.keyCode) {
       case 13:
       // press Enter
-      case 38:
+      case 38:  // eslint-disable-line
       // Up
-      case 40:
+      case 40:  // eslint-disable-line
         // Down
         break;
       default:

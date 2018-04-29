@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Some location transformation logic.
- *****************************************************************************/
+ **************************************************************************** */
 import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy';
 
 const helpers = {
@@ -35,7 +35,11 @@ const helpers = {
   coord2grid(location) {
     const locationGranularity = helpers._getGRgranularity(location);
 
-    const p = new LatLon(location.latitude, location.longitude, LatLon.datum.WGS84);
+    const p = new LatLon(
+      location.latitude,
+      location.longitude,
+      LatLon.datum.WGS84
+    );
     const grid = OsGridRef.latLonToOsGrid(p);
 
     return grid.toString(locationGranularity).replace(/\s/g, '');
@@ -84,6 +88,7 @@ const helpers = {
 
   grid2coord(gridrefString) {
     const gridref = helpers.parseGrid(gridrefString);
+    // eslint-disable-next-line
     if (!isNaN(gridref.easting) && !isNaN(gridref.northing)) {
       return OsGridRef.osGridToLatLon(gridref, LatLon.datum.WGS84);
     }
@@ -112,6 +117,7 @@ const helpers = {
       updated = 4;
     }
 
+    // eslint-disable-next-line
     updated = 5000 / Math.pow(10, updated); // meters
     return updated < 1 ? 1 : updated;
   },
@@ -147,7 +153,9 @@ const helpers = {
     if (locationGranularity % 2 !== 0) {
       // should not be less than 2
       locationGranularity =
-        locationGranularity === 1 ? locationGranularity + 1 : locationGranularity - 1;
+        locationGranularity === 1
+          ? locationGranularity + 1
+          : locationGranularity - 1;
     }
 
     if (locationGranularity > 10) {

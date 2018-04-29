@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * User model describing the user model on backend. Persistent.
- *****************************************************************************/
+ **************************************************************************** */
 import _ from 'lodash';
 import Backbone from 'backbone';
 import Store from 'backbone.localstorage';

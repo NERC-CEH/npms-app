@@ -6,7 +6,7 @@
  *
  * Note: Chrome has to have and ID of both Chrome and Safari therefore
  * Safari has to have an ID of only Safari and not Chrome
- *****************************************************************************/
+ **************************************************************************** */
 import Log from './log';
 
 const ua = navigator.userAgent.toLowerCase();

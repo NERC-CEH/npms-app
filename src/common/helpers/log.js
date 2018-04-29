@@ -11,7 +11,7 @@
  *  4: debug
  *
  * Levels values defined in core app module.
- *****************************************************************************/
+ **************************************************************************** */
 import Raven from 'raven-js';
 import CONFIG from 'config';
 

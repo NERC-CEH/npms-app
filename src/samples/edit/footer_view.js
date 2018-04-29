@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Sample Edit footer view.
- *****************************************************************************/
+ **************************************************************************** */
 import Marionette from 'backbone.marionette';
 import _ from 'lodash';
 import Indicia from 'indicia';
@@ -10,7 +10,7 @@ import Gallery from '../../common/gallery';
 
 const SavedImageView = Marionette.View.extend({
   template: _.template(
-    '<span class="delete icon icon-cancel">' + '</span><img src="<%- obj.data %>" alt="">'
+    '<span class="delete icon icon-cancel"></span><img src="<%- obj.data %>" alt="">'
   ),
   className: 'img',
 
@@ -48,11 +48,11 @@ export default Marionette.CompositeView.extend({
   },
 
   events: {
-    'change input': function (e) {
+    'change input': function (e) {  // eslint-disable-line
       // eslint-disable-line
       this.trigger('photo:upload', e);
     },
-    'click .img-picker': function () {
+    'click .img-picker': function () {  // eslint-disable-line
       // eslint-disable-line
       if (window.cordova) {
         this.trigger('photo:selection');

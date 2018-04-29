@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Main app configuration file.
- *****************************************************************************/
+ **************************************************************************** */
 import Indicia from 'indicia';
 import DateHelp from 'helpers/date';
 import LocHelp from 'helpers/location';
@@ -37,7 +37,6 @@ const rangeValues = {
 
 const CONFIG = {
   // variables replaced on build
-  /* global APP_VERSION, APP_BUILD, APP_NAME, APP_INDICIA_API_KEY */
   version: process.env.APP_VERSION,
   build: process.env.APP_BUILD,
   name: process.env.APP_NAME,
@@ -350,7 +349,7 @@ const CONFIG = {
 
           return rangeValues[value];
         },
-      }, //1-10
+      }, // 1-10
     },
 
     reports: {

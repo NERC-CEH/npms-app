@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Sample Taxa List main view.
- *****************************************************************************/
+ **************************************************************************** */
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 import Hammer from 'hammerjs';
@@ -26,14 +26,14 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    'click .js-attr': function (e) {
+    'click .js-attr': function (e) {  // eslint-disable-line
       // eslint-disable-line
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
     'click span.delete': 'delete',
     'click img': 'photoView',
-    'change input': function (e) {
+    'change input': function (e) {  // eslint-disable-line
       // eslint-disable-line
       e.preventDefault();
       this.trigger('photo:upload', e, this.model);

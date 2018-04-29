@@ -1,7 +1,7 @@
 /** ****************************************************************************
  * Locations list refresh view.
  * Provides button for top right of header.
- *****************************************************************************/
+ **************************************************************************** */
 import Marionette from 'backbone.marionette';
 
 export default Marionette.View.extend({

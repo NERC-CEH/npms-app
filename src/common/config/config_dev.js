@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Main app development configuration file.
- *****************************************************************************/
+ **************************************************************************** */
 import $ from 'jquery';
 import Indicia from 'indicia';
 import config from './config';
@@ -224,7 +224,7 @@ const newConfig = $.extend(true, config, {
         type: 'radio',
         id_wild: 263,
         id: 264,
-      }, //1-10
+      }, // 1-10
     },
 
     reports: {

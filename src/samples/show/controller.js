@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Sample Show controller.
- *****************************************************************************/
+ **************************************************************************** */
 import _ from 'lodash';
 import Backbone from 'backbone';
 import radio from 'radio';
@@ -9,7 +9,6 @@ import Device from 'helpers/device';
 import Sample from 'sample';
 import appModel from 'app_model';
 import userModel from 'user_model';
-import CONFIG from 'config';
 import savedSamples from 'saved_samples';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';

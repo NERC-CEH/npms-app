@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Taxon controller.
- *****************************************************************************/
+ **************************************************************************** */
 import Backbone from 'backbone';
 import App from 'app';
 import radio from 'radio';
@@ -74,7 +74,7 @@ const API = {
           .catch((err) => {
             Log(err, 'e');
             radio.trigger('app:dialog:err', err);
-            return;
+            
           });
       },
       that

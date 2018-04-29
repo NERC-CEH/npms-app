@@ -1,6 +1,6 @@
 /** ****************************************************************************
  * Sample Attribute main view.
- *****************************************************************************/
+ **************************************************************************** */
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 import Device from 'helpers/device';
@@ -79,7 +79,7 @@ export default Marionette.View.extend({
   getValues() {
     function parseVegetation(value) {
       const parsedValue = parseInt(value, 10);
-      if (isNaN(parsedValue) || parsedValue > 3 || parsedValue < 0) {
+      if (isNaN(parsedValue) || parsedValue > 3 || parsedValue < 0) {  // eslint-disable-line
         return null;
       }
 
