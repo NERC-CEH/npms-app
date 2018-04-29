@@ -1,26 +1,52 @@
 /**
- * Google analytics to track the page navigation.
+ * Application analytics.
+ *
+ * Uses Google analytics to track the page navigation and Sentry to server log
+ * client side errors.
  */
+import _ from 'lodash';
 import Backbone from 'backbone';
 import Raven from 'raven-js';
 import CONFIG from 'config';
+import Log from './log';
 
 const API = {
   initialized: false,
 
   init() {
+    Log('Analytics: initializing.');
+
     // initialize only once
     if (this.initialized) return;
 
     // Turn on the error logging
-    Raven.config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
-      environment: CONFIG.environment,
-      release: CONFIG.version,
-      ignoreErrors: [
-        'setSelectionRange', // there is some fastclick issue (does not affect ux)
-        'Incorrect password or email', // no need to log that
-      ],
-    }).install();
+    if (CONFIG.sentry.key) {
+      Log('Analytics: turning on server error logging.');
+      Raven.config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
+        environment: CONFIG.environment,
+        release: CONFIG.version,
+        ignoreErrors: [
+          'setSelectionRange', // there is some fastclick issue (does not affect ux)
+          'Incorrect password or email', // no need to log that
+          'Backbone.history', // on refresh fires this error, todo: fix it
+        ],
+        breadcrumbCallback(crumb) {
+          // clean UUIDs
+          if (crumb.category === 'navigation') {
+            const cleanCrumb = _.cloneDeep(crumb);
+            cleanCrumb.data = {
+              to: API._removeUUID(crumb.data.to),
+              from: API._removeUUID(crumb.data.from),
+            };
+            return cleanCrumb;
+          }
+
+          return crumb;
+        },
+      }).install();
+    } else {
+      Log('Analytics: server error logging is turned off. Please provide Sentry key.', 'w');
+    }
 
     // capture unhandled promises
     window.onunhandledrejection = (e) => {
@@ -29,9 +55,11 @@ const API = {
       });
     };
 
-    if (window.cordova && CONFIG.ga.status) {
+    if (window.cordova && CONFIG.ga.id) {
       document.addEventListener('deviceready', () => {
-        window.analytics.startTrackerWithId(CONFIG.ga.ID);
+        Log('Analytics: turning on Google Analytics.');
+
+        window.analytics.startTrackerWithId(CONFIG.ga.id);
         window.analytics.enableUncaughtExceptionReporting(true);
 
         // listen for page change
@@ -41,6 +69,13 @@ const API = {
 
         this.initialized = true;
       });
+    } else {
+      Log(
+        `Analytics: Google Analytics is turned off. ${
+          window.cordova ? 'Please provide the GA tracking ID.' : ''
+        }`,
+        'w'
+      );
     }
   },
 
@@ -83,5 +118,8 @@ const API = {
     return string.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g, 'UUID');
   },
 };
+
+// init Analytics
+API.init();
 
 export { API as default };

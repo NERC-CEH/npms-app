@@ -3,6 +3,7 @@
  *****************************************************************************/
 import Indicia from 'indicia';
 import DateHelp from 'helpers/date';
+import LocHelp from 'helpers/location';
 
 const HOST = process.env.APP_INDICIA_API_HOST || 'http://www.npms.org.uk/';
 
@@ -72,14 +73,6 @@ const CONFIG = {
     timeout: 80000,
   },
 
-  // mapping
-  map: {
-    os_api_key: process.env.APP_OS_MAP_KEY,
-    mapbox_api_key: process.env.APP_MAPBOX_MAP_KEY,
-    mapbox_osm_id: 'cehapps.0fenl1fe',
-    mapbox_satellite_id: 'cehapps.0femh3mh',
-  },
-
   // indicia configuration
   indicia: {
     host: HOST,
@@ -102,10 +95,24 @@ const CONFIG = {
         values(value, submission) {
           // add other location related attributes
           submission.fields.entered_sref = value.plot; // eslint-disable-line
+          // eslint-disable-next-line
+          switch (LocHelp.getLocationType(value.plot)) {
+            case 'british':
+              submission.fields.entered_sref_system = 'OSGB';
+              break;
+            case 'irish':
+              submission.fields.entered_sref_system = 'OSIE';
+              break;
+            case 'channel':
+              submission.fields.entered_sref_system = 'utm30ed50';
+              break;
+            case 'latlon':
+              submission.fields.entered_sref_system = 4326;
+              break;
 
-          // lat lon
-          if (value.plot.match(/\d+\.\d+N \d+\.\d+W/g)) {
-            submission.fields.entered_sref_system = 4326; // eslint-disable-line
+            default:
+            // No such location type
+            // todo error
           }
 
           return value.id;

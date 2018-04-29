@@ -10,6 +10,7 @@ import Marionette from 'backbone.marionette';
 import FastClick from 'fastclick';
 import radio from 'radio';
 import Log from 'helpers/log';
+import Analytics from 'helpers/analytics';
 import Update from 'helpers/update';
 import Device from 'helpers/device';
 import CommonController from './common/controller';
