@@ -1,42 +1,36 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "mocha": true
   },
-  "extends": "airbnb/base",
+  "extends": ["airbnb-base", "prettier"],
   "rules": {
-    "linebreak-style": 0,
-    "import/no-extraneous-dependencies": 0, // TODO: remove once Webpack fixes it
-    "import/no-unresolved": 0, // TODO: remove once Webpack fixes it
-    "prefer-rest-params": 0,
-    "no-fallthrough": 0,
+    "import/no-mutable-exports": 0,
+    "import/extensions": 0,
     "no-case-declarations": 0,
     "no-console": 0,
     "no-plusplus": 0,
+    "no-param-reassign": 0, // TODO: switch back once fixed
+    "prefer-destructuring": 0, // TODO: switch back once fixed
     "no-mutable-exports": 0,
     "no-underscore-dangle": 0,
     "no-unused-expressions": [2, {
       "allowShortCircuit": true, // eg. a || a()
       "allowTernary": true // eg. a ? b() : c()
-    }],
-    "new-cap": ["error", {
-      "capIsNewExceptions": ["Log", "UUID"]
     }]
   },
+  "overrides": [
+    {
+      "files": ["**/__tests__/*.js"],
+      "rules": {
+        "no-unused-expressions": 0
+      }
+    }
+  ],
   "globals": {
     "sinon": true,
-    "before": true,
-    "beforeEach": true,
-    "after": true,
-    "afterEach": true,
-    "describe": true,
-    "it": true,
     "expect": true,
-
-    "parseInt": true,
-
-    "cordova": true,
-    "StatusBar": true,
-    "splashscreen": true
+    "cordova": true
   },
   "settings": {
     "import/resolver": {
