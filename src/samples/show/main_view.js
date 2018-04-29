@@ -32,7 +32,7 @@ export default Marionette.View.extend({
       });
     });
 
-// Initializes and opens PhotoSwipe
+    // Initializes and opens PhotoSwipe
     const gallery = new Gallery(items);
     gallery.init();
   },
@@ -66,4 +66,3 @@ export default Marionette.View.extend({
     };
   },
 });
-

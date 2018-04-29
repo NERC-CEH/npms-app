@@ -51,7 +51,9 @@ const Router = Marionette.AppRouter.extend({
     'samples/:id/edit/taxa/:id/edit(/)': TaxaEditController.show,
     'samples/:id/edit/taxa/search(/)': TaxaSearchController.show,
     'samples/:id/edit/:attr(/)': EditAttrController.show,
-    'samples/*path': () => { radio.trigger('app:404:show'); },
+    'samples/*path': () => {
+      radio.trigger('app:404:show');
+    },
   },
 });
 

@@ -39,15 +39,21 @@ const Router = Marionette.AppRouter.extend({
     },
     'info/privacy(/)': () => {
       CommonController.show({
-        title: 'Privacy Policy', App, route: 'info/privacy/main',
+        title: 'Privacy Policy',
+        App,
+        route: 'info/privacy/main',
       });
     },
     'info/credits(/)': () => {
       CommonController.show({
-        title: 'Credits', App, route: 'info/credits/main',
+        title: 'Credits',
+        App,
+        route: 'info/credits/main',
       });
     },
-    'info/*path': () => { radio.trigger('app:404:show'); },
+    'info/*path': () => {
+      radio.trigger('app:404:show');
+    },
   },
 });
 

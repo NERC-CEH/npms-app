@@ -45,7 +45,7 @@ function detect(browserName) {
     }
     return false;
   }
-  return (is(browser));
+  return is(browser);
 }
 
 function isIOS() {
@@ -68,8 +68,7 @@ function getIOSVersion() {
 function isHomeMode() {
   try {
     const iOS = window.navigator.standalone;
-    const IE = (window.external && window.external.msIsSiteMode &&
-    window.external.msIsSiteMode());
+    const IE = window.external && window.external.msIsSiteMode && window.external.msIsSiteMode();
 
     return iOS || IE;
   } catch (err) {
@@ -136,4 +135,3 @@ export default {
   getVersion,
   getPlatform,
 };
-

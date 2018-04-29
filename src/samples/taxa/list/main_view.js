@@ -26,13 +26,15 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    'click .js-attr'(e) { // eslint-disable-line
+    'click .js-attr': function (e) {
+      // eslint-disable-line
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
     'click span.delete': 'delete',
     'click img': 'photoView',
-    'change input'(e) { // eslint-disable-line
+    'change input': function (e) {
+      // eslint-disable-line
       e.preventDefault();
       this.trigger('photo:upload', e, this.model);
     },
@@ -161,7 +163,7 @@ const SpeciesView = Marionette.View.extend({
     // only swipe if no scroll up and is not in the middle
     if (Math.abs(e.deltaY) > 10 && !this.position) return;
 
-    if ((-options.toolsWidth + e.deltaX) > -options.toolsWidth) {
+    if (-options.toolsWidth + e.deltaX > -options.toolsWidth) {
       // bring back
       this.position = 0;
       this.docked = false;
@@ -202,7 +204,6 @@ export default Marionette.CollectionView.extend({
   className: 'table-view no-top',
   emptyView: NoSpeciesView,
   childView: SpeciesView,
-
 
   // inverse the collection
   attachHtml(collectionView, childView) {

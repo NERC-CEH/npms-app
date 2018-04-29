@@ -23,6 +23,5 @@ const AppModel = Backbone.Model.extend({
   },
 });
 
-
 const appModel = new AppModel();
 export { appModel as default, AppModel };

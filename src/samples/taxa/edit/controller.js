@@ -35,9 +35,7 @@ const API = {
     }
 
     // MAIN
-    const occurrences = sample.occurrences.filter(
-      occurrence => occurrence.cid === occurrenceID
-    );
+    const occurrences = sample.occurrences.filter(occurrence => occurrence.cid === occurrenceID);
 
     if (occurrences.length !== 1) {
       Log(`Samples:Taxa:Edit:Controller: no occurrence with id (${occurrenceID})`, 'e');
@@ -83,7 +81,8 @@ const API = {
     occurrenceModel.set('abundance', value);
 
     // save it
-    occurrenceModel.save()
+    occurrenceModel
+      .save()
       .then(callback)
       .catch((err) => {
         Log(err, 'e');

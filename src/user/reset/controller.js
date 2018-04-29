@@ -97,10 +97,7 @@ const API = {
         .fail((xhr, textStatus) => {
           let message = textStatus;
           if (xhr.responseJSON && xhr.responseJSON.errors) {
-            message = xhr.responseJSON.errors.reduce(
-              (name, err) => `${name}${err.title}\n`,
-              ''
-            );
+            message = xhr.responseJSON.errors.reduce((name, err) => `${name}${err.title}\n`, '');
           }
           reject(new Error(message));
         });

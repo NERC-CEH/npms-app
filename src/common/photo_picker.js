@@ -18,8 +18,9 @@ const API = {
   photoDelete(photo) {
     radio.trigger('app:dialog', {
       title: 'Delete',
-      body: 'Are you sure you want to remove this photo from the record?' +
-      '</br><i><b>Note:</b> it will remain in the gallery.</i>',
+      body:
+        'Are you sure you want to remove this photo from the record?' +
+        '</br><i><b>Note:</b> it will remain in the gallery.</i>',
       buttons: [
         {
           title: 'Cancel',
@@ -68,16 +69,19 @@ const API = {
         {
           title: 'Gallery',
           onClick() {
-            ImageHelp.getImage((entry) => {
-              API.addPhoto(model, entry.nativeURL, (occErr) => {
-                if (occErr) {
-                  radio.trigger('app:dialog:error', occErr);
-                }
-              });
-            }, {
-              sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
-              saveToPhotoAlbum: false,
-            });
+            ImageHelp.getImage(
+              (entry) => {
+                API.addPhoto(model, entry.nativeURL, (occErr) => {
+                  if (occErr) {
+                    radio.trigger('app:dialog:error', occErr);
+                  }
+                });
+              },
+              {
+                sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
+                saveToPhotoAlbum: false,
+              }
+            );
             radio.trigger('app:dialog:hide');
           },
         },
@@ -89,11 +93,10 @@ const API = {
    * Adds a new image to model.
    */
   addPhoto(model, photo) {
-    return ImageHelp.getImageModel(ImageModel, photo)
-      .then((image) => {
-        model.addMedia(image);
-        return model.save();
-      });
+    return ImageHelp.getImageModel(ImageModel, photo).then((image) => {
+      model.addMedia(image);
+      return model.save();
+    });
   },
 };
 

@@ -1,5 +1,3 @@
-'use strict';
-
 const PORT = 8000;
 let NETWORK = 'localhost';
 
@@ -14,7 +12,7 @@ const app = express();
 
 app.use(express.static('dist/main'));
 
-const server = app.listen(PORT, NETWORK, function () {
+const server = app.listen(PORT, NETWORK, () => {
   const host = server.address().address;
   const port = server.address().port;
 

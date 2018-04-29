@@ -89,7 +89,6 @@ const API = {
     radio.trigger('app:footer:hide');
   },
 
-
   onExit(mainView, sample, attr, callback) {
     Log('Samples:Attr:Controller: exiting.');
     const values = mainView.getValues();
@@ -155,7 +154,8 @@ const API = {
     }
 
     // save it
-    sample.save()
+    sample
+      .save()
       .then(callback)
       .catch((err) => {
         Log(err, 'e');

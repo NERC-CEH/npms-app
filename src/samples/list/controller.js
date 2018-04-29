@@ -57,7 +57,8 @@ const API = {
     Log('Samples:List:Controller: deleting sample.');
 
     const syncStatus = sample.getSyncStatus();
-    let body = 'This record hasn\'t been saved to NPMS yet, ' +
+    let body =
+      "This record hasn't been saved to NPMS yet, " +
       'are you sure you want to remove it from your device?';
 
     if (syncStatus === Indicia.SYNCED) {
@@ -97,7 +98,8 @@ const API = {
     const View = Marionette.View.extend({
       template: JST['samples/list/levels'],
       events: {
-        'click input[type="radio"]'() { // eslint-disable-line
+        'click input[type="radio"]': function () {
+          // eslint-disable-line
           // find the option
           let option;
           const $inputs = this.$el.find('input');
@@ -134,7 +136,6 @@ const API = {
     });
   },
 
-
   /**
    * Creates a new sample with an image passed as an argument.
    */
@@ -146,7 +147,8 @@ const API = {
     sample.set('level', level);
 
     savedSamples.add(sample);
-    sample.save()
+    sample
+      .save()
       .then(callback)
       .catch((err) => {
         Log(err, 'e');

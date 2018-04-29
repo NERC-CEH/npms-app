@@ -11,14 +11,17 @@ import '../styles/dialog.scss';
 
 const errorsTable = {
   25: {
-    body: 'Sorry, looks like there was a problem with the internal database.</br> ' +
-    '<b>Please close the app and start it again.</b>',
-    buttons: [{
-      title: 'Restart',
-      onClick: function onClick() {
-        radio.trigger('app:restart');
+    body:
+      'Sorry, looks like there was a problem with the internal database.</br> ' +
+      '<b>Please close the app and start it again.</b>',
+    buttons: [
+      {
+        title: 'Restart',
+        onClick: function onClick() {
+          radio.trigger('app:restart');
+        },
       },
-    }],
+    ],
   },
 };
 
@@ -80,7 +83,7 @@ const StandardDialogView = Marionette.View.extend({
           tagName: 'button',
           className() {
             const className = this.model.get('class');
-            return `btn ${(className || '')}`;
+            return `btn ${className || ''}`;
           },
           template: _.template('<%- obj.title %>'),
           events: {
@@ -203,11 +206,13 @@ export default Marionette.Region.extend({
       class: 'error',
       title: 'Yikes!',
       body: err.message || err,
-      buttons: [{
-        id: 'ok',
-        title: 'OK',
-        onClick: this.hide,
-      }],
+      buttons: [
+        {
+          id: 'ok',
+          title: 'OK',
+          onClick: this.hide,
+        },
+      ],
     };
 
     // lookup for codes

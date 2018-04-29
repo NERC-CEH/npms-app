@@ -73,7 +73,7 @@ const Sample = Indicia.Sample.extend({
     } else {
       const date = new Date(attrs.date);
       if (date === 'Invalid Date' || date > new Date()) {
-        sample.date = (new Date(date) > new Date()) ? 'future date' : 'invalid';
+        sample.date = new Date(date) > new Date() ? 'future date' : 'invalid';
       }
     }
 
@@ -133,8 +133,7 @@ const Sample = Indicia.Sample.extend({
 
   isLocalOnly() {
     const status = this.getSyncStatus();
-    return this.metadata.saved &&
-      (status === Indicia.LOCAL || status === Indicia.SYNCHRONISING);
+    return this.metadata.saved && (status === Indicia.LOCAL || status === Indicia.SYNCHRONISING);
   },
 
   timeout() {

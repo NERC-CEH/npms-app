@@ -29,7 +29,8 @@ const DEBUG = 'd';
  */
 function error(err = {}) {
   if (typeof err === 'string' || err instanceof String) {
-    err = { // eslint-disable-line
+    // eslint-disable-next-line
+    err = {
       message: err,
     };
   }

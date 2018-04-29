@@ -31,8 +31,9 @@ const API = {
       radio.trigger('app:dialog', {
         title: 'Reset',
         class: 'error',
-        body: 'Are you sure you want to reset the application to its initial state? ' +
-        'This will wipe all the locally stored app data!',
+        body:
+          'Are you sure you want to reset the application to its initial state? ' +
+          'This will wipe all the locally stored app data!',
         buttons: [
           {
             title: 'Cancel',
@@ -88,7 +89,8 @@ const API = {
             Log('Settings:Menu:Controller: deleting all samples.');
 
             // delete all
-            savedSamples.removeAllSynced()
+            savedSamples
+              .removeAllSynced()
               .then(() => {
                 radio.trigger('app:dialog', {
                   title: 'Done!',
@@ -122,7 +124,8 @@ const API = {
           class: 'btn-positive',
           onClick() {
             Log('Settings:Menu:Controller: sending all samples.');
-            savedSamples.setAllToSend()
+            savedSamples
+              .setAllToSend()
               .then(() => {
                 radio.trigger('app:dialog', {
                   title: 'Done!',
@@ -149,7 +152,8 @@ const API = {
     userModel.clear().set(userModel.defaults);
     userModel.save();
 
-    savedSamples.destroy()
+    savedSamples
+      .destroy()
       .then(callback)
       .catch((err) => {
         Log(err, 'e');

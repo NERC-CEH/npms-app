@@ -9,8 +9,9 @@ import JST from 'JST';
 import Gallery from '../../common/gallery';
 
 const SavedImageView = Marionette.View.extend({
-  template: _.template('<span class="delete icon icon-cancel">' +
-    '</span><img src="<%- obj.data %>" alt="">'),
+  template: _.template(
+    '<span class="delete icon icon-cancel">' + '</span><img src="<%- obj.data %>" alt="">'
+  ),
   className: 'img',
 
   events: {
@@ -47,10 +48,12 @@ export default Marionette.CompositeView.extend({
   },
 
   events: {
-    'change input'(e) { // eslint-disable-line
+    'change input': function (e) {
+      // eslint-disable-line
       this.trigger('photo:upload', e);
     },
-    'click .img-picker'() { // eslint-disable-line
+    'click .img-picker': function () {
+      // eslint-disable-line
       if (window.cordova) {
         this.trigger('photo:selection');
       }
@@ -88,7 +91,7 @@ export default Marionette.CompositeView.extend({
       });
     });
 
-// Initializes and opens PhotoSwipe
+    // Initializes and opens PhotoSwipe
     const gallery = new Gallery(items, options);
     gallery.init();
   },

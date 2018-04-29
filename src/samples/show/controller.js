@@ -65,18 +65,16 @@ const API = {
         return;
       }
 
-      sample.save(null, { remote: true })
-        .catch((err) => {
-          Log(err, 'e');
-          radio.trigger('app:dialog:error', err);
-        });
+      sample.save(null, { remote: true }).catch((err) => {
+        Log(err, 'e');
+        radio.trigger('app:dialog:error', err);
+      });
     } else {
       radio.trigger('app:dialog:error', {
         message: 'Looks like you are offline!',
       });
     }
   },
-
 
   addSurvey(sampleID) {
     if (!userModel.hasLogIn()) {
@@ -107,7 +105,8 @@ const API = {
     });
 
     savedSamples.add(sample);
-    sample.save()
+    sample
+      .save()
       .then(callback)
       .catch((err) => {
         Log(err, 'e');

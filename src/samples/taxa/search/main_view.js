@@ -9,13 +9,12 @@ import Log from 'helpers/log';
 import Device from 'helpers/device';
 import './styles.scss';
 
-
 const MIN_SEARCH_LENGTH = 2;
 
 const SpeciesView = Marionette.View.extend({
   tagName: 'li',
   className() {
-    return `table-view-cell ${(this.model.get('selected') ? 'selected' : '')}`;
+    return `table-view-cell ${this.model.get('selected') ? 'selected' : ''}`;
   },
 
   template: JST['samples/taxa/search/species'],
@@ -65,7 +64,6 @@ const SpeciesView = Marionette.View.extend({
     this.trigger('taxon:selected', species, edit);
   },
 });
-
 
 const NoSuggestionsView = Marionette.View.extend({
   tagName: 'li',
@@ -143,8 +141,9 @@ export default Marionette.View.extend({
       removeEditBtn: this.options.removeEditBtn,
       searchPhrase,
     });
-    suggestionsColView.on('childview:taxon:selected',
-      (speciesID, edit) => this.trigger('taxon:selected', speciesID, edit));
+    suggestionsColView.on('childview:taxon:selected', (speciesID, edit) =>
+      this.trigger('taxon:selected', speciesID, edit)
+    );
 
     this.getRegion('suggestions').show(suggestionsColView);
   },
@@ -187,8 +186,12 @@ export default Marionette.View.extend({
         // Down
         e.preventDefault();
 
-        if ((this.suggestionsCol && this.suggestionsCol.length) && // initialized
-          this.selectedIndex < this.suggestionsCol.length - 1) { // not out of boundaries
+        if (
+          this.suggestionsCol &&
+          this.suggestionsCol.length && // initialized
+          this.selectedIndex < this.suggestionsCol.length - 1
+        ) {
+          // not out of boundaries
           this.suggestionsCol.at(this.selectedIndex).set('selected', false);
           this.selectedIndex++;
           this.suggestionsCol.at(this.selectedIndex).set('selected', true);
@@ -216,7 +219,7 @@ export default Marionette.View.extend({
         }
 
         // proceed if minimum length phrase was provided
-        if ((text.replace(/\.|\s/g, '').length) >= MIN_SEARCH_LENGTH) {
+        if (text.replace(/\.|\s/g, '').length >= MIN_SEARCH_LENGTH) {
           text = text.trim();
 
           // Clear previous timeout
@@ -254,7 +257,7 @@ export default Marionette.View.extend({
         let text = input;
 
         // proceed if minimum length phrase was provided
-        if ((text.replace(/\.|\s/g, '').length) >= MIN_SEARCH_LENGTH) {
+        if (text.replace(/\.|\s/g, '').length >= MIN_SEARCH_LENGTH) {
           text = text.trim();
 
           // Clear previous timeout

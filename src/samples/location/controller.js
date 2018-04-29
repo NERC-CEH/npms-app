@@ -82,10 +82,9 @@ const API = {
   },
 
   refresh() {
-    userModel.syncSquares(true)
-      .catch((err) => {
-        radio.trigger('app:dialog:error', err);
-      });
+    userModel.syncSquares(true).catch((err) => {
+      radio.trigger('app:dialog:error', err);
+    });
     Analytics.trackEvent('Statistics', 'refresh');
   },
 
@@ -94,7 +93,6 @@ const API = {
 
     let selectedSquare;
     let selectedPlot;
-
 
     Object.keys(squares.data).forEach((squareKey) => {
       const square = squares.data[squareKey];

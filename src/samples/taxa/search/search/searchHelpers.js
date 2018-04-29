@@ -16,7 +16,7 @@ const helpers = {
     return phrase.replace(/\\[\-\'\"()\\]/g, '.?'); // eslint-disable-line
   },
 
-// todo: change èéöüáöëïåß -> eeou..
+  // todo: change èéöüáöëïåß -> eeou..
   getFirstWordRegexString(phraseOrig) {
     let phrase = helpers.escapeRegExp(phraseOrig);
     phrase = helpers.removeNonAlphanumerics(phrase);
@@ -71,9 +71,9 @@ const helpers = {
    */
   isPhraseScientific(searchPhrase) {
     const check = [
-      ' ssp\.? ', // eslint-disable-line
-      ' subsect\.? ', // eslint-disable-line
-      ' nothovar\.? ', // eslint-disable-line
+      ' ssp.? ', // eslint-disable-line
+      ' subsect.? ', // eslint-disable-line
+      ' nothovar.? ', // eslint-disable-line
     ];
 
     const re = new RegExp(check.join('|'), 'i');

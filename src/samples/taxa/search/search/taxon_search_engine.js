@@ -21,20 +21,24 @@ const API = {
     const that = this;
 
     loading = true;
-    require.ensure([], () => {
-      loading = false;
-      $.getJSON(`data/${list}.data.json`, (data) => {
-        species[list] = data;
-      })
-        .done($.getJSON(`data/${list}_names.data.json`, (data) => {
-          speciesNames[list] = data;
-        })
-          .done(() => {
+    require.ensure(
+      [],
+      () => {
+        loading = false;
+        $.getJSON(`data/${list}.data.json`, (data) => {
+          species[list] = data;
+        }).done(
+          $.getJSON(`data/${list}_names.data.json`, (data) => {
+            speciesNames[list] = data;
+          }).done(() => {
             loading = false;
             that.trigger('data:loaded');
             callback && callback();
-          }));
-    }, 'data');
+          })
+        );
+      },
+      'data'
+    );
   },
 
   /**

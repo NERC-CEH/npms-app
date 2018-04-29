@@ -4,11 +4,12 @@ module.exports = function (grunt) {
   return {
     data_init: {
       command(list) {
-        return 'cd src/samples/taxa/search/data && ' +
-          'python make.py '+ list + ' &&' +
+        return (
+          `${'cd src/samples/taxa/search/data && ' + 'python make.py '}${list} &&` +
           'mkdir -p ../../../../../dist/main/data &&' +
           'mv *data.json ../../../../../dist/main/data &&' +
-          'rm warnings.log';
+          'rm warnings.log'
+        );
       },
       stdout: true,
     },
@@ -29,9 +30,10 @@ module.exports = function (grunt) {
       stdout: true,
     },
     cordova_add_platforms: {
-      command: 'cd dist/cordova && ' +
-      'cordova platforms add ios android && ' +
-      'cordova plugin add cordova-plugin-camera --variable CAMERA_USAGE_DESCRIPTION="please" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="please"',
+      command:
+        'cd dist/cordova && ' +
+        'cordova platforms add ios android && ' +
+        'cordova plugin add cordova-plugin-camera --variable CAMERA_USAGE_DESCRIPTION="please" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="please"',
       stdout: true,
     },
     /**
@@ -41,20 +43,18 @@ module.exports = function (grunt) {
       command() {
         const pass = grunt.config('keystore-password');
 
-        return 'cd dist/cordova && ' +
-          'mkdir -p dist && ' +
-
-          'cordova --release build android && ' +
-          'cd platforms/android/build/outputs/apk &&' +
-
-          'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ' +
-          '-keystore ' + process.env.KEYSTORE +
-          ' -storepass ' + pass +
-          ' android-release-unsigned.apk irecord &&' +
-
+        return (
+          `${'cd dist/cordova && ' +
+            'mkdir -p dist && ' +
+            'cordova --release build android && ' +
+            'cd platforms/android/build/outputs/apk &&' +
+            'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ' +
+            '-keystore '}${process.env.KEYSTORE} -storepass ${
+            pass
+          } android-release-unsigned.apk irecord &&` +
           'zipalign -v 4 android-release-unsigned.apk main.apk && ' +
-
-          'mv -f main.apk ../../../../../dist/';
+          'mv -f main.apk ../../../../../dist/'
+        );
       },
 
       stdout: true,
@@ -64,30 +64,27 @@ module.exports = function (grunt) {
       command() {
         const pass = grunt.config('keystore-password');
 
-        return 'cd dist/cordova && ' +
-          'mkdir -p dist && ' +
+        return (
+          `${'cd dist/cordova && ' +
+            'mkdir -p dist && ' +
+            // 'cordova platforms add android && ' + // don't know if needed to load new config
 
-          // 'cordova platforms add android && ' + // don't know if needed to load new config
-
-          'cordova plugin add cordova-plugin-crosswalk-webview && ' +
-          'cordova --release build android && ' +
-          'cd platforms/android/build/outputs/apk &&' +
-
-          'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ' +
-          '-keystore ' + process.env.KEYSTORE +
-          ' -storepass ' + pass +
-          ' android-armv7-release-unsigned.apk irecord &&' +
-
+            'cordova plugin add cordova-plugin-crosswalk-webview && ' +
+            'cordova --release build android && ' +
+            'cd platforms/android/build/outputs/apk &&' +
+            'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ' +
+            '-keystore '}${process.env.KEYSTORE} -storepass ${
+            pass
+          } android-armv7-release-unsigned.apk irecord &&` +
           'zipalign -v 4 android-armv7-release-unsigned.apk arm7.apk && ' +
-
           'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ' +
-          '-keystore ' + process.env.KEYSTORE +
-          ' -storepass ' + pass +
-          ' android-x86-release-unsigned.apk irecord &&' +
+          `-keystore ${process.env.KEYSTORE} -storepass ${
+            pass
+          } android-x86-release-unsigned.apk irecord &&` +
           'zipalign -v 4 android-x86-release-unsigned.apk x86.apk && ' +
-
           'mv -f arm7.apk ../../../../../dist/ && ' +
-          'mv -f x86.apk ../../../../../dist/';
+          'mv -f x86.apk ../../../../../dist/'
+        );
       },
     },
 

@@ -19,8 +19,13 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function (species, commonNamePointersArray, searchPhrase,
-                         results = [], maxResults = MAX) {
+export default function (
+  species,
+  commonNamePointersArray,
+  searchPhrase,
+  results = [],
+  maxResults = MAX
+) {
   const searchWords = searchPhrase.split(' ');
 
   // prepare first word regex
@@ -38,9 +43,11 @@ export default function (species, commonNamePointersArray, searchPhrase,
   }
 
   // for each word index
-  for (let wordCount = 0;
-       wordCount < commonNamePointersArray.length && results.length < maxResults;
-       wordCount++) {
+  for (
+    let wordCount = 0;
+    wordCount < commonNamePointersArray.length && results.length < maxResults;
+    wordCount++
+  ) {
     const commonNamePointers = commonNamePointersArray[wordCount];
     const pointerArrayLength = commonNamePointers.length;
 
@@ -48,18 +55,25 @@ export default function (species, commonNamePointersArray, searchPhrase,
     let pointersArrayIndex = helpers.findFirstMatching(
       species,
       commonNamePointers,
-      searchPhrase, wordCount
+      searchPhrase,
+      wordCount
     );
 
     // go through all common name pointers
-    while (pointersArrayIndex !== null && pointersArrayIndex >= 0 &&
-    pointersArrayIndex < pointerArrayLength &&
-    results.length < maxResults) {
+    while (
+      pointersArrayIndex !== null &&
+      pointersArrayIndex >= 0 &&
+      pointersArrayIndex < pointerArrayLength &&
+      results.length < maxResults
+    ) {
       const p = commonNamePointers[pointersArrayIndex];
       if (helpers.isGenusPointer(p)) {
         const genus = species[p[0]];
         let name = genus[p[1]];
-        name = name.split(/\s+/).slice(wordCount).join(' ');
+        name = name
+          .split(/\s+/)
+          .slice(wordCount)
+          .join(' ');
         // stop looking further if first name does not match
         if (!firstWordRegex.test(name)) break;
 
@@ -81,7 +95,10 @@ export default function (species, commonNamePointersArray, searchPhrase,
         // carry on while it matches the first name
         const foundInName = p[3] === SPECIES_COMMON_SYN_INDEX ? 'synonym' : 'common_name';
         let name = speciesEntry[p[3]];
-        name = name.split(/\s+/).slice(wordCount).join(' ');
+        name = name
+          .split(/\s+/)
+          .slice(wordCount)
+          .join(' ');
 
         // stop looking further if first name does not match
         if (!firstWordRegex.test(name)) break;

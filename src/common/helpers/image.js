@@ -13,20 +13,29 @@ const Image = {
       Log(err, 'e');
       callback(err);
     }
-    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, (fileSystem) => {
-      const relativePath = name.replace(fileSystem.nativeURL, '');
-      fileSystem.getFile(relativePath, { create: false }, (fileEntry) => {
-        if (!fileEntry) {
-          callback();
-          return;
-        }
+    window.resolveLocalFileSystemURL(
+      cordova.file.dataDirectory,
+      (fileSystem) => {
+        const relativePath = name.replace(fileSystem.nativeURL, '');
+        fileSystem.getFile(
+          relativePath,
+          { create: false },
+          (fileEntry) => {
+            if (!fileEntry) {
+              callback();
+              return;
+            }
 
-        fileEntry.remove(() => {
-          Log('Helpers:Image: removed.');
-          callback();
-        }, errorHandler);
-      }, errorHandler);
-    }, errorHandler);
+            fileEntry.remove(() => {
+              Log('Helpers:Image: removed.');
+              callback();
+            }, errorHandler);
+          },
+          errorHandler
+        );
+      },
+      errorHandler
+    );
   },
 
   /**
@@ -69,12 +78,7 @@ const Image = {
           cordova.file.dataDirectory,
           (fileSystem) => {
             // copy to app data directory
-            fileEntry.copyTo(
-              fileSystem,
-              name,
-              callback,
-              fail
-            );
+            fileEntry.copyTo(fileSystem, name, callback, fail);
           },
           fail
         );
@@ -82,9 +86,11 @@ const Image = {
 
       // for some reason when selecting from Android gallery
       // the prefix is sometimes missing
-      if (Device.isAndroid() &&
-        options.sourceType === window.Camera.PictureSourceType.PHOTOLIBRARY) {
-        if (!(/file:\/\//).test(URI)) {
+      if (
+        Device.isAndroid() &&
+        options.sourceType === window.Camera.PictureSourceType.PHOTOLIBRARY
+      ) {
+        if (!/file:\/\//.test(URI)) {
           URI = `file://${URI}`;
         }
       }
@@ -115,20 +121,19 @@ const Image = {
 
     if (window.cordova) {
       // cordova environment
-      return Indicia.Media.getDataURI(file)
-        .then((args) => {
-          // don't resize, only get width and height
-          const [, , width, height] = args;
-          let fileName = file;
+      return Indicia.Media.getDataURI(file).then((args) => {
+        // don't resize, only get width and height
+        const [, , width, height] = args;
+        let fileName = file;
 
-          if (Device.isIOS()) {
-            // save only the file name or iOS, because the app UUID changes
-            // on every app update
-            const pathArray = file.split('/');
-            fileName = pathArray[pathArray.length - 1];
-          }
-          return success([fileName, 'jpeg', width, height]);
-        });
+        if (Device.isIOS()) {
+          // save only the file name or iOS, because the app UUID changes
+          // on every app update
+          const pathArray = file.split('/');
+          fileName = pathArray[pathArray.length - 1];
+        }
+        return success([fileName, 'jpeg', width, height]);
+      });
     } else if (file instanceof File) {
       // browser environment
       return Indicia.Media.getDataURI(file).then(success);

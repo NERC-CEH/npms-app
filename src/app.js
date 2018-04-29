@@ -67,24 +67,28 @@ App.on('start', () => {
 
         // Although StatusB  ar in the global scope,
         // it is not available until after the deviceready event.
-        document.addEventListener('deviceready', () => {
-          Log('Showing the app.');
+        document.addEventListener(
+          'deviceready',
+          () => {
+            Log('Showing the app.');
 
-          window.StatusBar.overlaysWebView(true);
-          window.StatusBar.backgroundColorByName('black');
+            window.StatusBar.overlaysWebView(true);
+            window.StatusBar.backgroundColorByName('black');
 
-          // iOS make space for statusbar
-          if (Device.isIOS()) {
-            $('body').addClass('ios');
-          }
+            // iOS make space for statusbar
+            if (Device.isIOS()) {
+              $('body').addClass('ios');
+            }
 
-          // hide loader
-          if (navigator && navigator.splashscreen) {
-            navigator.splashscreen.hide();
-          }
+            // hide loader
+            if (navigator && navigator.splashscreen) {
+              navigator.splashscreen.hide();
+            }
 
-          Analytics.trackEvent('App', 'initialized');
-        }, false);
+            Analytics.trackEvent('App', 'initialized');
+          },
+          false
+        );
       } else {
         // development loader
         $(document).ready(() => {
@@ -118,13 +122,22 @@ radio.on('app:footer', (options) => {
   App.regions.getRegion('footer').show(options);
 });
 radio.on('app:main:hide', (options) => {
-  App.regions.getRegion('main').hide(options).empty();
+  App.regions
+    .getRegion('main')
+    .hide(options)
+    .empty();
 });
 radio.on('app:header:hide', (options) => {
-  App.regions.getRegion('header').hide(options).empty();
+  App.regions
+    .getRegion('header')
+    .hide(options)
+    .empty();
 });
 radio.on('app:footer:hide', (options) => {
-  App.regions.getRegion('footer').hide(options).empty();
+  App.regions
+    .getRegion('footer')
+    .hide(options)
+    .empty();
 });
 radio.on('app:loader', () => {
   App.regions.getRegion('dialog').showLoader();
@@ -142,4 +155,3 @@ radio.on('app:404:show', () => {
 });
 
 export { App as default };
-

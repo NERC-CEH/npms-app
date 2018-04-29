@@ -239,7 +239,6 @@ const CONFIG = {
         id: 'recorder_names',
       },
 
-
       management: {
         type: 'checkbox',
         id: 225,

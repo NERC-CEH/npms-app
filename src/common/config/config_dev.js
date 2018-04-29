@@ -58,7 +58,6 @@ const newConfig = $.extend(true, config, {
       },
       device_version: { id: 836 },
 
-
       habitat: {
         type: 'radio',
         id: 481,

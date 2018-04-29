@@ -52,7 +52,7 @@ const SampleView = Marionette.View.extend({
       });
     });
 
-// Initializes and opens PhotoSwipe
+    // Initializes and opens PhotoSwipe
     const gallery = new Gallery(items);
     gallery.init();
   },
@@ -147,7 +147,7 @@ const SampleView = Marionette.View.extend({
     // only swipe if no scroll up and is not in the middle
     if (Math.abs(e.deltaY) > 10 && !this.position) return;
 
-    if ((-options.toolsWidth + e.deltaX) > -options.toolsWidth) {
+    if (-options.toolsWidth + e.deltaX > -options.toolsWidth) {
       // bring back
       this.position = 0;
       this.docked = false;

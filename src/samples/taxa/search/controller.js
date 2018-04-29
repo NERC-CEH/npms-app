@@ -42,7 +42,10 @@ const API = {
     API._showMainView(mainView, this, level);
 
     // should be done in the view
-    App.regions.getRegion('main').$el.find('#taxon').select();
+    App.regions
+      .getRegion('main')
+      .$el.find('#taxon')
+      .select();
 
     const headerView = new HeaderView({
       model: new Backbone.Model({
@@ -51,7 +54,7 @@ const API = {
     });
     radio.trigger('app:header', headerView);
 
-// FOOTER
+    // FOOTER
     radio.trigger('app:footer:hide');
   },
 
@@ -61,17 +64,21 @@ const API = {
     let existingSelection; // cache selection
     let occurrences;
 
-    mainView.on('taxon:selected', (taxon) => {
-      API.addTaxon(sampleID, taxon)
-        .then(occurrence =>
-          radio.trigger('samples:taxa:edit', sampleID, occurrence.cid, { replace: true })
-        )
-        .catch((err) => {
-          Log(err, 'e');
-          radio.trigger('app:dialog:err', err);
-          return;
-        });
-    }, that);
+    mainView.on(
+      'taxon:selected',
+      (taxon) => {
+        API.addTaxon(sampleID, taxon)
+          .then(occurrence =>
+            radio.trigger('samples:taxa:edit', sampleID, occurrence.cid, { replace: true })
+          )
+          .catch((err) => {
+            Log(err, 'e');
+            radio.trigger('app:dialog:err', err);
+            return;
+          });
+      },
+      that
+    );
 
     mainView.on('taxon:searched', (searchPhrase) => {
       SpeciesSearchEngine.search(level, searchPhrase, (selection) => {

@@ -9,4 +9,3 @@ export default Marionette.View.extend({
   className: 'icon icon-plus icon-spin centered color-positive',
   template: false,
 });
-

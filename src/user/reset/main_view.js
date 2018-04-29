@@ -27,4 +27,3 @@ export default Marionette.View.extend({
     Validate.updateViewFormErrors($view, errors, '#user-');
   },
 });
-

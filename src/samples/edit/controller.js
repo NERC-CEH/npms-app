@@ -44,7 +44,6 @@ const API = {
       return;
     }
 
-
     // MAIN
     const mainView = new MainView({
       model: new Backbone.Model({ sample, appModel }),
@@ -62,7 +61,6 @@ const API = {
       // unbind when page destroyed
       sample.off('request sync error', checkIfSynced);
     });
-
 
     // HEADER
     const headerView = new HeaderView({
@@ -125,20 +123,20 @@ const API = {
         }
 
         // sync
-        sample.save(null, { remote: true })
-          .catch((err = {}) => {
-            Log(err, 'e');
+        sample.save(null, { remote: true }).catch((err = {}) => {
+          Log(err, 'e');
 
-            const visibleDialog = App.regions.getRegion('dialog').$el.is(':visible');
-            // we don't want to close any other dialog
-            if (err.message && !visibleDialog) {
-              radio.trigger('app:dialog:error',
-                `Sorry, we have encountered a problem while sending the record.
+          const visibleDialog = App.regions.getRegion('dialog').$el.is(':visible');
+          // we don't want to close any other dialog
+          if (err.message && !visibleDialog) {
+            radio.trigger(
+              'app:dialog:error',
+              `Sorry, we have encountered a problem while sending the record.
                 
                  <p><i>${err.message}</i></p>`
-              );
-            }
-          });
+            );
+          }
+        });
         radio.trigger('sample:saved');
       })
       .catch((err) => {

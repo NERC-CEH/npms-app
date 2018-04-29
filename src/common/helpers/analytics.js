@@ -13,16 +13,14 @@ const API = {
     if (this.initialized) return;
 
     // Turn on the error logging
-    Raven
-      .config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
-        environment: CONFIG.environment,
-        release: CONFIG.version,
-        ignoreErrors: [
-          'setSelectionRange', // there is some fastclick issue (does not affect ux)
-          'Incorrect password or email', // no need to log that
-        ],
-      })
-      .install();
+    Raven.config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
+      environment: CONFIG.environment,
+      release: CONFIG.version,
+      ignoreErrors: [
+        'setSelectionRange', // there is some fastclick issue (does not affect ux)
+        'Incorrect password or email', // no need to log that
+      ],
+    }).install();
 
     // capture unhandled promises
     window.onunhandledrejection = (e) => {
@@ -82,12 +80,8 @@ const API = {
 
   _removeUUID(string) {
     // remove specific UUIDs
-    return string.replace(
-      /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g,
-      'UUID'
-    );
+    return string.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g, 'UUID');
   },
 };
 
 export { API as default };
-

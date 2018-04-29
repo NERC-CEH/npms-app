@@ -43,18 +43,18 @@ function versionCompare(left, right) {
   const len = Math.max(a.length, b.length);
 
   for (let i = 0; i < len; i++) {
-    if ((a[i] && !b[i] && parseInt(a[i], 10) > 0) ||
-      (parseInt(a[i], 10) > parseInt(b[i], 10))) {
+    if ((a[i] && !b[i] && parseInt(a[i], 10) > 0) || parseInt(a[i], 10) > parseInt(b[i], 10)) {
       return 1;
-    } else if ((b[i] && !a[i] && parseInt(b[i], 10) > 0) ||
-      (parseInt(a[i], 10) < parseInt(b[i], 10))) {
+    } else if (
+      (b[i] && !a[i] && parseInt(b[i], 10) > 0) ||
+      parseInt(a[i], 10) < parseInt(b[i], 10)
+    ) {
       return -1;
     }
   }
 
   return 0;
 }
-
 
 const API = {
   /**
@@ -94,13 +94,15 @@ const API = {
       return API._applyUpdates(firstUpdate, (error) => {
         if (error) {
           if (!silent) {
-            radio.trigger('app:dialog:error',
-              'Sorry, an error has occurred while updating the app');
+            radio.trigger(
+              'app:dialog:error',
+              'Sorry, an error has occurred while updating the app'
+            );
           }
           return null;
         }
 
-        const timeDiff = (Date.now() - startTime);
+        const timeDiff = Date.now() - startTime;
         if (timeDiff < MIN_UPDATE_TIME) {
           setTimeout(() => {
             if (!silent) {
@@ -182,7 +184,7 @@ const API = {
       }
 
       // check if last update
-      if ((API.updatesSeq.length - 1) <= updateIndex) {
+      if (API.updatesSeq.length - 1 <= updateIndex) {
         if (!fullRestartRequired) {
           return callback();
         }

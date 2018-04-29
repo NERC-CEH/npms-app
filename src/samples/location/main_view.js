@@ -12,7 +12,8 @@ const View = Marionette.View.extend({
   template: JST['samples/location/main'],
 
   events: {
-    'click li'(e) { // eslint-disable-line
+    'click li': function (e) {
+      // eslint-disable-line
       const elem = $(e.target);
       const plotID = parseInt(elem.data('id'), 10);
       if (plotID) this.trigger('select', plotID);

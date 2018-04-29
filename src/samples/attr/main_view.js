@@ -23,11 +23,11 @@ function LogSlider(options = {}) {
 LogSlider.prototype = {
   // Calculate value from a slider position
   value(position) {
-    return Math.exp(((position - this.minpos) * this.scale) + this.minlval);
+    return Math.exp((position - this.minpos) * this.scale + this.minlval);
   },
   // Calculate slider position from a value
   position(value) {
-    return this.minpos + ((Math.log(value) - this.minlval) / this.scale);
+    return this.minpos + (Math.log(value) - this.minlval) / this.scale;
   },
 };
 
@@ -187,8 +187,9 @@ export default Marionette.View.extend({
       case 'habitat':
         selected = this.model.get('habitat') || {};
         templateData = {
-          message: 'Please select a broad habitat. Please ensure your choice of ' +
-          'habitat matches the species list you are using.',
+          message:
+            'Please select a broad habitat. Please ensure your choice of ' +
+            'habitat matches the species list you are using.',
           selection: Object.keys(CONFIG.indicia.sample.habitat._values),
           selected: selected.broad,
         };
@@ -324,4 +325,3 @@ export default Marionette.View.extend({
     }
   },
 });
-
