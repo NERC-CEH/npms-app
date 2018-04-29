@@ -1,13 +1,41 @@
 module.exports = grunt => ({
-  default: ['init', 'run', 'webpack:main'],
+  default: ['init', 'jst', 'webpack:main'],
 
-  init: ['init:data', 'copy', 'vendor'],
+  init: ['init:validate', 'init:data', 'copy', 'vendor'],
 
   'init:data': [
     'exec:data_init:inventory',
     'exec:data_init:indicator',
     'exec:data_init:wildflower',
   ],
+
+  'init:validate': () => {
+    if (process.env.APP_FORCE) {
+      grunt.option('force', true);
+    }
+
+    // check for non-production specific env vars
+    if (process.env.APP_MANUAL_TESTING) {
+      grunt.warn('APP_MANUAL_TESTING is enabled');
+    }
+    if (process.env.APP_TRAINING) {
+      grunt.warn('APP_TRAINING is enabled');
+    }
+    if (process.env.APP_SCREENSHOTS) {
+      grunt.warn('APP_SCREENSHOTS is enabled');
+    }
+
+    // check for missing env vars
+    [
+      'APP_SENTRY_KEY',
+      'APP_INDICIA_API_KEY',
+      'APP_GA',
+    ].forEach(setting => {
+      if (!process.env[setting]) {
+        grunt.warn(`${setting} env variable is missing`);
+      }
+    });
+  },
 
   vendor: [
     'replace:ratchet',
@@ -16,19 +44,14 @@ module.exports = grunt => ({
     'replace:photoswipe',
   ],
 
-  run: ['jst'],
-
   // Development run
-  update: ['run', 'webpack:main'],
+  update: ['jst', 'webpack:main'],
 
   // Development update
-  dev: ['init', 'run', 'webpack:dev'],
+  dev: ['init', 'jst', 'webpack:dev'],
 
   // Development run
-  'dev:update': ['run', 'webpack:dev'],
-
-  test: ['karma:local'],
-  'test:sauce': ['karma:sauce'],
+  'dev:update': ['jst', 'webpack:dev'],
 
   // Cordova set up
   cordova: [
@@ -41,7 +64,6 @@ module.exports = grunt => ({
 
     'exec:cordova_clean_www',
     'exec:cordova_copy_dist',
-    // 'cordova:_prepAndroid', // !!!!! use this to switch between android and ios
     'replace:cordova_config',
     'replace:cordova_build',
     'exec:cordova_add_platforms',
@@ -51,7 +73,6 @@ module.exports = grunt => ({
    * Updates cordova project - use after tinkering with src or congig
    */
   'cordova:update': [
-    // update www
     'exec:cordova_clean_www',
     'exec:cordova_copy_dist',
     'replace:cordova_config',
@@ -59,19 +80,17 @@ module.exports = grunt => ({
     'exec:cordova_rebuild',
   ],
 
+  /**
+   * Runs the app to a connected Android device/emulator
+   */
+  'cordova:android:run': ['exec:cordova_run_android'],
+
   'cordova:android': [
     'prompt:keystore',
-    // new
     'cordova:_prepAndroid',
     'replace:cordova_config',
     'replace:cordova_build',
     'exec:cordova_android_build',
-
-    // old
-    'cordova:_prepAndroidOld',
-    'replace:cordova_config',
-    'replace:cordova_build',
-    'exec:cordova_android_build_old',
   ],
 
   /**
@@ -79,9 +98,5 @@ module.exports = grunt => ({
    */
   'cordova:_prepAndroid': () => {
     grunt.option('android', true);
-  },
-  'cordova:_prepAndroidOld': () => {
-    grunt.option('android', true);
-    grunt.option('oldversion', true);
   },
 });
