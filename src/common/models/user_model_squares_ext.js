@@ -70,6 +70,10 @@ const extension = {
 
         const data = {};
         receivedData.data.forEach((location) => {
+          if (!location.location_entered_sref) {
+            return;
+          }
+
           const parent = parseInt(location.parent_id, 10);
           const id = parseInt(location.id, 10);
           if (!parent) {

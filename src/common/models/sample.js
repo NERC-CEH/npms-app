@@ -63,7 +63,7 @@ const Sample = Indicia.Sample.extend({
 
     // location
     const location = attrs.location || {};
-    if (!location.id) {
+    if (!location.id || !location.plot) {
       sample.location = 'missing';
     }
 
