@@ -39,11 +39,6 @@
         <string>To access your photo library for attaching images to records</string>
     </edit-config>
     <plugin name="cordova-plugin-save-image" spec="~0.2.6" />
-    <preference name="StatusBarBackgroundColor" value="#181d42" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" onload="true" />
-    </feature>
 
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -64,6 +59,11 @@
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="FadeSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false"/>
+    <preference name="StatusBarBackgroundColor" value="#31397d" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
 
    <plugin name="cordova-plugin-camera" source="npm" >
        <variable name="CAMERA_USAGE_DESCRIPTION" value="Please" />

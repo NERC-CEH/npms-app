@@ -73,9 +73,6 @@ App.on('start', () => {
           () => {
             Log('Showing the app.');
 
-            window.StatusBar.overlaysWebView(true);
-            window.StatusBar.backgroundColorByName('black');
-
             // iOS make space for statusbar
             if (Device.isIOS()) {
               $('body').addClass('ios');
