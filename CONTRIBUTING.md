@@ -135,3 +135,121 @@ Run and upload binaries from cordova/dist
 ```bash
 npm run build:cordova:android
 ```
+
+
+# Interaction with the NPMS site
+
+The mobile app has few interaction points with its backend - the NPMS site. 
+All of the communication to the site is done through the site installed Indicia API module.
+The module requires every request to include the api key (`x-api-key` header) for authorisation.
+
+## User 
+
+#### Registration
+
+`POST http://www.npms.org.uk/api/v1/users/`
+
+```JSON
+{"data":{"type":"users","email":"karolis@kazlauskis.com","firstname":"Karolis","secondname":"Kazlauskis","password":"mypass","password-confirm":"mypass","terms-agree":true}}
+```
+
+#### Login
+
+User is authenticated using Basic auth
+
+`GET http://www.npms.org.uk/api/v1/users/USERID`
+
+
+#### Password reset
+
+This requires PUT request enabled on the website
+
+`PUT http://www.npms.org.uk/api/v1/users/USERID`
+
+```JSON
+{"data":{"type":"users","password":" "}}
+```
+
+## Recording
+The warehouse attribute values used in the app can be found here in this file:
+https://github.com/NERC-CEH/npms-app/blob/master/src/common/config/config.js#L76
+
+A sample record submission from the app to the Indicia API module looks like this:
+
+`POST http://www.npms.org.uk/api/v1/samples`
+
+```JSON
+{
+  "data": {
+    "external_key": "92137472-df7b-48aa-b30f-a6fd922168d0",
+    "survey_id": 154,
+    "input_form": "inventory-recording-form-2015",
+    "fields": {
+      "215": 1818,
+      "216": 1821,
+      "219": 2,
+      "220": 1,
+      "221": 3,
+      "222": 1,
+      "223": 2,
+      "224": "none",
+      "225": [
+        1801,
+        1804,
+        1806,
+        1807
+      ],
+      "273": 2399,
+      "403": 3336,
+      "404": 3336,
+      "405": 3337,
+      "408": 3338,
+      "565": 4876,
+      "date": "1\/7\/2018",
+      "entered_sref_system": "OSGB",
+      "recorder_names": "Karolis Kazlauskis",
+      "level": "inventory",
+      "565:4876": 4880,
+      "entered_sref": "SU7253398593",
+      "location_id": 158874,
+      "comment": "Some comment"
+    },
+    "media": [],
+    "occurrences": [
+      {
+        "external_key": "f8e50c06-2bb3-4795-a65d-fdd1675154d0",
+        "fields": {
+          "214": 3335,
+          "taxa_taxon_list_id": 239577
+        },
+        "media": []
+      },
+      {
+        "external_key": "988f402e-8fa6-45b8-8887-108d2e517893",
+        "fields": {
+          "214": 3336,
+          "taxa_taxon_list_id": 56795
+        },
+        "media": []
+      }
+    ],
+    "samples": [],
+    "type": "samples"
+  }
+}
+```
+
+## User plots report
+
+Currently shows only user owned plots - the report's plots that return `my_plot = 'YES'`
+
+`GET http://www.npms.org.uk/api/v1/reports/reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml`
+
+```
+core_square_location_type_id: 4009
+additional_square_location_type_id: 4009
+vice_county_location_attribute_id: 90
+no_vice_county_found_message: 1km%20square
+user_square_attr_id: 2
+plot_number_attr_id: 118
+```
