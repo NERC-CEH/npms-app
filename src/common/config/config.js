@@ -5,7 +5,7 @@ import Indicia from 'indicia';
 import DateHelp from 'helpers/date';
 import LocHelp from 'helpers/location';
 
-const HOST = process.env.APP_INDICIA_API_HOST || 'http://www.npms.org.uk/';
+const HOST = process.env.APP_INDICIA_API_HOST || 'https://www.npms.org.uk/';
 
 // wildflower survey
 const rangeValuesWildflower = [

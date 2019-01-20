@@ -74,16 +74,17 @@ const API = {
   login(details) {
     Log('User:Login:Controller: logging in.');
     const promise = new Promise((fulfill, reject) => {
+      const userAuth = btoa(`${details.name}:${details.password}`);
       $.get({
         async: true,
         crossDomain: true,
         url: CONFIG.users.url + encodeURIComponent(details.name), // url + user id
         timeout: CONFIG.users.timeout,
-        beforeSend(xhr) {
-          const userAuth = btoa(`${details.name}:${details.password}`);
-          xhr.setRequestHeader('Authorization', `Basic ${userAuth}`);
-          xhr.setRequestHeader('x-api-key', CONFIG.indicia.api_key);
-          xhr.setRequestHeader('content-type', 'application/json');
+         "headers": {
+          "x-api-key": CONFIG.indicia.api_key,
+          "Authorization": `Basic ${userAuth}`,
+          "cookie": "",
+          "cache-control": "no-cache"
         },
         success(receivedData) {
           const data = receivedData.data || {};

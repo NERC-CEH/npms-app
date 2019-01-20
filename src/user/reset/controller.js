@@ -89,6 +89,7 @@ const API = {
         data: JSON.stringify({ data: details }),
         headers: {
           'x-api-key': CONFIG.indicia.api_key,
+          "cookie": "",
           'content-type': 'application/json',
         },
         timeout: CONFIG.users.timeout,
