@@ -6,17 +6,17 @@
         create this app:</strong>
     </p>
     <p>
-    <ul style="list-style-type: none;">
-      <li>Karolis Kazlauskis (CEH)</li>
-      <li>Oliver Pescott (CEH)</li>
-      <li>David Roy (CEH)</li>
-      <li>Hayley New (Plantlife)</li>
-      <li>Felicity Harris (Plantlife)</li>
-      <li>Kevin Walker (BSBI)</li>
-      <li>Louise Marsh (BSBI)</li>
-      <li>Niki Newton (JNCC)</li>
-      <li>Andrew van Breda (<a href="http://www.avb-it.co.uk/" >AVB-IT</a>)</li>
-    </ul>
+      <ul style="list-style-type: none;">
+        <li>Oliver Pescott (CEH)</li>
+        <li>David Roy (CEH)</li>
+        <li><a href="https://kazlauskis.com">Karolis Kazlauskis</a></li>
+        <li><a href="http://www.avb-it.co.uk/">Andrew van Breda</a></li>
+        <li>Hayley New (Plantlife)</li>
+        <li>Felicity Harris (Plantlife)</li>
+        <li>Kevin Walker (BSBI)</li>
+        <li>Louise Marsh (BSBI)</li>
+        <li>Niki Newton (JNCC)</li>
+      </ul>
     </p>
 
   </li>
