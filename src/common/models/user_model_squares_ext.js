@@ -63,7 +63,7 @@ const extension = {
     const promise = report
       .run()
       .then((receivedData) => {
-        if (typeof receivedData.data !== 'object') {
+        if (!receivedData.data) {
           const err = new Error('Error while retrieving response.');
           return Promise.reject(err);
         }
