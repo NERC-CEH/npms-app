@@ -43,9 +43,9 @@
   </a>
 </li>
 <li class="table-view-cell">
-  <a href="#info/privacy" class="navigate-right">
+  <a href="https://www.npms.org.uk/content/data-access-policy" class="navigate-right">
     <span class="media-object pull-left icon icon-lock-closed"></span>
-    Privacy Policy
+    Data Access Policy
   </a>
 </li>
 <li class="table-view-cell">

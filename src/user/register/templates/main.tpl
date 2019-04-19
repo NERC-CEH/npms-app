@@ -23,7 +23,7 @@
 
 
 <div class="table-view-cell input-row">
-  I agree to <a href="http://www.npms.org.uk/content/data-access-policy-public" style="display: inline; color: #91a71c;">Terms and Conditions</a>
+  I agree to <a href="https://www.npms.org.uk/content/data-access-policy" style="display: inline; color: #91a71c;">Data Access Policy</a>
   <div id="user-terms-agree" class="toggle no-yes">
     <div class="toggle-handle"></div>
   </div>
