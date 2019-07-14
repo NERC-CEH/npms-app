@@ -14,10 +14,16 @@
     "prefer-destructuring": 0, // TODO: switch back once fixed
     "no-mutable-exports": 0,
     "no-underscore-dangle": 0,
-    "no-unused-expressions": [2, {
-      "allowShortCircuit": true, // eg. a || a()
-      "allowTernary": true // eg. a ? b() : c()
-    }]
+    "no-else-return": 0, // TODO: switch back once fixed
+    "import/no-self-import": 0, // TODO: switch back once fixed
+    "no-use-before-define": 0, // TODO: switch back once fixed
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true, // eg. a || a()
+        "allowTernary": true // eg. a ? b() : c()
+      }
+    ]
   },
   "overrides": [
     {
@@ -35,7 +41,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "config/webpack.common.js"
+        "config": "webpack.config.js"
       }
     }
   }

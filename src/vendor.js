@@ -1,11 +1,6 @@
 /** ***************************************************************************
  * Load all vendor code here.
  **************************************************************************** */
-
-// shims
-import 'es6-promise/auto';
-import 'indexeddbshim';
-
 import 'jquery';
 import 'lodash';
 import 'fastclick';

@@ -24,6 +24,9 @@ module.exports = grunt => ({
     if (process.env.APP_SCREENSHOTS) {
       grunt.warn('APP_SCREENSHOTS is enabled');
     }
+    if (process.env.APP_INDICIA_API_HOST) {
+      grunt.warn('APP_INDICIA_API_HOST is enabled');
+    }
 
     // check for missing env vars
     [
@@ -47,12 +50,6 @@ module.exports = grunt => ({
   // Development run
   update: ['jst', 'webpack:main'],
 
-  // Development update
-  dev: ['init', 'jst', 'webpack:dev'],
-
-  // Development run
-  'dev:update': ['jst', 'webpack:dev'],
-
   // Cordova set up
   cordova: [
     // prepare www source
@@ -65,7 +62,6 @@ module.exports = grunt => ({
     'exec:cordova_clean_www',
     'exec:cordova_copy_dist',
     'replace:cordova_config',
-    'replace:cordova_build',
     'exec:cordova_add_platforms',
   ],
 
@@ -89,7 +85,6 @@ module.exports = grunt => ({
     'prompt:keystore',
     'cordova:_prepAndroid',
     'replace:cordova_config',
-    'replace:cordova_build',
     'exec:cordova_android_build',
   ],
 
