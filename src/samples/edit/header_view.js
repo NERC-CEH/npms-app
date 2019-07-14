@@ -31,6 +31,7 @@ export default Marionette.View.extend({
           class: 'btn-positive',
           onClick: () => {
             this.trigger('save');
+            radio.trigger('app:dialog:hide');
           }
         }
       ]
