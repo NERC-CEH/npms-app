@@ -6,7 +6,7 @@
     <li>2 = between 1/3rd and 2/3rds </li>
     <li>3= >2/3rds </li>
   </ul>
-  E.g. if up to 1/3rd is 30-100cm enter 1 in the box.
+  E.g. if up to 1/3rd is 31-100cm enter 1 in the box.
   </p>
 </div>
 <div class="input-group">
