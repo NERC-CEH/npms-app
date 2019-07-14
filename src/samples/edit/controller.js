@@ -156,8 +156,12 @@ const API = {
       });
     }
     if (invalids.sample) {
+      const labels = {
+        identifiers: "recorder names"
+      };
       _.each(invalids.sample, (message, invalid) => {
-        missing += `<b>${invalid}</b> - ${message}</br>`;
+        const invalidLabel = labels[invalid] || invalid;
+        missing += `<b>${invalidLabel}</b> - ${message}</br>`;
       });
     }
 
