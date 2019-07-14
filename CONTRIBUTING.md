@@ -243,7 +243,7 @@ A sample record submission from the app to the Indicia API module looks like thi
 
 Currently shows only user owned plots - the report's plots that return `my_plot = 'YES'`
 
-`GET http://www.npms.org.uk/api/v1/reports/reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml`
+`GET http://www.npms.org.uk/api/v1/reports/projects/npms/get_my_squares_and_plots.xml`
 
 ```
 core_square_location_type_id: 4009

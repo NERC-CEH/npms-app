@@ -42,7 +42,7 @@ const extension = {
     const squares = this.get('squares');
 
     const report = new Indicia.Report({
-      report: '/reports_for_prebuilt_forms/Splash/get_my_squares_and_plots.xml',
+      report: '/projects/npms/get_my_squares_and_plots.xml',
 
       api_key: CONFIG.indicia.api_key,
       host_url: CONFIG.indicia.host,
