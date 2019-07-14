@@ -21,14 +21,14 @@
     <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
        href="#c3" aria-expanded="false" aria-controls="c3">
       <span class="icon icon-collapse pull-left"></span>
-      Sync. with NPMS
+      Upload to NPMS
     </a>
     <p id="c3" class="collapse"
        aria-labelledby="headingTwo" aria-expanded="false">
       All your saved records will be shown on the home page.
       By default a record is in <i>draft</i> mode until it is set for submission.
-      While it is in <i>draft</i> mode the application will not synchronise your
-      record with the database. To set it for sending,
+      While it is in <i>draft</i> mode the application will not upload your
+      record to the database. To set it for uploading,
       open the record and press the <span class="icon icon-send"></span> button in the header.
       The application will try to submit your record once there is a good network
       connection.
@@ -36,14 +36,14 @@
       If the record has reached the database a red
       <span class="icon icon-send" style="color: red;"></span>(set for submission & saved locally)
       will become blue <span class="icon icon-send" style="color: #3c479d;"></span>
-      (synced to the database). Once it has successfully reached
+      (uploaded to the database). Once it has successfully reached
       the database the record becomes unavailable for new edits.
       To further edit it
       please use the <a href="http://www.npms.org.uk">NPMS Website</a>.
       <br>
       <br>
       <b>Note:</b> you have to be signed in to your NPMS account and have a network connection,
-      for the records to be automatically synchronised in the background.
+      for the records to be automatically uploaded in the background.
       <br>
   </li>
   <li class="table-view-cell">
@@ -72,7 +72,7 @@
       the delete <span class="icon icon-delete"></span> button.
       <br><br>
       You can also delete all the locally saved records that have been
-      successfully synchronised
+      successfully uploaded
       with the database. This will leave the records on the database untouched.
       To do that go to settings page
       <span class="icon icon-settings"></span> and click Delete All Saved

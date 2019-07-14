@@ -69,7 +69,7 @@ const API = {
   },
 
   deleteAllSamples() {
-    let body = 'Are you sure you want to delete all successfully synchronised local records?';
+    let body = 'Are you sure you want to delete all successfully uploaded local records?';
     body += '</br><i><b>Note:</b> records on the server will not be touched.</i>';
 
     radio.trigger('app:dialog', {
