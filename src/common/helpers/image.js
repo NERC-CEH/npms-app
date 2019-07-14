@@ -15,12 +15,12 @@ const Image = {
     }
     window.resolveLocalFileSystemURL(
       cordova.file.dataDirectory,
-      (fileSystem) => {
+      fileSystem => {
         const relativePath = name.replace(fileSystem.nativeURL, '');
         fileSystem.getFile(
           relativePath,
           { create: false },
-          (fileEntry) => {
+          fileEntry => {
             if (!fileEntry) {
               callback();
               return;
@@ -76,7 +76,7 @@ const Image = {
         const name = `${Date.now()}.jpeg`;
         window.resolveLocalFileSystemURL(
           cordova.file.dataDirectory,
-          (fileSystem) => {
+          fileSystem => {
             // copy to app data directory
             fileEntry.copyTo(fileSystem, name, callback, fail);
           },
@@ -107,7 +107,7 @@ const Image = {
    */
   getImageModel(ImageModel, file) {
     // create and add new record
-    const success = (args) => {
+    const success = args => {
       const [data, type, width, height] = args;
       const imageModel = new ImageModel({
         data,
@@ -121,7 +121,7 @@ const Image = {
 
     if (window.cordova) {
       // cordova environment
-      return Indicia.Media.getDataURI(file).then((args) => {
+      return Indicia.Media.getDataURI(file).then(args => {
         // don't resize, only get width and height
         const [, , width, height] = args;
         let fileName = file;

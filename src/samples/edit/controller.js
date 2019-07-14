@@ -78,12 +78,12 @@ const API = {
       model: sample,
     });
 
-    footerView.on('photo:upload', (e) => {
+    footerView.on('photo:upload', e => {
       const photo = e.target.files[0];
       PhotoPicker.photoUpload(sample, photo);
     });
 
-    footerView.on('childview:photo:delete', (model) => {
+    footerView.on('childview:photo:delete', model => {
       PhotoPicker.photoDelete(model);
     });
 
@@ -126,7 +126,9 @@ const API = {
         sample.save(null, { remote: true }).catch((err = {}) => {
           Log(err, 'e');
 
-          const visibleDialog = App.regions.getRegion('dialog').$el.is(':visible');
+          const visibleDialog = App.regions
+            .getRegion('dialog')
+            .$el.is(':visible');
           // we don't want to close any other dialog
           if (err.message && !visibleDialog) {
             radio.trigger(
@@ -139,7 +141,7 @@ const API = {
         });
         radio.trigger('sample:saved');
       })
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
@@ -157,7 +159,7 @@ const API = {
     }
     if (invalids.sample) {
       const labels = {
-        identifiers: "recorder names"
+        identifiers: 'recorder names',
       };
       _.each(invalids.sample, (message, invalid) => {
         const invalidLabel = labels[invalid] || invalid;

@@ -28,7 +28,7 @@ const API = {
     });
     radio.trigger('app:header', headerView);
 
-    mainView.on('form:submit', (data) => {
+    mainView.on('form:submit', data => {
       if (!Device.isOnline()) {
         radio.trigger('app:dialog', {
           title: 'Sorry',
@@ -46,11 +46,12 @@ const API = {
           .then(() => {
             radio.trigger('app:dialog', {
               title: 'Success',
-              body: 'Further instructions have been sent to your e-mail address.',
+              body:
+                'Further instructions have been sent to your e-mail address.',
             });
             window.history.back();
           })
-          .catch((err) => {
+          .catch(err => {
             Log(err, 'e');
             radio.trigger('app:dialog:error', err);
           });
@@ -89,7 +90,7 @@ const API = {
         data: JSON.stringify({ data: details }),
         headers: {
           'x-api-key': CONFIG.indicia.api_key,
-          "cookie": "",
+          cookie: '',
           'content-type': 'application/json',
         },
         timeout: CONFIG.users.timeout,
@@ -98,7 +99,10 @@ const API = {
         .fail((xhr, textStatus) => {
           let message = textStatus;
           if (xhr.responseJSON && xhr.responseJSON.errors) {
-            message = xhr.responseJSON.errors.reduce((name, err) => `${name}${err.title}\n`, '');
+            message = xhr.responseJSON.errors.reduce(
+              (name, err) => `${name}${err.title}\n`,
+              ''
+            );
           }
           reject(new Error(message));
         });

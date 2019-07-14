@@ -25,10 +25,10 @@ const API = {
       [],
       () => {
         loading = false;
-        $.getJSON(`data/${list}.data.json`, (data) => {
+        $.getJSON(`data/${list}.data.json`, data => {
           species[list] = data;
         }).done(
-          $.getJSON(`data/${list}_names.data.json`, (data) => {
+          $.getJSON(`data/${list}_names.data.json`, data => {
             speciesNames[list] = data;
           }).done(() => {
             loading = false;
@@ -54,9 +54,21 @@ const API = {
      synonym: "Common name synonym"
    }
    */
-  search(list = 'inventory', searchPhrase, callback, maxResults = MAX, scientificOnly) {
+  search(
+    list = 'inventory',
+    searchPhrase,
+    callback,
+    maxResults = MAX,
+    scientificOnly
+  ) {
     function proceed() {
-      API.search(list, searchPhrase || '', callback, maxResults, scientificOnly);
+      API.search(
+        list,
+        searchPhrase || '',
+        callback,
+        maxResults,
+        scientificOnly
+      );
     }
 
     if (!species[list]) {
@@ -82,7 +94,11 @@ const API = {
       searchSciNames(species[list], normSearchPhrase, results, maxResults);
     } else {
       // search common names
-      results = searchCommonNames(species[list], speciesNames[list], normSearchPhrase);
+      results = searchCommonNames(
+        species[list],
+        speciesNames[list],
+        normSearchPhrase
+      );
 
       // if not enough
       if (results.length <= MAX) {

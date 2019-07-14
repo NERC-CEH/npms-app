@@ -32,7 +32,10 @@ const SpeciesView = Marionette.View.extend({
   serializeData() {
     const foundInName = this.model.get('found_in_name');
 
-    let name = this._prettifyName(this.model.get(foundInName), this.options.searchPhrase);
+    let name = this._prettifyName(
+      this.model.get(foundInName),
+      this.options.searchPhrase
+    );
     name = this.model.get(foundInName);
 
     return {
@@ -134,7 +137,8 @@ export default Marionette.View.extend({
     this.selectedIndex = this.suggestionsCol.length > 0 ? 0 : -1;
 
     // select first
-    this.suggestionsCol.length && this.suggestionsCol.at(0).set('selected', true);
+    this.suggestionsCol.length &&
+      this.suggestionsCol.at(0).set('selected', true);
 
     const suggestionsColView = new SuggestionsView({
       collection: this.suggestionsCol,
@@ -247,9 +251,9 @@ export default Marionette.View.extend({
     switch (e.keyCode) {
       case 13:
       // press Enter
-      case 38:  // eslint-disable-line
+      case 38: // eslint-disable-line
       // Up
-      case 40:  // eslint-disable-line
+      case 40: // eslint-disable-line
         // Down
         break;
       default:

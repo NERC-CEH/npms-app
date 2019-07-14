@@ -32,7 +32,7 @@ const API = {
     });
     radio.trigger('app:header', headerView);
 
-    mainView.on('form:submit', (data) => {
+    mainView.on('form:submit', data => {
       if (!Device.isOnline()) {
         radio.trigger('app:dialog', {
           title: 'Sorry',
@@ -50,7 +50,7 @@ const API = {
             radio.trigger('app:loader:hide');
             window.history.back();
           })
-          .catch((err) => {
+          .catch(err => {
             Log(err, 'e');
             radio.trigger('app:dialog:error', err);
           });
@@ -80,11 +80,11 @@ const API = {
         crossDomain: true,
         url: CONFIG.users.url + encodeURIComponent(details.name), // url + user id
         timeout: CONFIG.users.timeout,
-         "headers": {
-          "x-api-key": CONFIG.indicia.api_key,
-          "Authorization": `Basic ${userAuth}`,
-          "cookie": "",
-          "cache-control": "no-cache"
+        headers: {
+          'x-api-key': CONFIG.indicia.api_key,
+          Authorization: `Basic ${userAuth}`,
+          cookie: '',
+          'cache-control': 'no-cache',
         },
         success(receivedData) {
           const data = receivedData.data || {};
@@ -101,7 +101,10 @@ const API = {
         error(xhr, textStatus) {
           let message = textStatus;
           if (xhr.responseJSON && xhr.responseJSON.errors) {
-            message = xhr.responseJSON.errors.reduce((name, err) => `${name}${err.title}\n`, '');
+            message = xhr.responseJSON.errors.reduce(
+              (name, err) => `${name}${err.title}\n`,
+              ''
+            );
           }
           reject(new Error(message));
         },

@@ -39,7 +39,9 @@ const Sample = Indicia.Sample.extend({
   defaults() {
     let identifiers = '';
     if (userModel.hasLogIn()) {
-      identifiers = `${userModel.get('firstname')} ${userModel.get('secondname')}`;
+      identifiers = `${userModel.get('firstname')} ${userModel.get(
+        'secondname'
+      )}`;
     }
     return {
       // attach device information
@@ -88,7 +90,7 @@ const Sample = Indicia.Sample.extend({
     }
 
     // occurrences
-    this.occurrences.each((occurrence) => {
+    this.occurrences.each(occurrence => {
       const errors = occurrence.validate(null, { remote: true });
       if (errors) {
         const occurrenceID = occurrence.id || occurrence.cid;
@@ -133,7 +135,10 @@ const Sample = Indicia.Sample.extend({
 
   isLocalOnly() {
     const status = this.getSyncStatus();
-    return this.metadata.saved && (status === Indicia.LOCAL || status === Indicia.SYNCHRONISING);
+    return (
+      this.metadata.saved &&
+      (status === Indicia.LOCAL || status === Indicia.SYNCHRONISING)
+    );
   },
 
   timeout() {

@@ -26,14 +26,16 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    'click .js-attr': function (e) {  // eslint-disable-line
+    'click .js-attr': function(e) {
+      // eslint-disable-line
       // eslint-disable-line
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
     'click span.delete': 'delete',
     'click img': 'photoView',
-    'change input': function (e) {  // eslint-disable-line
+    'change input': function(e) {
+      // eslint-disable-line
       // eslint-disable-line
       e.preventDefault();
       this.trigger('photo:upload', e, this.model);
@@ -79,17 +81,19 @@ const SpeciesView = Marionette.View.extend({
       toolsWidth: 100,
     };
 
-    const hammertime = new Hammer(this.el, { direction: Hammer.DIRECTION_HORIZONTAL });
+    const hammertime = new Hammer(this.el, {
+      direction: Hammer.DIRECTION_HORIZONTAL,
+    });
     const that = this;
 
     // on tap bring back
     this.$species.on('tap click', $.proxy(this._swipeHome, this));
 
-    hammertime.on('pan', (e) => {
+    hammertime.on('pan', e => {
       e.preventDefault();
       that._swipe(e, options);
     });
-    hammertime.on('panend', (e) => {
+    hammertime.on('panend', e => {
       that._swipeEnd(e, options);
     });
   },
@@ -136,7 +140,7 @@ const SpeciesView = Marionette.View.extend({
     if (window.cordova) {
       this.$el.find('.img-picker input').remove();
 
-      this.$el.find('.img-picker').on('click', (e) => {
+      this.$el.find('.img-picker').on('click', e => {
         e.preventDefault();
         that.trigger('photo:selection', that.model);
       });

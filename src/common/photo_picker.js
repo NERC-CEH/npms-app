@@ -9,7 +9,7 @@ const API = {
     Log('Common:PhotoPicker: photo uploaded.');
 
     // show loader
-    API.addPhoto(model, photo).catch((err) => {
+    API.addPhoto(model, photo).catch(err => {
       Log(err, 'e');
       radio.trigger('app:dialog:error', err);
     });
@@ -56,8 +56,8 @@ const API = {
         {
           title: 'Camera',
           onClick() {
-            ImageHelp.getImage((entry) => {
-              API.addPhoto(model, entry.nativeURL, (occErr) => {
+            ImageHelp.getImage(entry => {
+              API.addPhoto(model, entry.nativeURL, occErr => {
                 if (occErr) {
                   radio.trigger('app:dialog:error', occErr);
                 }
@@ -70,8 +70,8 @@ const API = {
           title: 'Gallery',
           onClick() {
             ImageHelp.getImage(
-              (entry) => {
-                API.addPhoto(model, entry.nativeURL, (occErr) => {
+              entry => {
+                API.addPhoto(model, entry.nativeURL, occErr => {
                   if (occErr) {
                     radio.trigger('app:dialog:error', occErr);
                   }
@@ -93,7 +93,7 @@ const API = {
    * Adds a new image to model.
    */
   addPhoto(model, photo) {
-    return ImageHelp.getImageModel(ImageModel, photo).then((image) => {
+    return ImageHelp.getImageModel(ImageModel, photo).then(image => {
       model.addMedia(image);
       return model.save();
     });

@@ -22,34 +22,40 @@ const API = {
     // Turn on the error logging
     if (CONFIG.sentry.key) {
       Log('Analytics: turning on server error logging.');
-      Raven.config(`https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`, {
-        environment: CONFIG.environment,
-        release: CONFIG.version,
-        ignoreErrors: [
-          'setSelectionRange', // there is some fastclick issue (does not affect ux)
-          'Incorrect password or email', // no need to log that
-          'Backbone.history', // on refresh fires this error, todo: fix it
-        ],
-        breadcrumbCallback(crumb) {
-          // clean UUIDs
-          if (crumb.category === 'navigation') {
-            const cleanCrumb = _.cloneDeep(crumb);
-            cleanCrumb.data = {
-              to: API._removeUUID(crumb.data.to),
-              from: API._removeUUID(crumb.data.from),
-            };
-            return cleanCrumb;
-          }
+      Raven.config(
+        `https://${CONFIG.sentry.key}@sentry.io/${CONFIG.sentry.project}`,
+        {
+          environment: CONFIG.environment,
+          release: CONFIG.version,
+          ignoreErrors: [
+            'setSelectionRange', // there is some fastclick issue (does not affect ux)
+            'Incorrect password or email', // no need to log that
+            'Backbone.history', // on refresh fires this error, todo: fix it
+          ],
+          breadcrumbCallback(crumb) {
+            // clean UUIDs
+            if (crumb.category === 'navigation') {
+              const cleanCrumb = _.cloneDeep(crumb);
+              cleanCrumb.data = {
+                to: API._removeUUID(crumb.data.to),
+                from: API._removeUUID(crumb.data.from),
+              };
+              return cleanCrumb;
+            }
 
-          return crumb;
-        },
-      }).install();
+            return crumb;
+          },
+        }
+      ).install();
     } else {
-      Log('Analytics: server error logging is turned off. Please provide Sentry key.', 'w');
+      Log(
+        'Analytics: server error logging is turned off. Please provide Sentry key.',
+        'w'
+      );
     }
 
     // capture unhandled promises
-    window.onunhandledrejection = (e) => {
+    window.onunhandledrejection = e => {
       Raven.captureException(e.reason, {
         extra: { unhandledPromise: true },
       });
@@ -115,7 +121,10 @@ const API = {
 
   _removeUUID(string) {
     // remove specific UUIDs
-    return string.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g, 'UUID');
+    return string.replace(
+      /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/g,
+      'UUID'
+    );
   },
 };
 

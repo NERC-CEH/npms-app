@@ -64,7 +64,7 @@ const API = {
         return;
       }
 
-      sample.save(null, { remote: true }).catch((err) => {
+      sample.save(null, { remote: true }).catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
@@ -82,7 +82,7 @@ const API = {
     }
 
     Log('Samples:List:Controller: adding survey');
-    API.createNewSample(sampleID, (sample) => {
+    API.createNewSample(sampleID, sample => {
       radio.trigger('app:dialog:hide');
 
       // open sample page
@@ -96,7 +96,9 @@ const API = {
   createNewSample(sampleID, callback) {
     const sample1 = savedSamples.get(sampleID);
 
-    const attributes = _.extend({}, sample1.attributes, { survey_1: sample1.id });
+    const attributes = _.extend({}, sample1.attributes, {
+      survey_1: sample1.id,
+    });
 
     const sample = new Sample(attributes, {
       survey_id: sample1.metadata.survey_id,
@@ -107,7 +109,7 @@ const API = {
     sample
       .save()
       .then(callback)
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });

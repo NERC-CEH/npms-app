@@ -100,38 +100,38 @@ App.on('start', () => {
 // events
 radio.on('app:restart', App.restart);
 
-radio.on('app:dialog', (options) => {
+radio.on('app:dialog', options => {
   App.regions.getRegion('dialog').show(options);
 });
-radio.on('app:dialog:hide', (options) => {
+radio.on('app:dialog:hide', options => {
   App.regions.getRegion('dialog').hide(options);
 });
-radio.on('app:dialog:error', (options) => {
+radio.on('app:dialog:error', options => {
   App.regions.getRegion('dialog').error(options);
 });
 
-radio.on('app:main', (options) => {
+radio.on('app:main', options => {
   App.regions.getRegion('main').show(options);
 });
-radio.on('app:header', (options) => {
+radio.on('app:header', options => {
   App.regions.getRegion('header').show(options);
 });
-radio.on('app:footer', (options) => {
+radio.on('app:footer', options => {
   App.regions.getRegion('footer').show(options);
 });
-radio.on('app:main:hide', (options) => {
+radio.on('app:main:hide', options => {
   App.regions
     .getRegion('main')
     .hide(options)
     .empty();
 });
-radio.on('app:header:hide', (options) => {
+radio.on('app:header:hide', options => {
   App.regions
     .getRegion('header')
     .hide(options)
     .empty();
 });
-radio.on('app:footer:hide', (options) => {
+radio.on('app:footer:hide', options => {
   App.regions
     .getRegion('footer')
     .hide(options)

@@ -53,7 +53,7 @@ const API = {
       model: userModel,
     });
 
-    mainView.on('select', (plotID) => {
+    mainView.on('select', plotID => {
       API.selectPlot(sample, plotID);
     });
 
@@ -82,7 +82,7 @@ const API = {
   },
 
   refresh() {
-    userModel.syncSquares(true).catch((err) => {
+    userModel.syncSquares(true).catch(err => {
       radio.trigger('app:dialog:error', err);
     });
     Analytics.trackEvent('Statistics', 'refresh');
@@ -94,10 +94,10 @@ const API = {
     let selectedSquare;
     let selectedPlot;
 
-    Object.keys(squares.data).forEach((squareKey) => {
+    Object.keys(squares.data).forEach(squareKey => {
       const square = squares.data[squareKey];
 
-      Object.keys(square.plots).forEach((plotKey) => {
+      Object.keys(square.plots).forEach(plotKey => {
         if (parseInt(plotKey, 10) === plotID) {
           selectedPlot = square.plots[plotKey];
           selectedSquare = square;

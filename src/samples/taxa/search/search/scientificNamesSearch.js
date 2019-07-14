@@ -18,7 +18,13 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function (species, searchPhrase, results = [], maxResults = MAX, hybridRun) {
+export default function(
+  species,
+  searchPhrase,
+  results = [],
+  maxResults = MAX,
+  hybridRun
+) {
   const searchWords = searchPhrase.split(' ');
 
   // prepare first word regex
@@ -30,7 +36,10 @@ export default function (species, searchPhrase, results = [], maxResults = MAX, 
   let otherWords = searchWords.splice(1).join(' ');
   let otherWordsRegex;
   if (otherWords) {
-    otherWordsRegex = new RegExp(`^${helpers.getOtherWordsRegexString(otherWords)}`, 'i');
+    otherWordsRegex = new RegExp(
+      `^${helpers.getOtherWordsRegexString(otherWords)}`,
+      'i'
+    );
   }
 
   // check if hybrid eg. X Cupressocyparis
@@ -46,7 +55,11 @@ export default function (species, searchPhrase, results = [], maxResults = MAX, 
   }
 
   // find first match in array
-  let speciesArrayIndex = helpers.findFirstMatching(species, species, firstWord);
+  let speciesArrayIndex = helpers.findFirstMatching(
+    species,
+    species,
+    firstWord
+  );
 
   // go through all
   const speciesArrayLength = species.length;

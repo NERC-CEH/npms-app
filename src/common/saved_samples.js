@@ -11,7 +11,7 @@ const Collection = Indicia.Collection.extend({
     Log('SavedSamples: removing all synced samples.');
 
     const toWait = [];
-    this.models.forEach((sample) => {
+    this.models.forEach(sample => {
       if (sample.getSyncStatus() === Indicia.SYNCED) {
         toWait.push(sample.destroy());
       }
@@ -25,7 +25,7 @@ const Collection = Indicia.Collection.extend({
 
     const that = this;
     const toWait = [];
-    this.models.forEach((sample) => {
+    this.models.forEach(sample => {
       const validPromise = sample.setToSend();
       if (!validPromise) {
         return;
@@ -34,7 +34,7 @@ const Collection = Indicia.Collection.extend({
     });
     return Promise.all(toWait).then(() => {
       const toWaitSend = [];
-      that.models.forEach((sample) => {
+      that.models.forEach(sample => {
         const validPromise = sample.save(null, { remote: true });
         if (!validPromise) {
           return;
@@ -61,7 +61,7 @@ savedSamples
     savedSamples.fetching = false;
     savedSamples.trigger('fetching:done');
   })
-  .catch((err) => {
+  .catch(err => {
     Log(err, 'e');
 
     savedSamples.fetching = false;

@@ -139,7 +139,7 @@ const API = {
       case 'comment':
 
       // extra attributes
-      case 'identifiers':  // eslint-disable-line
+      case 'identifiers': // eslint-disable-line
       case 'management':
       case 'grazing':
       case 'wooded':
@@ -157,7 +157,7 @@ const API = {
     sample
       .save()
       .then(callback)
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });

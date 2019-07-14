@@ -109,7 +109,6 @@ const UserModel = Backbone.Model.extend({
     return null;
   },
 
-
   validateRegistration(attrs) {
     const errors = {};
 

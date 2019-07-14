@@ -23,7 +23,7 @@ const SampleView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    'click .js-attr': (e) => {
+    'click .js-attr': e => {
       e.preventDefault();
       this.trigger('sample:edit:attr', $(e.target).data('attr'));
     },
@@ -44,7 +44,7 @@ const SampleView = Marionette.View.extend({
 
     const items = [];
 
-    this.model.media.each((image) => {
+    this.model.media.each(image => {
       items.push({
         src: image.getURL(),
         w: image.get('width') || 800,
@@ -71,17 +71,19 @@ const SampleView = Marionette.View.extend({
       toolsWidth: 100,
     };
 
-    const hammertime = new Hammer(this.el, { direction: Hammer.DIRECTION_HORIZONTAL });
+    const hammertime = new Hammer(this.el, {
+      direction: Hammer.DIRECTION_HORIZONTAL,
+    });
     const that = this;
 
     // on tap bring back
     this.$sample.on('tap click', $.proxy(this._swipeHome, this));
 
-    hammertime.on('pan', (e) => {
+    hammertime.on('pan', e => {
       e.preventDefault();
       that._swipe(e, options);
     });
-    hammertime.on('panend', (e) => {
+    hammertime.on('panend', e => {
       that._swipeEnd(e, options);
     });
   },

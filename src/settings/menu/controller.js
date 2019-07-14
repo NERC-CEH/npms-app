@@ -69,8 +69,10 @@ const API = {
   },
 
   deleteAllSamples() {
-    let body = 'Are you sure you want to delete all successfully uploaded local records?';
-    body += '</br><i><b>Note:</b> records on the server will not be touched.</i>';
+    let body =
+      'Are you sure you want to delete all successfully uploaded local records?';
+    body +=
+      '</br><i><b>Note:</b> records on the server will not be touched.</i>';
 
     radio.trigger('app:dialog', {
       title: 'Delete All',
@@ -97,7 +99,7 @@ const API = {
                   timeout: 1000,
                 });
               })
-              .catch((err) => {
+              .catch(err => {
                 Log(err, 'e');
                 radio.trigger('app:dialog:error', err);
               });
@@ -132,7 +134,7 @@ const API = {
                   timeout: 1000,
                 });
               })
-              .catch((err) => {
+              .catch(err => {
                 Log(err, 'e');
                 radio.trigger('app:dialog:error', err);
               });
@@ -155,7 +157,7 @@ const API = {
     savedSamples
       .destroy()
       .then(callback)
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         callback && callback(err);
       });

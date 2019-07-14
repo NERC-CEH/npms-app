@@ -2,22 +2,22 @@
  * App wide configuration of variables.
  *****************************************************************************/
 
-$color-white:        white;
-$color-gray-light:   #f7f7f7;
-$color-gray:         #ddd;
-$color-gray-dark:    #868686;
-$color-black:        #333;
-$color-blue-dark:    #202b80;
-$color-blue:         #3c479d;
-$color-blue-light:   #8c94d2;
+$color-white: white;
+$color-gray-light: #f7f7f7;
+$color-gray: #ddd;
+$color-gray-dark: #868686;
+$color-black: #333;
+$color-blue-dark: #202b80;
+$color-blue: #3c479d;
+$color-blue-light: #8c94d2;
 
-$color-green-dark:   #4E5A0C;
-$color-green:        #91A71C;
-$color-green-light:  #BBD245;
-$color-orange:       #ef473a;
-$color-orange-light: #FF9935;
-$color-yellow:       #FFC019;
-$color-red:          #e42012;
+$color-green-dark: #4e5a0c;
+$color-green: #91a71c;
+$color-green-light: #bbd245;
+$color-orange: #ef473a;
+$color-orange-light: #ff9935;
+$color-yellow: #ffc019;
+$color-red: #e42012;
 
 $app-max-width: 650px;
 
@@ -46,8 +46,8 @@ $OS_MAP_URL: 'https://openspace.ordnancesurvey.co.uk/osmapapi/ts?KEY=#{$OS_MAP_K
     font-size: 13.3333px;
     line-height: 17.3333px;
 
-    height: initial!important;
-    min-height: initial!important;
+    height: initial !important;
+    min-height: initial !important;
     padding: 13px 0;
     border: none;
     margin: 0;

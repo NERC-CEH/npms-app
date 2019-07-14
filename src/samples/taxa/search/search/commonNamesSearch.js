@@ -19,7 +19,7 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function (
+export default function(
   species,
   commonNamePointersArray,
   searchPhrase,
@@ -93,7 +93,8 @@ export default function (
         const genus = species[p[0]];
         const speciesEntry = genus[p[1]][p[2]];
         // carry on while it matches the first name
-        const foundInName = p[3] === SPECIES_COMMON_SYN_INDEX ? 'synonym' : 'common_name';
+        const foundInName =
+          p[3] === SPECIES_COMMON_SYN_INDEX ? 'synonym' : 'common_name';
         let name = speciesEntry[p[3]];
         name = name
           .split(/\s+/)
@@ -110,7 +111,9 @@ export default function (
             found_in_name: foundInName,
             warehouse_id: speciesEntry[WAREHOUSE_INDEX],
             group: genus[GROUP_INDEX],
-            scientific_name: `${genus[SCI_NAME_INDEX]} ${speciesEntry[SPECIES_SCI_NAME_INDEX]}`,
+            scientific_name: `${genus[SCI_NAME_INDEX]} ${
+              speciesEntry[SPECIES_SCI_NAME_INDEX]
+            }`,
             common_name: speciesEntry[SPECIES_COMMON_INDEX],
             synonym: speciesEntry[SPECIES_COMMON_SYN_INDEX],
           };

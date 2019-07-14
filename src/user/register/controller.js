@@ -29,7 +29,7 @@ const API = {
     radio.trigger('app:header', headerView);
 
     // Start registration
-    mainView.on('form:submit', (data) => {
+    mainView.on('form:submit', data => {
       if (!Device.isOnline()) {
         radio.trigger('app:dialog', {
           title: 'Sorry',
@@ -65,7 +65,7 @@ const API = {
               },
             });
           })
-          .catch((err) => {
+          .catch(err => {
             Log(err, 'e');
             radio.trigger('app:dialog:error', err);
           });
@@ -98,14 +98,22 @@ const API = {
         data: JSON.stringify({ data: details }),
         headers: {
           'x-api-key': CONFIG.indicia.api_key,
-          "cookie": "",
+          cookie: '',
           'content-type': 'application/json',
         },
         timeout: CONFIG.users.timeout,
         success(receivedData) {
           const data = receivedData.data || {};
-          if (!data.id || !data.email || !data.name || !data.firstname || !data.secondname) {
-            const err = new Error('Error while retrieving registration response.');
+          if (
+            !data.id ||
+            !data.email ||
+            !data.name ||
+            !data.firstname ||
+            !data.secondname
+          ) {
+            const err = new Error(
+              'Error while retrieving registration response.'
+            );
             reject(err);
             return;
           }
@@ -118,7 +126,10 @@ const API = {
         error(xhr, textStatus) {
           let message = textStatus;
           if (xhr.responseJSON && xhr.responseJSON.errors) {
-            message = xhr.responseJSON.errors.reduce((name, err) => `${name}${err.title}\n`, '');
+            message = xhr.responseJSON.errors.reduce(
+              (name, err) => `${name}${err.title}\n`,
+              ''
+            );
           }
           reject(new Error(message));
         },

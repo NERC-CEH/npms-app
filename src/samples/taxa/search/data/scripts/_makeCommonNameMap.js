@@ -74,15 +74,31 @@ function make() {
     }
 
     if (speciesArray) {
-      for (let k = 0, speciesLength = speciesArray.length; k < speciesLength; k++) {
+      for (
+        let k = 0, speciesLength = speciesArray.length;
+        k < speciesLength;
+        k++
+      ) {
         const speciesInArray = speciesArray[k];
         // add common names
         if (speciesInArray[SPECIES_COMMON_INDEX]) {
-          addWord(speciesInArray[SPECIES_COMMON_INDEX], i, j, k, SPECIES_COMMON_INDEX);
+          addWord(
+            speciesInArray[SPECIES_COMMON_INDEX],
+            i,
+            j,
+            k,
+            SPECIES_COMMON_INDEX
+          );
         }
         // add synonyms
         if (speciesInArray[SPECIES_COMMON_SYN_INDEX]) {
-          addWord(speciesInArray[SPECIES_COMMON_SYN_INDEX], i, j, k, SPECIES_COMMON_SYN_INDEX);
+          addWord(
+            speciesInArray[SPECIES_COMMON_SYN_INDEX],
+            i,
+            j,
+            k,
+            SPECIES_COMMON_SYN_INDEX
+          );
         }
       }
     }

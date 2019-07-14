@@ -1,5 +1,5 @@
-@import "../../common/styles/_variables.scss";
-@import "../../common/styles/swipe-list.scss";
+@import '../../common/styles/_variables.scss';
+@import '../../common/styles/swipe-list.scss';
 
 //HEADER
 #samples-header {
@@ -26,10 +26,10 @@
     width: 100%;
     left: 0;
     position: absolute;
-    padding: .4em;
+    padding: 0.4em;
     opacity: 0;
     margin: -8px 0 !important;
-    height: inherit!important;
+    height: inherit !important;
   }
 
   &:hover {
@@ -104,7 +104,10 @@
         display: none;
       }
 
-      .gridref, .plot, .habitat, .identifiers {
+      .gridref,
+      .plot,
+      .habitat,
+      .identifiers {
         font-size: $text-font-size - 2;
         color: $button-black;
 
@@ -170,7 +173,6 @@
         font-size: 12px;
         color: $color-gray-dark;
       }
-
     }
   }
 }

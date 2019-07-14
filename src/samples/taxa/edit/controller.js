@@ -35,10 +35,15 @@ const API = {
     }
 
     // MAIN
-    const occurrences = sample.occurrences.filter(occurrence => occurrence.cid === occurrenceID);
+    const occurrences = sample.occurrences.filter(
+      occurrence => occurrence.cid === occurrenceID
+    );
 
     if (occurrences.length !== 1) {
-      Log(`Samples:Taxa:Edit:Controller: no occurrence with id (${occurrenceID})`, 'e');
+      Log(
+        `Samples:Taxa:Edit:Controller: no occurrence with id (${occurrenceID})`,
+        'e'
+      );
       return;
     }
 
@@ -48,7 +53,7 @@ const API = {
     radio.trigger('app:main', mainView);
 
     // if exit on selection click
-    mainView.on('save', (value) => {
+    mainView.on('save', value => {
       const abundance = occurrenceModel.get('abundance');
 
       API.save(value, occurrenceModel, () => {
@@ -84,7 +89,7 @@ const API = {
     occurrenceModel
       .save()
       .then(callback)
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });

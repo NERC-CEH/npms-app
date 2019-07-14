@@ -44,5 +44,8 @@ Log(`
 
 // Print missing configuration errors
 if (!CONFIG.indicia.api_key) {
-  Log('Indicia API key is missing! Set APP_INDICIA_API_KEY build env. variable.', 'e');
+  Log(
+    'Indicia API key is missing! Set APP_INDICIA_API_KEY build env. variable.',
+    'e'
+  );
 }

@@ -57,7 +57,7 @@ const Router = Marionette.AppRouter.extend({
   },
 });
 
-radio.on('samples:list', (options) => {
+radio.on('samples:list', options => {
   App.navigate('samples', options);
   ListController.show();
 });

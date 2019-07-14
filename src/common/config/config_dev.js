@@ -30,7 +30,10 @@ const newConfig = $.extend(true, config, {
   },
 
   reports: {
-    url: `${HOST + Indicia.API_BASE + Indicia.API_VER + Indicia.API_REPORTS_PATH}`,
+    url: `${HOST +
+      Indicia.API_BASE +
+      Indicia.API_VER +
+      Indicia.API_REPORTS_PATH}`,
     timeout: 80000,
   },
 

@@ -148,7 +148,8 @@ export default Marionette.Region.extend({
     if (!options) return;
 
     this.onHide = options.onHide;
-    this.hideAllowed = typeof options.hideAllowed !== 'undefined' ? options.hideAllowed : true;
+    this.hideAllowed =
+      typeof options.hideAllowed !== 'undefined' ? options.hideAllowed : true;
 
     if (!options.view || !(options.view instanceof Marionette.View)) {
       // create a standard dialog

@@ -34,7 +34,7 @@ const API = {
       API.addSurvey();
     });
 
-    mainView.on('childview:sample:delete', (childView) => {
+    mainView.on('childview:sample:delete', childView => {
       const sample = childView.model;
       API.sampleDelete(sample);
     });
@@ -98,7 +98,8 @@ const API = {
     const View = Marionette.View.extend({
       template: JST['samples/list/levels'],
       events: {
-        'click input[type="radio"]': function () {  // eslint-disable-line
+        'click input[type="radio"]': function() {
+          // eslint-disable-line
           // eslint-disable-line
           // find the option
           let option;
@@ -110,7 +111,7 @@ const API = {
           });
 
           // create new sample
-          API.createNewSample(option, (sample) => {
+          API.createNewSample(option, sample => {
             radio.trigger('app:dialog:hide');
 
             // open sample page
@@ -150,7 +151,7 @@ const API = {
     sample
       .save()
       .then(callback)
-      .catch((err) => {
+      .catch(err => {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });

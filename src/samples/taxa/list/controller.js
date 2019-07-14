@@ -46,12 +46,12 @@ const API = {
       PhotoPicker.photoUpload(model, photo);
     });
 
-    mainView.on('childview:photo:delete', (model) => {
+    mainView.on('childview:photo:delete', model => {
       PhotoPicker.photoDelete(model);
     });
 
     // android gallery/camera selection
-    mainView.on('childview:photo:selection', (model) => {
+    mainView.on('childview:photo:selection', model => {
       PhotoPicker.photoSelect(model);
     });
 

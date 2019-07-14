@@ -50,11 +50,14 @@ const extension = {
       password: this.getPassword.bind(this),
       params: {
         // todo check which ones will change per user
-        core_square_location_type_id: CONFIG.indicia.reports.core_square_location_type_id,
+        core_square_location_type_id:
+          CONFIG.indicia.reports.core_square_location_type_id,
         additional_square_location_type_id:
           CONFIG.indicia.reports.additional_square_location_type_id,
-        vice_county_location_attribute_id: CONFIG.indicia.reports.vice_county_location_attribute_id,
-        no_vice_county_found_message: CONFIG.indicia.reports.no_vice_county_found_message,
+        vice_county_location_attribute_id:
+          CONFIG.indicia.reports.vice_county_location_attribute_id,
+        no_vice_county_found_message:
+          CONFIG.indicia.reports.no_vice_county_found_message,
         user_square_attr_id: CONFIG.indicia.reports.user_square_attr_id,
         plot_number_attr_id: CONFIG.indicia.reports.plot_number_attr_id,
       },
@@ -62,14 +65,14 @@ const extension = {
 
     const promise = report
       .run()
-      .then((receivedData) => {
+      .then(receivedData => {
         if (!receivedData.data) {
           const err = new Error('Error while retrieving response.');
           return Promise.reject(err);
         }
 
         const data = {};
-        receivedData.data.forEach((location) => {
+        receivedData.data.forEach(location => {
           if (!location.location_entered_sref) {
             return;
           }
@@ -113,7 +116,7 @@ const extension = {
         that.trigger('sync:user:squares:end');
         return null;
       })
-      .catch((err) => {
+      .catch(err => {
         Log('UserModel:SquaresExt: fetch failed');
         that.trigger('sync:user:squares:end');
         return Promise.reject(err);

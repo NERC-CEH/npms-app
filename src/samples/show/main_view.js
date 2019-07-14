@@ -24,7 +24,7 @@ export default Marionette.View.extend({
 
     const items = [];
     const sample = this.model.get('sample');
-    sample.media.each((image) => {
+    sample.media.each(image => {
       items.push({
         src: image.getURL(),
         w: image.get('width') || 800,
@@ -48,7 +48,9 @@ export default Marionette.View.extend({
 
     const habitat = sample.get('habitat') || {};
 
-    const editUrl = `${CONFIG.site_url}${sample.metadata.input_form}?sample_id=${sample.id}`;
+    const editUrl = `${CONFIG.site_url}${
+      sample.metadata.input_form
+    }?sample_id=${sample.id}`;
 
     return {
       id: sample.cid,

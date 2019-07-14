@@ -68,7 +68,10 @@ const CONFIG = {
   },
 
   reports: {
-    url: `${HOST + Indicia.API_BASE + Indicia.API_VER + Indicia.API_REPORTS_PATH}`,
+    url: `${HOST +
+      Indicia.API_BASE +
+      Indicia.API_VER +
+      Indicia.API_REPORTS_PATH}`,
     timeout: 80000,
   },
 
@@ -251,7 +254,7 @@ const CONFIG = {
         values(value) {
           const that = this;
           const values = [];
-          value.forEach((option) => {
+          value.forEach(option => {
             values.push(that._values[option]);
           });
           return values;
@@ -310,7 +313,7 @@ const CONFIG = {
           const that = this;
           const selection = Object.keys(value);
 
-          selection.forEach((key) => {
+          selection.forEach(key => {
             submission.fields[that._values[key]] = value[key]; // eslint-disable-line
           });
         },
@@ -342,8 +345,12 @@ const CONFIG = {
         id: 214,
         values(value, submission, occ) {
           // wildflower uses different abundance attribute and values
-          if (occ.parent.metadata.survey_id === CONFIG.indicia.sample.surveys.wildflower) {
-            submission.fields[this.id_wild] = rangeValuesWildflower.indexOf(value) + 1; // eslint-disable-line
+          if (
+            occ.parent.metadata.survey_id ===
+            CONFIG.indicia.sample.surveys.wildflower
+          ) {
+            submission.fields[this.id_wild] =
+              rangeValuesWildflower.indexOf(value) + 1; // eslint-disable-line
             return null;
           }
 

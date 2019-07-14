@@ -66,39 +66,43 @@ const API = {
 
     mainView.on(
       'taxon:selected',
-      (taxon) => {
+      taxon => {
         API.addTaxon(sampleID, taxon)
           .then(occurrence =>
-            radio.trigger('samples:taxa:edit', sampleID, occurrence.cid, { replace: true })
+            radio.trigger('samples:taxa:edit', sampleID, occurrence.cid, {
+              replace: true,
+            })
           )
-          .catch((err) => {
+          .catch(err => {
             Log(err, 'e');
             radio.trigger('app:dialog:err', err);
-            
           });
       },
       that
     );
 
-    mainView.on('taxon:searched', (searchPhrase) => {
-      SpeciesSearchEngine.search(level, searchPhrase, (selection) => {
+    mainView.on('taxon:searched', searchPhrase => {
+      SpeciesSearchEngine.search(level, searchPhrase, selection => {
         // remove already selected ones
         const uniqueSelection = [];
 
         if (!occurrences || !existingSelection) {
           existingSelection = [];
           occurrences = savedSamples.get(sampleID).occurrences;
-          occurrences.each((occ) => {
+          occurrences.each(occ => {
             existingSelection.push(occ.get('taxon').warehouse_id);
           });
         }
 
-        selection.forEach((taxa) => {
+        selection.forEach(taxa => {
           if (existingSelection.indexOf(taxa.warehouse_id) === -1) {
             uniqueSelection.push(taxa);
           }
         });
-        mainView.updateSuggestions(new Backbone.Collection(uniqueSelection), searchPhrase);
+        mainView.updateSuggestions(
+          new Backbone.Collection(uniqueSelection),
+          searchPhrase
+        );
       });
     });
 

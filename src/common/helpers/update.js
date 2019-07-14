@@ -43,7 +43,10 @@ function versionCompare(left, right) {
   const len = Math.max(a.length, b.length);
 
   for (let i = 0; i < len; i++) {
-    if ((a[i] && !b[i] && parseInt(a[i], 10) > 0) || parseInt(a[i], 10) > parseInt(b[i], 10)) {
+    if (
+      (a[i] && !b[i] && parseInt(a[i], 10) > 0) ||
+      parseInt(a[i], 10) > parseInt(b[i], 10)
+    ) {
       return 1;
     } else if (
       (b[i] && !a[i] && parseInt(b[i], 10) > 0) ||
@@ -91,7 +94,7 @@ const API = {
       const startTime = Date.now();
 
       // apply all updates
-      return API._applyUpdates(firstUpdate, (error) => {
+      return API._applyUpdates(firstUpdate, error => {
         if (error) {
           if (!silent) {
             radio.trigger(
