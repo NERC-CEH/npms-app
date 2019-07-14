@@ -3,11 +3,22 @@
 </div>
 
 <label class="item item-radio">
+  <input type="radio" name="group" value=""
+  <%= !obj.value.selected ? 'checked' : '' %>>
+  <div class="radio-content">
+    <div class="item-content">
+      Not selected
+    </div>
+    <i class="radio-icon icon-check"></i>
+  </div>
+</label>
+
+<label class="item item-radio">
   <input type="radio" name="group" value="low"
   <%= obj.value.selected === 'low' ? 'checked' : '' %>>
   <div class="radio-content">
     <div class="item-content">
-      low
+      Low
     </div>
     <i class="radio-icon icon-check"></i>
   </div>
@@ -17,7 +28,7 @@
   <%= obj.value.selected === 'moderate' ? 'checked' : '' %>>
   <div class="radio-content">
     <div class="item-content">
-      moderate
+      Moderate
     </div>
     <i class="radio-icon icon-check"></i>
   </div>
@@ -27,7 +38,7 @@
   <%= obj.value.selected === 'high' ? 'checked' : '' %>>
   <div class="radio-content">
     <div class="item-content">
-      high
+      High
     </div>
     <i class="radio-icon icon-check"></i>
   </div>
