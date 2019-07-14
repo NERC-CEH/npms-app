@@ -57,8 +57,8 @@ const API = {
       const abundance = occurrenceModel.get('abundance');
 
       API.save(value, occurrenceModel, () => {
-        // editing existing sample
-        if (abundance) {
+        const existingSample = typeof abundance !== 'undefined';
+        if (existingSample) {
           window.history.back();
           return;
         }
@@ -70,6 +70,12 @@ const API = {
     // HEADER
     const headerView = new HeaderView({
       model: new Backbone.Model({ title: 'Cover' }),
+      onExit: () => {
+        if (!occurrenceModel.get('abundance')) {
+          occurrenceModel.set('abundance', null); // flag it as visited for next return
+        }
+        window.history.back();
+      }
     });
     radio.trigger('app:header', headerView);
 
@@ -93,7 +99,7 @@ const API = {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
-  },
+  }
 };
 
 export { API as default };
