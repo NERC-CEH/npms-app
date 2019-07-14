@@ -26,17 +26,16 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
+    // eslint-disable-next-line    
     'click .js-attr': function(e) {
-      // eslint-disable-line
-      // eslint-disable-line
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
     'click span.delete': 'delete',
     'click img': 'photoView',
+
+    // eslint-disable-next-line
     'change input': function(e) {
-      // eslint-disable-line
-      // eslint-disable-line
       e.preventDefault();
       this.trigger('photo:upload', e, this.model);
     },
