@@ -14,7 +14,7 @@
   <input type="number" name="<=10cm" value="<%= obj.value['<=10cm'] %>"/>
 </div>
 <div class="input-group">
-  <label for="11-30cm"><=11-30cm:</label>
+  <label for="11-30cm">11-30cm:</label>
   <input type="number" name="11-30cm" value="<%= obj.value['11-30cm'] %>"/>
 </div>
 <div class="input-group">
