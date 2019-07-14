@@ -2,6 +2,7 @@
  * Sample Edit header view.
  **************************************************************************** */
 import Marionette from 'backbone.marionette';
+import radio from 'radio';
 import Indicia from 'indicia';
 import JST from 'JST';
 
@@ -11,14 +12,33 @@ export default Marionette.View.extend({
 
   events: {
     'click a[data-rel="back"]': 'navigateBack',
+    'click #sample-save-btn': 'showConfirmationDialog'
   },
 
-  triggers: {
-    'click #sample-save-btn': 'save',
+  showConfirmationDialog() {
+    radio.trigger('app:dialog', {
+      title: 'Upload',
+      body: 'Are you sure you want to upload the survey to the website?',
+      buttons: [
+        {
+          title: 'Cancel',
+          onClick() {
+            radio.trigger('app:dialog:hide');
+          }
+        },
+        {
+          title: 'Upload',
+          class: 'btn-positive',
+          onClick: () => {
+            this.trigger('save');
+          }
+        }
+      ]
+    });
   },
 
   modelEvents: {
-    'request sync error': 'render',
+    'request sync error': 'render'
   },
 
   navigateBack() {
@@ -27,7 +47,7 @@ export default Marionette.View.extend({
 
   serializeData() {
     return {
-      isSynchronising: this.model.getSyncStatus() === Indicia.SYNCHRONISING,
+      isSynchronising: this.model.getSyncStatus() === Indicia.SYNCHRONISING
     };
-  },
+  }
 });
