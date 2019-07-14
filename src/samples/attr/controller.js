@@ -41,7 +41,7 @@ const API = {
     // MAIN
     const mainView = new MainView({
       attr,
-      model: sample,
+      model: sample
     });
     radio.trigger('app:main', mainView);
 
@@ -65,7 +65,7 @@ const API = {
           window.history.back();
         });
       },
-      model: new Backbone.Model({ title }),
+      model: new Backbone.Model({ title })
     });
 
     radio.trigger('app:header', headerView);
@@ -136,11 +136,23 @@ const API = {
         oldhabitat.fine = values['fine-habitat'];
         sample.set('habitat', oldhabitat);
         break;
+      case 'management':
+        const managementValues = [...values[attr].values];
+        const otherManagement = values[attr].other;
+        sample.set('management other', otherManagement);
+        if (otherManagement && !managementValues.includes('Other')) {
+          managementValues.push('Other');
+        } else if (!otherManagement && managementValues.includes('Other')) {
+          const otherIndex = managementValues.indexOf('Other');
+          managementValues.splice(otherIndex, 1);
+        }
+        sample.set(attr, managementValues);
+        break;
+
       case 'comment':
 
       // extra attributes
       case 'identifiers': // eslint-disable-line
-      case 'management':
       case 'grazing':
       case 'wooded':
       case 'vegetation':
@@ -161,7 +173,7 @@ const API = {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
-  },
+  }
 };
 
 export { API as default };

@@ -28,7 +28,7 @@ LogSlider.prototype = {
   // Calculate slider position from a value
   position(value) {
     return this.minpos + (Math.log(value) - this.minlval) / this.scale;
-  },
+  }
 };
 
 const logsl = new LogSlider({ maxpos: 100, minval: 1, maxval: 500 });
@@ -46,10 +46,6 @@ export default Marionette.View.extend({
         this.template = JST['common/radio'];
         break;
 
-      case 'management':
-        this.template = JST['common/checkbox'];
-        break;
-
       case 'identifiers':
         this.template = JST['common/input'];
         break;
@@ -62,7 +58,7 @@ export default Marionette.View.extend({
   events: {
     'click input[type="radio"]': 'saveNumber',
     'input input[type="range"]': 'updateRangeInputValue',
-    'change input[type="number"]': 'updateRangeSliderValue',
+    'change input[type="number"]': 'updateRangeSliderValue'
   },
 
   saveNumber() {
@@ -121,19 +117,26 @@ export default Marionette.View.extend({
         break;
 
       case 'management':
-        values[attr] = [];
-        $inputs = this.$el.find('input');
-        $inputs.each((int, elem) => {
+        values[attr] = { values: [], other: '' };
+        $inputs = this.$el.find('input[type="checkbox"]');
+        $inputs.each((_, elem) => {
           if ($(elem).prop('checked')) {
-            values[attr].push($(elem).val());
+            const managementValue = $(elem).val();
+            values[attr].values.push(managementValue);
           }
         });
+
+        const $input = this.$el.find('input.other');
+        const otherValue = $input.val();
+        if (otherValue) {
+          values[attr].other = otherValue;
+        }
         break;
 
       case 'grazing':
         const text = this.$el.find('input[type="text"]').val();
         values.grazing = {
-          text: StringHelp.escape(text),
+          text: StringHelp.escape(text)
         };
         $inputs = this.$el.find('input');
         $inputs.each((int, elem) => {
@@ -192,7 +195,7 @@ export default Marionette.View.extend({
             'Please select a broad habitat. Please ensure your choice of ' +
             'habitat matches the species list you are using.',
           selection: Object.keys(CONFIG.indicia.sample.habitat._values),
-          selected: selected.broad,
+          selected: selected.broad
         };
         break;
 
@@ -204,7 +207,7 @@ export default Marionette.View.extend({
           message: 'Please select your fine habitat.',
           showDefault: 'Not selected',
           selection: Object.keys(fineHabitat.values),
-          selected: selected.fine,
+          selected: selected.fine
         };
         break;
 
@@ -214,7 +217,7 @@ export default Marionette.View.extend({
           message: 'How wooded is your plot?',
           showDefault: 'Not selected',
           selection: Object.keys(CONFIG.indicia.sample.wooded.values),
-          selected,
+          selected
         };
         break;
 
@@ -235,6 +238,7 @@ export default Marionette.View.extend({
         templateData = {
           selection: Object.keys(CONFIG.indicia.sample.management._values),
           selected,
+          otherManagement: this.model.get('management other')
         };
         break;
 
@@ -302,7 +306,7 @@ export default Marionette.View.extend({
             mode: 'date',
             androidTheme: 5,
             allowOldDates: true,
-            allowFutureDates: false,
+            allowFutureDates: false
           };
 
           window.datePicker.show(options, date => {
@@ -330,5 +334,5 @@ export default Marionette.View.extend({
         break;
       default:
     }
-  },
+  }
 });
