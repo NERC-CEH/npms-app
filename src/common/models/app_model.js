@@ -23,6 +23,11 @@ const AppModel = Backbone.Model.extend({
   initialize() {
     this.fetch();
   },
+
+  resetDefaults() {
+    this.clear().set(this.defaults);
+    return this.save();
+  },
 });
 
 const appModel = new AppModel();

@@ -46,6 +46,11 @@ const Collection = Indicia.Collection.extend({
       // as this can be done in the background
     });
   },
+
+  resetDefaults() {
+    const destroyAllSamples = this.models.map(sample => sample.destroy());
+    return Promise.all(destroyAllSamples);
+  },
 });
 
 const savedSamples = new Collection();
