@@ -32,7 +32,7 @@ const API = {
     });
     radio.trigger('app:header', headerView);
 
-    mainView.on('form:submit', data => {
+    mainView.on('form:submit', formData => {
       if (!Device.isOnline()) {
         radio.trigger('app:dialog', {
           title: 'Sorry',
@@ -41,6 +41,13 @@ const API = {
         return;
       }
 
+      const data = {
+        ...formData,
+        ...{
+          name: formData.name.trim(),
+        },
+      };
+      
       const validationError = userModel.validateLogin(data);
       if (!validationError) {
         mainView.triggerMethod('form:data:invalid', {}); // update form

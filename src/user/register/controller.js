@@ -29,7 +29,7 @@ const API = {
     radio.trigger('app:header', headerView);
 
     // Start registration
-    mainView.on('form:submit', data => {
+    mainView.on('form:submit', formData => {
       if (!Device.isOnline()) {
         radio.trigger('app:dialog', {
           title: 'Sorry',
@@ -37,6 +37,15 @@ const API = {
         });
         return;
       }
+
+      const data = {
+        ...formData,
+        ...{
+          email: formData.email.trim(),
+          firstname: formData.firstname.trim(),
+          secondname: formData.secondname.trim(),
+        },
+      };
 
       const validationError = userModel.validateRegistration(data);
       if (!validationError) {
