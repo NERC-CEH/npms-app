@@ -3,8 +3,8 @@
   "id": "uk.ac.ceh.npms",
   "title": "NPMS App",
   "description": "NPMS application.",
-  "version": "1.1.0",
-  "build": "3",
+  "version": "1.2.0",
+  "build": "4",
   "homepage": "http://www.npms.org.uk/",
   "scripts": {
     "build": "NODE_ENV=production grunt",
