@@ -81,6 +81,7 @@ App.on('start', () => {
             if (navigator && navigator.splashscreen) {
               navigator.splashscreen.hide();
             }
+            window.Keyboard.shrinkView(true);
 
             Analytics.trackEvent('App', 'initialized');
           },
