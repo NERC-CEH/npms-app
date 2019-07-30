@@ -46,6 +46,8 @@ App.on('before:start', () => {
 });
 
 App.on('start', () => {
+  Analytics.init();
+
   // update app first
   Update.run(() => {
     // release the beast

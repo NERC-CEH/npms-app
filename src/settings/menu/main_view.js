@@ -14,6 +14,8 @@ export default Marionette.View.extend({
   events: {
     'toggle #use-training-btn': 'onSettingToggled',
     'click #use-training-btn': 'onSettingToggled',
+    'toggle #send-analytics-btn': 'onSettingToggled',
+    'click #send-analytics-btn': 'onSettingToggled',
   },
 
   triggers: {
@@ -40,6 +42,7 @@ export default Marionette.View.extend({
     const appModel = this.model;
     return {
       useTraining: appModel.get('useTraining'),
+      sendAnalytics: appModel.get('sendAnalytics'),
     };
   },
 });

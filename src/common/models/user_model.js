@@ -6,7 +6,7 @@ import Backbone from 'backbone';
 import Store from 'backbone.localstorage';
 import CONFIG from 'config';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics';
+import Analytics from 'helpers/analytics'; // eslint-disable-line
 import Validate from 'helpers/validate';
 import squaresExtension from './user_model_squares_ext';
 
@@ -59,7 +59,7 @@ const UserModel = Backbone.Model.extend({
    *
    * @param user User object or empty object
    */
-  logIn(user) {
+  async logIn(user) {
     Log('User: logging in.');
 
     this.set('drupalID', user.id || '');
@@ -73,6 +73,7 @@ const UserModel = Backbone.Model.extend({
     this.trigger('login');
     this.syncSquares();
 
+    await Analytics.init();
     Analytics.trackEvent('User', 'login');
   },
 
