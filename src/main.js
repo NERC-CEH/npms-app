@@ -2,7 +2,6 @@
  * App start.
  **************************************************************************** */
 
-import 'helpers/system_checkup';
 import 'helpers/analytics';
 
 import App from 'app';
