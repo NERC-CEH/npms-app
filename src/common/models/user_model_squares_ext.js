@@ -60,6 +60,7 @@ const extension = {
           CONFIG.indicia.reports.no_vice_county_found_message,
         user_square_attr_id: CONFIG.indicia.reports.user_square_attr_id,
         plot_number_attr_id: CONFIG.indicia.reports.plot_number_attr_id,
+        only_show_my_useable_plots_squares: 1,
       },
     });
 
@@ -87,11 +88,6 @@ const extension = {
             };
           } else {
             // plot
-            // show only user plots
-            if (location.my_plot !== 'YES') {
-              return;
-            }
-
             if (!data[parent]) {
               // create new square if doesn't exist
               data[parent] = {
