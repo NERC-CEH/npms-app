@@ -47,7 +47,7 @@ const API = {
           name: formData.name.trim(),
         },
       };
-      
+
       const validationError = userModel.validateLogin(data);
       if (!validationError) {
         mainView.triggerMethod('form:data:invalid', {}); // update form
@@ -90,8 +90,6 @@ const API = {
         headers: {
           'x-api-key': CONFIG.indicia.api_key,
           Authorization: `Basic ${userAuth}`,
-          cookie: '',
-          'cache-control': 'no-cache',
         },
         success(receivedData) {
           const data = receivedData.data || {};
@@ -110,7 +108,7 @@ const API = {
           if (xhr.responseJSON && xhr.responseJSON.errors) {
             message = xhr.responseJSON.errors.reduce(
               (name, err) => `${name}${err.title}\n`,
-              ''
+              '',
             );
           }
           reject(new Error(message));
