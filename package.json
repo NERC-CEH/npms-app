@@ -7,21 +7,16 @@
   "build": "4",
   "homepage": "http://www.npms.org.uk/",
   "scripts": {
-    "build": "NODE_ENV=production grunt",
-    "build:update": "NODE_ENV=production grunt update",
-    "build:dev": "grunt",
-    "build:dev:update": "grunt update",
+    "build": "grunt",
+    "build:production": "NODE_ENV=production grunt",
     "build:cordova": "grunt cordova",
-    "build:cordova:update": "grunt cordova:update",
     "build:cordova:android": "grunt cordova:android",
     "postinstall": "grunt",
     "start": "node other/server.js",
-    "start-dev": "webpack-dev-server --config webpack.config.js --content-base dist/main --port 8000",
+    "start:dev": "webpack-dev-server --config webpack.config.js --content-base dist/main --port 8000",
     "test": "karma start test/karma.conf.js",
     "test:watch": "karma start test/karma.conf.js --no-single-run",
-    "test:eslint": "mocha test/eslint-test.js",
-    "preversion": "npm test",
-    "postversion": "git push && git push --tags"
+    "test:eslint": "mocha test/eslint-test.js"
   },
   "husky": {
     "hooks": {
