@@ -1,4 +1,4 @@
-module.exports = (grunt) => ({
+module.exports = grunt => ({
   default: ['init', 'jst', 'webpack:main'],
 
   init: ['init:data', 'copy', 'vendor'],
@@ -31,6 +31,7 @@ module.exports = (grunt) => ({
     'exec:cordova_clean_www',
     'exec:cordova_copy_dist',
     'replace:cordova_config',
+    'exec:resources',
     'exec:cordova_add_platforms',
   ],
 
@@ -41,7 +42,6 @@ module.exports = (grunt) => ({
     'exec:cordova_clean_www',
     'exec:cordova_copy_dist',
     'replace:cordova_config',
-    'replace:cordova_build',
     'exec:cordova_rebuild',
   ],
 

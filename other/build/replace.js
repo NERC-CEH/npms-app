@@ -87,7 +87,7 @@ module.exports = grunt => ({
 
   // Cordova config changes
   cordova_config: {
-    src: ['config/cordova/cordova.xml'],
+    src: ['cordova.xml'],
     dest: 'dist/cordova/config.xml',
     replacements: [
       {
@@ -125,16 +125,6 @@ module.exports = grunt => ({
           }
           return version;
         },
-      },
-    ],
-  },
-  cordova_build: {
-    src: ['config/cordova/build.json'],
-    dest: 'dist/cordova/build.json',
-    replacements: [
-      {
-        from: /\{DEV_TEAM_ID\}/g, // string replacement
-        to: () => process.env.DEV_TEAM_ID,
       },
     ],
   },

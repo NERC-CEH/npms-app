@@ -2,6 +2,19 @@ require('dotenv').config({ silent: true }); // get local environment variables f
 
 module.exports = function (grunt) {
   return {
+    resources: {
+      command: () => {
+        return `mkdir -p dist/resources &&
+                  cp -R other/designs/android dist/resources &&
+  
+                  ./node_modules/.bin/sharp -i other/designs/splash.svg -o dist/resources/splash.png resize 2737 2737 -- removeAlpha &&
+                  ./node_modules/.bin/sharp -i other/designs/icon.svg -o dist/resources/icon.png resize 1024 1024 -- removeAlpha &&
+  
+                  ./node_modules/.bin/cordova-res ios --skip-config --resources dist/resources &&
+                  ./node_modules/.bin/cordova-res android --skip-config --resources dist/resources`;
+      },
+      stdout: false,
+    },
     data_init: {
       command(list) {
         return (
