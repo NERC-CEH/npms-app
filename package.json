@@ -8,12 +8,9 @@
   "homepage": "http://www.npms.org.uk/",
   "scripts": {
     "build": "grunt",
-    "build:production": "NODE_ENV=production grunt",
-    "build:cordova": "grunt cordova",
-    "build:cordova:android": "grunt cordova:android",
-    "postinstall": "grunt",
-    "start": "node other/server.js",
-    "start:dev": "webpack-dev-server --config webpack.config.js --content-base dist/main --port 8000",
+    "build:production": "grunt cordova && grunt cordova:android",
+    "deploy": "vercel --prod -A other/now.json",
+    "start": "webpack-dev-server --config webpack.config.js --content-base dist/main --port 8000",
     "test": "karma start test/karma.conf.js",
     "test:watch": "karma start test/karma.conf.js --no-single-run",
     "test:eslint": "mocha test/eslint-test.js"
