@@ -62,37 +62,29 @@ App.on('start', () => {
         radio.trigger('samples:list');
       }
 
-      if (window.cordova) {
-        Log('App: cordova setup.');
-
-        // Although StatusB  ar in the global scope,
-        // it is not available until after the deviceready event.
-        document.addEventListener(
-          'deviceready',
-          () => {
-            Log('Showing the app.');
-
-            // iOS make space for statusbar
-            if (Device.isIOS()) {
-              $('body').addClass('ios');
-            }
-
-            // hide loader
-            if (navigator && navigator.splashscreen) {
-              navigator.splashscreen.hide();
-            }
-            window.Keyboard.shrinkView(true);
-
-            Analytics.trackEvent('App', 'initialized');
-          },
-          false
-        );
-      } else {
-        // development loader
-        $(document).ready(() => {
-          $('#loader').remove();
-        });
+      if (!window.cordova) {
+        return;
       }
+
+      // Although StatusBar in the global scope,
+      // it is not available until after the deviceready event.
+      document.addEventListener(
+        'deviceready',
+        () => {
+          Log('Showing the app.');
+
+          // iOS make space for statusbar
+          if (Device.isIOS()) {
+            $('body').addClass('ios');
+          }
+
+          // hide loader
+          if (navigator && navigator.splashscreen) {
+            navigator.splashscreen.hide();
+          }
+        },
+        false,
+      );
     }
   });
 });
@@ -120,22 +112,13 @@ radio.on('app:footer', options => {
   App.regions.getRegion('footer').show(options);
 });
 radio.on('app:main:hide', options => {
-  App.regions
-    .getRegion('main')
-    .hide(options)
-    .empty();
+  App.regions.getRegion('main').hide(options).empty();
 });
 radio.on('app:header:hide', options => {
-  App.regions
-    .getRegion('header')
-    .hide(options)
-    .empty();
+  App.regions.getRegion('header').hide(options).empty();
 });
 radio.on('app:footer:hide', options => {
-  App.regions
-    .getRegion('footer')
-    .hide(options)
-    .empty();
+  App.regions.getRegion('footer').hide(options).empty();
 });
 radio.on('app:loader', () => {
   App.regions.getRegion('dialog').showLoader();

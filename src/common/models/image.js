@@ -4,6 +4,13 @@ import ImageHelp from 'helpers/image';
 import Log from 'helpers/log';
 import Device from 'helpers/device';
 
+function fixPreviousVersions(URL) {
+  if (URL.search('file://') >= 0) {
+    return URL.split('/').pop();
+  }
+  return URL;
+}
+
 export default Indicia.Media.extend({
   destroy(...args) {
     Log('MediaModel: destroying.');
@@ -20,17 +27,13 @@ export default Indicia.Media.extend({
   },
 
   getURL() {
-    let URL = this.get('data');
-    if (window.cordova && Device.isIOS() && !window.testing) {
-      if (CONFIG.build >= 8 && URL.search('file://') >= 0) {
-        // fix previous versions
-        const pathArray = URL.split('/');
-        URL = cordova.file.dataDirectory + pathArray[pathArray.length - 1];
-      } else {
-        URL = cordova.file.dataDirectory + URL;
-      }
+    let URL = this.attributes.data;
+
+    if (!window.cordova || window.testing) {
+      return URL;
     }
 
-    return URL;
+    URL = cordova.file.dataDirectory + fixPreviousVersions(URL);
+    return window.Ionic.WebView.convertFileSrc(URL);
   },
 });

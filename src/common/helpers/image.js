@@ -7,6 +7,16 @@ import Log from './log';
 import Analytics from './analytics';
 import Device from './device';
 
+const resetStatusBar = () => {
+  // see: https://github.com/apache/cordova-plugin-statusbar/issues/156
+  if (Device.isAndroid()) {
+    return;
+  }
+
+  StatusBar.hide();
+  StatusBar.show();
+};
+
 const Image = {
   deleteInternalStorage(name, callback) {
     function errorHandler(err) {
@@ -31,10 +41,10 @@ const Image = {
               callback();
             }, errorHandler);
           },
-          errorHandler
+          errorHandler,
         );
       },
-      errorHandler
+      errorHandler,
     );
   },
 
@@ -62,15 +72,21 @@ const Image = {
     _.extend(cameraOptions, options);
 
     function onError() {
+      resetStatusBar();
+
       const error = Error('Error capturing photo');
       callback(error);
     }
 
     function fail(error) {
+      resetStatusBar();
+
       callback(error);
     }
 
     function onSuccess(fileURI) {
+      resetStatusBar();
+
       let URI = fileURI;
       function copyFile(fileEntry) {
         const name = `${Date.now()}.jpeg`;
@@ -80,7 +96,7 @@ const Image = {
             // copy to app data directory
             fileEntry.copyTo(fileSystem, name, callback, fail);
           },
-          fail
+          fail,
         );
       }
 
@@ -106,6 +122,11 @@ const Image = {
    * Create new record with a photo
    */
   getImageModel(ImageModel, file) {
+    if (!file) {
+      const err = new Error('File not found while creating image model.');
+      return Promise.reject(err);
+    }
+
     // create and add new record
     const success = args => {
       const [data, type, width, height] = args;
@@ -119,28 +140,18 @@ const Image = {
       return imageModel.addThumbnail().then(() => imageModel);
     };
 
-    if (window.cordova) {
-      // cordova environment
-      return Indicia.Media.getDataURI(file).then(args => {
-        // don't resize, only get width and height
-        const [, , width, height] = args;
-        let fileName = file;
-
-        if (Device.isIOS()) {
-          // save only the file name or iOS, because the app UUID changes
-          // on every app update
-          const pathArray = file.split('/');
-          fileName = pathArray[pathArray.length - 1];
-        }
-        return success([fileName, 'jpeg', width, height]);
-      });
-    } else if (file instanceof File) {
-      // browser environment
+    const isBrowser = !window.cordova && file instanceof File;
+    if (isBrowser) {
       return Indicia.Media.getDataURI(file).then(success);
     }
 
-    const err = new Error('File not found while creating image model.');
-    return Promise.reject(err);
+    file = window.Ionic.WebView.convertFileSrc(file); // eslint-disable-line
+    return Indicia.Media.getDataURI(file).then(args => {
+      // don't resize, only get width and height
+      const [, , width, height] = args;
+      const fileName = file.split('/').pop();
+      return success([fileName, 'jpeg', width, height]);
+    });
   },
 };
 

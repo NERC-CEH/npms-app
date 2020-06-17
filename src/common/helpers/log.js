@@ -12,13 +12,21 @@
  *
  * Levels values defined in core app module.
  **************************************************************************** */
-import Raven from 'raven-js';
+import * as Sentry from '@sentry/browser';
 import CONFIG from 'config';
 
 const ERROR = 'e';
 const WARNING = 'w';
 const INFO = 'i';
 const DEBUG = 'd';
+
+function _removeUUID(string) {
+  // remove UUIDs
+  return string.replace(
+    /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,
+    'UUID',
+  );
+}
 
 /**
  * Prints and posts an error to the mobile authentication log.
@@ -35,8 +43,11 @@ function error(err = {}) {
     };
   }
 
-  if (Raven) {
-    Raven.captureException(err);
+  if (Sentry) {
+    if (typeof err.stack === 'string') {
+      err.stack = _removeUUID(err.stack);
+    }
+    Sentry.captureException(err);
   }
 
   console.error(err.message, err.url, err.line, err.column, err.obj);

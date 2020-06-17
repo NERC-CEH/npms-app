@@ -1,44 +1,13 @@
-module.exports = grunt => ({
+module.exports = (grunt) => ({
   default: ['init', 'jst', 'webpack:main'],
 
-  init: ['init:validate', 'init:data', 'copy', 'vendor'],
+  init: ['init:data', 'copy', 'vendor'],
 
   'init:data': [
     'exec:data_init:inventory',
     'exec:data_init:indicator',
     'exec:data_init:wildflower',
   ],
-
-  'init:validate': () => {
-    if (process.env.APP_FORCE) {
-      grunt.option('force', true);
-    }
-
-    // check for non-production specific env vars
-    if (process.env.APP_MANUAL_TESTING) {
-      grunt.warn('APP_MANUAL_TESTING is enabled');
-    }
-    if (process.env.APP_TRAINING) {
-      grunt.warn('APP_TRAINING is enabled');
-    }
-    if (process.env.APP_SCREENSHOTS) {
-      grunt.warn('APP_SCREENSHOTS is enabled');
-    }
-    if (process.env.APP_INDICIA_API_HOST) {
-      grunt.warn('APP_INDICIA_API_HOST is enabled');
-    }
-
-    // check for missing env vars
-    [
-      'APP_SENTRY_KEY',
-      'APP_INDICIA_API_KEY',
-      'APP_GA',
-    ].forEach(setting => {
-      if (!process.env[setting]) {
-        grunt.warn(`${setting} env variable is missing`);
-      }
-    });
-  },
 
   vendor: [
     'replace:ratchet',

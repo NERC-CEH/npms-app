@@ -1,7 +1,18 @@
 /** ****************************************************************************
  * A common webpack configuration.
- *****************************************************************************/
+ **************************************************************************** */
 require('dotenv').config({ silent: true }); // get local environment variables from .env
+const checkEnv = require('@flumens/has-env');
+
+checkEnv({
+  warn: [
+    'APP_MANUAL_TESTING',
+    'APP_TRAINING',
+    'APP_SCREENSHOTS',
+    'APP_INDICIA_API_HOST',
+  ],
+  required: ['APP_SENTRY_KEY', 'APP_INDICIA_API_KEY', 'APP_GA'],
+});
 
 const path = require('path');
 const webpack = require('webpack');
@@ -82,7 +93,7 @@ module.exports = {
               },
             },
           },
-          `sass-loader?includePaths[]=${SRC_DIR}`,
+          `sass-loader`,
         ],
       },
     ],
@@ -145,9 +156,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      inject: true,
       sourceMap: true,
-      chunksSortMode: 'dependency',
+      // https://github.com/marcelklehr/toposort/issues/20
+      chunksSortMode: 'none',
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
