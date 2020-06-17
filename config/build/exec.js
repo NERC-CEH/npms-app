@@ -5,7 +5,9 @@ module.exports = function (grunt) {
     data_init: {
       command(list) {
         return (
-          `${'cd src/samples/taxa/search/data && ' + 'python make.py '}${list} &&` +
+          `${
+            'cd src/samples/taxa/search/data && ' + 'python make.py '
+          }${list} &&` +
           'mkdir -p ../../../../../dist/main/data &&' +
           'mv *data.json ../../../../../dist/main/data &&' +
           'rm warnings.log'
@@ -14,7 +16,7 @@ module.exports = function (grunt) {
       stdout: true,
     },
     cordova_init: {
-      command: 'cordova create dist/cordova',
+      command: './node_modules/.bin/cordova create dist/cordova',
       stdout: true,
     },
     cordova_clean_www: {
@@ -22,7 +24,8 @@ module.exports = function (grunt) {
       stdout: true,
     },
     cordova_rebuild: {
-      command: 'cd dist/cordova/ && cordova prepare ios android',
+      command:
+        'cd dist/cordova/ && ../../node_modules/.bin/cordova prepare ios android',
       stdout: true,
     },
     cordova_copy_dist: {
@@ -30,7 +33,8 @@ module.exports = function (grunt) {
       stdout: true,
     },
     cordova_add_platforms: {
-      command: 'cd dist/cordova && cordova platforms add ios android',
+      command:
+        'cd dist/cordova && ../../node_modules/.bin/cordova platforms add ios android',
       stdout: true,
     },
     /**
@@ -39,15 +43,12 @@ module.exports = function (grunt) {
     cordova_android_build: {
       command() {
         const pass = grunt.config('keystore-password');
-        return `cd dist/cordova && 
-            mkdir -p dist && 
-            cordova --release build android && 
-            cd platforms/android/app/build/outputs/apk/release/ &&
-            jarsigner -sigalg SHA1withRSA -digestalg SHA1 
-              -keystore ${process.env.KEYSTORE} 
-              -storepass ${pass} app-release-unsigned.apk irecord &&
-            zipalign 4 app-release-unsigned.apk main.apk && 
-            mv -f main.apk ../../../../../../../dist/`;
+        return `cd dist/cordova/ && ../../node_modules/.bin/cordova --release build android && 
+                cd platforms/android/app/build/outputs/apk/release/ &&
+                jarsigner -keystore ${process.env.KEYSTORE}
+                  -storepass ${pass} app-release-unsigned.apk irecord &&
+                zipalign 4 app-release-unsigned.apk main.apk &&
+                mv -f main.apk ../../../../../../../dist`;
       },
 
       stdout: true,
@@ -55,12 +56,12 @@ module.exports = function (grunt) {
     },
 
     cordova_build_ios: {
-      command: 'cd dist/cordova && cordova build ios',
+      command: 'cd dist/cordova && ../../node_modules/.bin/cordova build ios',
       stdout: true,
     },
 
     cordova_run_android: {
-      command: 'cd dist/cordova && cordova run android',
+      command: 'cd dist/cordova && ../../node_modules/.bin/cordova run android',
       stdout: true,
     },
   };
