@@ -23,6 +23,7 @@
       <div class="common-name"><%= obj.common_name %></div>
       <% } %>
       <div class="scientific-name"><%= obj.scientific_name %></div>
+      <div class="scientific-name-warning"><%= obj.showSciNameWarning ? 'Please provide a photo to aid ID' : ''%></div>
     </div>
   </a>
 

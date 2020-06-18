@@ -26,8 +26,8 @@ const SpeciesView = Marionette.View.extend({
 
   events: {
     // need to pass the attribute therefore 'triggers' method does not suit
-    // eslint-disable-next-line    
-    'click .js-attr': function(e) {
+    // eslint-disable-next-line
+    'click .js-attr': function (e) {
       e.preventDefault();
       this.trigger('species:edit:attr', $(e.target).data('attr'));
     },
@@ -35,7 +35,7 @@ const SpeciesView = Marionette.View.extend({
     'click img': 'photoView',
 
     // eslint-disable-next-line
-    'change input': function(e) {
+    'change input': function (e) {
       e.preventDefault();
       this.trigger('photo:upload', e, this.model);
     },
@@ -122,6 +122,9 @@ const SpeciesView = Marionette.View.extend({
       img = occ.media.at(0).get('thumbnail');
     }
 
+    const showSciNameWarning =
+      taxon.scientific_name.split(' ').length === 1 && !img;
+
     return {
       id: sample.id || sample.cid,
       occId: occ.id || occ.cid,
@@ -129,6 +132,7 @@ const SpeciesView = Marionette.View.extend({
       scientific_name: taxon.scientific_name,
       abundance,
       img,
+      showSciNameWarning,
     };
   },
 
