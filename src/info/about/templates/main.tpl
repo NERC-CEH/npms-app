@@ -46,7 +46,7 @@
       <a href="mailto:support@npms.org.uk?subject=NPMS%20question" >support@npms.org.uk</a>
       if you have a query which is not answered in the documentation. The NPMS
       flow diagram also provides a
-      <a href="http://www.npms.org.uk/sites/www.npms.org.uk/files/PDF/NPMS_survey_flow_diagram_April2015_1.pdf" >brief overview of the process</a>.
+      <a href="https://www.npms.org.uk/sites/default/files/PDF/NPMS_survey_flow_diagram_April2015_1.pdf" >brief overview of the process</a>.
     </p>
   </li>
   <li>
