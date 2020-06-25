@@ -114,6 +114,7 @@ const SpeciesView = Marionette.View.extend({
   serializeData() {
     const occ = this.model;
     const sample = occ.parent;
+
     const taxon = occ.get('taxon');
     const abundance = occ.get('abundance');
 
@@ -123,7 +124,9 @@ const SpeciesView = Marionette.View.extend({
     }
 
     const showSciNameWarning =
-      taxon.scientific_name.split(' ').length === 1 && !img;
+      sample.attributes.level === 'inventory' &&
+      taxon.scientific_name.split(' ').length === 1 &&
+      !img;
 
     return {
       id: sample.id || sample.cid,
