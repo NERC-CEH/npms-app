@@ -11,6 +11,56 @@ import './styles.scss';
 
 const MIN_SEARCH_LENGTH = 2;
 
+/**
+ * Some common names might be identical so needs to add
+ * a latin name next to it.
+ * @param suggestions
+ */
+function deDuplicateSuggestions(suggestions) {
+  let previous;
+  const results = [];
+
+  suggestions.forEach(taxon => {
+    const name = taxon[taxon.found_in_name];
+    const nameNormalized = name.toLocaleLowerCase();
+
+    let previousNameNormalized;
+    if (previous) {
+      const previousName = previous[previous.found_in_name];
+      previousNameNormalized = previousName.toLocaleLowerCase();
+    }
+
+    const noCommonNames = !nameNormalized || !previousNameNormalized;
+    const isUnique = noCommonNames || nameNormalized !== previousNameNormalized;
+
+    if (isUnique) {
+      results.push(taxon);
+      previous = taxon;
+      return;
+    }
+
+    const sameSpecies = previous.warehouse_id === taxon.warehouse_id;
+    const sameScientificName =
+      previous.scientific_name === taxon.scientific_name;
+    if (!sameSpecies && !sameScientificName) {
+      // need to qualify both the last pushed name and this entry with the
+      // scientific name helps to disambiguate Silene pusilla and
+      // Silene suecica with have been (wrongly) assigned the same
+      // vernacular name
+      if (!previous._dedupedScientificName) {
+        previous._dedupedScientificName = previous.scientific_name;
+      }
+
+      results.push({
+        ...taxon,
+        _dedupedScientificName: taxon.scientific_name,
+      });
+    }
+  });
+
+  return results;
+}
+
 const SpeciesView = Marionette.View.extend({
   tagName: 'li',
   className() {
@@ -34,13 +84,14 @@ const SpeciesView = Marionette.View.extend({
 
     let name = this._prettifyName(
       this.model.get(foundInName),
-      this.options.searchPhrase
+      this.options.searchPhrase,
     );
     name = this.model.get(foundInName);
 
     return {
       name,
       removeEditBtn: this.options.removeEditBtn,
+      deDupedName: this.model.get('_dedupedScientificName'),
     };
   },
 
@@ -131,7 +182,11 @@ export default Marionette.View.extend({
   },
 
   updateSuggestions(suggestions, searchPhrase) {
-    this.suggestionsCol = suggestions;
+    const deDuped = deDuplicateSuggestions(
+      suggestions.map(({ attributes }) => attributes),
+    );
+
+    this.suggestionsCol = new Backbone.Collection(deDuped);
 
     // reset selection
     this.selectedIndex = this.suggestionsCol.length > 0 ? 0 : -1;
@@ -146,7 +201,7 @@ export default Marionette.View.extend({
       searchPhrase,
     });
     suggestionsColView.on('childview:taxon:selected', (speciesID, edit) =>
-      this.trigger('taxon:selected', speciesID, edit)
+      this.trigger('taxon:selected', speciesID, edit),
     );
 
     this.getRegion('suggestions').show(suggestionsColView);
