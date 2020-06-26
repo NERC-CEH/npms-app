@@ -35,8 +35,7 @@ export default Marionette.View.extend({
     data.password = password;
     data['password-confirm'] = passwordConfirm;
 
-    const active = $('#user-terms-agree').hasClass('active');
-    data['terms-agree'] = active;
+    data['terms-agree'] = true;
 
     this.trigger('form:submit', data);
   },
