@@ -26,7 +26,10 @@ jobs:
           APP_INDICIA_API_KEY: ${{ secrets.APP_INDICIA_API_KEY }}
         
       - run: npm run test:eslint
-
+        env:
+          APP_SENTRY_KEY: ${{ secrets.APP_SENTRY_KEY }}
+          APP_INDICIA_API_KEY: ${{ secrets.APP_INDICIA_API_KEY }}
+          
       - run: npm run build
         env:
           APP_SENTRY_KEY: ${{ secrets.APP_SENTRY_KEY }}
