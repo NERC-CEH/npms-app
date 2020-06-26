@@ -66,6 +66,12 @@ export default Marionette.View.extend({
     if (this.options.attr === 'grazing') {
       return;
     }
+
+    // vegetation has multiple radio groups
+    if (this.options.attr === 'vegetation') {
+      return;
+    }
+
     // unset slider val
     const $rangeOutput = this.$el.find('#rangeVal');
     $rangeOutput.val('');
@@ -85,7 +91,7 @@ export default Marionette.View.extend({
 
     const values = {};
     let value;
-    const attr = this.options.attr;
+    const { attr } = this.options;
     let $inputs;
     switch (attr) {
       case 'date': {
@@ -155,20 +161,13 @@ export default Marionette.View.extend({
       case 'vegetation':
         const vegetation = {};
 
-        value = this.$el.find('input[name="<=10cm"]').val();
-        vegetation['<=10cm'] = parseVegetation(value);
-
-        value = this.$el.find('input[name="11-30cm"]').val();
-        vegetation['11-30cm'] = parseVegetation(value);
-
-        value = this.$el.find('input[name="31-100cm"]').val();
-        vegetation['31-100cm'] = parseVegetation(value);
-
-        value = this.$el.find('input[name="101-300cm"]').val();
-        vegetation['101-300cm'] = parseVegetation(value);
-
-        value = this.$el.find('input[name=">300cm"]').val();
-        vegetation['>300cm'] = parseVegetation(value);
+        $inputs = this.$el.find('input');
+        $inputs.each((int, elem) => {
+          if ($(elem).prop('checked')) {
+            const type = $(elem).prop('name');
+            vegetation[type] = $(elem).val();
+          }
+        });
 
         values[attr] = vegetation;
         break;
@@ -228,7 +227,7 @@ export default Marionette.View.extend({
         selected = this.model.get(this.options.attr);
         templateData.showDefault = 'Not selected';
         templateData.selection = Object.keys(
-          CONFIG.indicia.sample[this.options.attr].values
+          CONFIG.indicia.sample[this.options.attr].values,
         );
         templateData.selected = selected;
         break;
