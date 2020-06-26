@@ -1,13 +1,8 @@
 <ul class="table-view accordion" id="accordion">
   <li class="table-view-divider">Records</li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c2" aria-expanded="false" aria-controls="c2">
-      <span class="icon icon-collapse pull-left"></span>
-      Searching for species
-    </a>
-    <p id="c2" class="collapse"
-       aria-labelledby="headingOne" aria-expanded="false">
+    <h3>Searching for species</h3>
+    <p>
       For quicker searching of the taxa you can use different shortcuts.
       For example, to find <i>Linum catharticum</i> you can type in the search bar:
       <br>
@@ -18,13 +13,8 @@
     </p>
   </li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c3" aria-expanded="false" aria-controls="c3">
-      <span class="icon icon-collapse pull-left"></span>
-      Upload to NPMS
-    </a>
-    <p id="c3" class="collapse"
-       aria-labelledby="headingTwo" aria-expanded="false">
+    <h3>Upload to NPMS</h3>
+    <p>
       All your saved records will be shown on the home page.
       By default a record is in <i>draft</i> mode until it is set for submission.
       While it is in <i>draft</i> mode the application will not upload your
@@ -47,13 +37,8 @@
       <br>
   </li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c4" aria-expanded="false" aria-controls="c4">
-      <span class="icon icon-collapse pull-left"></span>
-      Send all records
-    </a>
-    <p id="c4" class="collapse"
-       aria-labelledby="headingTwo" aria-expanded="false">
+    <h3>Send all records</h3>
+    <p>
       You can set all your draft records for submission. To do that go to the
       settings page <span class="icon icon-settings"></span> and click Submit All
       <span class="icon icon-send"></span> button.
@@ -61,13 +46,8 @@
     </p>
   </li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c5" aria-expanded="false" aria-controls="c5">
-      <span class="icon icon-collapse pull-left"></span>
-      Delete a record
-    </a>
-    <p id="c5" class="collapse"
-       aria-labelledby="headingTwo" aria-expanded="false">
+    <h3>Delete a record</h3>
+    <p>
       To delete a record, swipe it left in the home-list page and click
       the delete <span class="icon icon-delete"></span> button.
       <br><br>
@@ -82,12 +62,8 @@
 
   <li class="table-view-divider">User</li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c9" aria-expanded="false" aria-controls="c9">
-      <span class="icon icon-collapse pull-left"></span>
-      Sign in/out or register
-    </a>
-    <p id="c9" class="collapse" aria-labelledby="headingTwo" aria-expanded="false">
+    <h3>Sign in/out or register</h3>
+    <p>
       To login, open the main menu page <span class="icon icon-menu"></span>,
       click Login <span class="icon icon-user"></span>
       or Register <span class="icon icon-user-plus"></span> buttons and follow the instructions.
@@ -101,14 +77,12 @@
   </li>
   <li class="table-view-divider">Other</li>
   <li class="table-view-cell">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-       href="#c8" aria-expanded="false" aria-controls="c8">
-      <span class="icon icon-collapse pull-left"></span>
+    <h3>
       Reset the application
-    </a>
-    <p id="c8" class="collapse"
-       aria-labelledby="headingTwo" aria-expanded="false">
-      Go to the application settings page <span class="icon icon-settings"></span> and click on the Reset <span class="icon icon-undo"></span>button.
+    </h3>
+    <p>
+      Go to the application settings page <span class="icon icon-settings"></span> and click on the Reset <span
+        class="icon icon-undo"></span>button.
     </p>
   </li>
   <li>
@@ -116,5 +90,3 @@
   </li>
 </ul>
 <br>
-
-
