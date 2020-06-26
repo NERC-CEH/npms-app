@@ -61,7 +61,7 @@ module.exports = function (grunt) {
                 jarsigner -keystore ${process.env.KEYSTORE}
                   -storepass ${pass} app-release-unsigned.apk irecord &&
                 zipalign 4 app-release-unsigned.apk main.apk &&
-                mv -f main.apk ../../../../../../../dist`;
+                mv -f main.apk ../../../../../../../`;
       },
 
       stdout: true,
