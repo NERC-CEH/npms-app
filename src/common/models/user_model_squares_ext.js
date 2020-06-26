@@ -61,6 +61,7 @@ const extension = {
         user_square_attr_id: CONFIG.indicia.reports.user_square_attr_id,
         plot_number_attr_id: CONFIG.indicia.reports.plot_number_attr_id,
         only_show_my_useable_plots_squares: 1,
+        bustCache: Math.random(),
       },
     });
 
