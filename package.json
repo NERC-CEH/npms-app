@@ -11,6 +11,7 @@
     "build:production": "grunt cordova && grunt cordova:android",
     "deploy": "vercel --prod -A other/now.json",
     "start": "webpack-dev-server --config webpack.config.js --content-base dist/main --port 8000",
+    "clean": "rm -rf dist",
     "test": "karma start test/karma.conf.js",
     "test:watch": "karma start test/karma.conf.js --no-single-run",
     "test:eslint": "mocha test/eslint-test.js"
