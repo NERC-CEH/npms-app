@@ -99,7 +99,7 @@ const API = {
       template: JST['samples/list/levels'],
       events: {
         // eslint-disable-next-line
-        'click input[type="radio"]': function() {
+        'click input[type="radio"]': function () {
           // find the option
           let option;
           const $inputs = this.$el.find('input');

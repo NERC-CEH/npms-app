@@ -74,9 +74,9 @@ export default Marionette.View.extend({
   _showContent(tabID) {
     let tab;
     if (!tabID) {
-      tab = this.options.tabs.filter(optionsTab => optionsTab.active)[0];
+      [tab] = this.options.tabs.filter(optionsTab => optionsTab.active);
     } else {
-      tab = this.options.tabs.filter(optionsTab => optionsTab.id === tabID)[0];
+      [tab] = this.options.tabs.filter(optionsTab => optionsTab.id === tabID);
     }
     const contentView = new tab.ContentView({
       model: this.model,

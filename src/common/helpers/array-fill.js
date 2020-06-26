@@ -1,7 +1,7 @@
 /* eslint-disable */
 if (!Array.prototype.fill) {
   Object.defineProperty(Array.prototype, 'fill', {
-    value: function(value) {
+    value: function (value) {
       // Steps 1-2.
       if (this == null) {
         throw new TypeError('this is null or not defined');

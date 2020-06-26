@@ -1,7 +1,7 @@
 import Indicia from 'indicia';
 import _ from 'lodash';
 import CONFIG from 'config';
-import ImageModel from './image';
+import ImageModel from './image'; // eslint-disable-line
 
 export default Indicia.Occurrence.extend({
   Media: ImageModel,

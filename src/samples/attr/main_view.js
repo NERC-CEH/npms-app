@@ -79,16 +79,6 @@ export default Marionette.View.extend({
   },
 
   getValues() {
-    function parseVegetation(value) {
-      const parsedValue = parseInt(value, 10);
-      // eslint-disable-next-line
-      if (isNaN(parsedValue) || parsedValue > 3 || parsedValue < 0) {
-        return null;
-      }
-
-      return parsedValue;
-    }
-
     const values = {};
     let value;
     const { attr } = this.options;
@@ -227,7 +217,7 @@ export default Marionette.View.extend({
         selected = this.model.get(this.options.attr);
         templateData.showDefault = 'Not selected';
         templateData.selection = Object.keys(
-          CONFIG.indicia.sample[this.options.attr].values,
+          CONFIG.indicia.sample[this.options.attr].values
         );
         templateData.selected = selected;
         break;

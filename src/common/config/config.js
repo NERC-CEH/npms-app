@@ -68,10 +68,9 @@ const CONFIG = {
   },
 
   reports: {
-    url: `${HOST +
-      Indicia.API_BASE +
-      Indicia.API_VER +
-      Indicia.API_REPORTS_PATH}`,
+    url: `${
+      HOST + Indicia.API_BASE + Indicia.API_VER + Indicia.API_REPORTS_PATH
+    }`,
     timeout: 80000,
   },
 
@@ -100,16 +99,16 @@ const CONFIG = {
           // eslint-disable-next-line
           switch (LocHelp.getLocationType(value.plot)) {
             case 'british':
-              submission.fields.entered_sref_system = 'OSGB';
+              submission.fields.entered_sref_system = 'OSGB'; // eslint-disable-line
               break;
             case 'irish':
-              submission.fields.entered_sref_system = 'OSIE';
+              submission.fields.entered_sref_system = 'OSIE'; // eslint-disable-line
               break;
             case 'channel':
-              submission.fields.entered_sref_system = 'utm30ed50';
+              submission.fields.entered_sref_system = 'utm30ed50'; // eslint-disable-line
               break;
             case 'latlon':
-              submission.fields.entered_sref_system = 4326;
+              submission.fields.entered_sref_system = 4326; // eslint-disable-line
               break;
 
             default:
@@ -287,7 +286,7 @@ const CONFIG = {
         id: 215,
         id_text: 224,
         values(value, submission) {
-          submission.fields[this.id_text] = value.text;
+          submission.fields[this.id_text] = value.text; // eslint-disable-line
           return this._values[value.selected];
         },
         _values: {
@@ -349,6 +348,7 @@ const CONFIG = {
             occ.parent.metadata.survey_id ===
             CONFIG.indicia.sample.surveys.wildflower
           ) {
+            // eslint-disable-next-line
             submission.fields[this.id_wild] =
               rangeValuesWildflower.indexOf(value) + 1; // eslint-disable-line
             return null;

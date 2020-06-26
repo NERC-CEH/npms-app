@@ -48,7 +48,9 @@ function versionCompare(left, right) {
       parseInt(a[i], 10) > parseInt(b[i], 10)
     ) {
       return 1;
-    } else if (
+    }
+
+    if (
       (b[i] && !a[i] && parseInt(b[i], 10) > 0) ||
       parseInt(a[i], 10) < parseInt(b[i], 10)
     ) {

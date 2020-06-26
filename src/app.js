@@ -83,7 +83,7 @@ App.on('start', () => {
             navigator.splashscreen.hide();
           }
         },
-        false,
+        false
       );
     }
   });

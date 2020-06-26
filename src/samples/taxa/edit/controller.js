@@ -75,7 +75,7 @@ const API = {
           occurrenceModel.set('abundance', null); // flag it as visited for next return
         }
         window.history.back();
-      }
+      },
     });
     radio.trigger('app:header', headerView);
 
@@ -99,7 +99,7 @@ const API = {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
-  }
+  },
 };
 
 export { API as default };

@@ -4,12 +4,12 @@
 import _ from 'lodash';
 import Indicia from 'indicia';
 import CONFIG from 'config';
-import userModel from 'user_model';
+import userModel from 'user_model'; // eslint-disable-line
 import appModel from 'app_model';
-import Occurrence from 'occurrence';
+import Occurrence from 'occurrence'; // eslint-disable-line
 import Device from 'helpers/device';
 import Log from 'helpers/log';
-import ImageModel from './image';
+import ImageModel from './image'; // eslint-disable-line
 import store from '../store';
 
 const Sample = Indicia.Sample.extend({

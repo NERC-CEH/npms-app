@@ -41,7 +41,7 @@ const API = {
     // MAIN
     const mainView = new MainView({
       attr,
-      model: sample
+      model: sample,
     });
     radio.trigger('app:main', mainView);
 
@@ -65,7 +65,7 @@ const API = {
           window.history.back();
         });
       },
-      model: new Backbone.Model({ title })
+      model: new Backbone.Model({ title }),
     });
 
     radio.trigger('app:header', headerView);
@@ -123,7 +123,7 @@ const API = {
           const allHabitats = CONFIG.indicia.sample.habitat._values;
           const fineHabitats = Object.keys(allHabitats[habitat.broad].values);
           if (fineHabitats.length === 1) {
-            habitat.fine = fineHabitats[0];
+            habitat.fine = fineHabitats[0]; // eslint-disable-line
           } else {
             delete habitat.fine;
           }
@@ -173,7 +173,7 @@ const API = {
         Log(err, 'e');
         radio.trigger('app:dialog:error', err);
       });
-  }
+  },
 };
 
 export { API as default };

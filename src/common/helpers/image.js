@@ -4,7 +4,7 @@
 import Indicia from 'indicia';
 import _ from 'lodash';
 import Log from './log';
-import Analytics from './analytics';
+import Analytics from './analytics'; // eslint-disable-line
 import Device from './device';
 
 const resetStatusBar = () => {
@@ -13,8 +13,8 @@ const resetStatusBar = () => {
     return;
   }
 
-  StatusBar.hide();
-  StatusBar.show();
+  StatusBar.hide(); // eslint-disable-line
+  StatusBar.show(); // eslint-disable-line
 };
 
 const Image = {
@@ -41,10 +41,10 @@ const Image = {
               callback();
             }, errorHandler);
           },
-          errorHandler,
+          errorHandler
         );
       },
-      errorHandler,
+      errorHandler
     );
   },
 
@@ -96,7 +96,7 @@ const Image = {
             // copy to app data directory
             fileEntry.copyTo(fileSystem, name, callback, fail);
           },
-          fail,
+          fail
         );
       }
 

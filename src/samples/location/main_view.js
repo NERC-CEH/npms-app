@@ -13,7 +13,7 @@ const View = Marionette.View.extend({
 
   events: {
     // eslint-disable-next-line
-    'click li': function(e) {
+    'click li': function (e) {
       const elem = $(e.target);
       const plotID = parseInt(elem.data('id'), 10);
       if (plotID) this.trigger('select', plotID);

@@ -24,7 +24,7 @@ function _removeUUID(string) {
   // remove UUIDs
   return string.replace(
     /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,
-    'UUID',
+    'UUID'
   );
 }
 
@@ -45,7 +45,7 @@ function error(err = {}) {
 
   if (Sentry) {
     if (typeof err.stack === 'string') {
-      err.stack = _removeUUID(err.stack);
+      err.stack = _removeUUID(err.stack); // eslint-disable-line
     }
     Sentry.captureException(err);
   }

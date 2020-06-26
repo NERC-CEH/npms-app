@@ -30,7 +30,6 @@ module.exports = {
     'no-redeclare': [ERROR, { builtinGlobals: true }],
     'object-curly-spacing': [ERROR, 'always'],
     indent: ['error', ERROR, { SwitchCase: WARN }],
-    'comma-dangle': [ERROR, 'always-multiline'],
     'key-spacing': [ERROR, { afterColon: true, mode: 'minimum' }],
     'no-multiple-empty-lines': [ERROR, { max: ERROR }],
     'no-mixed-spaces-and-tabs': [ERROR, 'smart-tabs'],
@@ -40,6 +39,8 @@ module.exports = {
     'no-extra-semi': WARN,
     'no-negated-in-lhs': WARN,
     'linebreak-style': OFF,
+    'comma-dangle': OFF,
+    'no-case-declarations': OFF,
     'no-underscore-dangle': OFF,
   },
   overrides: [

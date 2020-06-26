@@ -88,7 +88,7 @@ const StandardDialogView = Marionette.View.extend({
           template: _.template('<%- obj.title %>'),
           events: {
             click() {
-              const onClick = this.model.attributes.onClick;
+              const { onClick } = this.model.attributes;
               onClick && onClick();
             },
           },

@@ -84,7 +84,7 @@ const SpeciesView = Marionette.View.extend({
 
     let name = this._prettifyName(
       this.model.get(foundInName),
-      this.options.searchPhrase,
+      this.options.searchPhrase
     );
     name = this.model.get(foundInName);
 
@@ -183,7 +183,7 @@ export default Marionette.View.extend({
 
   updateSuggestions(suggestions, searchPhrase) {
     const deDuped = deDuplicateSuggestions(
-      suggestions.map(({ attributes }) => attributes),
+      suggestions.map(({ attributes }) => attributes)
     );
 
     this.suggestionsCol = new Backbone.Collection(deDuped);
@@ -201,7 +201,7 @@ export default Marionette.View.extend({
       searchPhrase,
     });
     suggestionsColView.on('childview:taxon:selected', (speciesID, edit) =>
-      this.trigger('taxon:selected', speciesID, edit),
+      this.trigger('taxon:selected', speciesID, edit)
     );
 
     this.getRegion('suggestions').show(suggestionsColView);

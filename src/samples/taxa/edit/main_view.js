@@ -11,7 +11,7 @@ export default Marionette.View.extend({
 
   events: {
     // eslint-disable-next-line
-    'change input[type=radio]': function(e) {
+    'change input[type=radio]': function (e) {
       const value = $(e.target).val();
       this.trigger('save', value);
     },

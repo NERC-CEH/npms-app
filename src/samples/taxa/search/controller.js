@@ -42,10 +42,7 @@ const API = {
     API._showMainView(mainView, this, level);
 
     // should be done in the view
-    App.regions
-      .getRegion('main')
-      .$el.find('#taxon')
-      .select();
+    App.regions.getRegion('main').$el.find('#taxon').select();
 
     const headerView = new HeaderView({
       model: new Backbone.Model({

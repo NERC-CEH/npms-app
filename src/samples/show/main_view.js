@@ -43,14 +43,12 @@ export default Marionette.View.extend({
     const identifiers = sample.get('identifiers');
 
     const location = sample.get('location');
-    const gridref = location.gridref;
-    const plot = location.plot;
+    const { gridref } = location;
+    const { plot } = location;
 
     const habitat = sample.get('habitat') || {};
 
-    const editUrl = `${CONFIG.site_url}${
-      sample.metadata.input_form
-    }?sample_id=${sample.id}`;
+    const editUrl = `${CONFIG.site_url}${sample.metadata.input_form}?sample_id=${sample.id}`;
 
     return {
       id: sample.cid,

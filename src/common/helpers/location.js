@@ -1,7 +1,7 @@
 /** ****************************************************************************
  * Some location transformation logic.
  **************************************************************************** */
-import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy';
+import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy'; // eslint-disable-line
 
 const helpers = {
   /**
@@ -20,12 +20,14 @@ const helpers = {
       // have simple well-formed grid ref
       if (/^.\d/.test(location)) {
         return 'irish';
-      } else if (location.charAt(0) === 'W') {
+      }
+      if (location.charAt(0) === 'W') {
         return 'channel';
       }
 
       return 'british';
-    } else if (location.match(/\d+\.\d+N \d+\.\d+W/g)) {
+    }
+    if (location.match(/\d+\.\d+N \d+\.\d+W/g)) {
       return 'latlon';
     }
 
@@ -131,7 +133,7 @@ const helpers = {
    */
   _getGRgranularity(location) {
     let locationGranularity;
-    let accuracy = location.accuracy;
+    let { accuracy } = location;
 
     // don't need to recalculate if exists
     if (location.source === 'gridref') {
@@ -171,7 +173,7 @@ const helpers = {
   isInUK(location) {
     if (!location.latitude || !location.longitude) return null;
 
-    let gridref = location.gridref;
+    let { gridref } = location;
     if (!gridref) {
       gridref = helpers.coord2grid(location);
     }

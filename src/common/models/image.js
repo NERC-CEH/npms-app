@@ -1,8 +1,6 @@
 import Indicia from 'indicia';
-import CONFIG from 'config';
-import ImageHelp from 'helpers/image';
+import ImageHelp from 'helpers/image'; // eslint-disable-line
 import Log from 'helpers/log';
-import Device from 'helpers/device';
 
 function fixPreviousVersions(URL) {
   if (URL.search('file://') >= 0) {

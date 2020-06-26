@@ -13,5 +13,5 @@ import 'backbone';
 import 'backbone.localstorage';
 import 'backbone.marionette';
 import 'indicia';
-import 'photoswipe-lib';
-import 'photoswipe-ui-default';
+import 'photoswipe-lib'; // eslint-disable-line
+import 'photoswipe-ui-default'; // eslint-disable-line

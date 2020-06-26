@@ -99,7 +99,7 @@ const helpers = {
       // get values to compare
       if (wordCount >= 0) {
         // common name from pointer
-        searchPhrase = searchPhrase.split(' ')[0];
+        [searchPhrase] = searchPhrase.split(' ');
         let p = searchArray[index];
 
         value = helpers.getCommonName(species, p);
@@ -164,7 +164,8 @@ const helpers = {
     const campared = comparator(mid);
     if (campared > 0) {
       return helpers.binarySearch(array, comparator, low, mid - 1);
-    } else if (campared < 0) {
+    }
+    if (campared < 0) {
       return helpers.binarySearch(array, comparator, mid + 1, high);
     }
     return mid;

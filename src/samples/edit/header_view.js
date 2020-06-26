@@ -12,7 +12,7 @@ export default Marionette.View.extend({
 
   events: {
     'click a[data-rel="back"]': 'navigateBack',
-    'click #sample-save-btn': 'showConfirmationDialog'
+    'click #sample-save-btn': 'showConfirmationDialog',
   },
 
   showConfirmationDialog() {
@@ -24,7 +24,7 @@ export default Marionette.View.extend({
           title: 'Cancel',
           onClick() {
             radio.trigger('app:dialog:hide');
-          }
+          },
         },
         {
           title: 'Upload',
@@ -32,14 +32,14 @@ export default Marionette.View.extend({
           onClick: () => {
             this.trigger('save');
             radio.trigger('app:dialog:hide');
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
   },
 
   modelEvents: {
-    'request sync error': 'render'
+    'request sync error': 'render',
   },
 
   navigateBack() {
@@ -48,7 +48,7 @@ export default Marionette.View.extend({
 
   serializeData() {
     return {
-      isSynchronising: this.model.getSyncStatus() === Indicia.SYNCHRONISING
+      isSynchronising: this.model.getSyncStatus() === Indicia.SYNCHRONISING,
     };
-  }
+  },
 });

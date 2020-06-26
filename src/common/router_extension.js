@@ -28,7 +28,7 @@ _.extend(Backbone.Router.prototype, Backbone.Events, {
 
     Backbone.history.route(
       route,
-      _.bind(function(fragment) {
+      _.bind(function (fragment) {
         const args = this._extractParameters(route, fragment);
 
         if (leave) {

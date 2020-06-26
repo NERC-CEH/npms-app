@@ -1,6 +1,6 @@
 import Indicia from 'indicia';
 import Log from 'helpers/log';
-import Sample from 'sample';
+import Sample from 'sample'; // eslint-disable-line
 import store from './store';
 
 const Collection = Indicia.Collection.extend({

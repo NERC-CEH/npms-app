@@ -21,8 +21,8 @@ export default Marionette.View.extend({
     const taxa = sample.occurrences.length;
     const identifiers = sample.get('identifiers');
     const location = sample.get('location') || {};
-    const square = location.square;
-    const plot = location.plot;
+    const { square } = location;
+    const { plot } = location;
 
     const habitat = sample.get('habitat') || {};
     return {

@@ -2,7 +2,6 @@
  * Scientific name search.
  **************************************************************************** */
 import helpers from './searchHelpers';
-import searchSciNames from './scientificNamesSearch';
 
 const WAREHOUSE_INDEX = 0;
 const GROUP_INDEX = 1;
@@ -18,7 +17,7 @@ const MAX = 20;
  * @param searchPhrase
  * @returns {Array}
  */
-export default function(
+export default function searchSciNames(
   species,
   searchPhrase,
   results = [],
@@ -74,7 +73,7 @@ export default function(
     if (firstWordRegex.test(speciesEntry[SCI_NAME_INDEX])) {
       // find species array
       let speciesArray;
-      for (let j = 0, length = speciesEntry.length; j < length; j++) {
+      for (let j = 0, { length } = speciesEntry; j < length; j++) {
         if (speciesEntry[j] instanceof Array) {
           speciesArray = speciesEntry[j];
         }
@@ -98,7 +97,7 @@ export default function(
       if (speciesArray) {
         // go through all species
         for (
-          let speciesIndex = 0, length = speciesArray.length;
+          let speciesIndex = 0, { length } = speciesArray;
           speciesIndex < length && results.length < maxResults;
           speciesIndex++
         ) {
@@ -114,9 +113,7 @@ export default function(
                 found_in_name: 'scientific_name',
                 warehouse_id: speciesInArray[WAREHOUSE_INDEX],
                 group: speciesEntry[GROUP_INDEX],
-                scientific_name: `${speciesEntry[SCI_NAME_INDEX]} ${
-                  speciesInArray[SPECIES_SCI_NAME_INDEX]
-                }`, // eslint-disable-line
+                scientific_name: `${speciesEntry[SCI_NAME_INDEX]} ${speciesInArray[SPECIES_SCI_NAME_INDEX]}`, // eslint-disable-line
                 common_name: speciesInArray[SPECIES_COMMON_INDEX],
                 synonym: speciesInArray[SPECIES_COMMON_SYN_INDEX],
               };
@@ -130,9 +127,7 @@ export default function(
               found_in_name: 'scientific_name',
               warehouse_id: speciesInArray[WAREHOUSE_INDEX],
               group: speciesEntry[GROUP_INDEX],
-              scientific_name: `${speciesEntry[SCI_NAME_INDEX]} ${
-                speciesInArray[SPECIES_SCI_NAME_INDEX]
-              }`,
+              scientific_name: `${speciesEntry[SCI_NAME_INDEX]} ${speciesInArray[SPECIES_SCI_NAME_INDEX]}`,
               common_name: speciesInArray[SPECIES_COMMON_INDEX],
               synonym: speciesInArray[SPECIES_COMMON_SYN_INDEX],
             };

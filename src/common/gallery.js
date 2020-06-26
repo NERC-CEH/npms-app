@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import PhotoSwipe from 'photoswipe-lib';
-import PhotoSwipeUIDefault from 'photoswipe-ui-default';
+import PhotoSwipe from 'photoswipe-lib'; // eslint-disable-line
+import PhotoSwipeUIDefault from 'photoswipe-ui-default'; // eslint-disable-line
 import JST from 'JST';
 
 // initialize PhotoSwipe

@@ -1,8 +1,8 @@
 import * as Sentry from '@sentry/browser';
 import CONFIG from 'config';
-import userModel from 'user_model';
+import userModel from 'user_model'; // eslint-disable-line
 import appModel from 'app_model';
-import savedSamples from 'saved_samples';
+import savedSamples from 'saved_samples'; // eslint-disable-line
 import Log from './log';
 
 function _removeUUID(string) {
@@ -83,8 +83,8 @@ const API = {
     setContext();
 
     // capture unhandled promises
-    window.onunhandledrejection = (e) => {
-      Sentry.withScope((scope) => {
+    window.onunhandledrejection = e => {
+      Sentry.withScope(scope => {
         scope.setExtra('unhandledPromise', true);
         Sentry.captureException(e.reason);
       });

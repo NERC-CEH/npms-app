@@ -7,8 +7,8 @@ const API = {
   running: false,
 
   start(options = {}) {
-    const callback = options.callback;
-    const onUpdate = options.onUpdate;
+    const { callback } = options;
+    const { onUpdate } = options;
     const accuracyLimit = options.accuracyLimit || API.GPS_ACCURACY_LIMIT;
 
     // Early return if geolocation not supported.
