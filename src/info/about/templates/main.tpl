@@ -51,7 +51,7 @@
   </li>
   <li>
     <p><strong>App Development</strong></p>
-    <p>This app was hand crafted with love by <a href="https://kazlauskis.com" style="white-space: nowrap">Karolis Kazlauskis</a> and CEH developers. For suggestions and feedback
+    <p>This app was hand crafted with love by <a href="https://flumens.io" style="white-space: nowrap">Flumens</a>. For suggestions and feedback
       please do not hesitate to <a href='mailto:apps%40ceh.ac.uk?subject=NPMS%20App%20Support%26Feedback&body=%0A%0A%0AVersion%3A%20<%- obj.version %>%0ABrowser%3A <%- window.navigator.appVersion %>%0A'>contact us</a>.
     </p>
   </li>
