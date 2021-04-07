@@ -30,7 +30,7 @@
     "backbone.localstorage": "2.1.0",
     "backbone.marionette": "3.0.0",
     "backbone.radio": "^2.0.0",
-    "cordova": "10.0.0",
+    "cordova": "^9.0.0",
     "core-js": "3.10.0",
     "fastclick": "^1.0.3",
     "geodesy": "^2.2.1",
