@@ -3,7 +3,7 @@
  **************************************************************************** */
 
 import 'helpers/analytics';
-
+import { setupConfig as ionicConfig } from '@ionic/react';
 import App from 'app';
 
 import 'photoswipe/dist/default-skin/default-skin.png';
@@ -23,3 +23,5 @@ import './common/styles/app.scss';
 
 // Load the mighty app :)
 App.start();
+
+ionicConfig({ hardwareBackButton: false, swipeBackEnabled: false });

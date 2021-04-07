@@ -11,6 +11,7 @@ import radio from 'radio';
 import appModel from 'app_model';
 import userModel from 'user_model';
 import savedSamples from 'saved_samples';
+import { alert } from '@apps';
 import PhotoPicker from '../../common/photo_picker';
 import MainView from './main_view';
 import HeaderView from './header_view';
@@ -137,6 +138,18 @@ const API = {
                 
                  <p><i>${err.message}</i></p>`
             );
+          } else {
+            alert({
+              header: 'Sorry, try again later',
+              message:
+                'Apologies, the NPMS site is currently offline for updates. It will be back shortly.',
+              buttons: [
+                {
+                  text: 'OK',
+                },
+              ],
+              skipTranslation: true,
+            });
           }
         });
         radio.trigger('sample:saved');
