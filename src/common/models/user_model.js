@@ -3,7 +3,7 @@
  **************************************************************************** */
 import _ from 'lodash';
 import Backbone from 'backbone';
-import Store from 'backbone.localstorage';
+import { LocalStorage as Store } from 'backbone.localstorage';
 import CONFIG from 'config';
 import Log from 'helpers/log';
 import Analytics from 'helpers/analytics'; // eslint-disable-line

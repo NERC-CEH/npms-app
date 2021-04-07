@@ -1,6 +1,8 @@
 /** ****************************************************************************
  * App object.
  **************************************************************************** */
+import 'react'; // eslint-disable-line
+import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
@@ -101,12 +103,42 @@ radio.on('app:dialog:hide', options => {
 radio.on('app:dialog:error', options => {
   App.regions.getRegion('dialog').error(options);
 });
+radio.on('app:main', view => {
+  const region = App.regions.getRegion('main');
+  if (view instanceof Backbone.View) {
+    if (ReactDOM.unmountComponentAtNode && region.$el[0]) {
+      ReactDOM.unmountComponentAtNode(region.$el[0]);
+    } else {
+      // TODO: for some reason the unmount function is sometimes not found
+      Log("App: main view React DOM unmount did't happen", 'w');
+    }
+    region.show(view);
+    return;
+  }
 
-radio.on('app:main', options => {
-  App.regions.getRegion('main').show(options);
+  if (region.currentView) {
+    region.currentView.destroy();
+  }
+  ReactDOM.render(view, document.getElementById('main'));
 });
-radio.on('app:header', options => {
-  App.regions.getRegion('header').show(options);
+radio.on('app:header', view => {
+  const region = App.regions.getRegion('header');
+  if (view instanceof Backbone.View) {
+    if (ReactDOM.unmountComponentAtNode && region.$el[0]) {
+      ReactDOM.unmountComponentAtNode(region.$el[0]);
+    } else {
+      // TODO: for some reason the unmount function is sometimes not found
+      Log("App: header view React DOM unmount did't happen", 'w');
+    }
+    region.show(view);
+    return;
+  }
+
+  if (region.currentView) {
+    region.currentView.destroy();
+  }
+  $(region.$el[0]).show();
+  ReactDOM.render(view, region.$el[0]);
 });
 radio.on('app:footer', options => {
   App.regions.getRegion('footer').show(options);

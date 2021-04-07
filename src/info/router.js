@@ -1,14 +1,17 @@
 /** ****************************************************************************
  * Info router.
  **************************************************************************** */
+import React from 'react';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 import Log from 'helpers/log';
 import CONFIG from 'config';
 import App from 'app';
 import radio from 'radio';
+import Header from 'common/Components/Header';
 import CommonController from '../common/controller';
 import InfoMenuController from './menu/controller';
+import About from './About';
 import './credits/sponsor_logo.png?originalName';
 
 App.info = {};
@@ -17,15 +20,12 @@ const Router = Marionette.AppRouter.extend({
   routes: {
     'info(/)': InfoMenuController.show,
     'info/about(/)': () => {
-      CommonController.show({
-        title: 'About',
-        App,
-        route: 'info/about/main',
-        model: new Backbone.Model({
-          version: CONFIG.version,
-          build: CONFIG.build,
-        }),
-      });
+      Log('Info:About: visited.');
+      radio.trigger('app:header', <Header>About</Header>);
+      radio.trigger(
+        'app:main',
+        <About version={CONFIG.version} build={CONFIG.build} />
+      );
     },
     'info/help(/)': () => {
       CommonController.show({

@@ -8,6 +8,7 @@ import App from 'app';
 
 import 'photoswipe/dist/default-skin/default-skin.png';
 import 'photoswipe/dist/default-skin/default-skin.svg';
+import '@ionic/react/css/core.css';
 
 import './samples/router';
 import './info/router';
