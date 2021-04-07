@@ -36,7 +36,6 @@ const API = {
     }
 
     const level = sample.get('level');
-    SpeciesSearchEngine.init(level);
 
     const mainView = new MainView({ model: userModel });
     API._showMainView(mainView, this, level);

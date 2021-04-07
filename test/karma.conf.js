@@ -1,6 +1,8 @@
 require('dotenv').config({ silent: true }); // get local environment variables from .env
 const path = require('path');
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 process.env.NODE_ENV = 'test';
 
 const webpackConfigDev = require('../webpack.config');
@@ -11,26 +13,17 @@ delete webpackConfigDev.optimization; // no need
 
 webpackConfigDev.resolve.modules.push(path.resolve('./test/'));
 
+// eslint-disable-next-line
 module.exports = config => {
   config.set({
-    browsers: ['ChromeCustom'],
+    browsers: ['ChromeHeadless'],
 
-    customLaunchers: {
-      ChromeCustom: {
-        base: 'ChromiumHeadless',
-        flags: [
-          '--no-sandbox',
-          '--remote-debugging-port=9222',
-          '--enable-logging',
-          '--user-data-dir=./karma-chrome',
-          '--v=1',
-          '--disable-background-timer-throttling',
-          '--disable-renderer-backgrounding',
-          '--proxy-bypass-list=*',
-          "--proxy-server='direct://'",
-        ],
-      },
-    },
+    // customLaunchers: {
+    //   ChromeCustom: {
+    //     base: 'ChromiumHeadless',
+    //     flags: ['--no-sandbox'],
+    //   },
+    // },
 
     frameworks: ['mocha', 'chai', 'sinon'],
 

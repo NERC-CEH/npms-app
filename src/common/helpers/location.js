@@ -1,7 +1,8 @@
 /** ****************************************************************************
  * Some location transformation logic.
  **************************************************************************** */
-import { LatLonEllipsoidal as LatLon, OsGridRef } from 'geodesy'; // eslint-disable-line
+import LatLon from 'geodesy/latlon-ellipsoidal';
+import OsGridRef from 'geodesy/osgridref';
 
 const helpers = {
   /**

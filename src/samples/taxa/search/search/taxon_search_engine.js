@@ -1,46 +1,33 @@
 /** ****************************************************************************
  * Generates species list suggestions.
  **************************************************************************** */
-import $ from 'jquery';
 import Backbone from 'backbone';
 import _ from 'lodash';
-import Log from 'helpers/log';
+import indicatorNames from 'common/data/indicator_names.data.json';
+import indicator from 'common/data/indicator.data.json';
+import inventoryNames from 'common/data/inventory_names.data.json';
+import inventory from 'common/data/inventory.data.json';
+import wildflowerNames from 'common/data/wildflower_names.data.json';
+import wildflower from 'common/data/wildflower.data.json';
 import searchCommonNames from './commonNamesSearch';
 import searchSciNames from './scientificNamesSearch';
 import helpers from './searchHelpers';
 
-const species = {};
-let loading = false;
-const speciesNames = {};
+const speciesNames = {
+  indicator: indicatorNames,
+  inventory: inventoryNames,
+  wildflower: wildflowerNames,
+};
+
+const species = {
+  indicator,
+  inventory,
+  wildflower,
+};
 
 const MAX = 20;
 
 const API = {
-  init(list, callback) {
-    Log('Taxon search engine: initializing');
-    const that = this;
-
-    loading = true;
-    require.ensure(
-      [],
-      () => {
-        loading = false;
-        $.getJSON(`data/${list}.data.json`, data => {
-          species[list] = data;
-        }).done(
-          $.getJSON(`data/${list}_names.data.json`, data => {
-            speciesNames[list] = data;
-          }).done(() => {
-            loading = false;
-            that.trigger('data:loaded');
-            callback && callback();
-          })
-        );
-      },
-      'data'
-    );
-  },
-
   /**
    * Returns an array of species in format
    {
@@ -61,27 +48,6 @@ const API = {
     maxResults = MAX,
     scientificOnly
   ) {
-    function proceed() {
-      API.search(
-        list,
-        searchPhrase || '',
-        callback,
-        maxResults,
-        scientificOnly
-      );
-    }
-
-    if (!species[list]) {
-      // initialize
-      if (!loading) {
-        API.init(list, proceed);
-      } else {
-        // the process has started, wait until done
-        this.on('data:loaded', proceed);
-      }
-      return;
-    }
-
     let results = [];
 
     // normalize the search phrase

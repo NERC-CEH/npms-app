@@ -35,26 +35,20 @@ const rangeValues = {
   '91-100%': 3342,
 };
 
+const isTestEnv = process.env.NODE_ENV === 'test';
+
 const CONFIG = {
   // variables replaced on build
   version: process.env.APP_VERSION,
   build: process.env.APP_BUILD,
-  name: process.env.APP_NAME,
 
-  environment: process.env.ENV,
-  training: process.env.APP_TRAINING,
 
   gps_accuracy_limit: 100,
 
   site_url: HOST,
 
   // use prod logging if testing otherwise full log
-  log: process.env.ENV !== 'testing',
-
-  // google analytics
-  ga: {
-    id: process.env.APP_GA,
-  },
+  log: !isTestEnv,
 
   // error analytics
   sentry: {
