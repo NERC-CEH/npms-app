@@ -802,3 +802,14 @@ header .pull-right {
     background: white;
   }
 }
+
+.square-location a {
+  float: right;
+  color: #3c479d;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1px 10px;
+  margin-top: -2px;
+  background: #3c479d30;
+  font-weight: 400;
+}
