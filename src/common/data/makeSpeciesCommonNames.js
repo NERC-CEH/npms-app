@@ -1,33 +1,28 @@
-/* eslint-disable */
-
 /** ****************************************************************************
  * Extract common names as pointers in an array.
- *****************************************************************************/
+ **************************************************************************** */
+
+/* eslint-disable */
+
 'use strict';
 
-// get the filename
-const inputFileName = process.argv[2];
-const outputFileName = process.argv[3];
-
-const fs = require('fs');
-const species = require(inputFileName);
-
 const GENUS_COMMON_INDEX = 3;
-const SPECIES_COMMON_INDEX = 2; // in species and bellow
-const SPECIES_COMMON_SYN_INDEX = 3; // in species and bellow
+const GENUS_COMMON_SYN_INDEX = 4;
+const SPECIES_COMMON_INDEX = 3; // in species and bellow
+const SPECIES_COMMON_SYN_INDEX = 4; // in species and bellow
 
 const helpers = {
   /**
    * Return common name from common names array pointer
    * @param p array pointer
    */
-  getCommonName(species, p) {
+  getCommonName(allSpecies, p) {
     let name;
     if (helpers.isGenusPointer(p)) {
       // genus common name
-      name = species[p[0]][p[1]];
+      name = allSpecies[p[0]][p[1]];
     } else {
-      name = species[p[0]][p[1]][p[2]][p[3]];
+      name = allSpecies[p[0]][p[1]][p[2]][p[3]];
     }
     return name.toLowerCase();
   },
@@ -37,7 +32,9 @@ const helpers = {
   },
 };
 
-function make() {
+module.exports = species => {
+  console.log('Building name map...');
+
   const commonNames = []; // eg. first second third
 
   /**
@@ -57,10 +54,15 @@ function make() {
   for (let i = 0, length = species.length; i < length; i++) {
     const speciesEntry = species[i];
 
-    // if genus or above
+    // if genus or above - add genus common name
     if (typeof speciesEntry[GENUS_COMMON_INDEX] === 'string') {
       // genus has a common name
       addWord(speciesEntry[GENUS_COMMON_INDEX], i, GENUS_COMMON_INDEX);
+    }
+    // add genus synonym
+    if (typeof speciesEntry[GENUS_COMMON_SYN_INDEX] === 'string') {
+      // genus has a common name
+      addWord(speciesEntry[GENUS_COMMON_SYN_INDEX], i, GENUS_COMMON_SYN_INDEX);
     }
 
     // find species array within genus object
@@ -104,14 +106,17 @@ function make() {
     }
   }
 
+  // sort the list
   for (let nameCount = 0; nameCount < commonNames.length; nameCount++) {
     commonNames[nameCount].sort((a, b) => {
       let spA = helpers.getCommonName(species, a);
       let spB = helpers.getCommonName(species, b);
 
       // sort by name count
-      spA = spA.split(' ')[nameCount];
-      spB = spB.split(' ')[nameCount];
+      const spAwords = spA.split(' ');
+      spA = spAwords.slice(nameCount, spAwords.length).join(' ');
+      const spBwords = spB.split(' ');
+      spB = spBwords.slice(nameCount, spBwords.length).join(' ');
 
       if (spA > spB) {
         return 1;
@@ -123,14 +128,4 @@ function make() {
   }
 
   return commonNames;
-}
-
-const map = make();
-
-fs.writeFile(outputFileName, JSON.stringify(map), function (err) {
-  if (err) {
-    return console.log(err);
-  }
-
-  console.log('Done.');
-});
+};

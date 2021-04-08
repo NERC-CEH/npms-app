@@ -7,9 +7,10 @@ const WAREHOUSE_INDEX = 0;
 const GROUP_INDEX = 1;
 const SCI_NAME_INDEX = 2; // in genera and above
 const GENUS_COMMON_INDEX = 3;
-const SPECIES_SCI_NAME_INDEX = 1; // in species and bellow
-const SPECIES_COMMON_INDEX = 2; // in species and bellow
-const SPECIES_COMMON_SYN_INDEX = 3; // in species and bellow
+const SPECIES_DIFFICULTY_INDEX = 1; // in species and bellow
+const SPECIES_SCI_NAME_INDEX = 2; // in species and bellow
+const SPECIES_COMMON_INDEX = 3; // in species and bellow
+const SPECIES_COMMON_SYN_INDEX = 4; // in species and bellow
 const MAX = 20;
 
 /**
@@ -108,6 +109,7 @@ export default function (
             scientific_name: `${genus[SCI_NAME_INDEX]} ${speciesEntry[SPECIES_SCI_NAME_INDEX]}`,
             common_name: speciesEntry[SPECIES_COMMON_INDEX],
             synonym: speciesEntry[SPECIES_COMMON_SYN_INDEX],
+            difficulty: speciesEntry[SPECIES_DIFFICULTY_INDEX],
           };
           results.push(fullRes);
         }

@@ -14,7 +14,8 @@
     "test": "karma start test/karma.conf.js",
     "clean": "rm -rf build && rm -rf resources && rm -rf cordova",
     "test:watch": "karma start test/karma.conf.js --no-single-run",
-    "test:eslint": "eslint src --quiet --ext .jsx --ext .js && echo '\\033[37;42;1m PASS \\033[00m'"
+    "test:eslint": "eslint src --quiet --ext .jsx --ext .js && echo '\\033[37;42;1m PASS \\033[00m'",
+    "fetch:data": "source .env && cd src/common/data && node --inspect make.js"
   },
   "husky": {
     "hooks": {
@@ -60,6 +61,7 @@
     "@babel/preset-env": "7.13.12",
     "@babel/preset-react": "^7.13.13",
     "@flumens/eslint-config": "^0.4.0",
+    "@flumens/fetch-onedrive-excel": "^0.1.1",
     "@flumens/webpack-config": "2.1.0",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
@@ -99,10 +101,10 @@
     "mini-css-extract-plugin": "^0.9.0",
     "mocha": "^8.0.1",
     "node-sass": "^5.0.0",
-    "puppeteer": "^8.0.0",
     "postcss-loader": "^5.2.0",
     "prettier-eslint": "12.0.0",
     "prettier-eslint-cli": "5.0.1",
+    "puppeteer": "^8.0.0",
     "sass-loader": "^11.0.1",
     "sharp-cli": "^1.14.1",
     "sinon": "^9.0.2",

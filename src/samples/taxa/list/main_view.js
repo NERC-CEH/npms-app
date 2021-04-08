@@ -123,10 +123,10 @@ const SpeciesView = Marionette.View.extend({
       img = occ.media.at(0).get('thumbnail');
     }
 
-    const showSciNameWarning =
-      sample.attributes.level === 'inventory' &&
-      taxon.scientific_name.split(' ').length === 1 &&
-      !img;
+    const hasNoPic = !img;
+    const isDifficult = taxon.difficulty !== 1;
+    const isGenus = taxon.scientific_name.split(' ').length === 1;
+    const showSciNameWarning = hasNoPic && (isDifficult || isGenus);
 
     return {
       id: sample.id || sample.cid,
