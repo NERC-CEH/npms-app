@@ -2,7 +2,6 @@
  * App start.
  **************************************************************************** */
 
-import 'helpers/analytics';
 import { setupConfig as ionicConfig } from '@ionic/react';
 import App from 'app';
 

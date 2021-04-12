@@ -9,7 +9,10 @@ import Marionette from 'backbone.marionette';
 import FastClick from 'fastclick';
 import radio from 'radio';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics';
+import config from 'config';
+import userModel from 'user_model';
+import appModel from 'app_model';
+import { initAnalytics } from '@apps';
 import Update from 'helpers/update';
 import Device from 'helpers/device';
 import CommonController from './common/controller';
@@ -48,7 +51,19 @@ App.on('before:start', () => {
 });
 
 App.on('start', () => {
-  Analytics.init();
+  initAnalytics({
+    dsn: config.sentryDNS,
+    environment: config.environment,
+    build: config.build,
+    release: config.version,
+    userId: userModel.attributes.drupalID,
+    tags: {
+      'app.appSession': appModel.attributes.appSession,
+    },
+  });
+
+  appModel.attributes.appSession += 1;
+  appModel.save();
 
   // update app first
   Update.run(() => {

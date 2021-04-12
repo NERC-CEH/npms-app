@@ -4,7 +4,6 @@
 import Indicia from 'indicia';
 import _ from 'lodash';
 import Log from './log';
-import Analytics from './analytics'; // eslint-disable-line
 import Device from './device';
 
 const resetStatusBar = () => {
@@ -115,7 +114,6 @@ const Image = {
     }
 
     navigator.camera.getPicture(onSuccess, onError, cameraOptions);
-    Analytics.trackEvent('Image', 'get', cameraOptions.sourceType);
   },
 
   /**

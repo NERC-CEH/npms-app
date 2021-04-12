@@ -5,7 +5,6 @@
 import Backbone from 'backbone';
 import radio from 'radio';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics';
 import savedSamples from 'saved_samples';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
@@ -85,7 +84,6 @@ const API = {
     userModel.syncSquares(true).catch(err => {
       radio.trigger('app:dialog:error', err);
     });
-    Analytics.trackEvent('Statistics', 'refresh');
   },
 
   _findSquareAndPlot(plotID) {

@@ -42,6 +42,7 @@ const CONFIG = {
   version: process.env.APP_VERSION,
   build: process.env.APP_BUILD,
 
+  environment: process.env.NODE_ENV,
 
   gps_accuracy_limit: 100,
 
@@ -51,10 +52,7 @@ const CONFIG = {
   log: !isTestEnv,
 
   // error analytics
-  sentry: {
-    key: process.env.APP_SENTRY_KEY,
-    project: '143655',
-  },
+  sentryDNS: !isTestEnv && process.env.APP_SENTRY_KEY,
 
   users: {
     url: `${HOST + Indicia.API_BASE + Indicia.API_VER}/users/`,

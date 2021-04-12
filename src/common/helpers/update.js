@@ -6,7 +6,6 @@ import radio from 'radio';
 import CONFIG from 'config';
 import appModel from 'app_model';
 import Log from './log';
-import Analytics from './analytics';
 
 const MIN_UPDATE_TIME = 5000; // show updating dialog for minimum seconds
 
@@ -205,11 +204,6 @@ const API = {
   _updateAppVersion(currentVersion, newVersion) {
     appModel.set('appVersion', newVersion);
     appModel.save();
-
-    // log only updates and not init as no prev value on init
-    if (currentVersion) {
-      Analytics.trackEvent('App', 'updated');
-    }
   },
 };
 

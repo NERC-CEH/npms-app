@@ -6,7 +6,6 @@ import $ from 'jquery';
 import Indicia from 'indicia';
 import radio from 'radio';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics';
 import userModel from 'user_model';
 import appModel from 'app_model';
 import JST from 'JST';
@@ -81,7 +80,6 @@ const API = {
           onClick() {
             sample.destroy();
             radio.trigger('app:dialog:hide');
-            Analytics.trackEvent('List', 'sample remove');
           },
         },
       ],

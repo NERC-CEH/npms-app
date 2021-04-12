@@ -9,6 +9,7 @@ const AppModel = Backbone.Model.extend({
   id: 'app',
 
   defaults: {
+    appSession: 0,
     autosync: true,
     useTraining: CONFIG.training,
 

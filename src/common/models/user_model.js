@@ -6,7 +6,6 @@ import Backbone from 'backbone';
 import { LocalStorage as Store } from 'backbone.localstorage';
 import CONFIG from 'config';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics'; // eslint-disable-line
 import Validate from 'helpers/validate';
 import squaresExtension from './user_model_squares_ext';
 
@@ -50,7 +49,6 @@ const UserModel = Backbone.Model.extend({
 
     this.save();
     this.trigger('logout');
-    Analytics.trackEvent('User', 'logout');
   },
 
   /**
@@ -72,9 +70,6 @@ const UserModel = Backbone.Model.extend({
 
     this.trigger('login');
     this.syncSquares();
-
-    await Analytics.init();
-    Analytics.trackEvent('User', 'login');
   },
 
   /**

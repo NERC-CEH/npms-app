@@ -1,6 +1,5 @@
 import radio from 'radio';
 import Log from 'helpers/log';
-import Analytics from 'helpers/analytics';
 import ImageHelp from 'helpers/image';
 import ImageModel from './models/image';
 
@@ -41,7 +40,6 @@ const API = {
               },
             });
             radio.trigger('app:dialog:hide');
-            Analytics.trackEvent('Sample', 'photo remove');
           },
         },
       ],
