@@ -51,16 +51,17 @@ App.on('before:start', () => {
 });
 
 App.on('start', () => {
-  initAnalytics({
-    dsn: config.sentryDNS,
-    environment: config.environment,
-    build: config.build,
-    release: config.version,
-    userId: userModel.attributes.drupalID,
-    tags: {
-      'app.appSession': appModel.attributes.appSession,
-    },
-  });
+  appModel.attributes.sendAnalytics &&
+    initAnalytics({
+      dsn: config.sentryDNS,
+      environment: config.environment,
+      build: config.build,
+      release: config.version,
+      userId: userModel.attributes.drupalID,
+      tags: {
+        'app.appSession': appModel.attributes.appSession,
+      },
+    });
 
   appModel.attributes.appSession += 1;
   appModel.save();
@@ -120,7 +121,9 @@ radio.on('app:dialog:error', options => {
 });
 radio.on('app:main', view => {
   const region = App.regions.getRegion('main');
+  const $el = document.getElementById('main');
   if (view instanceof Backbone.View) {
+    $el.classList.add('old');
     if (ReactDOM.unmountComponentAtNode && region.$el[0]) {
       ReactDOM.unmountComponentAtNode(region.$el[0]);
     } else {
@@ -134,11 +137,15 @@ radio.on('app:main', view => {
   if (region.currentView) {
     region.currentView.destroy();
   }
-  ReactDOM.render(view, document.getElementById('main'));
+
+  $el.classList.remove('old');
+  ReactDOM.render(view, $el);
 });
 radio.on('app:header', view => {
   const region = App.regions.getRegion('header');
+  const $el = document.getElementById('header');
   if (view instanceof Backbone.View) {
+    $el.classList.add('old');
     if (ReactDOM.unmountComponentAtNode && region.$el[0]) {
       ReactDOM.unmountComponentAtNode(region.$el[0]);
     } else {
@@ -153,6 +160,7 @@ radio.on('app:header', view => {
     region.currentView.destroy();
   }
   $(region.$el[0]).show();
+  $el.classList.remove('old');
   ReactDOM.render(view, region.$el[0]);
 });
 radio.on('app:footer', options => {

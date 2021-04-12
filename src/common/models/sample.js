@@ -27,9 +27,7 @@ const Sample = Indicia.Sample.extend({
   keys: CONFIG.indicia.sample, // warehouse attribute keys
 
   metadata() {
-    return {
-      training: appModel.get('useTraining'),
-    };
+    return {};
   },
 
   /**
@@ -48,6 +46,8 @@ const Sample = Indicia.Sample.extend({
       device: Device.getPlatform(),
       device_version: Device.getVersion(),
       identifiers,
+
+      training: appModel.get('useTraining') ? 't' : 'f',
     };
   },
 

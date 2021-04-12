@@ -2,16 +2,26 @@
  * Settings router.
  **************************************************************************** */
 import Marionette from 'backbone.marionette';
+import React from 'react';
 import App from 'app';
 import radio from 'radio';
 import Log from 'helpers/log';
-import MenuController from './menu/controller';
+import appModel from 'app_model';
+import savedSamples from 'saved_samples';
+import Header from 'common/Components/Header';
+import Menu from './Menu';
 
 App.settings = {};
 
 const Router = Marionette.AppRouter.extend({
   routes: {
-    'settings(/)': MenuController.show,
+    'settings(/)': () => {
+      radio.trigger('app:header', <Header>Settings</Header>);
+      radio.trigger(
+        'app:main',
+        <Menu appModel={appModel} savedSamples={savedSamples} />
+      );
+    },
     'settings/*path': () => {
       radio.trigger('app:404:show');
     },

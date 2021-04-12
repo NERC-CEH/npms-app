@@ -83,6 +83,7 @@
 .dialog-body {
   max-height: 70%;
   overflow: auto;
+  padding: 10px;
 
   div:not(.toggle .toggle-handle) {
     margin: 10px 0;

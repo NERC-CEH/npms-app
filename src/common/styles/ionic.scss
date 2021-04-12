@@ -1,16 +1,12 @@
-/**
-* Ionic Framework:
-* http://ionicframework.com/
-*
-* Borrowed some styles :)
-*/
+@import './_variables.scss';
 
-
-/**
+#dialog,
+#main > :not(ion-content) {
+  /**
  * Items
  * --------------------------------------------------
  */
-.item {
+  .item {
     border-color: #ddd;
     background-color: #fff;
     color: #444;
@@ -21,10 +17,10 @@
     padding: 16px;
     border-width: 1px;
     border-style: solid;
-    font-size: 16px; }
+    font-size: 16px;
+  }
 
-
-.item-input {
+  .item-input {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -38,8 +34,9 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 6px 0 5px 8px; }
-.item-input input {
+    padding: 6px 0 5px 8px;
+  }
+  .item-input input {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -54,8 +51,9 @@
     appearance: none;
     margin: 0;
     padding-right: 24px;
-    background-color: transparent; }
-.item-input .button .icon {
+    background-color: transparent;
+  }
+  .item-input .button .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 24px;
     -moz-box-flex: 0;
@@ -66,8 +64,9 @@
     display: inline-block;
     height: auto;
     text-align: center;
-    font-size: 16px; }
-.item-input .button-bar {
+    font-size: 16px;
+  }
+  .item-input .button-bar {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -79,11 +78,13 @@
     flex: 1 0 220px;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none; }
-.item-input .icon {
-    min-width: 14px; }
+    appearance: none;
+  }
+  .item-input .icon {
+    min-width: 14px;
+  }
 
-.item-input-inset {
+  .item-input-inset {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -97,9 +98,10 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 10px; }
+    padding: 10px;
+  }
 
-.item-input-wrapper {
+  .item-input-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -122,18 +124,21 @@
     border-radius: 4px;
     padding-right: 8px;
     padding-left: 8px;
-    background: #eee; }
+    background: #eee;
+  }
 
-.item-input-inset .item-input-wrapper input {
+  .item-input-inset .item-input-wrapper input {
     padding-left: 4px;
     height: 29px;
     background: inherit;
-    line-height: 18px; }
+    line-height: 18px;
+  }
 
-.item-input-wrapper ~ .button {
-    margin-left: 10px; }
+  .item-input-wrapper ~ .button {
+    margin-left: 10px;
+  }
 
-/**
+  /**
  * Complex Items
  * --------------------------------------------------
  * Adding .item-complex allows the .item to be slidable and
@@ -142,44 +147,50 @@
  * Basically .item-complex removes any default settings which
  * .item added, so that .item-content looks them as just .item.
  */
-.item-radio .item-content {
+  .item-radio .item-content {
     position: relative;
     z-index: 2;
     padding: 16px 49px 16px 16px;
     border: none;
     background-color: #fff;
-}
+  }
 
-/**
+  /**
  * Lists
  * --------------------------------------------------
  */
-.list {
+  .list {
     position: relative;
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 0;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+  }
 
-.list:last-child {
-    margin-bottom: 0px; }
-.list:last-child.card {
-    margin-bottom: 40px; }
+  .list:last-child {
+    margin-bottom: 0px;
+  }
+  .list:last-child.card {
+    margin-bottom: 40px;
+  }
 
-/**
+  /**
  * Radio Button Inputs
  * --------------------------------------------------
  */
-.item-radio {
-    padding: 0; }
-.item-radio:hover {
-    cursor: pointer; }
+  .item-radio {
+    padding: 0;
+  }
+  .item-radio:hover {
+    cursor: pointer;
+  }
 
-.item-radio .item-content {
+  .item-radio .item-content {
     /* give some room to the right for the checkmark icon */
-    padding-right: 64px; }
+    padding-right: 64px;
+  }
 
-.item-radio .radio-icon {
+  .item-radio .radio-icon {
     /* checkmark icon will be hidden by default */
     position: absolute;
     top: 0;
@@ -188,9 +199,10 @@
     visibility: hidden;
     padding: 14px;
     height: 100%;
-    font-size: 24px; }
+    font-size: 24px;
+  }
 
-.item-radio input {
+  .item-radio input {
     /* hide any radio button inputs elements (the ugly circles) */
     position: absolute;
     left: 0;
@@ -198,36 +210,43 @@
     height: 100%;
     z-index: 10;
     opacity: 0;
-}
-.item-radio input:checked + .radio-content .item-content {
+  }
+  .item-radio input:checked + .radio-content .item-content {
     /* style the item content when its checked */
-    background: #f7f7f7; }
-.item-radio input:checked + .radio-content .radio-icon {
+    background: #f7f7f7;
+  }
+  .item-radio input:checked + .radio-content .radio-icon {
     /* show the checkmark icon when its checked */
-    visibility: visible; }
+    visibility: visible;
+  }
 
-/**
+  /**
  * Checkbox
  * --------------------------------------------------
  */
-.checkbox {
+  .checkbox {
     position: relative;
     display: inline-block;
     padding: 7px 7px;
-    cursor: pointer; }
-.checkbox input:before {
-    border-color: #ddd; }
-.checkbox input:checked:before {
+    cursor: pointer;
+  }
+  .checkbox input:before {
+    border-color: #ddd;
+  }
+  .checkbox input:checked:before {
     background: #387ef5;
-    border-color: #387ef5; }
+    border-color: #387ef5;
+  }
 
-.checkbox input:disabled:before {
-    border-color: #ddd; }
+  .checkbox input:disabled:before {
+    border-color: #ddd;
+  }
 
-.checkbox input:disabled:checked:before {
-    background: #ddd; }
+  .checkbox input:disabled:checked:before {
+    background: #ddd;
+  }
 
-.checkbox input {
+  .checkbox input {
     position: relative;
     width: 28px;
     height: 28px;
@@ -235,8 +254,9 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    -webkit-appearance: none; }
-.checkbox input:before {
+    -webkit-appearance: none;
+  }
+  .checkbox input:before {
     display: table;
     width: 100%;
     height: 100%;
@@ -246,12 +266,14 @@
     background: #fff;
     content: ' ';
     -webkit-transition: background-color 20ms ease-in-out;
-    transition: background-color 20ms ease-in-out; }
+    transition: background-color 20ms ease-in-out;
+  }
 
-.checkbox input:checked:before {
-    border-width: 2px; }
+  .checkbox input:checked:before {
+    border-width: 2px;
+  }
 
-.checkbox input:after {
+  .checkbox input:after {
     -webkit-transition: opacity 0.05s ease-in-out;
     transition: opacity 0.05s ease-in-out;
     -webkit-transform: rotate(-45deg);
@@ -266,70 +288,85 @@
     border-top: 0;
     border-right: 0;
     content: ' ';
-    opacity: 0; }
+    opacity: 0;
+  }
 
-.checkbox input:checked:after,
-input:checked + .checkbox-icon:after {
-    opacity: 1; }
+  .checkbox input:checked:after,
+  input:checked + .checkbox-icon:after {
+    opacity: 1;
+  }
 
-.item-checkbox {
-    padding-left: 60px; }
-.item-checkbox.active {
-    box-shadow: none; }
+  .item-checkbox {
+    padding-left: 60px;
+  }
+  .item-checkbox.active {
+    box-shadow: none;
+  }
 
-.item-checkbox .checkbox {
+  .item-checkbox .checkbox {
     position: absolute;
     top: 50%;
     right: 8px;
     left: 8px;
     z-index: 3;
-    margin-top: -21px; }
+    margin-top: -21px;
+  }
 
-
-
-/**
+  /**
  * Popup
  * --------------------------------------------------
  */
 
-/* Animations */
-@-webkit-keyframes scaleOut {
+  /* Animations */
+  @-webkit-keyframes scaleOut {
     from {
-        -webkit-transform: scale(1);
-        opacity: 1; }
+      -webkit-transform: scale(1);
+      opacity: 1;
+    }
     to {
-        -webkit-transform: scale(0.8);
-        opacity: 0; } }
+      -webkit-transform: scale(0.8);
+      opacity: 0;
+    }
+  }
 
-@keyframes scaleOut {
+  @keyframes scaleOut {
     from {
-        transform: scale(1);
-        opacity: 1; }
+      transform: scale(1);
+      opacity: 1;
+    }
     to {
-        transform: scale(0.8);
-        opacity: 0; } }
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  }
 
-@-webkit-keyframes superScaleIn {
+  @-webkit-keyframes superScaleIn {
     from {
-        -webkit-transform: scale(1.2);
-        opacity: 0; }
+      -webkit-transform: scale(1.2);
+      opacity: 0;
+    }
     to {
-        -webkit-transform: scale(1);
-        opacity: 1; } }
+      -webkit-transform: scale(1);
+      opacity: 1;
+    }
+  }
 
-@keyframes superScaleIn {
+  @keyframes superScaleIn {
     from {
-        transform: scale(1.2);
-        opacity: 0; }
+      transform: scale(1.2);
+      opacity: 0;
+    }
     to {
-        transform: scale(1);
-        opacity: 1; } }
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
-/**
+  /**
  * Range
  * --------------------------------------------------
  */
-.range input {
+  .range input {
     display: inline-block;
     overflow: hidden;
     margin-top: 5px;
@@ -339,7 +376,13 @@ input:checked + .checkbox-icon:after {
     width: auto;
     height: 43px;
     outline: none;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccc), color-stop(100%, #ccc));
+    background: -webkit-gradient(
+      linear,
+      50% 0%,
+      50% 100%,
+      color-stop(0%, #ccc),
+      color-stop(100%, #ccc)
+    );
     background: linear-gradient(to right, #ccc 0%, #ccc 100%);
     background-position: center;
     background-size: 99% 2px;
@@ -368,11 +411,13 @@ input:checked + .checkbox-icon:after {
        height: $range-track-height;
        background:$range-default-track-bg;
      }
-     */ }
-.range input::-moz-focus-outer {
+     */
+  }
+  .range input::-moz-focus-outer {
     /* hide the focus outline in Firefox */
-    border: 0; }
-.range input::-webkit-slider-thumb {
+    border: 0;
+  }
+  .range input::-webkit-slider-thumb {
     position: relative;
     width: 28px;
     height: 28px;
@@ -381,8 +426,9 @@ input:checked + .checkbox-icon:after {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     -webkit-appearance: none;
-    border: 0; }
-.range input::-webkit-slider-thumb:before {
+    border: 0;
+  }
+  .range input::-webkit-slider-thumb:before {
     /* what creates the colorful line on the left side of the slider */
     position: absolute;
     top: 13px;
@@ -390,19 +436,22 @@ input:checked + .checkbox-icon:after {
     width: 2000px;
     height: 2px;
     background: #444;
-    content: ' '; }
-.range input::-webkit-slider-thumb:after {
+    content: ' ';
+  }
+  .range input::-webkit-slider-thumb:after {
     /* create a larger (but hidden) hit area */
     position: absolute;
     top: -15px;
     left: -15px;
     padding: 30px;
-    content: ' '; }
-.range input::-ms-fill-lower {
+    content: ' ';
+  }
+  .range input::-ms-fill-lower {
     height: 2px;
-    background: #444; }
+    background: #444;
+  }
 
-.range {
+  .range {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -414,45 +463,64 @@ input:checked + .checkbox-icon:after {
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
-    padding: 2px 11px; }
-.range.range-light input::-webkit-slider-thumb:before {
-    background: #ddd; }
-.range.range-light input::-ms-fill-lower {
-    background: #ddd; }
-.range.range-stable input::-webkit-slider-thumb:before {
-    background: #b2b2b2; }
-.range.range-stable input::-ms-fill-lower {
-    background: #b2b2b2; }
-.range.range-positive input::-webkit-slider-thumb:before {
-    background: #387ef5; }
-.range.range-positive input::-ms-fill-lower {
-    background: #387ef5; }
-.range.range-calm input::-webkit-slider-thumb:before {
-    background: #11c1f3; }
-.range.range-calm input::-ms-fill-lower {
-    background: #11c1f3; }
-.range.range-balanced input::-webkit-slider-thumb:before {
-    background: #33cd5f; }
-.range.range-balanced input::-ms-fill-lower {
-    background: #33cd5f; }
-.range.range-assertive input::-webkit-slider-thumb:before {
-    background: #ef473a; }
-.range.range-assertive input::-ms-fill-lower {
-    background: #ef473a; }
-.range.range-energized input::-webkit-slider-thumb:before {
-    background: #ffc900; }
-.range.range-energized input::-ms-fill-lower {
-    background: #ffc900; }
-.range.range-royal input::-webkit-slider-thumb:before {
-    background: #886aea; }
-.range.range-royal input::-ms-fill-lower {
-    background: #886aea; }
-.range.range-dark input::-webkit-slider-thumb:before {
-    background: #444; }
-.range.range-dark input::-ms-fill-lower {
-    background: #444; }
+    padding: 2px 11px;
+  }
+  .range.range-light input::-webkit-slider-thumb:before {
+    background: #ddd;
+  }
+  .range.range-light input::-ms-fill-lower {
+    background: #ddd;
+  }
+  .range.range-stable input::-webkit-slider-thumb:before {
+    background: #b2b2b2;
+  }
+  .range.range-stable input::-ms-fill-lower {
+    background: #b2b2b2;
+  }
+  .range.range-positive input::-webkit-slider-thumb:before {
+    background: #387ef5;
+  }
+  .range.range-positive input::-ms-fill-lower {
+    background: #387ef5;
+  }
+  .range.range-calm input::-webkit-slider-thumb:before {
+    background: #11c1f3;
+  }
+  .range.range-calm input::-ms-fill-lower {
+    background: #11c1f3;
+  }
+  .range.range-balanced input::-webkit-slider-thumb:before {
+    background: #33cd5f;
+  }
+  .range.range-balanced input::-ms-fill-lower {
+    background: #33cd5f;
+  }
+  .range.range-assertive input::-webkit-slider-thumb:before {
+    background: #ef473a;
+  }
+  .range.range-assertive input::-ms-fill-lower {
+    background: #ef473a;
+  }
+  .range.range-energized input::-webkit-slider-thumb:before {
+    background: #ffc900;
+  }
+  .range.range-energized input::-ms-fill-lower {
+    background: #ffc900;
+  }
+  .range.range-royal input::-webkit-slider-thumb:before {
+    background: #886aea;
+  }
+  .range.range-royal input::-ms-fill-lower {
+    background: #886aea;
+  }
+  .range.range-dark input::-webkit-slider-thumb:before {
+    background: #444;
+  }
+  .range.range-dark input::-ms-fill-lower {
+    background: #444;
+  }
 
-.range .icon {
+  .range .icon {
     -webkit-box-flex: 0;
     -webkit-flex: 0;
     -moz-box-flex: 0;
@@ -462,9 +530,10 @@ input:checked + .checkbox-icon:after {
     display: block;
     min-width: 24px;
     text-align: center;
-    font-size: 24px; }
+    font-size: 24px;
+  }
 
-.range input {
+  .range input {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -473,9 +542,10 @@ input:checked + .checkbox-icon:after {
     flex: 1;
     display: block;
     margin-right: 10px;
-    margin-left: 10px; }
+    margin-left: 10px;
+  }
 
-.range-label {
+  .range-label {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -moz-box-flex: 0;
@@ -483,14 +553,77 @@ input:checked + .checkbox-icon:after {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     display: block;
-    white-space: nowrap; }
+    white-space: nowrap;
+  }
 
-.range-label:first-child {
-    padding-left: 5px; }
+  .range-label:first-child {
+    padding-left: 5px;
+  }
 
-.range input + .range-label {
+  .range input + .range-label {
     padding-right: 5px;
-    padding-left: 0; }
+    padding-left: 0;
+  }
 
-.platform-windowsphone .range input {
-    height: auto; }
+  .platform-windowsphone .range input {
+    height: auto;
+  }
+
+  /**
+  CUSTOM
+  */
+
+  /**
+* Ionic Framework:
+* http://ionicframework.com/
+*
+* Borrowed some styles :)
+*/
+  .item-radio:hover .item-content {
+    background-color: $color-gray-light;
+  }
+
+  .item {
+    border: 0;
+    border-bottom: 2px solid $color-gray-light;
+  }
+
+  .checkbox input:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkbox input:checked:before {
+    background: $header-color;
+    border-color: $header-color;
+  }
+
+  .radio-icon.icon-check:before {
+    color: $header-color;
+  }
+
+  // Range number input
+  .range input[type='number'] {
+    flex: 0 0 50px;
+    background: none;
+    padding-left: 5px;
+    padding-right: 0;
+  }
+
+  label.item-input-wrapper {
+    width: 90%;
+    height: 35px;
+    margin: 6px;
+    padding: 5px;
+
+    span {
+      color: $color-gray;
+    }
+
+    input {
+      margin-left: 5px;
+      background: transparent;
+      font-size: 14px;
+    }
+  }
+}

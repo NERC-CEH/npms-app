@@ -11,7 +11,7 @@ const AppModel = Backbone.Model.extend({
   defaults: {
     appSession: 0,
     autosync: true,
-    useTraining: CONFIG.training,
+    useTraining: false,
 
     sendAnalytics: true,
   },
