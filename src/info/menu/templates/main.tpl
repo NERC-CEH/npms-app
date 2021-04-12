@@ -37,6 +37,12 @@
   </a>
 </li>
 <li class="table-view-cell">
+  <a href="#info/resources" class="navigate-right">
+    <span class="media-object pull-left icon icon-info"></span>
+    Resources
+  </a>
+</li>
+<li class="table-view-cell">
   <a href="#info/help" class="navigate-right">
     <span class="media-object pull-left icon icon-help"></span>
     Help

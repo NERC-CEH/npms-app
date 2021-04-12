@@ -12,6 +12,7 @@ import Header from 'common/Components/Header';
 import CommonController from '../common/controller';
 import InfoMenuController from './menu/controller';
 import About from './About';
+import Resources from './Resources';
 import './credits/sponsor_logo.png?originalName';
 
 App.info = {};
@@ -26,6 +27,10 @@ const Router = Marionette.AppRouter.extend({
         'app:main',
         <About version={CONFIG.version} build={CONFIG.build} />
       );
+    },
+    'info/resources(/)': () => {
+      radio.trigger('app:header', <Header>Recommended resources</Header>);
+      radio.trigger('app:main', <Resources />);
     },
     'info/help(/)': () => {
       CommonController.show({
