@@ -104,6 +104,14 @@ $footer-height: 80px;
   margin: 0;
   padding: 0;
 
+  &.old {
+    .img-picker {
+      &:before {
+        left: 55%;
+      }
+    }
+  }
+
   .img-picker {
     display: table-cell;
     width: $footer-height;
@@ -117,8 +125,7 @@ $footer-height: 80px;
     //icon to middle
     &:before {
       padding-top: 0;
-      top: 36%;
-      left: 55%;
+      top: 30px;
       margin-left: -12px;
       position: absolute;
     }

@@ -21,7 +21,7 @@ export default Indicia.Media.extend({
       });
     }
 
-    Indicia.Media.prototype.destroy.apply(this, args);
+    return Indicia.Media.prototype.destroy.apply(this, args);
   },
 
   getURL() {
