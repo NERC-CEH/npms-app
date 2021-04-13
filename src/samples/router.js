@@ -1,6 +1,7 @@
 /** ****************************************************************************
  * Sample router.
  **************************************************************************** */
+import React from 'react';
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 import Log from 'helpers/log';
@@ -10,6 +11,7 @@ import radio from 'radio';
 import savedSamples from 'saved_samples';
 import userModel from 'user_model';
 import appModel from 'app_model';
+import Header from 'common/Components/Header';
 import ListController from './list/controller';
 import ShowController from './show/controller';
 import EditController from './edit/controller';
@@ -17,8 +19,8 @@ import EditAdditionalController from './edit_additional/controller';
 import EditLocationController from './location/controller';
 import EditAttrController from './attr/controller';
 import TaxaController from './taxa/list/controller';
-import TaxaEditController from './taxa/edit/controller';
 import TaxaSearchController from './taxa/search/controller';
+import OccurrenceHome from './taxa/OccurrenceHome';
 
 App.samples = {};
 
@@ -48,7 +50,17 @@ const Router = Marionette.AppRouter.extend({
     'samples/:id/edit/additional(/)': EditAdditionalController.show,
     'samples/:id/edit/location(/)': EditLocationController.show,
     'samples/:id/edit/taxa(/)': TaxaController.show,
-    'samples/:id/edit/taxa/:id/edit(/)': TaxaEditController.show,
+    'samples/:id/edit/taxa/:id/edit(/)': (sampleID, occurrenceID) => {
+      radio.trigger('app:header', <Header>Cover</Header>);
+      const sample = savedSamples.get(sampleID);
+      const occurrences = sample.occurrences.filter(
+        occurrence => occurrence.cid === occurrenceID
+      );
+      radio.trigger(
+        'app:main',
+        <OccurrenceHome sample={sample} occurrence={occurrences[0]} />
+      );
+    },
     'samples/:id/edit/taxa/search(/)': TaxaSearchController.show,
     'samples/:id/edit/:attr(/)': EditAttrController.show,
     'samples/*path': () => {
@@ -74,7 +86,6 @@ radio.on('samples:edit', (sampleID, options) => {
 
 radio.on('samples:taxa:edit', (sampleID, occurrenceID, options) => {
   App.navigate(`samples/${sampleID}/edit/taxa/${occurrenceID}/edit`, options);
-  TaxaEditController.show(sampleID, occurrenceID);
 });
 
 radio.on('samples:taxa:search', (sampleID, options) => {
