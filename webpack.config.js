@@ -1,7 +1,6 @@
 require('dotenv').config({ silent: true });
 const webpack = require('webpack');
 const appConfig = require('@flumens/webpack-config');
-// const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 
 appConfig.entry = ['index.js'];
 
@@ -26,17 +25,5 @@ appConfig.module.rules.push({
     name: 'fonts/[name].[ext]',
   },
 });
-
-// // for some reason script didn't accept ~ or $HOME
-// appConfig.plugins.push(
-//   new WebpackShellPluginNext({
-//     dev: false, // run more than once
-//     onBuildEnd: {
-//       scripts: ['grunt jst'],
-//       blocking: true,
-//       parallel: false,
-//     },
-//   })
-// );
 
 module.exports = appConfig;

@@ -16,7 +16,8 @@ export default Marionette.View.extend({
   },
 
   triggers: {
-    'click button': 'survey',
+    'click button#survey': 'survey',
+    'click button#share': 'share',
   },
 
   photoView(e) {

@@ -10,6 +10,8 @@ import Sample from 'sample';
 import appModel from 'app_model';
 import userModel from 'user_model';
 import savedSamples from 'saved_samples';
+import DateHelp from 'helpers/date';
+import { isPlatform } from '@ionic/react';
 import MainView from './main_view';
 import HeaderView from '../../common/views/header_view';
 
@@ -43,6 +45,10 @@ const API = {
       API.addSurvey(sampleID);
     });
 
+    mainView.on('share', () => {
+      API.share(sample);
+    });
+
     radio.trigger('app:main', mainView);
 
     // HEADER
@@ -73,6 +79,41 @@ const API = {
         message: 'Looks like you are offline!',
       });
     }
+  },
+
+  share(sample) {
+    if (!isPlatform('hybrid')) {
+      return;
+    }
+
+    const habitat = sample.get('habitat') || {};
+    const occurrences = sample.occurrences.map(occ => {
+      const { abundance, taxon } = occ.attributes;
+      const name = taxon.common_name || taxon.scientific_name;
+      return `${name} - ${abundance}`;
+    });
+
+    const species = occurrences.length
+      ? occurrences.join(' / ')
+      : 'No species found';
+    const message = `${habitat.broad}: ${species} `;
+    const date = DateHelp.print(sample.get('date'));
+
+    const dir = cordova.file.dataDirectory;
+
+    const getFilePath = img => `${dir}${img.attributes.data}`;
+    const options = {
+      message,
+      subject: `My NPMS survey on ${date}`,
+      files: sample.media.map(getFilePath),
+    };
+
+    const onSuccess = () => {};
+    const onError = msg => {
+      console.error(new Error(msg));
+    };
+
+    window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
   },
 
   addSurvey(sampleID) {

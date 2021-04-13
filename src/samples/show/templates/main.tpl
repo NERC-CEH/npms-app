@@ -9,8 +9,10 @@
 </div>
 
 <% if (obj.show_survey2) { %>
-<button class="btn btn-narrow btn-positive btn-block">Add Survey 2</button>
+<button id="survey" class="btn btn-narrow btn-wideish btn-positive btn-block">Add Survey 2 <div class="icon icon-plus"></div></button>
 <% } %>
+
+<button id="share" class="btn btn-narrow btn-wideish btn-block">Share <div class="icon icon-export"></div></button>
 
 <ul class="table-view core inputs info">
   <li class="table-view-cell">

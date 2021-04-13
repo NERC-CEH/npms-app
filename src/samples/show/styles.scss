@@ -5,6 +5,15 @@
   padding-left: 1em;
 }
 
+.btn-wideish {
+  width: 90% !important;
+  margin: 30px auto !important;
+
+  .icon {
+    float: right;
+  }
+}
+
 .info li.table-view-cell {
   padding-right: 2%;
 }
