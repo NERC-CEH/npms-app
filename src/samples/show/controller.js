@@ -96,7 +96,7 @@ const API = {
     const species = occurrences.length
       ? occurrences.join(' / ')
       : 'No species found';
-    const message = `${habitat.broad}: ${species} `;
+    const message = `#NPMS ${habitat.broad}: ${species} `;
     const date = DateHelp.print(sample.get('date'));
 
     const dir = cordova.file.dataDirectory;
