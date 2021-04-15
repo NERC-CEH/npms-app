@@ -49,7 +49,7 @@ class Component extends React.Component {
         <IonList lines="full">
           <IonItem id="app-reset-btn" onClick={this.sendAllDialog}>
             <IonIcon icon={paperPlaneOutline} size="small" slot="start" />
-            Sumbit All
+            Submit All
           </IonItem>
           <InfoMessage color="medium">
             Submit all finished records to NPMS website.
