@@ -7,8 +7,8 @@
     </p>
     <p>
       <ul style="list-style-type: none;">
-        <li>Oliver Pescott (CEH)</li>
-        <li>David Roy (CEH)</li>
+        <li>Oliver Pescott (UKCEH)</li>
+        <li>David Roy (UKCEH)</li>
         <li><a href="https://flumens.io">Karolis Kazlauskis</a></li>
         <li><a href="http://www.avb-it.co.uk/">Andrew van Breda</a></li>
         <li>Hayley New (Plantlife)</li>

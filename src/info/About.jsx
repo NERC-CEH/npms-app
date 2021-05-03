@@ -8,7 +8,7 @@ const Component = props => (
       <p>
         The National Plant Monitoring Scheme (NPMS) is a new habitat-based plant
         monitoring scheme designed by <a href="http://bsbi.org">BSBI</a>,{' '}
-        <a href="http://www.ceh.ac.uk">CEH</a>,{' '}
+        <a href="http://www.ceh.ac.uk">UKCEH</a>,{' '}
         <a href="http://www.plantlife.org.uk">Plantlife </a>and{' '}
         <a href="http://jncc.defra.gov.uk/">JNCC</a>. The aim is to collect data
         to provide an annual indication of changes in plant abundance and
