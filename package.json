@@ -3,7 +3,7 @@
   "id": "uk.ac.ceh.npms",
   "title": "NPMS App",
   "description": "NPMS application.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "homepage": "http://www.npms.org.uk/",
   "scripts": {
     "start": "webpack serve --progress --content-base build --port 8000",
