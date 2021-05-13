@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Log from 'helpers/log';
-import ImageHelp from 'helpers/image';
 import radio from 'radio';
 import { observer } from 'mobx-react';
 import Gallery from 'common/gallery';
-import ImageModel from 'common/models/image';
+import PhotoPicker from 'common/photo_picker';
 
 function photoDelete(photo, refreshState) {
   radio.trigger('app:dialog', {
@@ -54,72 +53,23 @@ function showGallery(media, index) {
   gallery.init();
 }
 
-/**
- * Adds a new image to occurrence.
- */
-function addPhoto(occurrence, photo) {
-  return ImageHelp.getImageModel(ImageModel, photo).then(image => {
-    occurrence.addMedia(image);
-    return occurrence.save();
-  });
-}
-
 @observer
 class ImagePicker extends Component {
   state = { hardRefresh: 0 }; // TODO: remove when observables work
 
-  constructor(props) {
-    super(props);
-    this.photoSelect = this.photoSelect.bind(this);
-    this.photoUpload = this.photoUpload.bind(this);
-  }
-
-  photoUpload(e) {
-    Log('Samples:Edit:Footer: photo uploaded.');
+  photoUpload = async e => {
     const photo = e.target.files[0];
 
     const { model } = this.props;
-    // TODO: show loader
-    addPhoto(model, photo)
-      .then(this.refreshState)
-      .catch(err => {
-        Log(err, 'e');
-        radio.trigger('app:dialog:error', err);
-      });
-  }
+    await PhotoPicker.addPhoto(model, photo);
+    this.refreshState();
+  };
 
-  photoSelect() {
-    Log('Samples:Edit:Controller: photo selection.');
+  photoSelect = async () => {
     const { model } = this.props;
-
-    radio.trigger('app:dialog', {
-      title: 'Choose a method to upload a photo',
-      buttons: [
-        {
-          title: 'Gallery',
-          fill: 'clear',
-          onClick() {
-            ImageHelp.getImage({
-              sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
-              saveToPhotoAlbum: false,
-            }).then(entry => {
-              entry && addPhoto(model, entry.nativeURL, () => {});
-            });
-            radio.trigger('app:dialog:hide');
-          },
-        },
-        {
-          title: 'Camera',
-          onClick() {
-            ImageHelp.getImage().then(entry => {
-              entry && addPhoto(model, entry.nativeURL, () => {});
-            });
-            radio.trigger('app:dialog:hide');
-          },
-        },
-      ],
-    });
-  }
+    await PhotoPicker.photoSelect(model);
+    this.refreshState();
+  };
 
   refreshState = () => {
     // TODO: remove when observables work

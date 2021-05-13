@@ -47,43 +47,46 @@ const API = {
   },
 
   photoSelect(model) {
-    Log('Common:PhotoPicker: photo selection.');
-    radio.trigger('app:dialog', {
-      title: 'Choose a method to upload a photo',
-      buttons: [
-        {
-          title: 'Camera',
-          onClick() {
-            ImageHelp.getImage(entry => {
-              API.addPhoto(model, entry.nativeURL, occErr => {
-                if (occErr) {
-                  radio.trigger('app:dialog:error', occErr);
-                }
-              });
-            });
-            radio.trigger('app:dialog:hide');
-          },
-        },
-        {
-          title: 'Gallery',
-          onClick() {
-            ImageHelp.getImage(
-              entry => {
+    return new Promise(resolve => {
+      Log('Common:PhotoPicker: photo selection.');
+      radio.trigger('app:dialog', {
+        title: 'Choose a method to upload a photo',
+        buttons: [
+          {
+            title: 'Camera',
+            onClick() {
+              ImageHelp.getImage(entry => {
                 API.addPhoto(model, entry.nativeURL, occErr => {
                   if (occErr) {
                     radio.trigger('app:dialog:error', occErr);
                   }
-                });
-              },
-              {
-                sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
-                saveToPhotoAlbum: false,
-              }
-            );
-            radio.trigger('app:dialog:hide');
+                  resolve();
+                }).then(resolve);
+              });
+              radio.trigger('app:dialog:hide');
+            },
           },
-        },
-      ],
+          {
+            title: 'Gallery',
+            onClick() {
+              ImageHelp.getImage(
+                entry => {
+                  API.addPhoto(model, entry.nativeURL, occErr => {
+                    if (occErr) {
+                      radio.trigger('app:dialog:error', occErr);
+                    }
+                  }).then(resolve);
+                },
+                {
+                  sourceType: window.Camera.PictureSourceType.PHOTOLIBRARY,
+                  saveToPhotoAlbum: false,
+                }
+              );
+              radio.trigger('app:dialog:hide');
+            },
+          },
+        ],
+      });
     });
   },
 
