@@ -44,8 +44,6 @@ const CONFIG = {
 
   environment: process.env.NODE_ENV,
 
-  gps_accuracy_limit: 100,
-
   site_url: HOST,
 
   // use prod logging if testing otherwise full log
