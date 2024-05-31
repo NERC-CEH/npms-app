@@ -1,0 +1,105 @@
+PODS:
+  - Capacitor (5.7.4):
+    - CapacitorCordova
+  - CapacitorApp (5.0.7):
+    - Capacitor
+  - CapacitorCamera (5.0.9):
+    - Capacitor
+  - CapacitorCordova (5.7.4)
+  - CapacitorDevice (5.0.7):
+    - Capacitor
+  - CapacitorFilesystem (5.2.1):
+    - Capacitor
+  - CapacitorGeolocation (5.0.7):
+    - Capacitor
+  - CapacitorHaptics (5.0.7):
+    - Capacitor
+  - CapacitorKeyboard (5.0.8):
+    - Capacitor
+  - CapacitorNetwork (5.0.7):
+    - Capacitor
+  - CapacitorSplashScreen (5.0.7):
+    - Capacitor
+  - CapacitorStatusBar (5.0.7):
+    - Capacitor
+  - CordovaPlugins (5.7.4):
+    - CapacitorCordova
+  - Sentry/HybridSDK (8.21.0):
+    - SentryPrivate (= 8.21.0)
+  - SentryCapacitor (0.17.0):
+    - Capacitor
+    - Sentry/HybridSDK (= 8.21.0)
+  - SentryPrivate (8.21.0)
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
+  - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
+  - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
+  - "CapacitorGeolocation (from `../../node_modules/@capacitor/geolocation`)"
+  - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
+  - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorNetwork (from `../../node_modules/@capacitor/network`)"
+  - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
+  - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - CordovaPlugins (from `../capacitor-cordova-ios-plugins`)
+  - "SentryCapacitor (from `../../node_modules/@sentry/capacitor`)"
+
+SPEC REPOS:
+  trunk:
+    - Sentry
+    - SentryPrivate
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
+  CapacitorCamera:
+    :path: "../../node_modules/@capacitor/camera"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorDevice:
+    :path: "../../node_modules/@capacitor/device"
+  CapacitorFilesystem:
+    :path: "../../node_modules/@capacitor/filesystem"
+  CapacitorGeolocation:
+    :path: "../../node_modules/@capacitor/geolocation"
+  CapacitorHaptics:
+    :path: "../../node_modules/@capacitor/haptics"
+  CapacitorKeyboard:
+    :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorNetwork:
+    :path: "../../node_modules/@capacitor/network"
+  CapacitorSplashScreen:
+    :path: "../../node_modules/@capacitor/splash-screen"
+  CapacitorStatusBar:
+    :path: "../../node_modules/@capacitor/status-bar"
+  CordovaPlugins:
+    :path: "../capacitor-cordova-ios-plugins"
+  SentryCapacitor:
+    :path: "../../node_modules/@sentry/capacitor"
+
+SPEC CHECKSUMS:
+  Capacitor: 4fe9adf012caceb4c71ffea2f1f4d005cdcbeea7
+  CapacitorApp: 17fecd0e6cb23feafac7eb0939417389038b0979
+  CapacitorCamera: 4892c5c392f60039d853dde78bc50ba19fbd113e
+  CapacitorCordova: a6e87fccc0307dee7aec1560ec9398485f2b0ce7
+  CapacitorDevice: fc91bdb484dc0e70755e9b621cd557afe642613a
+  CapacitorFilesystem: 9f3e3c7fea2fff12f46dd5b07a2914f2103e4cfc
+  CapacitorGeolocation: 918a292459542bcce98433f9e7c7909f8c72838a
+  CapacitorHaptics: 7c7c206f0c96a628fed073830c96d28c4b2e772e
+  CapacitorKeyboard: aec619a578235c6ce279075009a2689c2cf5c42c
+  CapacitorNetwork: 81ef9728aa7a65cac8c1181ce79e578162b57b57
+  CapacitorSplashScreen: dd3de3f3644710fa2a697cfb91ec262eece4d242
+  CapacitorStatusBar: f390fbb49b82ffb754ea4b3cf71dc8b048baf3e7
+  CordovaPlugins: a17fcaee819862ac7aca195699992de19cf191d4
+  Sentry: ebc12276bd17613a114ab359074096b6b3725203
+  SentryCapacitor: eab7128c7c9558bfca219d1d11dd7aed74b1a01f
+  SentryPrivate: d651efb234cf385ec9a1cdd3eff94b5e78a0e0fe
+
+PODFILE CHECKSUM: d82ff1528636b6b9214f49a5ac829f328cb8e7e9
+
+COCOAPODS: 1.10.1
