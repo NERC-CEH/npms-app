@@ -1,0 +1,45 @@
+#img-array {
+  .warning-icon {
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    background: #fff1f1;
+    color: var(--ion-color-danger);
+    border-radius: 100%;
+    font-size: 1em;
+    padding: 3px;
+  }
+
+  ion-spinner {
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    background: #ffffff94;
+    border-radius: 50%;
+    height: 23px;
+    width: 23px;
+  }
+}
+
+.re-identify-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  background: var(--ion-color-primary);
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+  padding: 0px 15px;
+
+  ion-icon {
+    margin-right: 15px;
+  }
+}
+
+.gallery-ai-message {
+  font-weight: 400;
+
+  b {
+    color: var(--ion-color-danger);
+    font-size: 1.1em;
+  }
+}

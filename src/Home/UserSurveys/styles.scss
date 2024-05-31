@@ -1,0 +1,90 @@
+#home-user-surveys {
+  .start-survey-icon {
+    background: var(--ion-color-primary);
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+    margin: 0 5px -7px 8px;
+  }
+
+  ion-header ion-toolbar {
+    --background: transparent;
+
+    ion-segment {
+      max-width: calc(
+        100% - 20px
+      ); // -20px to match the padding of the list below
+      margin: 8px auto;
+      z-index: 100000000;
+      border-radius: var(--theme-border-radius);
+      background: #fff;
+
+      box-shadow: -1px 2px 7px 0 #0000001a, 0 2px 9px 0 #3e396b1a;
+
+      &[value='map'] {
+        border-radius: var(--theme-border-radius);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      ion-badge {
+        display: inline;
+        vertical-align: top;
+        margin: 3px;
+        margin-left: 3px;
+      }
+
+      ion-label {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+    }
+
+    position: fixed;
+    color: var(--ion-color-main);
+  }
+
+  ion-content {
+    --padding-top: env(safe-area-inset-top) !important;
+    --overflow: hidden;
+
+    ion-list {
+      height: 100%;
+      width: calc(100% - 20px);
+      padding: 0 !important;
+      max-width: 600px; // ipad
+      margin: 0 auto;
+    }
+
+    .upload-all-button {
+      margin: 10px auto;
+      height: 35px !important;
+      display: block;
+      position: absolute;
+      right: 17px;
+      bottom: 0;
+      overflow: hidden;
+      border-radius: var(--theme-border-radius);
+      box-shadow: -1px 2px 7px 0 #0000001a, 0 2px 9px 0 #3e396b1a;
+
+      &.ios {
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  ion-item-divider {
+    padding: 0px 4px 0 12px;
+    background: #dcdae0 !important;
+    color: #080014;
+    border-radius: var(--theme-border-radius);
+  }
+}
+
+html.plt-tablet {
+  #surveys-list.ion-page ion-segment {
+    max-width: calc(600px - 20px);
+  }
+}

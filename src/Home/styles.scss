@@ -1,0 +1,28 @@
+ion-tab-bar {
+  padding: 3px 0;
+  border-top: 1px solid var(--ion-color-light-shade);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  contain: none;
+  padding-bottom: var(--ion-safe-area-bottom, 0);
+  --background: white;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+
+  ion-tab-button {
+    max-width: 20vw;
+    --padding-start: 3;
+    --padding-end: 3;
+
+    ion-icon {
+      --ionicon-stroke-width: 20px;
+    }
+
+    ion-label.md {
+      margin-bottom: 2px;
+    }
+  }
+}

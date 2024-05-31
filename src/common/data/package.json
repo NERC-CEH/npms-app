@@ -1,0 +1,9 @@
+{
+  "name": "data",
+  "type": "module",
+  "eslintConfig": {
+    "rules": {
+      "import/extensions": 0
+    }
+  }
+}

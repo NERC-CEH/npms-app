@@ -1,0 +1,118 @@
+#welcome {
+  .swiper {
+    height: 100%;
+
+    .swiper-slide {
+      flex-direction: column;
+      justify-content: end;
+
+      .with-shadow {
+        flex-grow: 1;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+
+        img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 1;
+          height: calc(100% - 11vw);
+          width: 100%;
+
+          &.shadow {
+            opacity: 0.5;
+            z-index: 0;
+            transform: translateX(0px);
+            transform: scale(1.23);
+            filter: blur(12px);
+            opacity: 0.4;
+          }
+        }
+      }
+
+      img {
+        flex-grow: 1;
+        object-fit: cover;
+        // https://wave.novoselski.net/
+        // Width: 509
+        // Height: 437
+        // Offset: 396
+        // Amplitude: 25
+        // Frequency: 0.9
+        // Phase (0-180º): 90
+        // Points generated: 50
+        // Invert clip: yes
+        clip-path: polygon(
+          100% 0%,
+          0% 0%,
+          0% 90.62%,
+          2% 89.97%,
+          4% 89.33%,
+          6% 88.71%,
+          8% 88.12%,
+          10% 87.55%,
+          12% 87.03%,
+          14% 86.55%,
+          16% 86.12%,
+          18% 85.75%,
+          20% 85.44%,
+          22% 85.2%,
+          24% 85.03%,
+          26% 84.93%,
+          28% 84.9%,
+          30% 84.94%,
+          32% 85.06%,
+          34% 85.25%,
+          36% 85.5%,
+          38% 85.83%,
+          40% 86.21%,
+          42% 86.65%,
+          44% 87.14%,
+          46% 87.67%,
+          48% 88.25%,
+          50% 88.85%,
+          52% 89.48%,
+          54% 90.12%,
+          56% 90.76%,
+          58% 91.41%,
+          60% 92.04%,
+          62% 92.66%,
+          64% 93.25%,
+          66% 93.8%,
+          68% 94.32%,
+          70% 94.79%,
+          72% 95.2%,
+          74% 95.56%,
+          76% 95.85%,
+          78% 96.08%,
+          80% 96.24%,
+          82% 96.32%,
+          84% 96.33%,
+          86% 96.27%,
+          88% 96.14%,
+          90% 95.94%,
+          92% 95.67%,
+          94% 95.33%,
+          96% 94.93%,
+          98% 94.48%,
+          100% 93.98%
+        );
+      }
+
+      .message {
+        padding: 0 24px;
+        text-align: left;
+      }
+    }
+  }
+
+  .swiper-pagination-bullet {
+    --swiper-pagination-bullet-size: 15px;
+    background-color: var(--ion-color-primary-tint);
+
+    &.swiper-pagination-bullet-active {
+      background-color: var(--ion-color-primary);
+    }
+  }
+}

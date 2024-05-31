@@ -1,186 +1,171 @@
 [
-  [0, 89, "Achillea", [[359741, 1, "millefolium", "Yarrow"]]],
-  [0, 89, "Aethusa", [[357722, 2, "cynapium", "Fool's Parsley"]]],
-  [0, 89, "Agrimonia", [[357731, 2, "eupatoria", "Agrimony"]]],
-  [0, 89, "Agrostis", [[357745, 2, "capillaris", "Common Bent"]]],
-  [0, 89, "Ajuga", [[359754, 1, "reptans", "Bugle"]]],
-  [0, 89, "Alchemilla", [[359764, 2, "alpina", "Alpine Lady's-mantle"]]],
-  [0, 89, "Alisma", [[359770, 2, "plantago-aquatica", "Water-plantain"]]],
-  [0, 89, "Allium", [[359777, 2, "ursinum", "Ramsons"]]],
-  [0, 89, "Alnus", [[359784, 2, "glutinosa", "Alder"]]],
+  [0, 89, "Achillea", [[359741, "millefolium", ["Yarrow"]]]],
+  [0, 89, "Aethusa", [[357722, "cynapium", ["Fool's Parsley"]]]],
+  [0, 89, "Agrimonia", [[357731, "eupatoria", ["Agrimony"]]]],
+  [0, 89, "Agrostis", [[357745, "capillaris", ["Common Bent"]]]],
+  [0, 89, "Ajuga", [[359754, "reptans", ["Bugle"]]]],
+  [0, 89, "Alchemilla", [[359764, "alpina", ["Alpine Lady's-mantle"]]]],
+  [0, 89, "Alisma", [[359770, "plantago-aquatica", ["Water-plantain"]]]],
+  [0, 89, "Allium", [[359777, "ursinum", ["Ramsons"]]]],
+  [0, 89, "Alnus", [[359784, "glutinosa", ["Alder"]]]],
   [
     0,
     89,
     "Alopecurus",
     [
-      [357753, 2, "geniculatus", "Marsh Foxtail"],
-      [357759, 2, "myosuroides", "Black-grass"]
+      [357753, "geniculatus", ["Marsh Foxtail"]],
+      [357759, "myosuroides", ["Black-grass"]]
     ]
   ],
-  [0, 89, "Ammophila", [[357771, 2, "arenaria", "Marram"]]],
+  [0, 89, "Ammophila", [[357771, "arenaria", ["Marram"]]]],
   [
     0,
     89,
     "Anagallis",
     [
-      [359794, 1, "arvensis", "Scarlet Pimpernel"],
-      [359809, 2, "tenella", "Bog Pimpernel"]
+      [359794, "arvensis", ["Scarlet Pimpernel"]],
+      [359809, "tenella", ["Bog Pimpernel"]]
     ]
   ],
-  [0, 89, "Anemone", [[359816, 1, "nemorosa", "Wood Anemone"]]],
-  [0, 89, "Angelica", [[359831, 2, "sylvestris", "Wild Angelica"]]],
+  [0, 89, "Anemone", [[359816, "nemorosa", ["Wood Anemone"]]]],
+  [0, 89, "Angelica", [[359831, "sylvestris", ["Wild Angelica"]]]],
   [
     0,
     89,
     "Antennaria",
-    [[359839, 2, "dioica", "Mountain Everlasting", "Common Catsfoot"]]
+    [[359839, "dioica", ["Mountain Everlasting", "Common Catsfoot"]]]
   ],
-  [0, 89, "Anthemis", [[357786, 2, "cotula", "Stinking Chamomile"]]],
-  [0, 89, "Anthoxanthum", [[357796, 2, "odoratum", "Sweet Vernal-grass"]]],
-  [0, 89, "Anthriscus", [[359855, 1, "sylvestris", "Cow Parsley"]]],
-  [0, 89, "Anthyllis", [[359867, 2, "vulneraria", "Kidney Vetch"]]],
+  [0, 89, "Anthemis", [[357786, "cotula", ["Stinking Chamomile"]]]],
+  [0, 89, "Anthoxanthum", [[357796, "odoratum", ["Sweet Vernal-grass"]]]],
+  [0, 89, "Anthriscus", [[359855, "sylvestris", ["Cow Parsley"]]]],
+  [0, 89, "Anthyllis", [[359867, "vulneraria", ["Kidney Vetch"]]]],
   [
     0,
     89,
     "Apium",
     [
-      [359886, 2, "graveolens", "Wild Celery"],
-      [357815, 2, "nodiflorum", "Fool's-water-cress"]
+      [359886, "graveolens", ["Wild Celery"]],
+      [357815, "nodiflorum", ["Fool's-water-cress"]]
     ]
   ],
-  [0, 89, "Arabis", [[357822, 2, "hirsuta", "Hairy Rock-cress"]]],
-  [0, 89, "Arctium", [[368681, 2, "minus/nemorosum"]]],
-  [0, 89, "Arctostaphylos", [[357837, 2, "uva-ursi", "Bearberry"]]],
-  [0, 89, "Armeria", [[359901, 1, "maritima"]]],
-  [
-    0,
-    89,
-    "Arum",
-    [[359903, 1, "maculatum", "Lords-and-Ladies", "Cuckoo Pint"]]
-  ],
+  [0, 89, "Arabis", [[357822, "hirsuta", ["Hairy Rock-cress"]]]],
+  [0, 89, "Arctium", [[368681, "minus/nemorosum"]]],
+  [0, 89, "Arctostaphylos", [[357837, "uva-ursi", ["Bearberry"]]]],
+  [0, 89, "Armeria", [[359901, "maritima"]]],
+  [0, 89, "Arum", [[359903, "maculatum", ["Lords-and-Ladies", "Cuckoo Pint"]]]],
   [
     0,
     87,
     "Asplenium",
     [
-      [357843, 2, "ruta-muraria", "Wall-rue"],
-      [359920, 2, "trichomanes", "Maidenhair Spleenwort"]
+      [357843, "ruta-muraria", ["Wall-rue"]],
+      [359920, "trichomanes", ["Maidenhair Spleenwort"]]
     ]
   ],
-  [0, 89, "Aster", [[359926, 3, "tripolium", "Sea Aster"]]],
+  [0, 89, "Aster", [[359926, "tripolium", ["Sea Aster"]]]],
   [
     364651,
     89,
     "Atriplex",
-    "Orache",
-    [[357856, 2, "portulacoides", "Sea-purslane"]]
+    [[357856, "portulacoides", ["Sea-purslane"]]],
+    ["Orache"]
   ],
-  [0, 87, "Azolla", [[357867, 2, "filiculoides", "Water Fern"]]],
-  [0, 89, "Bellis", [[359935, 1, "perennis", "Daisy"]]],
-  [0, 89, "Berula", [[357875, 2, "erecta", "Lesser Water-parsnip"]]],
-  [0, 89, "Beta", [[359944, 2, "vulgaris", "Beet"]]],
-  [0, 89, "Betula", [[368684, 4, "pubescens/pendula"]]],
-  [0, 89, "Bidens", [[357887, 2, "tripartita", "Trifid Bur-marigold"]]],
+  [0, 87, "Azolla", [[357867, "filiculoides", ["Water Fern"]]]],
+  [0, 89, "Bellis", [[359935, "perennis", ["Daisy"]]]],
+  [0, 89, "Berula", [[357875, "erecta", ["Lesser Water-parsnip"]]]],
+  [0, 89, "Beta", [[359944, "vulgaris", ["Beet"]]]],
+  [0, 89, "Betula", [[368684, "pubescens/pendula"]]],
+  [0, 89, "Bidens", [[357887, "tripartita", ["Trifid Bur-marigold"]]]],
   [
     0,
     89,
     "Blackstonia",
-    [[359949, 2, "perfoliata", "Yellow-wort", "Yellow-Wort"]]
+    [[359949, "perfoliata", ["Yellow-wort", "Yellow-Wort"]]]
   ],
-  [0, 87, "Blechnum", [[359957, 2, "spicant", "Hard-fern", "Hard Fern"]]],
-  [0, 89, "Brachypodium", [[368922, 4, "pinnatum s.l."]]],
-  [0, 89, "Briza", [[359972, 2, "media", "Quaking-grass", "Quaking-Grass"]]],
-  [0, 89, "Bromopsis", [[357896, 2, "erecta", "Upright Brome"]]],
-  [0, 89, "Bromus", [[357906, 2, "hordeaceus", "Soft-brome"]]],
-  [0, 89, "Buddleja", [[359985, 1, "davidii", "Butterfly-bush", "Buddleia"]]],
-  [0, 89, "Butomus", [[357914, 2, "umbellatus", "Flowering-rush"]]],
-  [0, 89, "Calluna", [[359993, 1, "vulgaris", "Heather", "Ling"]]],
+  [0, 87, "Blechnum", [[359957, "spicant", ["Hard-fern", "Hard Fern"]]]],
+  [0, 89, "Brachypodium", [[368922, "pinnatum s.l."]]],
+  [0, 89, "Briza", [[359972, "media", ["Quaking-grass", "Quaking-Grass"]]]],
+  [0, 89, "Bromopsis", [[357896, "erecta", ["Upright Brome"]]]],
+  [0, 89, "Bromus", [[357906, "hordeaceus", ["Soft-brome"]]]],
+  [0, 89, "Buddleja", [[359985, "davidii", ["Butterfly-bush", "Buddleia"]]]],
+  [0, 89, "Butomus", [[357914, "umbellatus", ["Flowering-rush"]]]],
+  [0, 89, "Calluna", [[359993, "vulgaris", ["Heather", "Ling"]]]],
   [
     0,
     89,
     "Caltha",
-    [[360012, 1, "palustris", "Marsh-marigold", "Marsh Marigold"]]
+    [[360012, "palustris", ["Marsh-marigold", "Marsh Marigold"]]]
   ],
-  [0, 89, "Calystegia", [[360042, 4, "sepium s.l."]]],
+  [0, 89, "Calystegia", [[360042, "sepium s.l."]]],
   [
     0,
     89,
     "Campanula",
     [
-      [360044, 2, "glomerata", "Clustered Bellflower"],
-      [357920, 2, "latifolia", "Giant Bellflower"],
-      [360050, 2, "rotundifolia", "Harebell", "Harebell / Bluebell"],
-      [357928, 2, "trachelium", "Nettle-leaved Bellflower"]
+      [360044, "glomerata", ["Clustered Bellflower"]],
+      [357920, "latifolia", ["Giant Bellflower"]],
+      [360050, "rotundifolia", ["Harebell", "Harebell / Bluebell"]],
+      [357928, "trachelium", ["Nettle-leaved Bellflower"]]
     ]
   ],
   [
     0,
     89,
     "Capsella",
-    [[360069, 1, "bursa-pastoris", "Shepherd's-purse", "Shepherd's-Purse"]]
+    [[360069, "bursa-pastoris", ["Shepherd's-purse", "Shepherd's-Purse"]]]
   ],
-  [
-    0,
-    89,
-    "Cardamine",
-    [[360086, 1, "pratensis", "Cuckooflower", "Milk-Maids"]]
-  ],
-  [0, 89, "Carduus", [[357937, 2, "nutans", "Musk Thistle"]]],
+  [0, 89, "Cardamine", [[360086, "pratensis", ["Cuckooflower", "Milk-Maids"]]]],
+  [0, 89, "Carduus", [[357937, "nutans", ["Musk Thistle"]]]],
   [
     0,
     89,
     "Carex",
     [
-      [357944, 2, "arenaria", "Sand Sedge"],
-      [357952, 2, "bigelowii", "Stiff Sedge"],
-      [368739, 2, "echinata", "Star Sedge"],
-      [357962, 2, "flacca", "Glaucous Sedge"],
-      [357970, 2, "limosa", "Bog-sedge"],
-      [357977, 2, "nigra", "Common Sedge"],
-      [357989, 2, "otrubae", "False Fox-sedge"],
-      [358000, 2, "panicea", "Carnation Sedge"],
-      [360122, 2, "paniculata", "Greater Tussock-sedge", "Panicled Sedge"],
-      [360129, 2, "pendula", "Pendulous Sedge", "Pendulus Sedge"],
-      [358005, 2, "pulicaris", "Flea Sedge"],
-      [358011, 2, "remota", "Remote Sedge"],
-      [358016, 2, "rostrata", "Bottle Sedge"],
-      [358026, 2, "sylvatica", "Wood-sedge"]
+      [357944, "arenaria", ["Sand Sedge"]],
+      [357952, "bigelowii", ["Stiff Sedge"]],
+      [368739, "echinata", ["Star Sedge"]],
+      [357962, "flacca", ["Glaucous Sedge"]],
+      [357970, "limosa", ["Bog-sedge"]],
+      [357977, "nigra", ["Common Sedge"]],
+      [357989, "otrubae", ["False Fox-sedge"]],
+      [358000, "panicea", ["Carnation Sedge"]],
+      [360122, "paniculata", ["Greater Tussock-sedge", "Panicled Sedge"]],
+      [360129, "pendula", ["Pendulous Sedge", "Pendulus Sedge"]],
+      [358005, "pulicaris", ["Flea Sedge"]],
+      [358011, "remota", ["Remote Sedge"]],
+      [358016, "rostrata", ["Bottle Sedge"]],
+      [358026, "sylvatica", ["Wood-sedge"]]
     ]
   ],
-  [0, 89, "Carlina", [[358034, 2, "vulgaris", "Carline Thistle"]]],
-  [
-    0,
-    89,
-    "Carpobrotus",
-    [[364658, 2, "edulis", "Hottentot-fig", "Kaffir Fig"]]
-  ],
-  [0, 89, "Centaurea", [[360137, 2, "scabiosa", "Greater Knapweed"]]],
-  [0, 89, "Centranthus", [[360152, 2, "ruber", "Red Valerian"]]],
+  [0, 89, "Carlina", [[358034, "vulgaris", ["Carline Thistle"]]]],
+  [0, 89, "Carpobrotus", [[364658, "edulis", ["Hottentot-fig", "Kaffir Fig"]]]],
+  [0, 89, "Centaurea", [[360137, "scabiosa", ["Greater Knapweed"]]]],
+  [0, 89, "Centranthus", [[360152, "ruber", ["Red Valerian"]]]],
   [
     0,
     89,
     "Cerastium",
     [
-      [358043, 2, "arvense", "Field Mouse-ear"],
-      [360157, 2, "fontanum", "Common Mouse-ear", "Common Mouse-Ear"],
-      [358050, 2, "glomeratum", "Sticky Mouse-ear"]
+      [358043, "arvense", ["Field Mouse-ear"]],
+      [360157, "fontanum", ["Common Mouse-ear", "Common Mouse-Ear"]],
+      [358050, "glomeratum", ["Sticky Mouse-ear"]]
     ]
   ],
-  [0, 89, "Ceratocapnos", [[360173, 2, "claviculata", "Climbing Corydalis"]]],
+  [0, 89, "Ceratocapnos", [[360173, "claviculata", ["Climbing Corydalis"]]]],
   [
     0,
     87,
     "Ceterach",
-    [[360182, 4, "officinarum", "Rustyback", "Rusty-Back Fern"]]
+    [[360182, "officinarum", ["Rustyback", "Rusty-Back Fern"]]]
   ],
-  [0, 89, "Chaenorhinum", [[358062, 2, "minus", "Small Toadflax"]]],
-  [0, 89, "Chaerophyllum", [[358069, 2, "temulum", "Rough Chervil"]]],
-  [0, 89, "Chenopodium", [[360205, 2, "album"]]],
+  [0, 89, "Chaenorhinum", [[358062, "minus", ["Small Toadflax"]]]],
+  [0, 89, "Chaerophyllum", [[358069, "temulum", ["Rough Chervil"]]]],
+  [0, 89, "Chenopodium", [[360205, "album"]]],
   [
     0,
     89,
     "Chrysosplenium",
-    [[360210, 2, "oppositifolium", "Opposite-leaved Golden-saxifrage"]]
+    [[360210, "oppositifolium", ["Opposite-leaved Golden-saxifrage"]]]
   ],
   [
     0,
@@ -189,10 +174,8 @@
     [
       [
         360218,
-        2,
         "lutetiana",
-        "Enchanter's-nightshade",
-        "Common Enchanter's Nightshade"
+        ["Enchanter's-nightshade", "Common Enchanter's Nightshade"]
       ]
     ]
   ],
@@ -201,101 +184,96 @@
     89,
     "Cirsium",
     [
-      [360234, 2, "acaule", "Dwarf Thistle", "Stemless Thistle"],
-      [360244, 1, "arvense", "Creeping Thistle"],
-      [358075, 2, "dissectum", "Meadow Thistle"],
-      [358087, 2, "heterophyllum", "Melancholy Thistle"],
-      [360258, 2, "palustre", "Marsh Thistle"],
-      [360267, 1, "vulgare", "Spear Thistle"]
+      [360234, "acaule", ["Dwarf Thistle", "Stemless Thistle"]],
+      [360244, "arvense", ["Creeping Thistle"]],
+      [358075, "dissectum", ["Meadow Thistle"]],
+      [358087, "heterophyllum", ["Melancholy Thistle"]],
+      [360258, "palustre", ["Marsh Thistle"]],
+      [360267, "vulgare", ["Spear Thistle"]]
     ]
   ],
   [
     0,
     89,
     "Clematis",
-    [[360286, 1, "vitalba", "Traveller's-joy", "Old Man's Beard"]]
+    [[360286, "vitalba", ["Traveller's-joy", "Old Man's Beard"]]]
   ],
-  [0, 89, "Clinopodium", [[358098, 2, "acinos", "Basil Thyme"]]],
-  [0, 89, "Coeloglossum", [[358107, 2, "viride"]]],
+  [0, 89, "Clinopodium", [[358098, "acinos", ["Basil Thyme"]]]],
+  [0, 89, "Coeloglossum", [[358107, "viride"]]],
   [
     0,
     89,
     "Colchicum",
-    [[360302, 2, "autumnale", "Meadow Saffron", "Naked Ladies"]]
+    [[360302, "autumnale", ["Meadow Saffron", "Naked Ladies"]]]
   ],
-  [0, 89, "Conopodium", [[358118, 2, "majus", "Pignut"]]],
-  [0, 89, "Cornus", [[358135, 2, "sanguinea", "Dogwood"]]],
-  [0, 89, "Corylus", [[360309, 1, "avellana", "Hazel"]]],
-  [0, 89, "Crambe", [[360318, 2, "maritima", "Sea-kale", "Sea Kale"]]],
-  [0, 89, "Crassula", [[358149, 2, "helmsii", "New Zealand Pigmyweed"]]],
-  [0, 89, "Crataegus", [[360328, 1, "monogyna", "Hawthorn"]]],
-  [0, 89, "Crepis", [[358158, 2, "paludosa", "Marsh Hawk's-beard"]]],
-  [0, 89, "Crithmum", [[360349, 2, "maritimum", "Rock Samphire"]]],
-  [0, 89, "Cruciata", [[360357, 2, "laevipes", "Crosswort", "Maywort"]]],
-  [0, 87, "Cryptogramma", [[360369, 2, "crispa", "Parsley Fern"]]],
-  [0, 89, "Cuscuta", [[360388, 2, "epithymum", "Dodder", "Lesser Dodder"]]],
-  [0, 89, "Cynoglossum", [[358165, 2, "officinale", "Hound's-tongue"]]],
+  [0, 89, "Conopodium", [[358118, "majus", ["Pignut"]]]],
+  [0, 89, "Cornus", [[358135, "sanguinea", ["Dogwood"]]]],
+  [0, 89, "Corylus", [[360309, "avellana", ["Hazel"]]]],
+  [0, 89, "Crambe", [[360318, "maritima", ["Sea-kale", "Sea Kale"]]]],
+  [0, 89, "Crassula", [[358149, "helmsii", ["New Zealand Pigmyweed"]]]],
+  [0, 89, "Crataegus", [[360328, "monogyna", ["Hawthorn"]]]],
+  [0, 89, "Crepis", [[358158, "paludosa", ["Marsh Hawk's-beard"]]]],
+  [0, 89, "Crithmum", [[360349, "maritimum", ["Rock Samphire"]]]],
+  [0, 89, "Cruciata", [[360357, "laevipes", ["Crosswort", "Maywort"]]]],
+  [0, 87, "Cryptogramma", [[360369, "crispa", ["Parsley Fern"]]]],
+  [0, 89, "Cuscuta", [[360388, "epithymum", ["Dodder", "Lesser Dodder"]]]],
+  [0, 89, "Cynoglossum", [[358165, "officinale", ["Hound's-tongue"]]]],
   [
     0,
     89,
     "Cynosurus",
-    [[360399, 2, "cristatus", "Crested Dog's-tail", "Crested Dog's-Tail"]]
+    [[360399, "cristatus", ["Crested Dog's-tail", "Crested Dog's-Tail"]]]
   ],
-  [0, 87, "Cystopteris", [[368944, 2, "fragilis", "Brittle Bladder-fern"]]],
-  [0, 89, "Cytisus", [[358190, 2, "scoparius", "Broom"]]],
+  [0, 87, "Cystopteris", [[368944, "fragilis", ["Brittle Bladder-fern"]]]],
+  [0, 89, "Cytisus", [[358190, "scoparius", ["Broom"]]]],
   [
     0,
     89,
     "Dactylorhiza",
     [
-      [358205, 2, "fuchsii", "Common Spotted-orchid"],
-      [358257, 2, "maculata", "Heath Spotted-orchid"],
-      [358269, 2, "praetermissa", "Southern Marsh-orchid"]
+      [358205, "fuchsii", ["Common Spotted-orchid"]],
+      [358257, "maculata", ["Heath Spotted-orchid"]],
+      [358269, "praetermissa", ["Southern Marsh-orchid"]]
     ]
   ],
-  [0, 89, "Daphne", [[358290, 2, "laureola", "Spurge-laurel"]]],
-  [0, 89, "Daucus", [[358297, 2, "carota", "Wild Carrot"]]],
+  [0, 89, "Daphne", [[358290, "laureola", ["Spurge-laurel"]]]],
+  [0, 89, "Daucus", [[358297, "carota", ["Wild Carrot"]]]],
   [
     0,
     89,
     "Deschampsia",
     [
-      [360406, 2, "cespitosa", "Tufted Hair-grass", "Tufted Hair-Grass"],
-      [358307, 2, "flexuosa", "Wavy Hair-grass"]
+      [360406, "cespitosa", ["Tufted Hair-grass", "Tufted Hair-Grass"]],
+      [358307, "flexuosa", ["Wavy Hair-grass"]]
     ]
   ],
-  [0, 89, "Digitalis", [[360417, 1, "purpurea", "Foxglove"]]],
-  [0, 89, "Dioscorea", [[369555, 2, "communis", "Black Bryony"]]],
-  [0, 78, "Diphasiastrum", [[358316, 2, "alpinum", "Alpine Clubmoss"]]],
-  [0, 89, "Dipsacus", [[360437, 4, "fullonum s.l."]]],
+  [0, 89, "Digitalis", [[360417, "purpurea", ["Foxglove"]]]],
+  [0, 89, "Dioscorea", [[369555, "communis", ["Black Bryony"]]]],
+  [0, 78, "Diphasiastrum", [[358316, "alpinum", ["Alpine Clubmoss"]]]],
+  [0, 89, "Dipsacus", [[360437, "fullonum s.l."]]],
   [
     0,
     89,
     "Drosera",
     [
-      [358332, 2, "anglica", "Great Sundew"],
-      [358336, 2, "intermedia", "Oblong-leaved Sundew"],
-      [360439, 2, "rotundifolia", "Round-leaved Sundew", "Round-Leaved Sundew"]
+      [358332, "anglica", ["Great Sundew"]],
+      [358336, "intermedia", ["Oblong-leaved Sundew"]],
+      [360439, "rotundifolia", ["Round-leaved Sundew", "Round-Leaved Sundew"]]
     ]
   ],
-  [
-    0,
-    89,
-    "Eleocharis",
-    [[358344, 2, "multicaulis", "Many-stalked Spike-rush"]]
-  ],
-  [0, 89, "Elodea", [[368685, 4, "canadensis/nutallii"]]],
-  [0, 89, "Elytrigia", [[358354, 2, "atherica", "Sea Couch"]]],
-  [0, 89, "Empetrum", [[360454, 2, "nigrum", "Crowberry agg."]]],
-  [0, 89, "Epilobium", [[360458, 2, "hirsutum", "Great Willowherb"]]],
+  [0, 89, "Eleocharis", [[358344, "multicaulis", ["Many-stalked Spike-rush"]]]],
+  [0, 89, "Elodea", [[368685, "canadensis/nutallii"]]],
+  [0, 89, "Elytrigia", [[358354, "atherica", ["Sea Couch"]]]],
+  [0, 89, "Empetrum", [[360454, "nigrum", ["Crowberry agg."]]]],
+  [0, 89, "Epilobium", [[360458, "hirsutum", ["Great Willowherb"]]]],
   [
     0,
     99,
     "Equisetum",
     [
-      [358377, 1, "arvense", "Field Horsetail"],
-      [368709, 2, "fluviatile", "Water Horsetail"],
-      [358389, 2, "palustre", "Marsh Horsetail"]
+      [358377, "arvense", ["Field Horsetail"]],
+      [368709, "fluviatile", ["Water Horsetail"]],
+      [358389, "palustre", ["Marsh Horsetail"]]
     ]
   ],
   [
@@ -303,8 +281,8 @@
     89,
     "Erica",
     [
-      [360465, 2, "cinerea", "Bell Heather", "Bell-Heather"],
-      [360476, 2, "tetralix", "Cross-leaved Heath"]
+      [360465, "cinerea", ["Bell Heather", "Bell-Heather"]],
+      [360476, "tetralix", ["Cross-leaved Heath"]]
     ]
   ],
   [
@@ -312,46 +290,46 @@
     89,
     "Eriophorum",
     [
-      [358400, 2, "angustifolium", "Common Cottongrass"],
-      [358412, 2, "vaginatum", "Hare's-tail Cottongrass"]
+      [358400, "angustifolium", ["Common Cottongrass"]],
+      [358412, "vaginatum", ["Hare's-tail Cottongrass"]]
     ]
   ],
-  [0, 89, "Euonymus", [[358429, 1, "europaeus", "Spindle"]]],
+  [0, 89, "Euonymus", [[358429, "europaeus", ["Spindle"]]]],
   [
     0,
     89,
     "Euphorbia",
     [
-      [360482, 2, "amygdaloides", "Wood Spurge"],
-      [358440, 2, "exigua", "Dwarf Spurge"],
-      [360489, 2, "helioscopia", "Sun Spurge"]
+      [360482, "amygdaloides", ["Wood Spurge"]],
+      [358440, "exigua", ["Dwarf Spurge"]],
+      [360489, "helioscopia", ["Sun Spurge"]]
     ]
   ],
-  [0, 89, "Filago", [[358445, 2, "minima", "Small Cudweed"]]],
+  [0, 89, "Filago", [[358445, "minima", ["Small Cudweed"]]]],
   [
     0,
     89,
     "Filipendula",
     [
-      [360499, 1, "ulmaria", "Meadowsweet"],
-      [360518, 2, "vulgaris", "Dropwort"]
+      [360499, "ulmaria", ["Meadowsweet"]],
+      [360518, "vulgaris", ["Dropwort"]]
     ]
   ],
-  [0, 89, "Fragaria", [[360526, 2, "vesca", "Wild Strawberry"]]],
-  [364719, 89, "Fumaria", "Fumitory"],
+  [0, 89, "Fragaria", [[360526, "vesca", ["Wild Strawberry"]]]],
+  [364719, 89, "Fumaria", [], ["Fumitory"]],
   [
     0,
     89,
     "Galium",
     [
-      [360542, 1, "aparine", "Cleavers", "Goosegrass"],
-      [358453, 2, "boreale", "Northern Bedstraw"],
-      [360563, 4, "mollugo", "Hedge Bedstraw"],
-      [360570, 2, "odoratum", "Woodruff", "Sweet Woodruff"],
-      [358462, 2, "palustre", "Marsh-bedstraw"],
-      [360583, 2, "saxatile", "Heath Bedstraw"],
-      [358473, 2, "sterneri", "Limestone Bedstraw"],
-      [360593, 2, "verum", "Lady's Bedstraw"]
+      [360542, "aparine", ["Cleavers", "Goosegrass"]],
+      [358453, "boreale", ["Northern Bedstraw"]],
+      [360563, "mollugo", ["Hedge Bedstraw"]],
+      [360570, "odoratum", ["Woodruff", "Sweet Woodruff"]],
+      [358462, "palustre", ["Marsh-bedstraw"]],
+      [360583, "saxatile", ["Heath Bedstraw"]],
+      [358473, "sterneri", ["Limestone Bedstraw"]],
+      [360593, "verum", ["Lady's Bedstraw"]]
     ]
   ],
   [
@@ -359,116 +337,116 @@
     89,
     "Genista",
     [
-      [358479, 2, "anglica", "Petty Whin"],
-      [358490, 2, "tinctoria", "Dyer's Greenweed"]
+      [358479, "anglica", ["Petty Whin"]],
+      [358490, "tinctoria", ["Dyer's Greenweed"]]
     ]
   ],
-  [0, 89, "Gentianella", [[358508, 2, "amarella", "Autumn Gentian"]]],
+  [0, 89, "Gentianella", [[358508, "amarella", ["Autumn Gentian"]]]],
   [
     0,
     89,
     "Geranium",
     [
-      [360605, 1, "robertianum", "Herb-Robert", "Herb Robert"],
-      [358516, 2, "sanguineum", "Bloody Crane's-bill"],
-      [358524, 2, "sylvaticum", "Wood Crane's-bill"]
+      [360605, "robertianum", ["Herb-Robert", "Herb Robert"]],
+      [358516, "sanguineum", ["Bloody Crane's-bill"]],
+      [358524, "sylvaticum", ["Wood Crane's-bill"]]
     ]
   ],
-  [0, 89, "Geum", [[360623, 1, "urbanum", "Herb Bennet", "Wood Avens"]]],
+  [0, 89, "Geum", [[360623, "urbanum", ["Herb Bennet", "Wood Avens"]]]],
   [
     0,
     89,
     "Glaucium",
-    [[360639, 2, "flavum", "Yellow Horned-poppy", "Yellow Horned Poppy"]]
+    [[360639, "flavum", ["Yellow Horned-poppy", "Yellow Horned Poppy"]]]
   ],
-  [0, 89, "Glaux", [[358539, 2, "maritima", "Sea-milkwort"]]],
-  [0, 89, "Glebionis", [[368724, 4, "segetum", "Corn Marigold"]]],
-  [0, 89, "Glechoma", [[360650, 1, "hederacea", "Ground-ivy", "Ground-Ivy"]]],
-  [0, 89, "Glyceria", [[358541, 2, "maxima", "Reed Sweet-grass"]]],
-  [0, 89, "Gymnadenia", [[358553, 2, "conopsea", "Fragrant Orchid"]]],
-  [0, 87, "Gymnocarpium", [[358565, 2, "dryopteris", "Oak Fern"]]],
-  [0, 89, "Hedera", [[360658, 1, "helix", "Ivy"]]],
+  [0, 89, "Glaux", [[358539, "maritima", ["Sea-milkwort"]]]],
+  [0, 89, "Glebionis", [[368724, "segetum", ["Corn Marigold"]]]],
+  [0, 89, "Glechoma", [[360650, "hederacea", ["Ground-ivy", "Ground-Ivy"]]]],
+  [0, 89, "Glyceria", [[358541, "maxima", ["Reed Sweet-grass"]]]],
+  [0, 89, "Gymnadenia", [[358553, "conopsea", ["Fragrant Orchid"]]]],
+  [0, 87, "Gymnocarpium", [[358565, "dryopteris", ["Oak Fern"]]]],
+  [0, 89, "Hedera", [[360658, "helix", ["Ivy"]]]],
   [
     0,
     89,
     "Helianthemum",
-    [[360663, 2, "nummularium", "Common Rock-rose", "Common Rock-Rose"]]
+    [[360663, "nummularium", ["Common Rock-rose", "Common Rock-Rose"]]]
   ],
-  [0, 89, "Helictotrichon", [[358591, 4, "pratense", "Meadow Oat-grass"]]],
+  [0, 89, "Helictotrichon", [[358591, "pratense", ["Meadow Oat-grass"]]]],
   [
     0,
     89,
     "Heracleum",
     [
-      [358604, 2, "mantegazzianum", "Giant Hogweed"],
-      [360682, 1, "sphondylium", "Hogweed", "Cow Parsnip"]
+      [358604, "mantegazzianum", ["Giant Hogweed"]],
+      [360682, "sphondylium", ["Hogweed", "Cow Parsnip"]]
     ]
   ],
-  [0, 89, "Hippocrepis", [[360700, 2, "comosa", "Horseshoe Vetch"]]],
-  [0, 89, "Hippuris", [[360710, 2, "vulgaris", "Mare's-tail", "Mare's-Tail"]]],
-  [0, 89, "Holcus", [[358608, 2, "lanatus", "Yorkshire-fog"]]],
-  [0, 89, "Honckenya", [[358618, 2, "peploides", "Sea Sandwort"]]],
-  [0, 89, "Hordeum", [[358625, 2, "secalinum", "Meadow Barley"]]],
-  [0, 89, "Hottonia", [[358639, 2, "palustris", "Water-violet"]]],
-  [0, 78, "Huperzia", [[358647, 2, "selago", "Fir Clubmoss"]]],
+  [0, 89, "Hippocrepis", [[360700, "comosa", ["Horseshoe Vetch"]]]],
+  [0, 89, "Hippuris", [[360710, "vulgaris", ["Mare's-tail", "Mare's-Tail"]]]],
+  [0, 89, "Holcus", [[358608, "lanatus", ["Yorkshire-fog"]]]],
+  [0, 89, "Honckenya", [[358618, "peploides", ["Sea Sandwort"]]]],
+  [0, 89, "Hordeum", [[358625, "secalinum", ["Meadow Barley"]]]],
+  [0, 89, "Hottonia", [[358639, "palustris", ["Water-violet"]]]],
+  [0, 78, "Huperzia", [[358647, "selago", ["Fir Clubmoss"]]]],
   [
     0,
     89,
     "Hyacinthoides",
-    [[360717, 1, "non-scripta", "Bluebell", "Wild Hyacinth"]]
+    [[360717, "non-scripta", ["Bluebell", "Wild Hyacinth"]]]
   ],
-  [0, 89, "Hydrocharis", [[360728, 2, "morsus-ranae", "Frogbit"]]],
-  [0, 89, "Hydrocotyle", [[360731, 2, "vulgaris", "Marsh Pennywort"]]],
+  [0, 89, "Hydrocharis", [[360728, "morsus-ranae", ["Frogbit"]]]],
+  [0, 89, "Hydrocotyle", [[360731, "vulgaris", ["Marsh Pennywort"]]]],
   [
     0,
     89,
     "Hypericum",
     [
-      [358663, 2, "elodes", "Marsh St John's-wort"],
-      [358668, 2, "tetrapterum", "Square-stalked St John's-wort"]
+      [358663, "elodes", ["Marsh St John's-wort"]],
+      [358668, "tetrapterum", ["Square-stalked St John's-wort"]]
     ]
   ],
-  [0, 89, "Hypochaeris", [[358681, 2, "radicata", "Cat's-ear"]]],
-  [0, 89, "Ilex", [[360748, 1, "aquifolium", "Holly"]]],
+  [0, 89, "Hypochaeris", [[358681, "radicata", ["Cat's-ear"]]]],
+  [0, 89, "Ilex", [[360748, "aquifolium", ["Holly"]]]],
   [
     0,
     89,
     "Impatiens",
-    [[360756, 1, "glandulifera", "Indian Balsam", "Policeman's Helmet"]]
+    [[360756, "glandulifera", ["Indian Balsam", "Policeman's Helmet"]]]
   ],
-  [0, 89, "Inula", [[358691, 2, "conyzae", "Ploughman's-spikenard"]]],
-  [0, 89, "Iris", [[360766, 2, "pseudacorus", "Yellow Iris", "Flag Iris"]]],
-  [0, 89, "Jasione", [[358706, 2, "montana", "Sheep's-bit"]]],
+  [0, 89, "Inula", [[358691, "conyzae", ["Ploughman's-spikenard"]]]],
+  [0, 89, "Iris", [[360766, "pseudacorus", ["Yellow Iris", "Flag Iris"]]]],
+  [0, 89, "Jasione", [[358706, "montana", ["Sheep's-bit"]]]],
   [
     0,
     89,
     "Juncus",
     [
-      [358714, 2, "gerardii", "Saltmarsh Rush"],
-      [368690, 4, "inflexus/effusus/conglomeratus"],
-      [358720, 2, "squarrosus", "Heath Rush"]
+      [358714, "gerardii", ["Saltmarsh Rush"]],
+      [368690, "inflexus/effusus/conglomeratus"],
+      [358720, "squarrosus", ["Heath Rush"]]
     ]
   ],
-  [0, 81, "Juniperus", [[360785, 2, "communis", "Juniper"]]],
+  [0, 81, "Juniperus", [[360785, "communis", ["Juniper"]]]],
   [
     0,
     89,
     "Kickxia",
     [
-      [360800, 2, "elatine", "Sharp-leaved Fluellen", "Sharp-Leaved Fluellen"],
-      [358727, 2, "spuria", "Round-leaved Fluellen"]
+      [360800, "elatine", ["Sharp-leaved Fluellen", "Sharp-Leaved Fluellen"]],
+      [358727, "spuria", ["Round-leaved Fluellen"]]
     ]
   ],
-  [0, 89, "Knautia", [[358737, 2, "arvensis", "Field Scabious"]]],
-  [0, 89, "Lactuca", [[358750, 2, "serriola", "Prickly Lettuce"]]],
-  [0, 89, "Lamiastrum", [[360820, 2, "galeobdolon", "Yellow Archangel"]]],
+  [0, 89, "Knautia", [[358737, "arvensis", ["Field Scabious"]]]],
+  [0, 89, "Lactuca", [[358750, "serriola", ["Prickly Lettuce"]]]],
+  [0, 89, "Lamiastrum", [[360820, "galeobdolon", ["Yellow Archangel"]]]],
   [
     0,
     89,
     "Lamium",
     [
-      [358757, 2, "amplexicaule", "Hen-Bit Dead-Nettle"],
-      [360809, 2, "galeobdolon", "Yellow Archangel", "Yellow Dead-Nettle"]
+      [358757, "amplexicaule", ["Hen-Bit Dead-Nettle"]],
+      [360809, "galeobdolon", ["Yellow Archangel", "Yellow Dead-Nettle"]]
     ]
   ],
   [
@@ -476,8 +454,8 @@
     89,
     "Lathyrus",
     [
-      [358767, 2, "linifolius", "Bitter-vetch"],
-      [360825, 2, "pratensis", "Meadow Vetchling"]
+      [358767, "linifolius", ["Bitter-vetch"]],
+      [360825, "pratensis", ["Meadow Vetchling"]]
     ]
   ],
   [
@@ -485,36 +463,33 @@
     89,
     "Lemna",
     [
-      [358785, 2, "gibba", "Fat Duckweed"],
-      [360835, 2, "trisulca", "Ivy-leaved Duckweed"]
+      [358785, "gibba", ["Fat Duckweed"]],
+      [360835, "trisulca", ["Ivy-leaved Duckweed"]]
     ]
   ],
   [
     0,
     89,
     "Leucanthemum",
-    [[360845, 2, "vulgare", "Oxeye Daisy", "Ox-eye Daisy"]]
+    [[360845, "vulgare", ["Oxeye Daisy", "Ox-eye Daisy"]]]
   ],
-  [0, 89, "Ligusticum", [[358791, 2, "scoticum", "Scottish Lovage"]]],
-  [473255, 89, "Limonium", "Rock sea-lavander", "Statice"],
-  [364694, 89, "Limonium", "Rock sea-lavander", "Sea-Lavender"],
-  [0, 89, "Linum", [[360854, 2, "catharticum", "Fairy Flax", "Purging Flax"]]],
-  [0, 89, "Listera", [[358800, 4, "cordata", "Lesser Twayblade"]]],
-  [0, 89, "Littorella", [[360860, 2, "uniflora", "Shoreweed"]]],
-  [0, 89, "Lobelia", [[358809, 2, "dortmanna", "Water Lobelia"]]],
-  [0, 89, "Lonicera", [[360868, 2, "periclymenum", "Honeysuckle"]]],
+  [0, 89, "Ligusticum", [[358791, "scoticum", ["Scottish Lovage"]]]],
+  [473255, 89, "Limonium", [], ["Rock sea-lavander", "Statice"]],
+  [0, 89, "Linum", [[360854, "catharticum", ["Fairy Flax", "Purging Flax"]]]],
+  [0, 89, "Listera", [[358800, "cordata", ["Lesser Twayblade"]]]],
+  [0, 89, "Littorella", [[360860, "uniflora", ["Shoreweed"]]]],
+  [0, 89, "Lobelia", [[358809, "dortmanna", ["Water Lobelia"]]]],
+  [0, 89, "Lonicera", [[360868, "periclymenum", ["Honeysuckle"]]]],
   [
     0,
     89,
     "Lotus",
     [
-      [360889, 1, "corniculatus", "Common Bird's-foot-trefoil"],
+      [360889, "corniculatus", ["Common Bird's-foot-trefoil"]],
       [
         360910,
-        2,
         "pedunculatus",
-        "Greater Bird's-foot-trefoil",
-        "Large Bird's-Foot-Trefoil"
+        ["Greater Bird's-foot-trefoil", "Large Bird's-Foot-Trefoil"]
       ]
     ]
   ],
@@ -523,95 +498,90 @@
     89,
     "Luzula",
     [
-      [358819, 2, "multiflora", "Heath Wood-rush"],
-      [358830, 2, "sylvatica", "Great Wood-rush"]
+      [358819, "multiflora", ["Heath Wood-rush"]],
+      [358830, "sylvatica", ["Great Wood-rush"]]
     ]
   ],
-  [0, 78, "Lycopodium", [[358845, 2, "clavatum", "Stag's-horn Clubmoss"]]],
-  [0, 89, "Lycopus", [[360923, 2, "europaeus", "Gypsywort", "Gipsywort"]]],
+  [0, 78, "Lycopodium", [[358845, "clavatum", ["Stag's-horn Clubmoss"]]]],
+  [0, 89, "Lycopus", [[360923, "europaeus", ["Gypsywort", "Gipsywort"]]]],
   [
     0,
     89,
     "Lysichiton",
-    [[360934, 3, "americanus", "American Skunk-cabbage", "Skunk Cabbage"]]
+    [[360934, "americanus", ["American Skunk-cabbage", "Skunk Cabbage"]]]
   ],
   [
     0,
     89,
     "Lysimachia",
     [
-      [360940, 2, "nemorum", "Yellow Pimpernel"],
-      [360951, 2, "vulgaris", "Yellow Loosestrife"]
+      [360940, "nemorum", ["Yellow Pimpernel"]],
+      [360951, "vulgaris", ["Yellow Loosestrife"]]
     ]
   ],
   [
     0,
     89,
     "Lythrum",
-    [[360957, 1, "salicaria", "Purple-loosestrife", "Purple-Loosestrife"]]
+    [[360957, "salicaria", ["Purple-loosestrife", "Purple-Loosestrife"]]]
   ],
-  [0, 89, "Matricaria", [[358856, 4, "recutita", "Scented Mayweed"]]],
-  [0, 89, "Medicago", [[358868, 2, "lupulina", "Black Medick"]]],
-  [0, 89, "Melampyrum", [[358876, 2, "pratense", "Common Cow-wheat"]]],
-  [0, 89, "Melica", [[360971, 2, "uniflora", "Wood Melick"]]],
-  [0, 89, "Mentha", [[360978, 2, "aquatica", "Water Mint", "Mintys y dwr"]]],
-  [0, 89, "Menyanthes", [[360984, 2, "trifoliata", "Bogbean"]]],
-  [0, 89, "Mercurialis", [[360995, 1, "perennis", "Dog's Mercury"]]],
-  [0, 89, "Milium", [[364644, 2, "effusum", "Wood Millet"]]],
-  [0, 89, "Minuartia", [[358891, 2, "verna", "Spring Sandwort"]]],
+  [0, 89, "Matricaria", [[358856, "recutita", ["Scented Mayweed"]]]],
+  [0, 89, "Medicago", [[358868, "lupulina", ["Black Medick"]]]],
+  [0, 89, "Melampyrum", [[358876, "pratense", ["Common Cow-wheat"]]]],
+  [0, 89, "Melica", [[360971, "uniflora", ["Wood Melick"]]]],
+  [0, 89, "Mentha", [[360978, "aquatica", ["Water Mint", "Mintys y dwr"]]]],
+  [0, 89, "Menyanthes", [[360984, "trifoliata", ["Bogbean"]]]],
+  [0, 89, "Mercurialis", [[360995, "perennis", ["Dog's Mercury"]]]],
+  [0, 89, "Milium", [[364644, "effusum", ["Wood Millet"]]]],
+  [0, 89, "Minuartia", [[358891, "verna", ["Spring Sandwort"]]]],
   [
     0,
     89,
     "Moehringia",
-    [[361008, 2, "trinervia", "Three-nerved Sandwort", "Three-Nerved Sandwort"]]
+    [[361008, "trinervia", ["Three-nerved Sandwort", "Three-Nerved Sandwort"]]]
   ],
-  [0, 89, "Molinia", [[358903, 2, "caerulea", "Purple Moor-grass"]]],
-  [0, 89, "Montia", [[358914, 2, "fontana", "Blinks"]]],
-  [0, 89, "Mycelis", [[358922, 2, "muralis", "Wall Lettuce"]]],
-  [0, 89, "Myrica", [[358929, 2, "gale", "Bog-myrtle"]]],
-  [0, 89, "Myriophyllum", [[358945, 2, "aquaticum", "Parrot's-feather"]]],
-  [0, 89, "Nardus", [[358953, 2, "stricta", "Mat-grass"]]],
-  [
-    0,
-    89,
-    "Narthecium",
-    [[361018, 2, "ossifragum", "Bog Asphodel", "Asphodel"]]
-  ],
-  [0, 89, "Neottia", [[368935, 4, "ovata", "Common Twayblade"]]],
+  [0, 89, "Molinia", [[358903, "caerulea", ["Purple Moor-grass"]]]],
+  [0, 89, "Montia", [[358914, "fontana", ["Blinks"]]]],
+  [0, 89, "Mycelis", [[358922, "muralis", ["Wall Lettuce"]]]],
+  [0, 89, "Myrica", [[358929, "gale", ["Bog-myrtle"]]]],
+  [0, 89, "Myriophyllum", [[358945, "aquaticum", ["Parrot's-feather"]]]],
+  [0, 89, "Nardus", [[358953, "stricta", ["Mat-grass"]]]],
+  [0, 89, "Narthecium", [[361018, "ossifragum", ["Bog Asphodel", "Asphodel"]]]],
+  [0, 89, "Neottia", [[368935, "ovata", ["Common Twayblade"]]]],
   [
     0,
     89,
     "Nuphar",
-    [[361030, 1, "lutea", "Yellow Water-lily", "Yellow water-lily"]]
+    [[361030, "lutea", ["Yellow Water-lily", "Yellow water-lily"]]]
   ],
   [
     0,
     89,
     "Nymphaea",
-    [[361047, 1, "alba", "White Water-lily", "White Water-Lily"]]
+    [[361047, "alba", ["White Water-lily", "White Water-Lily"]]]
   ],
-  [0, 89, "Odontites", [[358961, 2, "vernus", "Red Bartsia"]]],
-  [0, 87, "Ophioglossum", [[361062, 4, "vulgatum s.l."]]],
+  [0, 89, "Odontites", [[358961, "vernus", ["Red Bartsia"]]]],
+  [0, 87, "Ophioglossum", [[361062, "vulgatum s.l."]]],
   [
     0,
     89,
     "Orchis",
-    [[361063, 2, "mascula", "Early-purple Orchid", "Early-Purple Orchid"]]
+    [[361063, "mascula", ["Early-purple Orchid", "Early-Purple Orchid"]]]
   ],
-  [0, 87, "Oreopteris", [[358971, 2, "limbosperma", "Lemon-scented Fern"]]],
-  [0, 89, "Origanum", [[361075, 2, "vulgare", "Wild Marjoram"]]],
-  [0, 89, "Ornithopus", [[359005, 2, "perpusillus", "Bird's-foot"]]],
-  [0, 87, "Osmunda", [[361085, 2, "regalis", "Royal Fern"]]],
-  [0, 89, "Oxalis", [[361102, 1, "acetosella", "Wood-sorrel", "Wood-Sorrel"]]],
-  [0, 89, "Oxyria", [[361123, 2, "digyna", "Mountain Sorrel"]]],
-  [0, 89, "Pastinaca", [[359014, 2, "sativa", "Wild Parsnip"]]],
+  [0, 87, "Oreopteris", [[358971, "limbosperma", ["Lemon-scented Fern"]]]],
+  [0, 89, "Origanum", [[361075, "vulgare", ["Wild Marjoram"]]]],
+  [0, 89, "Ornithopus", [[359005, "perpusillus", ["Bird's-foot"]]]],
+  [0, 87, "Osmunda", [[361085, "regalis", ["Royal Fern"]]]],
+  [0, 89, "Oxalis", [[361102, "acetosella", ["Wood-sorrel", "Wood-Sorrel"]]]],
+  [0, 89, "Oxyria", [[361123, "digyna", ["Mountain Sorrel"]]]],
+  [0, 89, "Pastinaca", [[359014, "sativa", ["Wild Parsnip"]]]],
   [
     0,
     89,
     "Pedicularis",
     [
-      [359040, 2, "palustris", "Marsh Lousewort"],
-      [359052, 2, "sylvatica", "Lousewort"]
+      [359040, "palustris", ["Marsh Lousewort"]],
+      [359052, "sylvatica", ["Lousewort"]]
     ]
   ],
   [
@@ -619,35 +589,35 @@
     89,
     "Persicaria",
     [
-      [361129, 2, "amphibia", "Amphibious Bistort"],
-      [361140, 2, "bistorta", "Common Bistort", "Snakeweed"],
-      [359066, 2, "lapathifolia", "Pale Persicaria"],
-      [359084, 2, "vivipara", "Alpine Bistort"]
+      [361129, "amphibia", ["Amphibious Bistort"]],
+      [361140, "bistorta", ["Common Bistort", "Snakeweed"]],
+      [359066, "lapathifolia", ["Pale Persicaria"]],
+      [359084, "vivipara", ["Alpine Bistort"]]
     ]
   ],
-  [0, 89, "Petasites", [[359095, 2, "hybridus", "Butterbur"]]],
-  [0, 89, "Phalaris", [[359111, 2, "arundinacea", "Reed Canary-grass"]]],
+  [0, 89, "Petasites", [[359095, "hybridus", ["Butterbur"]]]],
+  [0, 89, "Phalaris", [[359111, "arundinacea", ["Reed Canary-grass"]]]],
   [
     0,
     87,
     "Phyllitis",
-    [[361152, 4, "scolopendrium", "Hart's-tongue", "Hart's-Tongue"]]
+    [[361152, "scolopendrium", ["Hart's-tongue", "Hart's-Tongue"]]]
   ],
-  [0, 89, "Picris", [[359123, 4, "echioides", "Bristly Oxtongue"]]],
+  [0, 89, "Picris", [[359123, "echioides", ["Bristly Oxtongue"]]]],
   [
     0,
     89,
     "Pilosella",
-    [[361176, 2, "officinarum", "Mouse-ear-hawkweed", "Mouse-Ear-Hawkweed"]]
+    [[361176, "officinarum", ["Mouse-ear-hawkweed", "Mouse-Ear-Hawkweed"]]]
   ],
-  [0, 89, "Pimpinella", [[359132, 2, "major", "Greater Burnet-saxifrage"]]],
+  [0, 89, "Pimpinella", [[359132, "major", ["Greater Burnet-saxifrage"]]]],
   [
     0,
     89,
     "Pinguicula",
     [
-      [359140, 2, "lusitanica", "Pale Butterwort"],
-      [361215, 2, "vulgaris", "Common Butterwort"]
+      [359140, "lusitanica", ["Pale Butterwort"]],
+      [361215, "vulgaris", ["Common Butterwort"]]
     ]
   ],
   [
@@ -655,22 +625,22 @@
     89,
     "Plantago",
     [
-      [361228, 2, "coronopus", "Buck's-horn Plantain", "Buck's-Horn Plantain"],
-      [361246, 1, "lanceolata", "Ribwort Plantain"],
-      [361268, 2, "maritima", "Sea Plantain"],
-      [361282, 2, "media", "Hoary Plantain"]
+      [361228, "coronopus", ["Buck's-horn Plantain", "Buck's-Horn Plantain"]],
+      [361246, "lanceolata", ["Ribwort Plantain"]],
+      [361268, "maritima", ["Sea Plantain"]],
+      [361282, "media", ["Hoary Plantain"]]
     ]
   ],
-  [0, 89, "Platanthera", [[359145, 2, "bifolia", "Lesser Butterfly-orchid"]]],
-  [0, 89, "Polygala", [[368689, 4, "serpyllifolia/vulgaris"]]],
+  [0, 89, "Platanthera", [[359145, "bifolia", ["Lesser Butterfly-orchid"]]]],
+  [0, 89, "Polygala", [[368689, "serpyllifolia/vulgaris"]]],
   [
     0,
     89,
     "Potamogeton",
     [
-      [361290, 2, "crispus", "Curled Pondweed", "Curly Pondweed"],
-      [359155, 2, "perfoliatus", "Perfoliate Pondweed"],
-      [361298, 2, "polygonifolius", "Bog Pondweed"]
+      [361290, "crispus", ["Curled Pondweed", "Curly Pondweed"]],
+      [359155, "perfoliatus", ["Perfoliate Pondweed"]],
+      [361298, "polygonifolius", ["Bog Pondweed"]]
     ]
   ],
   [
@@ -678,43 +648,41 @@
     89,
     "Potentilla",
     [
-      [361305, 1, "anserina"],
-      [361307, 2, "erecta", "Tormentil"],
-      [361323, 4, "palustris", "Marsh Cinquefoil"],
-      [361331, 1, "reptans", "Creeping Cinquefoil"],
-      [361346, 2, "sterilis", "Barren Strawberry"]
+      [361305, "anserina"],
+      [361307, "erecta", ["Tormentil"]],
+      [361323, "palustris", ["Marsh Cinquefoil"]],
+      [361331, "reptans", ["Creeping Cinquefoil"]],
+      [361346, "sterilis", ["Barren Strawberry"]]
     ]
   ],
-  [0, 89, "Poterium", [[361575, 4, "sanguisorba", "Salad Burnet"]]],
+  [0, 89, "Poterium", [[361575, "sanguisorba", ["Salad Burnet"]]]],
   [
     0,
     89,
     "Primula",
     [
-      [361355, 1, "veris", "Cowslip"],
-      [361367, 1, "vulgaris", "Primrose"]
+      [361355, "veris", ["Cowslip"]],
+      [361367, "vulgaris", ["Primrose"]]
     ]
   ],
-  [0, 89, "Prunella", [[361386, 1, "vulgaris", "Selfheal"]]],
-  [0, 89, "Prunus", [[361396, 2, "spinosa", "Blackthorn", "Sloe Berry"]]],
-  [0, 87, "Pteridium", [[361414, 1, "aquilinum", "Bracken", "Brake"]]],
-  [0, 89, "Puccinellia", [[359159, 2, "maritima", "Common Saltmarsh-grass"]]],
+  [0, 89, "Prunella", [[361386, "vulgaris", ["Selfheal"]]]],
+  [0, 89, "Prunus", [[361396, "spinosa", ["Blackthorn", "Sloe Berry"]]]],
+  [0, 87, "Pteridium", [[361414, "aquilinum", ["Bracken", "Brake"]]]],
+  [0, 89, "Puccinellia", [[359159, "maritima", ["Common Saltmarsh-grass"]]]],
   [
     0,
     89,
     "Ranunculus",
     [
-      [361440, 2, "acris", "Meadow Buttercup"],
-      [361453, 2, "bulbosus", "Bulbous Buttercup"],
-      [361464, 1, "repens", "Creeping Buttercup"],
+      [361440, "acris", ["Meadow Buttercup"]],
+      [361453, "bulbosus", ["Bulbous Buttercup"]],
+      [361464, "repens", ["Creeping Buttercup"]],
       [
         361472,
-        2,
         "sceleratus",
-        "Celery-leaved Buttercup",
-        "Celery-Leaved Buttercup"
+        ["Celery-leaved Buttercup", "Celery-Leaved Buttercup"]
       ],
-      [368938, 4, "spp."]
+      [368938, "spp."]
     ]
   ],
   [
@@ -722,37 +690,37 @@
     89,
     "Reseda",
     [
-      [361479, 2, "lutea", "Wild Mignonette"],
-      [361485, 2, "luteola", "Weld"]
+      [361479, "lutea", ["Wild Mignonette"]],
+      [361485, "luteola", ["Weld"]]
     ]
   ],
-  [0, 89, "Rhamnus", [[359175, 2, "cathartica", "Buckthorn"]]],
+  [0, 89, "Rhamnus", [[359175, "cathartica", ["Buckthorn"]]]],
   [
     0,
     89,
     "Rhinanthus",
-    [[361491, 2, "minor", "Yellow-rattle", "Yellow Rattle"]]
+    [[361491, "minor", ["Yellow-rattle", "Yellow Rattle"]]]
   ],
-  [0, 89, "Rhododendron", [[361514, 2, "ponticum"]]],
-  [0, 89, "Rhynchospora", [[359183, 2, "alba", "White Beak-sedge"]]],
+  [0, 89, "Rhododendron", [[361514, "ponticum"]]],
+  [0, 89, "Rhynchospora", [[359183, "alba", ["White Beak-sedge"]]]],
   [
     0,
     89,
     "Rorippa",
     [
-      [359189, 4, "nasturtium-aquaticum", "Water-cress"],
-      [368746, 2, "palustris", "Marsh Yellow-cress"]
+      [359189, "nasturtium-aquaticum", ["Water-cress"]],
+      [368746, "palustris", ["Marsh Yellow-cress"]]
     ]
   ],
-  [0, 89, "Rosa", [[361523, 2, "rugosa", "Japanese Rose"]]],
+  [0, 89, "Rosa", [[361523, "rugosa", ["Japanese Rose"]]]],
   [
     0,
     89,
     "Rubus",
     [
-      [359209, 2, "chamaemorus", "Cloudberry"],
-      [364670, 1, "fruticosus agg.", "Bramble", "Blackberry"],
-      [359220, 2, "saxatilis", "Stone Bramble"]
+      [359209, "chamaemorus", ["Cloudberry"]],
+      [364670, "fruticosus agg.", ["Bramble", "Blackberry"]],
+      [359220, "saxatilis", ["Stone Bramble"]]
     ]
   ],
   [
@@ -760,52 +728,52 @@
     89,
     "Rumex",
     [
-      [361529, 1, "acetosa", "Common Sorrel"],
-      [361537, 1, "acetosella", "Sheep's Sorrel", "Sheep's Sorrel agg."],
-      [361549, 1, "crispus", "Curled Dock"],
-      [368688, 4, "crispus/obtusifolius"],
-      [359224, 2, "hydrolapathum", "Water Dock"]
+      [361529, "acetosa", ["Common Sorrel"]],
+      [361537, "acetosella", ["Sheep's Sorrel", "Sheep's Sorrel agg."]],
+      [361549, "crispus", ["Curled Dock"]],
+      [368688, "crispus/obtusifolius"],
+      [359224, "hydrolapathum", ["Water Dock"]]
     ]
   ],
-  [0, 89, "Ruscus", [[359237, 2, "aculeatus", "Butcher's-broom"]]],
+  [0, 89, "Ruscus", [[359237, "aculeatus", ["Butcher's-broom"]]]],
   [
     0,
     89,
     "Sagina",
     [
-      [359257, 2, "apetala", "Annual Pearlwort"],
-      [359263, 2, "nodosa", "Knotted Pearlwort"]
+      [359257, "apetala", ["Annual Pearlwort"]],
+      [359263, "nodosa", ["Knotted Pearlwort"]]
     ]
   ],
-  [0, 89, "Sagittaria", [[361556, 2, "sagittifolia", "Arrowhead"]]],
-  [0, 89, "Salix", [[361562, 2, "repens", "Creeping Willow"]]],
-  [0, 89, "Salvia", [[359270, 2, "verbenaca", "Wild Clary"]]],
-  [0, 89, "Sanguisorba", [[361577, 2, "officinalis", "Great Burnet"]]],
-  [0, 89, "Sanicula", [[361590, 2, "europaea", "Sanicle", "Wood Sanicle"]]],
+  [0, 89, "Sagittaria", [[361556, "sagittifolia", ["Arrowhead"]]]],
+  [0, 89, "Salix", [[361562, "repens", ["Creeping Willow"]]]],
+  [0, 89, "Salvia", [[359270, "verbenaca", ["Wild Clary"]]]],
+  [0, 89, "Sanguisorba", [[361577, "officinalis", ["Great Burnet"]]]],
+  [0, 89, "Sanicula", [[361590, "europaea", ["Sanicle", "Wood Sanicle"]]]],
   [
     0,
     89,
     "Saxifraga",
     [
-      [359291, 2, "aizoides", "Yellow Saxifrage"],
-      [361595, 2, "granulata", "Meadow Saxifrage"],
-      [359296, 2, "hypnoides", "Mossy Saxifrage"],
-      [361603, 2, "oppositifolia", "Purple Saxifrage"],
-      [359312, 2, "stellaris", "Starry Saxifrage"],
-      [361611, 2, "tridactylites", "Rue-leaved Saxifrage"]
+      [359291, "aizoides", ["Yellow Saxifrage"]],
+      [361595, "granulata", ["Meadow Saxifrage"]],
+      [359296, "hypnoides", ["Mossy Saxifrage"]],
+      [361603, "oppositifolia", ["Purple Saxifrage"]],
+      [359312, "stellaris", ["Starry Saxifrage"]],
+      [361611, "tridactylites", ["Rue-leaved Saxifrage"]]
     ]
   ],
-  [0, 89, "Scabiosa", [[359320, 2, "columbaria", "Small Scabious"]]],
-  [0, 89, "Schoenoplectus", [[359325, 2, "lacustris", "Common Club-rush"]]],
-  [0, 89, "Schoenus", [[359334, 2, "nigricans", "Black Bog-rush"]]],
-  [0, 89, "Scirpus", [[359344, 2, "sylvaticus", "Wood Club-rush"]]],
+  [0, 89, "Scabiosa", [[359320, "columbaria", ["Small Scabious"]]]],
+  [0, 89, "Schoenoplectus", [[359325, "lacustris", ["Common Club-rush"]]]],
+  [0, 89, "Schoenus", [[359334, "nigricans", ["Black Bog-rush"]]]],
+  [0, 89, "Scirpus", [[359344, "sylvaticus", ["Wood Club-rush"]]]],
   [
     0,
     89,
     "Scutellaria",
     [
-      [359351, 2, "galericulata", "Skullcap"],
-      [361618, 2, "minor", "Lesser Skullcap"]
+      [359351, "galericulata", ["Skullcap"]],
+      [361618, "minor", ["Lesser Skullcap"]]
     ]
   ],
   [
@@ -813,9 +781,9 @@
     89,
     "Sedum",
     [
-      [359361, 2, "acre", "Biting Stonecrop"],
-      [359372, 2, "anglicum", "English Stonecrop"],
-      [361626, 2, "rosea", "Roseroot"]
+      [359361, "acre", ["Biting Stonecrop"]],
+      [359372, "anglicum", ["English Stonecrop"]],
+      [361626, "rosea", ["Roseroot"]]
     ]
   ],
   [
@@ -823,63 +791,63 @@
     89,
     "Senecio",
     [
-      [359378, 2, "aquaticus", "Marsh Ragwort"],
-      [359388, 2, "erucifolius", "Hoary Ragwort"],
-      [361636, 1, "jacobaea", "Common Ragwort"]
+      [359378, "aquaticus", ["Marsh Ragwort"]],
+      [359388, "erucifolius", ["Hoary Ragwort"]],
+      [361636, "jacobaea", ["Common Ragwort"]]
     ]
   ],
-  [0, 89, "Serratula", [[359396, 2, "tinctoria", "Saw-wort"]]],
-  [0, 89, "Sherardia", [[361656, 2, "arvensis", "Field Madder"]]],
-  [0, 89, "Silaum", [[359403, 2, "silaus", "Pepper-saxifrage"]]],
+  [0, 89, "Serratula", [[359396, "tinctoria", ["Saw-wort"]]]],
+  [0, 89, "Sherardia", [[361656, "arvensis", ["Field Madder"]]]],
+  [0, 89, "Silaum", [[359403, "silaus", ["Pepper-saxifrage"]]]],
   [
     0,
     89,
     "Silene",
     [
-      [361663, 1, "dioica", "Red Campion"],
-      [368769, 4, "flos-cuculi", "Ragged-Robin", "Ragged-robin"],
-      [361687, 1, "latifolia", "White Campion"],
-      [359413, 2, "uniflora", "Sea Campion"]
+      [361663, "dioica", ["Red Campion"]],
+      [368769, "flos-cuculi", ["Ragged-Robin", "Ragged-robin"]],
+      [361687, "latifolia", ["White Campion"]],
+      [359413, "uniflora", ["Sea Campion"]]
     ]
   ],
   [
     0,
     89,
     "Solanum",
-    [[361698, 1, "dulcamara", "Bittersweet", "Woody Nightshade"]]
+    [[361698, "dulcamara", ["Bittersweet", "Woody Nightshade"]]]
   ],
-  [0, 89, "Solidago", [[359425, 2, "virgaurea", "Goldenrod"]]],
+  [0, 89, "Solidago", [[359425, "virgaurea", ["Goldenrod"]]]],
   [
     0,
     89,
     "Sonchus",
     [
-      [359440, 2, "arvensis", "Perennial Sow-thistle"],
-      [359450, 2, "asper", "Prickly Sow-thistle"],
-      [359461, 2, "oleraceus", "Smooth Sow-thistle"]
+      [359440, "arvensis", ["Perennial Sow-thistle"]],
+      [359450, "asper", ["Prickly Sow-thistle"]],
+      [359461, "oleraceus", ["Smooth Sow-thistle"]]
     ]
   ],
-  [0, 89, "Sorbus", [[361706, 2, "aucuparia", "Rowan", "Quicken-tree"]]],
-  [0, 89, "Sparganium", [[359474, 2, "erectum", "Branched Bur-reed"]]],
-  [0, 89, "Spartina", [[359487, 2, "anglica", "Common Cord-grass"]]],
+  [0, 89, "Sorbus", [[361706, "aucuparia", ["Rowan", "Quicken-tree"]]]],
+  [0, 89, "Sparganium", [[359474, "erectum", ["Branched Bur-reed"]]]],
+  [0, 89, "Spartina", [[359487, "anglica", ["Common Cord-grass"]]]],
   [
     0,
     89,
     "Spergularia",
     [
-      [359499, 2, "marina", "Lesser Sea-spurrey"],
-      [359509, 2, "media", "Greater Sea-spurrey"],
-      [359524, 2, "rubra", "Sand Spurrey"]
+      [359499, "marina", ["Lesser Sea-spurrey"]],
+      [359509, "media", ["Greater Sea-spurrey"]],
+      [359524, "rubra", ["Sand Spurrey"]]
     ]
   ],
-  [0, 89, "Spirodela", [[359533, 2, "polyrhiza", "Greater Duckweed"]]],
+  [0, 89, "Spirodela", [[359533, "polyrhiza", ["Greater Duckweed"]]]],
   [
     0,
     89,
     "Stachys",
     [
-      [361725, 4, "officinalis", "Betony"],
-      [359543, 2, "palustris", "Marsh Woundwort"]
+      [361725, "officinalis", ["Betony"]],
+      [359543, "palustris", ["Marsh Woundwort"]]
     ]
   ],
   [
@@ -887,45 +855,45 @@
     89,
     "Stellaria",
     [
-      [361737, 1, "graminea", "Lesser Stitchwort"],
-      [361744, 1, "holostea", "Greater Stitchwort"],
-      [361758, 2, "media", "Common Chickweed", "Chickweed"]
+      [361737, "graminea", ["Lesser Stitchwort"]],
+      [361744, "holostea", ["Greater Stitchwort"]],
+      [361758, "media", ["Common Chickweed", "Chickweed"]]
     ]
   ],
-  [0, 89, "Suaeda", [[359550, 2, "maritima", "Annual Sea-blite"]]],
+  [0, 89, "Suaeda", [[359550, "maritima", ["Annual Sea-blite"]]]],
   [
     0,
     89,
     "Succisa",
-    [[361774, 2, "pratensis", "Devil's-bit Scabious", "Devil's-Bit Scabious"]]
+    [[361774, "pratensis", ["Devil's-bit Scabious", "Devil's-Bit Scabious"]]]
   ],
-  [0, 89, "Symphoricarpos", [[361793, 2, "albus", "Snowberry"]]],
-  [0, 89, "Symphytum", [[359560, 2, "officinale", "Common Comfrey"]]],
-  [0, 89, "Teucrium", [[361824, 2, "scorodonia", "Wood Sage"]]],
+  [0, 89, "Symphoricarpos", [[361793, "albus", ["Snowberry"]]]],
+  [0, 89, "Symphytum", [[359560, "officinale", ["Common Comfrey"]]]],
+  [0, 89, "Teucrium", [[361824, "scorodonia", ["Wood Sage"]]]],
   [
     0,
     89,
     "Thalictrum",
     [
-      [359570, 2, "flavum", "Common Meadow-rue"],
-      [359579, 2, "minus", "Lesser Meadow-rue"]
+      [359570, "flavum", ["Common Meadow-rue"]],
+      [359579, "minus", ["Lesser Meadow-rue"]]
     ]
   ],
-  [0, 89, "Thymus", [[368687, 4, "polytrichus/pulegioides"]]],
-  [0, 89, "Torilis", [[359608, 2, "japonica", "Upright Hedge-parsley"]]],
-  [0, 89, "Trichophorum", [[359620, 3, "caespitosum s.l."]]],
-  [0, 89, "Trientalis", [[359622, 2, "europaea", "Chickweed-wintergreen"]]],
+  [0, 89, "Thymus", [[368687, "polytrichus/pulegioides"]]],
+  [0, 89, "Torilis", [[359608, "japonica", ["Upright Hedge-parsley"]]]],
+  [0, 89, "Trichophorum", [[359620, "caespitosum s.l."]]],
+  [0, 89, "Trientalis", [[359622, "europaea", ["Chickweed-wintergreen"]]]],
   [
     0,
     89,
     "Trifolium",
     [
-      [359627, 2, "campestre", "Hop Trefoil"],
-      [359640, 2, "dubium", "Lesser Trefoil"],
-      [359650, 2, "fragiferum", "Strawberry Clover"],
-      [361863, 1, "pratense", "Red Clover"],
-      [361871, 1, "repens", "White Clover"],
-      [359659, 2, "striatum", "Knotted Clover"]
+      [359627, "campestre", ["Hop Trefoil"]],
+      [359640, "dubium", ["Lesser Trefoil"]],
+      [359650, "fragiferum", ["Strawberry Clover"]],
+      [361863, "pratense", ["Red Clover"]],
+      [361871, "repens", ["White Clover"]],
+      [359659, "striatum", ["Knotted Clover"]]
     ]
   ],
   [
@@ -933,36 +901,31 @@
     89,
     "Triglochin",
     [
-      [359664, 4, "maritimum", "Sea Arrowgrass"],
-      [359670, 2, "palustre", "Marsh Arrowgrass"]
+      [359664, "maritimum", ["Sea Arrowgrass"]],
+      [359670, "palustre", ["Marsh Arrowgrass"]]
     ]
   ],
-  [0, 89, "Tripleurospermum", [[359675, 2, "inodorum", "Scentless Mayweed"]]],
-  [0, 89, "Trollius", [[361883, 2, "europaeus", "Globeflower"]]],
-  [0, 89, "Typha", [[361895, 2, "latifolia", "Bulrush", "Great Reedmace"]]],
+  [0, 89, "Tripleurospermum", [[359675, "inodorum", ["Scentless Mayweed"]]]],
+  [0, 89, "Trollius", [[361883, "europaeus", ["Globeflower"]]]],
+  [0, 89, "Typha", [[361895, "latifolia", ["Bulrush", "Great Reedmace"]]]],
   [
     0,
     89,
     "Ulex",
     [
-      [361910, 1, "europaeus", "Gorse", "Furze"],
-      [368686, 4, "gallii/minor"]
+      [361910, "europaeus", ["Gorse", "Furze"]],
+      [368686, "gallii/minor"]
     ]
   ],
-  [
-    0,
-    89,
-    "Urtica",
-    [[361936, 1, "dioica", "Common Nettle", "Stinging Nettle"]]
-  ],
+  [0, 89, "Urtica", [[361936, "dioica", ["Common Nettle", "Stinging Nettle"]]]],
   [
     0,
     89,
     "Vaccinium",
     [
-      [361963, 1, "myrtillus", "Bilberry", "Blaeberry"],
-      [361976, 2, "oxycoccos", "Cranberry"],
-      [361991, 2, "vitis-idaea", "Cowberry"]
+      [361963, "myrtillus", ["Bilberry", "Blaeberry"]],
+      [361976, "oxycoccos", ["Cranberry"]],
+      [361991, "vitis-idaea", ["Cowberry"]]
     ]
   ],
   [
@@ -970,20 +933,20 @@
     89,
     "Valeriana",
     [
-      [361999, 2, "dioica", "Marsh Valerian"],
-      [362007, 2, "officinalis", "Common Valerian"]
+      [361999, "dioica", ["Marsh Valerian"]],
+      [362007, "officinalis", ["Common Valerian"]]
     ]
   ],
-  [0, 89, "Valerianella", [[359690, 2, "locusta", "Common Cornsalad"]]],
+  [0, 89, "Valerianella", [[359690, "locusta", ["Common Cornsalad"]]]],
   [
     0,
     89,
     "Veronica",
     [
-      [362024, 2, "arvensis", "Wall Speedwell"],
-      [359706, 2, "beccabunga", "Brooklime"],
-      [359714, 2, "montana", "Wood Speedwell"],
-      [362032, 2, "officinalis", "Heath Speedwell", "Common Speedwell"]
+      [362024, "arvensis", ["Wall Speedwell"]],
+      [359706, "beccabunga", ["Brooklime"]],
+      [359714, "montana", ["Wood Speedwell"]],
+      [362032, "officinalis", ["Heath Speedwell", "Common Speedwell"]]
     ]
   ],
   [
@@ -991,8 +954,8 @@
     89,
     "Vicia",
     [
-      [362046, 2, "cracca", "Tufted Vetch"],
-      [362056, 2, "hirsuta", "Hairy Tare"]
+      [362046, "cracca", ["Tufted Vetch"]],
+      [362056, "hirsuta", ["Hairy Tare"]]
     ]
   ],
   [
@@ -1000,11 +963,11 @@
     89,
     "Viola",
     [
-      [362063, 1, "arvensis", "Field Pansy"],
-      [359722, 2, "hirta", "Hairy Violet"],
-      [359733, 2, "lutea", "Mountain Pansy"],
-      [362084, 2, "palustris", "Marsh Violet"],
-      [368996, 4, "reichenbachiana/riviniana"]
+      [362063, "arvensis", ["Field Pansy"]],
+      [359722, "hirta", ["Hairy Violet"]],
+      [359733, "lutea", ["Mountain Pansy"]],
+      [362084, "palustris", ["Marsh Violet"]],
+      [368996, "reichenbachiana/riviniana"]
     ]
   ]
 ]
