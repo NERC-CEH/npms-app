@@ -37,6 +37,7 @@ export type Attrs = SampleAttrs & {
   vegetation100: any;
   vegetation300: any;
   vegetation300Plus: any;
+  noSpecies: any;
 };
 
 export const surveyConfigs = {

@@ -330,6 +330,8 @@ const survey: Survey = {
       },
       remote: { id: 408, values: coverValues },
     },
+
+    noSpecies: { remote: { id: 1461 } },
   },
 
   occ: {
