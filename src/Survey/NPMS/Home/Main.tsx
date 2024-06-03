@@ -1,7 +1,12 @@
 import { observer } from 'mobx-react';
-import { listOutline, locationOutline } from 'ionicons/icons';
+import {
+  bookOutline,
+  listOutline,
+  locationOutline,
+  openOutline,
+} from 'ionicons/icons';
 import { useRouteMatch } from 'react-router-dom';
-import { Main, MenuAttrItem, MenuAttrItemFromModel } from '@flumens';
+import { Button, Main, MenuAttrItem, MenuAttrItemFromModel } from '@flumens';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import flowerIcon from 'common/images/flower.svg';
 import Sample from 'models/sample';
@@ -31,6 +36,16 @@ const MainComponent = ({ sample }: Props) => {
     <Main>
       {isDisabled && <UploadedRecordInfoMessage />}
 
+      <div className="rounded-list mx-auto mb-2 mt-2 max-w-[600px]">
+        <Button
+          href="https://www.npms.org.uk/content/resources"
+          prefix={<IonIcon icon={bookOutline} className="size-6" />}
+          suffix={<IonIcon icon={openOutline} />}
+          className="mx-2 border-none text-left"
+        >
+          NPMS resources
+        </Button>
+      </div>
       <IonList lines="full">
         <div className="rounded-list">
           <MenuDateAttr model={sample} />
