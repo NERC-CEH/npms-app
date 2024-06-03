@@ -26,10 +26,12 @@ const survey: Survey = {
   occ: {
     attrs: {
       ...npmsConfig.occ!.attrs,
+
+      grid: { remote: { id: 153 } },
     },
 
-    create({ Occurrence: AppOccurrence, taxon }) {
-      return new AppOccurrence({ attrs: { taxon } });
+    create({ Occurrence: AppOccurrence, taxon, grid }) {
+      return new AppOccurrence({ attrs: { taxon, grid } });
     },
 
     verify: attrs =>

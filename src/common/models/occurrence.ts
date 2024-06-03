@@ -11,9 +11,20 @@ import Sample from './sample';
 
 export { type Taxon } from 'Survey/common/Components/TaxonSearchPage/TaxonSearch';
 
+export type Grid =
+  | 'canopy-grid'
+  | 'ground-layer-grid'
+  // NPMS
+  | 'main-species-grid'
+  | 'additional-species-grid';
+
+export const byGrid = (grid: Grid) => (occ: Occurrence) =>
+  occ.attrs.grid === grid;
+
 export type Attrs = OccurrenceAttrs & {
   taxon: Taxon;
   cover: string;
+  grid: Grid;
 };
 
 export default class Occurrence extends OccurrenceOriginal<Attrs> {

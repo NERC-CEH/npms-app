@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+
 /* eslint-disable no-return-assign */
 import { listOutline } from 'ionicons/icons';
 import { IonIcon, IonList } from '@ionic/react';
@@ -15,13 +16,13 @@ import { vegetationValues } from './config';
 
 type Props = { sample: Sample };
 
-const Additional = ({ sample }: Props) => {
+const Details = ({ sample }: Props) => {
   const hasManagementOther = !!sample.attrs.management?.includes('Other');
   const hasGrazing = !!sample.attrs.grazing;
   const isDisabled = sample.isDisabled();
 
   return (
-    <Page id="npms-additional">
+    <Page id="npms-details">
       <Header title="Additional" />
       <Main>
         <IonList lines="full">
@@ -130,4 +131,4 @@ const Additional = ({ sample }: Props) => {
   );
 };
 
-export default Additional;
+export default Details;

@@ -4,7 +4,7 @@ import { captureImage, Header, Page } from '@flumens';
 import { NavContext } from '@ionic/react';
 import config from 'common/config';
 import Media from 'common/models/image';
-import Occurrence from 'common/models/occurrence';
+import Occurrence, { Grid } from 'common/models/occurrence';
 import Sample from 'models/sample';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
 import Main from './Main';
@@ -13,7 +13,7 @@ type Props = { sample: Sample };
 
 const OccurrenceList = ({ sample }: Props) => {
   const { navigate } = useContext(NavContext);
-  const match = useRouteMatch();
+  const match = useRouteMatch<{ grid: Grid }>();
 
   const onSpeciesAdd = () => navigate(`${match.url}/search`);
   const onSpeciesDelete = (occ: Occurrence) => occ.destroy();
@@ -44,6 +44,7 @@ const OccurrenceList = ({ sample }: Props) => {
         sample={sample}
         onDelete={onSpeciesDelete}
         onAddPhoto={onAddPhoto}
+        grid={match.params.grid}
       />
     </Page>
   );

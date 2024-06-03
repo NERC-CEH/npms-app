@@ -330,7 +330,6 @@ const survey: Survey = {
       },
       remote: { id: 408, values: coverValues },
     },
-
     noSpecies: { remote: { id: 1461 } },
   },
 
@@ -381,10 +380,11 @@ const survey: Survey = {
         //     }, // 1-10
         remote: { id: -1, values: coverValues },
       },
+      // grid: { remote: { id: 153 } }, // not sending this to the warehouse
     },
 
-    create({ Occurrence: AppOccurrence, taxon }) {
-      return new AppOccurrence({ attrs: { taxon } });
+    create({ Occurrence: AppOccurrence, taxon, grid }) {
+      return new AppOccurrence({ attrs: { taxon, grid } });
     },
 
     verify: attrs =>

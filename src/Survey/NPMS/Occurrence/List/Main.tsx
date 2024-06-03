@@ -11,16 +11,17 @@ import {
   IonIcon,
 } from '@ionic/react';
 import InfoBackgroundMessage from 'common/Components/InfoBackgroundMessage';
-import Occurrence from 'common/models/occurrence';
+import Occurrence, { Grid, byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
 
 type Props = {
   sample: Sample;
   onDelete: any;
   onAddPhoto: any;
+  grid: Grid;
 };
 
-const OccurrenceListMain = ({ sample, onDelete, onAddPhoto }: Props) => {
+const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
   const match = useRouteMatch();
   const promptImageSource = usePromptImageSource();
 
@@ -95,13 +96,14 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto }: Props) => {
     );
   };
 
-  const hasSpecies = !!sample.occurrences.length;
+  const gridSpecies = sample.occurrences.filter(byGrid(grid));
+  const hasSpecies = !!gridSpecies.length;
 
   return (
     <Main>
       {hasSpecies && (
         <IonList>
-          <div className="rounded-list">{sample.occurrences.map(getItem)}</div>
+          <div className="rounded-list">{gridSpecies.map(getItem)}</div>
         </IonList>
       )}
 

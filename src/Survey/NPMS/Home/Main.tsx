@@ -9,6 +9,7 @@ import { useRouteMatch } from 'react-router-dom';
 import { Button, Main, MenuAttrItem, MenuAttrItemFromModel } from '@flumens';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import flowerIcon from 'common/images/flower.svg';
+import { byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
 import MenuDateAttr from 'Survey/common/Components/MenuDateAttr';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
@@ -20,6 +21,7 @@ type Props = {
 
 const MainComponent = ({ sample }: Props) => {
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
+  const isInventory = sample.metadata.level === 'inventory';
 
   const match = useRouteMatch();
   const isDisabled = sample.isUploaded();
@@ -31,6 +33,14 @@ const MainComponent = ({ sample }: Props) => {
 
   const hasBroadHabitat = !!sample.attrs.broadHabitat;
   const hasGroup = !!sample.attrs.group?.id;
+
+  const occCount = sample.occurrences.filter(
+    byGrid('main-species-grid')
+  ).length;
+
+  const additionalOccCount = sample.occurrences.filter(
+    byGrid('additional-species-grid')
+  ).length;
 
   return (
     <Main>
@@ -72,11 +82,20 @@ const MainComponent = ({ sample }: Props) => {
             <MenuAttrItemFromModel model={sample} attr="fineHabitat" />
           )}
 
-          <IonItem routerLink={`${match.url}/occurrences`}>
+          <IonItem routerLink={`${match.url}/main-species-grid/occurrences`}>
             <IonIcon src={flowerIcon} slot="start" />
             <IonLabel>Species</IonLabel>
-            <IonLabel slot="end">{sample.occurrences.length}</IonLabel>
+            <IonLabel slot="end">{occCount}</IonLabel>
           </IonItem>
+          {isNPMSPlus && !isInventory && (
+            <IonItem
+              routerLink={`${match.url}/additional-species-grid/occurrences`}
+            >
+              <IonIcon src={flowerIcon} slot="start" />
+              <IonLabel>Additional species</IonLabel>
+              <IonLabel slot="end">{additionalOccCount}</IonLabel>
+            </IonItem>
+          )}
           <MenuAttrItemFromModel model={sample} attr="recorder" />
           <IonItem routerLink={`${match.url}/additional`}>
             <IonIcon src={listOutline} slot="start" />

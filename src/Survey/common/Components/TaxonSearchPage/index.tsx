@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { useRouteMatch } from 'react-router';
 import { Page, Main, Header } from '@flumens';
 import { NavContext } from '@ionic/react';
-import Occurrence from 'models/occurrence';
+import Occurrence, { Grid } from 'models/occurrence';
 import Sample from 'models/sample';
 import TaxonSearch from './TaxonSearch';
 
@@ -21,7 +21,8 @@ type Taxon = {
 
 const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
   const { navigate, goBack } = useContext(NavContext);
-  const match = useRouteMatch();
+  const match = useRouteMatch<{ grid: Grid }>();
+  const { grid } = match.params;
 
   const transformUKSIToAppTaxon = (taxon: Taxon) => ({
     commonName: taxon.commonName || '',
@@ -38,6 +39,7 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
       const newOcc: Occurrence = modelSurvey.occ!.create!({
         Occurrence,
         taxon,
+        grid,
       });
 
       model.occurrences.push(newOcc);

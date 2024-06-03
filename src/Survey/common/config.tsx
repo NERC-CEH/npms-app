@@ -8,7 +8,7 @@ import {
 } from '@flumens';
 import locations, { bySurvey } from 'common/models/collections/locations';
 import Location from 'common/models/location';
-import Occurrence, { Taxon } from 'common/models/occurrence';
+import Occurrence, { Grid, Taxon } from 'common/models/occurrence';
 import Media from 'models/image';
 import Sample from 'models/sample';
 
@@ -89,6 +89,7 @@ type OccurrenceCreateOptions = {
   taxon: Taxon;
   identifier?: string;
   photo?: Media;
+  grid?: Grid;
 };
 
 type OccurrenceConfig = {
