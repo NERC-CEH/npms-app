@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { locationOutline } from 'ionicons/icons';
+import { locationOutline, peopleOutline } from 'ionicons/icons';
+import { z, object } from 'zod';
 import locations, { bySurvey } from 'common/models/collections/locations';
 import Location from 'common/models/location';
 import SampleModel from 'common/models/sample';
@@ -54,6 +55,23 @@ const plotGroupAttr = {
   remote: { id: 'group_id', values: (val: any) => val.id },
 };
 
+const abundanceOptions = [
+  { value: 'Domin', id: 18881 },
+  { value: 'Braun-Blanquet', id: 18882 },
+  { value: 'Percentage', id: 18883 },
+  { value: 'Individual plant count', id: 18884 },
+  { value: 'Cell frequency', id: 18885 },
+  { value: 'Present/Absent', id: 18892 },
+];
+
+export type AbundanceType =
+  | 'Domin'
+  | 'Braun-Blanquet'
+  | 'Percentage'
+  | 'Individual plant count'
+  | 'Cell frequency'
+  | 'Present/Absent';
+
 const survey: Survey = {
   id: 599,
   name: 'standard',
@@ -62,10 +80,44 @@ const survey: Survey = {
   attrs: {
     group: groupAttr,
     plotGroup: plotGroupAttr,
+    abundanceType: {
+      menuProps: { label: 'Abundance type', icon: peopleOutline },
+      pageProps: {
+        headerProps: { title: 'Abundance type' },
+        attrProps: {
+          input: 'radio',
+          inputProps: { options: abundanceOptions },
+        },
+      },
+      remote: { id: 1625, values: abundanceOptions },
+    },
+
+    speciesComments: {
+      menuProps: { label: 'Species comments', icon: peopleOutline },
+      pageProps: {
+        headerProps: { title: 'Species comments' },
+        attrProps: {
+          input: 'textarea',
+          inputProps: { placeholder: 'Comments...' },
+        },
+      },
+      remote: { id: 1796 },
+    },
   },
 
   occ: {
-    attrs: {},
+    attrs: {
+      grid: { remote: { id: 153 } },
+    },
+
+    create({ Occurrence: AppOccurrence, taxon, grid }) {
+      return new AppOccurrence({ attrs: { taxon, grid } });
+    },
+
+    verify: attrs =>
+      object({
+        cover: z.string({ required_error: 'Cover is missing' }),
+      }).safeParse(attrs).error,
   },
 
   create({ Sample }) {

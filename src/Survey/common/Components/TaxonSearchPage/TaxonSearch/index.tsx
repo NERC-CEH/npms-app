@@ -25,13 +25,13 @@ const annotateRecordedTaxa = (searchResults: any, recordedTaxa: number[]) => {
 };
 
 type Props = {
-  level: Level;
+  level?: Level;
   onSpeciesSelected: any;
   recordedTaxa?: number[];
 };
 
 const TaxonSearch: ForwardRefRenderFunction<any, Props> = (
-  { recordedTaxa, onSpeciesSelected, level },
+  { recordedTaxa, onSpeciesSelected, level = 'inventory' },
   ref
 ) => {
   const localRef = createRef<any>();

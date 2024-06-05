@@ -13,7 +13,7 @@ import config from 'common/config';
 import userModel from 'models/user';
 import npmsSurvey from 'Survey/NPMS/config';
 import npmsPlusSurvey from 'Survey/NPMSPlus/config';
-import standardSurvey from 'Survey/Standard/config';
+import standardSurvey, { AbundanceType } from 'Survey/Standard/config';
 import { Level, Survey } from 'Survey/common/config';
 import Media from './image';
 import Occurrence from './occurrence';
@@ -32,6 +32,7 @@ export type Attrs = SampleAttrs & {
   managementOther: any;
   grazing: any;
   grazingAnimals: any;
+  abundanceType?: AbundanceType;
   vegetation10: any;
   vegetation30: any;
   vegetation100: any;

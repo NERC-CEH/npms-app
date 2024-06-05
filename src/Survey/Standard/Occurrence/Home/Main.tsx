@@ -2,14 +2,22 @@ import { Main, RadioInput } from '@flumens';
 import { IonList } from '@ionic/react';
 import Occurrence from 'models/occurrence';
 import { dominCoverValues } from 'Survey/NPMS/config';
+import { AbundanceType } from 'Survey/Standard/config';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
 
 type Props = {
+  abundanceType: AbundanceType;
   occurrence: Occurrence;
   onCoverChange: any;
 };
 
-const OccurrenceHomeMain = ({ occurrence, onCoverChange }: Props) => {
+const OccurrenceHomeMain = ({
+  abundanceType,
+  occurrence,
+  onCoverChange,
+}: Props) => {
+  const isDomin = abundanceType === 'Domin';
+
   return (
     <Main>
       <IonList>
@@ -19,11 +27,13 @@ const OccurrenceHomeMain = ({ occurrence, onCoverChange }: Props) => {
         </div>
 
         <h3 className="list-title">Species cover</h3>
-        <RadioInput
-          options={dominCoverValues}
-          onChange={onCoverChange}
-          value={occurrence.attrs.cover}
-        />
+        {isDomin && (
+          <RadioInput
+            options={dominCoverValues}
+            onChange={onCoverChange}
+            value={occurrence.attrs.cover}
+          />
+        )}
       </IonList>
     </Main>
   );

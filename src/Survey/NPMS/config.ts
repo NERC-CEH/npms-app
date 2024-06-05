@@ -157,7 +157,7 @@ export const vegetationValues = [
   { value: 'over 2/3rds', id: '3' },
 ];
 
-export const coverValues = [
+export const dominCoverValues = [
   { value: '< 1% (1-2 indivs)', id: 3333 },
   { value: '< 1% (several indivs)', id: 3334 },
   { value: '1-4%', id: 3335 },
@@ -280,10 +280,10 @@ const survey: Survey = {
         headerProps: { title: 'Bare soil' },
         attrProps: {
           input: 'radio',
-          inputProps: { options: coverValues },
+          inputProps: { options: dominCoverValues },
         },
       },
-      remote: { id: 403, values: coverValues },
+      remote: { id: 403, values: dominCoverValues },
     },
     woodCover: {
       menuProps: { label: 'Woody cover', icon: listOutline },
@@ -303,10 +303,10 @@ const survey: Survey = {
         headerProps: { title: 'Bare rock' },
         attrProps: {
           input: 'radio',
-          inputProps: { options: coverValues },
+          inputProps: { options: dominCoverValues },
         },
       },
-      remote: { id: 405, values: coverValues },
+      remote: { id: 405, values: dominCoverValues },
     },
     litter: {
       menuProps: { label: 'Litter', icon: listOutline },
@@ -314,10 +314,10 @@ const survey: Survey = {
         headerProps: { title: 'Litter' },
         attrProps: {
           input: 'radio',
-          inputProps: { options: coverValues },
+          inputProps: { options: dominCoverValues },
         },
       },
-      remote: { id: 404, values: coverValues },
+      remote: { id: 404, values: dominCoverValues },
     },
     lichens: {
       menuProps: { label: 'Mosses & Lichens', icon: listOutline },
@@ -325,10 +325,10 @@ const survey: Survey = {
         headerProps: { title: 'Mosses & Lichens' },
         attrProps: {
           input: 'radio',
-          inputProps: { options: coverValues },
+          inputProps: { options: dominCoverValues },
         },
       },
-      remote: { id: 408, values: coverValues },
+      remote: { id: 408, values: dominCoverValues },
     },
     noSpecies: { remote: { id: 1461 } },
   },
@@ -378,7 +378,7 @@ const survey: Survey = {
         //         return rangeValues[value];
         //       },
         //     }, // 1-10
-        remote: { id: -1, values: coverValues },
+        remote: { id: -1, values: dominCoverValues },
       },
       // grid: { remote: { id: 153 } }, // not sending this to the warehouse
     },
