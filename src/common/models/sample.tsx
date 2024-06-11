@@ -32,6 +32,8 @@ export type Attrs = SampleAttrs & {
   managementOther: any;
   grazing: any;
   grazingAnimals: any;
+  grazingAnimalsCount: any;
+  habitatDescription: any;
   abundanceType?: AbundanceType;
   vegetation10: any;
   vegetation30: any;

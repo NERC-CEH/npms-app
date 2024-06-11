@@ -2,13 +2,13 @@ import { observer } from 'mobx-react';
 import { Main, NumberInput, RadioInput } from '@flumens';
 import { IonList } from '@ionic/react';
 import Occurrence from 'models/occurrence';
-import { dominCoverValues } from 'Survey/NPMS/config';
 import {
   AbundanceType,
   bbCoverValues,
   presenceCoverValues,
 } from 'Survey/Standard/config';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
+import { dominCoverValues } from 'Survey/common/config';
 
 type Props = {
   abundanceType: AbundanceType;

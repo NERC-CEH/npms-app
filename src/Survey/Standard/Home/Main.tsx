@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { locationOutline } from 'ionicons/icons';
+import { listOutline, locationOutline } from 'ionicons/icons';
 import { useRouteMatch } from 'react-router-dom';
 import { Main, MenuAttrItem, MenuAttrItemFromModel } from '@flumens';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
@@ -110,8 +110,14 @@ const MainComponent = ({ sample }: Props) => {
 
         <h3 className="list-title">Other</h3>
         <div className="rounded-list">
-          <div className={style}>Management</div>
-          <div className={style}>Habitat details</div>
+          <IonItem routerLink={`${match.url}/management`} detail>
+            <IonIcon src={listOutline} slot="start" />
+            <IonLabel>Management</IonLabel>
+          </IonItem>
+          <IonItem routerLink={`${match.url}/habitat`} detail>
+            <IonIcon src={listOutline} slot="start" />
+            <IonLabel>Habitat</IonLabel>
+          </IonItem>
           <div className={style}>Vegetation height</div>
           <div className={style}>Miscellaneous</div>
         </div>

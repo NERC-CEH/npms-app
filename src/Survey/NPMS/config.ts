@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { listOutline, peopleOutline, personOutline } from 'ionicons/icons';
+import { peopleOutline, personOutline } from 'ionicons/icons';
 import { z, object } from 'zod';
 import { RadioOption } from 'common/flumens';
 import landIcon from 'common/images/habitat.svg';
@@ -10,7 +10,18 @@ import {
   Survey,
   commentAttr,
   dateAttr,
+  dominCoverValues,
+  grazingAnimalsAttr,
+  grazingAttr,
+  lichensAttr,
+  litterAttr,
   locationAttr,
+  managementAttr,
+  managementOtherAttr,
+  recorderAttr,
+  rockAttr,
+  soilAttr,
+  woodCoverAttr,
 } from 'Survey/common/config';
 
 const habitats = {
@@ -122,59 +133,11 @@ const fineHabitatOptions: RadioOption[] = Object.entries(habitats).map(
   ([name, h]: any) => ({ id: h.id, value: name })
 );
 
-const managementValues = [
-  { value: 'Arable cropping', id: 1799 },
-  { value: 'Burning', id: 1800 },
-  { value: 'Coppicing', id: 1801 },
-  { value: 'Cutting / mowing', id: 1802 },
-  { value: 'Ditch-clearance', id: 1803 },
-  { value: 'Fenced to exclude grazing', id: 1804 },
-  { value: 'Fertilised to improve soil fertility', id: 1805 },
-  { value: 'Grazing - livestock', id: 1806 },
-  { value: 'Grazing - rabbits / deer', id: 1807 },
-  { value: 'Hedge-laying', id: 1808 },
-  { value: 'Herbicides to control weeds', id: 1809 },
-  { value: 'Path, track or road works', id: 1810 },
-  { value: 'Quarrying', id: 1811 },
-  { value: 'Scrub clearance / tree felling', id: 1812 },
-  { value: 'Silage production', id: 1813 },
-  { value: 'Tree planting', id: 1814 },
-  { value: 'Water regime regulation', id: 1815 },
-  { value: 'Other', id: 1816 },
-];
-
-const woodValues = [
-  { value: 'Woodland canopy', id: 1820 },
-  { value: 'Scattered trees or shrubs', id: 1821 },
-  { value: 'Hedgerow', id: 1822 },
-  { value: 'No trees or shrubs', id: 1823 },
-];
-
 export const vegetationValues = [
   { value: '0', id: '0' },
   { value: '1/3rd', id: '1' },
   { value: '1/3rd to 2/3rds', id: '2' },
   { value: 'over 2/3rds', id: '3' },
-];
-
-export const dominCoverValues = [
-  { value: '< 1% (1-2 indivs)', id: 3333 },
-  { value: '< 1% (several indivs)', id: 3334 },
-  { value: '1-4%', id: 3335 },
-  { value: '5-10%', id: 3336 },
-  { value: '11-25%', id: 3337 },
-  { value: '26-33%', id: 3338 },
-  { value: '34-50%', id: 3339 },
-  { value: '51-75%', id: 3340 },
-  { value: '76-90%', id: 3341 },
-  { value: '91-100%', id: 3342 },
-];
-
-const grazingValues = [
-  { label: 'Not selected', value: '' },
-  { value: 'Low', id: 1817 },
-  { value: 'Moderate', id: 1818 },
-  { value: 'High', id: 1819 },
 ];
 
 const surveys: { [key in Level]: number } = {
@@ -236,100 +199,19 @@ const survey: Survey = {
       remote: { id: 565, values: fineHabitatOptions as any },
     },
 
-    recorder: {
-      menuProps: { label: 'Recorder names', icon: peopleOutline },
-      pageProps: {
-        headerProps: { title: 'Recorder names' },
-        attrProps: {
-          input: 'input',
-          info: 'Please only add additional recorders here.',
-        },
-      },
-      remote: { id: 'recorder_names' },
-    },
+    recorder: recorderAttr,
 
-    management: {
-      menuProps: { icon: listOutline },
-      pageProps: {
-        attrProps: {
-          input: 'checkbox',
-          inputProps: { options: managementValues },
-        },
-      },
+    management: managementAttr,
+    managementOther: managementOtherAttr,
 
-      remote: { id: 225, values: managementValues },
-    },
+    grazing: grazingAttr,
+    grazingAnimals: grazingAnimalsAttr,
 
-    managementOther: { remote: { id: 226 } },
-
-    grazing: {
-      menuProps: { icon: listOutline },
-      pageProps: {
-        attrProps: {
-          input: 'radio',
-          inputProps: { options: grazingValues },
-        },
-      },
-      remote: { id: 215, values: grazingValues },
-    },
-    grazingAnimals: { remote: { id: 224 } },
-
-    soil: {
-      menuProps: { label: 'Bare soil', icon: listOutline },
-      pageProps: {
-        headerProps: { title: 'Bare soil' },
-        attrProps: {
-          input: 'radio',
-          inputProps: { options: dominCoverValues },
-        },
-      },
-      remote: { id: 403, values: dominCoverValues },
-    },
-    woodCover: {
-      menuProps: { label: 'Woody cover', icon: listOutline },
-      pageProps: {
-        headerProps: { title: 'Woody cover' },
-        attrProps: {
-          input: 'radio',
-          info: 'How wooded is your plot?',
-          inputProps: { options: woodValues },
-        },
-      },
-      remote: { id: 216, values: woodValues },
-    },
-    rock: {
-      menuProps: { label: 'Bare rock', icon: listOutline },
-      pageProps: {
-        headerProps: { title: 'Bare rock' },
-        attrProps: {
-          input: 'radio',
-          inputProps: { options: dominCoverValues },
-        },
-      },
-      remote: { id: 405, values: dominCoverValues },
-    },
-    litter: {
-      menuProps: { label: 'Litter', icon: listOutline },
-      pageProps: {
-        headerProps: { title: 'Litter' },
-        attrProps: {
-          input: 'radio',
-          inputProps: { options: dominCoverValues },
-        },
-      },
-      remote: { id: 404, values: dominCoverValues },
-    },
-    lichens: {
-      menuProps: { label: 'Mosses & Lichens', icon: listOutline },
-      pageProps: {
-        headerProps: { title: 'Mosses & Lichens' },
-        attrProps: {
-          input: 'radio',
-          inputProps: { options: dominCoverValues },
-        },
-      },
-      remote: { id: 408, values: dominCoverValues },
-    },
+    soil: soilAttr,
+    woodCover: woodCoverAttr,
+    rock: rockAttr,
+    litter: litterAttr,
+    lichens: lichensAttr,
     noSpecies: { remote: { id: 1461 } },
   },
 

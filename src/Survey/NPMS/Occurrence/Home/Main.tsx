@@ -1,8 +1,8 @@
 import { Main, RadioInput } from '@flumens';
 import { IonList } from '@ionic/react';
 import Occurrence from 'models/occurrence';
-import { dominCoverValues } from 'Survey/NPMS/config';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
+import { dominCoverValues } from 'Survey/common/config';
 
 type Props = {
   occurrence: Occurrence;

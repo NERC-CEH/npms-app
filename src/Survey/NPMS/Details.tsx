@@ -101,6 +101,7 @@ const Details = ({ sample }: Props) => {
                   (sample.attrs.managementOther = newVal)
                 }
                 platform="ios"
+                isDisabled={isDisabled}
               />
             )}
             <MenuAttrItemFromModel model={sample} attr="grazing" />
@@ -113,6 +114,7 @@ const Details = ({ sample }: Props) => {
                   (sample.attrs.grazingAnimals = newVal)
                 }
                 platform="ios"
+                isDisabled={isDisabled}
               />
             )}
 
@@ -123,6 +125,7 @@ const Details = ({ sample }: Props) => {
               platform="ios"
               labelPlacement="floating"
               isMultiline
+              isDisabled={isDisabled}
             />
           </div>
         </IonList>
