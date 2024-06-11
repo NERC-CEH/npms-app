@@ -39,22 +39,22 @@ export default async function fetch(
       mapKeys(doc, (_, key) => (key.includes(':') ? key : camelCase(key)));
 
     const addSurveyName = (l: any) => ({ ...l, surveyName });
-    const parsePlotGroups = (l: any) => {
-      const plotGroupIdsAndNamesForPlot = l.plotGroupIdsAndNamesForPlot
-        ?.split(',')
-        .reduce((agg: any, plotGroup: string) => {
-          const [plotGroupId, plotGroupName] = plotGroup?.split('|||') || [];
-          // eslint-disable-next-line no-param-reassign
-          agg[plotGroupId] = plotGroupName;
-          return agg;
-        }, {});
+    const parsePlotGroups = (key: string) => (l: any) => {
+      try {
+        const parsed = l[key] ? JSON.parse(l[key]) : {};
+        return { ...l, [key]: parsed };
+      } catch (error) {
+        console.error(`Error parsing ${key}`, l[key]);
 
-      return { ...l, plotGroupIdsAndNamesForPlot };
+        return {};
+      }
     };
+
     const docs = res.data.data
       .map(getValues)
       .map(addSurveyName)
-      .map(parsePlotGroups);
+      .map(parsePlotGroups('plotGroupIdsAndNamesForPlot'))
+      .map(parsePlotGroups('plotGroupIdsAndNamesForUser'));
 
     docs.forEach(LocationModel.remoteSchema.parse);
 

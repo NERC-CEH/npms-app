@@ -49,6 +49,7 @@ class LocationModel extends Model {
     locationTypeTerm: z.string().nullable().optional(),
     // standard
     plotGroupIdsAndNamesForPlot: z.object({}).nullable().optional(),
+    plotGroupIdsAndNamesForUser: z.object({}).nullable().optional(),
   });
 
   static parseRemoteJSON({ externalKey, ...attrs }: RemoteAttributes) {
