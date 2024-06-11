@@ -21,11 +21,21 @@ export type Grid =
 export const byGrid = (grid: Grid) => (occ: Occurrence) =>
   occ.attrs.grid === grid;
 
-export type Attrs = OccurrenceAttrs & {
-  taxon: Taxon;
-  cover: string;
-  grid: Grid;
-};
+export type CoverKeys =
+  | 'cover'
+  | 'coverDomin'
+  | 'coverBB'
+  | 'coverPresence'
+  | 'coverPercentage'
+  | 'coverCount'
+  | 'coverFrequency';
+
+type CoverAttrs = { [key in CoverKeys]?: any };
+export type Attrs = OccurrenceAttrs &
+  CoverAttrs & {
+    taxon: Taxon;
+    grid: Grid;
+  };
 
 export default class Occurrence extends OccurrenceOriginal<Attrs> {
   static fromJSON(json: any) {
@@ -51,5 +61,17 @@ export default class Occurrence extends OccurrenceOriginal<Attrs> {
       return taxon.commonNames?.[taxon.foundInName as number];
 
     return taxon.scientificName;
+  }
+
+  getCover() {
+    return (
+      this.attrs.cover ||
+      this.attrs.coverBB ||
+      this.attrs.coverDomin ||
+      this.attrs.coverPresence ||
+      this.attrs.coverCount ||
+      this.attrs.coverPercentage ||
+      this.attrs.coverFrequency
+    );
   }
 }

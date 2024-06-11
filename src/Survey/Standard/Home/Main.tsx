@@ -37,6 +37,7 @@ const MainComponent = ({ sample }: Props) => {
   const canopySpecies = sample.occurrences.filter(byGrid('canopy-grid'));
   const groundSpecies = sample.occurrences.filter(byGrid('ground-layer-grid'));
   const hasSpecies = !!canopySpecies.length || !!groundSpecies.length;
+  const hasAbundanceType = !!sample.attrs.abundanceType;
 
   return (
     <Main>
@@ -78,12 +79,24 @@ const MainComponent = ({ sample }: Props) => {
             required
             disabled={isDisabled || hasSpecies}
           />
-          <IonItem routerLink={`${match.url}/canopy-grid/occurrences`}>
+          <IonItem
+            routerLink={
+              hasAbundanceType
+                ? `${match.url}/canopy-grid/occurrences`
+                : undefined
+            }
+          >
             <IonIcon src={flowerIcon} slot="start" />
             <IonLabel>Canopy species</IonLabel>
             <IonLabel slot="end">{canopySpecies.length}</IonLabel>
           </IonItem>
-          <IonItem routerLink={`${match.url}/ground-layer-grid/occurrences`}>
+          <IonItem
+            routerLink={
+              hasAbundanceType
+                ? `${match.url}/ground-layer-grid/occurrences`
+                : undefined
+            }
+          >
             <IonIcon src={flowerIcon} slot="start" />
             <IonLabel>Ground species</IonLabel>
             <IonLabel slot="end">{groundSpecies.length}</IonLabel>

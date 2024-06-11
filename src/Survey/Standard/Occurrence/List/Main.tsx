@@ -42,6 +42,8 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
 
     const [image] = occ.media;
 
+    const isCoverPresent = Number.isFinite(occ.getCover()) || !!occ.getCover();
+
     return (
       <IonItemSliding disabled={occ.isDisabled()} key={occ.cid}>
         <IonItem
@@ -76,12 +78,12 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
             </div>
 
             <div className="w-fit max-w-20 shrink-0 p-2 text-sm">
-              {!occ.attrs.cover ? (
+              {!isCoverPresent ? (
                 <Badge color="danger" className="whitespace-normal">
                   Cover missing
                 </Badge>
               ) : (
-                occ.attrs.cover
+                occ.getCover()
               )}
             </div>
           </div>

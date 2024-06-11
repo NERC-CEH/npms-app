@@ -101,7 +101,7 @@ export {
 export { default as Select } from '@flumens/tailwind/dist/components/Select';
 export { default as TextInput } from '@flumens/tailwind/dist/components/Input';
 export { default as Toggle } from '@flumens/tailwind/dist/components/Switch';
-// export { default as CounterInput } from '@flumens/tailwind/dist/components/NumberInput';
+export { default as NumberInput } from '@flumens/tailwind/dist/components/NumberInput';
 export {
   default as TailwindContext,
   type ContextValue as TailwindContextValue,
