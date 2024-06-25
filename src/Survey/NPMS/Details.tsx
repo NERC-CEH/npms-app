@@ -1,25 +1,52 @@
 /* eslint-disable no-param-reassign */
 
 /* eslint-disable no-return-assign */
-import { listOutline } from 'ionicons/icons';
-import { IonIcon, IonList } from '@ionic/react';
-import {
-  Header,
-  Main,
-  MenuAttrItemFromModel,
-  Page,
-  Select,
-  TextInput,
-} from 'common/flumens';
+import { useRouteMatch } from 'react-router';
+import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
+import { Block, Header, Main, Page } from 'common/flumens';
+import flowerIcon from 'common/images/flower.svg';
+import { byGrid } from 'common/models/occurrence';
 import Sample from 'common/models/sample';
-import { vegetationValues } from './config';
+import {
+  MANAGEMENT_OTHER_VALUE,
+  commentAttr,
+  grazingAnimalsAttr,
+  grazingAttr,
+  lichensAttr,
+  litterAttr,
+  managementAttr,
+  managementOtherAttr,
+  recorderAttr,
+  rockCoverAttr,
+  soilAttr,
+  woodCoverAttr,
+} from 'Survey/common/config';
+import {
+  vegetation100Attr,
+  vegetation10Attr,
+  vegetation300Attr,
+  vegetation300PlusAttr,
+  vegetation30Attr,
+} from './config';
 
 type Props = { sample: Sample };
 
 const Details = ({ sample }: Props) => {
-  const hasManagementOther = !!sample.attrs.management?.includes('Other');
-  const hasGrazing = !!sample.attrs.grazing;
-  const isDisabled = sample.isDisabled();
+  const match = useRouteMatch();
+
+  const isInventory = sample.metadata.level === 'inventory';
+  const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
+
+  const additionalOccCount = sample.occurrences.filter(
+    byGrid('additional-species-grid')
+  ).length;
+
+  const hasManagementOther = !!sample.attrs?.[managementAttr.id]?.includes(
+    MANAGEMENT_OTHER_VALUE
+  );
+  const hasGrazing = !!sample.attrs[grazingAttr.id];
+
+  const recordAttrs = { record: sample.attrs, isDisabled: sample.isDisabled() };
 
   return (
     <Page id="npms-details">
@@ -28,105 +55,45 @@ const Details = ({ sample }: Props) => {
         <IonList lines="full">
           <h3 className="list-title">Vegetation</h3>
           <div className="rounded-list">
-            <Select
-              options={vegetationValues}
-              onChange={(vegetation: any) =>
-                (sample.attrs.vegetation10 = vegetation)
-              }
-              value={sample.attrs.vegetation10}
-              label="Under 10cm"
-              prefix={<IonIcon src={listOutline} className="size-6" />}
-              isDisabled={isDisabled}
-            />
-            <Select
-              options={vegetationValues}
-              onChange={(vegetation: any) =>
-                (sample.attrs.vegetation30 = vegetation)
-              }
-              value={sample.attrs.vegetation30}
-              label="11-30cm"
-              prefix={<IonIcon src={listOutline} className="size-6" />}
-              isDisabled={isDisabled}
-            />
-            <Select
-              options={vegetationValues}
-              onChange={(vegetation: any) =>
-                (sample.attrs.vegetation100 = vegetation)
-              }
-              value={sample.attrs.vegetation100}
-              label="31-100cm"
-              prefix={<IonIcon src={listOutline} className="size-6" />}
-              isDisabled={isDisabled}
-            />
-            <Select
-              options={vegetationValues}
-              onChange={(vegetation: any) =>
-                (sample.attrs.vegetation300 = vegetation)
-              }
-              value={sample.attrs.vegetation300}
-              label="101-300cm"
-              prefix={<IonIcon src={listOutline} className="size-6" />}
-              isDisabled={isDisabled}
-            />
-            <Select
-              options={vegetationValues}
-              onChange={(vegetation: any) =>
-                (sample.attrs.vegetation300Plus = vegetation)
-              }
-              value={sample.attrs.vegetation300Plus}
-              label="Over 300cm"
-              prefix={<IonIcon src={listOutline} className="size-6" />}
-              isDisabled={isDisabled}
-            />
+            <Block block={vegetation10Attr} {...recordAttrs} />
+            <Block block={vegetation30Attr} {...recordAttrs} />
+            <Block block={vegetation100Attr} {...recordAttrs} />
+            <Block block={vegetation300Attr} {...recordAttrs} />
+            <Block block={vegetation300PlusAttr} {...recordAttrs} />
           </div>
 
           <h3 className="list-title">Cover</h3>
           <div className="rounded-list">
-            <MenuAttrItemFromModel model={sample} attr="woodCover" />
-            <MenuAttrItemFromModel model={sample} attr="soil" />
-            <MenuAttrItemFromModel model={sample} attr="rock" />
-            <MenuAttrItemFromModel model={sample} attr="litter" />
-            <MenuAttrItemFromModel model={sample} attr="lichens" />
+            <Block block={woodCoverAttr} {...recordAttrs} />
+            <Block block={soilAttr} {...recordAttrs} />
+            <Block block={rockCoverAttr} {...recordAttrs} />
+            <Block block={litterAttr} {...recordAttrs} />
+            <Block block={lichensAttr} {...recordAttrs} />
           </div>
 
           <h3 className="list-title">Other</h3>
           <div className="rounded-list">
-            <MenuAttrItemFromModel model={sample} attr="management" />
-            {hasManagementOther && (
-              <TextInput
-                value={sample.attrs.managementOther}
-                prefix={<IonIcon src={listOutline} className="size-6" />}
-                label="Other management"
-                onChange={(newVal: string) =>
-                  (sample.attrs.managementOther = newVal)
-                }
-                platform="ios"
-                isDisabled={isDisabled}
-              />
-            )}
-            <MenuAttrItemFromModel model={sample} attr="grazing" />
-            {hasGrazing && (
-              <TextInput
-                value={sample.attrs.grazingAnimals}
-                prefix={<IonIcon src={listOutline} className="size-6" />}
-                label="Grazing animals"
-                onChange={(newVal: string) =>
-                  (sample.attrs.grazingAnimals = newVal)
-                }
-                platform="ios"
-                isDisabled={isDisabled}
-              />
+            {isNPMSPlus && !isInventory && (
+              <IonItem
+                routerLink={`${match.url}/additional-species-grid/occurrences`}
+              >
+                <IonIcon src={flowerIcon} slot="start" />
+                <IonLabel>Additional species</IonLabel>
+                <IonLabel slot="end">{additionalOccCount}</IonLabel>
+              </IonItem>
             )}
 
-            <TextInput
-              value={sample.attrs.comment}
-              label="Comments"
-              onChange={(newVal: string) => (sample.attrs.comment = newVal)}
-              platform="ios"
-              labelPlacement="floating"
-              isMultiline
-              isDisabled={isDisabled}
-            />
+            <Block block={managementAttr} {...recordAttrs} />
+            {hasManagementOther && (
+              <Block block={managementOtherAttr} {...recordAttrs} />
+            )}
+            <Block block={grazingAttr} {...recordAttrs} />
+            {hasGrazing && (
+              <Block block={grazingAnimalsAttr} {...recordAttrs} />
+            )}
+
+            <Block block={commentAttr} {...recordAttrs} />
+            <Block block={recorderAttr} {...recordAttrs} />
           </div>
         </IonList>
       </Main>

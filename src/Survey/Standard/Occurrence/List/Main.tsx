@@ -13,6 +13,7 @@ import {
 import InfoBackgroundMessage from 'common/Components/InfoBackgroundMessage';
 import Occurrence, { Grid, byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
+import { getCover } from 'Survey/Standard/config';
 
 type Props = {
   sample: Sample;
@@ -42,7 +43,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
 
     const [image] = occ.media;
 
-    const isCoverPresent = Number.isFinite(occ.getCover()) || !!occ.getCover();
+    const isCoverPresent = Number.isFinite(getCover(occ)) || !!getCover(occ);
 
     return (
       <IonItemSliding disabled={occ.isDisabled()} key={occ.cid}>
@@ -65,10 +66,8 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
             </div>
 
             <div className="flex w-full flex-col overflow-hidden p-1">
-              <div className="font-semibold">
-                {occ.attrs.taxon.commonNames[0]}
-              </div>
-              <div className="italic">{occ.attrs.taxon.scientificName}</div>
+              <div className="font-semibold">{occ.attrs.defaultCommonName}</div>
+              <div className="italic">{occ.attrs.preferredTaxon}</div>
 
               {!image && (
                 <Badge color="warning" className="mt-2">
@@ -83,7 +82,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
                   Cover missing
                 </Badge>
               ) : (
-                occ.getCover()
+                getCover(occ)
               )}
             </div>
           </div>

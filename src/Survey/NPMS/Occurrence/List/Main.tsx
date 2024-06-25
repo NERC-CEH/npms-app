@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import { cameraOutline } from 'ionicons/icons';
 import { useRouteMatch } from 'react-router';
 import { Badge, Main, usePromptImageSource } from '@flumens';
+import { Choice } from '@flumens/tailwind/dist/Survey';
 import {
   IonItemSliding,
   IonItem,
@@ -13,6 +14,7 @@ import {
 import InfoBackgroundMessage from 'common/Components/InfoBackgroundMessage';
 import Occurrence, { Grid, byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
+import { coverAttr } from 'Survey/common/config';
 
 type Props = {
   sample: Sample;
@@ -42,6 +44,12 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
 
     const [image] = occ.media;
 
+    const findLabel = (choices: Choice[], val: any) => {
+      const byValue = (choice: Choice) => choice.data_name === val;
+      return choices.find(byValue)?.title;
+    };
+    const cover = findLabel(coverAttr.choices, occ.attrs[coverAttr.id]);
+
     return (
       <IonItemSliding disabled={occ.isDisabled()} key={occ.cid}>
         <IonItem
@@ -63,10 +71,8 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
             </div>
 
             <div className="flex w-full flex-col overflow-hidden p-1">
-              <div className="font-semibold">
-                {occ.attrs.taxon.commonNames[0]}
-              </div>
-              <div className="italic">{occ.attrs.taxon.scientificName}</div>
+              <div className="font-semibold">{occ.attrs.defaultCommonName}</div>
+              <div className="italic">{occ.attrs.preferredTaxon}</div>
 
               {!image && (
                 <Badge color="warning" className="mt-2">
@@ -76,12 +82,12 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
             </div>
 
             <div className="w-fit max-w-20 shrink-0 p-2 text-sm">
-              {!occ.attrs.cover ? (
+              {!cover ? (
                 <Badge color="danger" className="whitespace-normal">
                   Cover missing
                 </Badge>
               ) : (
-                occ.attrs.cover
+                cover
               )}
             </div>
           </div>

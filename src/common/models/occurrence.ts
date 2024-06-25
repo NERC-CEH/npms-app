@@ -4,12 +4,17 @@ import {
   OccurrenceAttrs,
   validateRemoteModel,
 } from '@flumens';
-import { Taxon } from 'Survey/common/Components/TaxonSearchPage/TaxonSearch';
-import { Survey } from 'Survey/common/config';
+import {
+  dominCoverAttr,
+  bbCoverAttr,
+  presenceCoverAttr,
+  percentageCoverAttr,
+  frequencyCoverAttr,
+  countCoverAttr,
+} from 'Survey/Standard/config';
+import { Survey, gridAttr } from 'Survey/common/config';
 import Media from './image';
 import Sample from './sample';
-
-export { type Taxon } from 'Survey/common/Components/TaxonSearchPage/TaxonSearch';
 
 export type Grid =
   | 'canopy-grid'
@@ -19,22 +24,38 @@ export type Grid =
   | 'additional-species-grid';
 
 export const byGrid = (grid: Grid) => (occ: Occurrence) =>
-  occ.attrs.grid === grid;
+  occ.attrs[gridAttr.id] === grid;
 
 export type CoverKeys =
   | 'cover'
-  | 'coverDomin'
-  | 'coverBB'
-  | 'coverPresence'
-  | 'coverPercentage'
-  | 'coverCount'
-  | 'coverFrequency';
+  | typeof dominCoverAttr.id
+  | typeof bbCoverAttr.id
+  | typeof presenceCoverAttr.id
+  | typeof percentageCoverAttr.id
+  | typeof frequencyCoverAttr.id
+  | typeof countCoverAttr.id;
 
-type CoverAttrs = { [key in CoverKeys]?: any };
-export type Attrs = OccurrenceAttrs &
-  CoverAttrs & {
-    taxon: Taxon;
-    grid: Grid;
+export type Taxon = {
+  /**
+   * Warehouse id
+   */
+  taxaTaxonListId: string;
+  /**
+   * Picked by user name.
+   */
+  taxon: string;
+  /**
+   * Scientific name.
+   */
+  preferredTaxon?: string;
+  /**
+   * Common name.
+   */
+  defaultCommonName?: string;
+};
+
+export type Attrs = OccurrenceAttrs & { [key in CoverKeys]?: any } & Taxon & {
+    [gridAttr.id]: Grid;
   };
 
 export default class Occurrence extends OccurrenceOriginal<Attrs> {
@@ -52,26 +73,9 @@ export default class Occurrence extends OccurrenceOriginal<Attrs> {
 
   isDisabled = () => this.isUploaded();
 
-  getPrettyName() {
-    // eslint-disable-next-line prefer-destructuring
-    const taxon: Taxon = this.attrs.taxon;
-    if (!taxon) return '';
-
-    if (Number.isFinite(taxon.foundInName))
-      return taxon.commonNames?.[taxon.foundInName as number];
-
-    return taxon.scientificName;
-  }
-
-  getCover() {
-    return (
-      this.attrs.cover ||
-      this.attrs.coverBB ||
-      this.attrs.coverDomin ||
-      this.attrs.coverPresence ||
-      this.attrs.coverCount ||
-      this.attrs.coverPercentage ||
-      this.attrs.coverFrequency
-    );
-  }
+  getPrettyName = () =>
+    this.attrs.taxon ||
+    this.attrs.defaultCommonName ||
+    this.attrs.preferredTaxon ||
+    '';
 }

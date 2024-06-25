@@ -3,9 +3,9 @@ import { observer } from 'mobx-react';
 import { useRouteMatch } from 'react-router';
 import { Page, Main, Header } from '@flumens';
 import { NavContext } from '@ionic/react';
-import Occurrence, { Grid } from 'models/occurrence';
+import Occurrence, { Grid, Taxon } from 'models/occurrence';
 import Sample from 'models/sample';
-import TaxonSearch from './TaxonSearch';
+import TaxonSearch, { Taxon as SearchTaxon } from './TaxonSearch';
 
 type Props = {
   sample: Sample;
@@ -13,26 +13,21 @@ type Props = {
   subSubSample?: Sample;
 };
 
-type Taxon = {
-  scientificName: string;
-  commonName?: string;
-  warehouseId: number;
-};
-
 const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
   const { navigate, goBack } = useContext(NavContext);
   const match = useRouteMatch<{ grid: Grid }>();
   const { grid } = match.params;
 
-  const transformUKSIToAppTaxon = (taxon: Taxon) => ({
-    commonName: taxon.commonName || '',
-    scientificName: taxon.scientificName,
-    warehouseId: taxon.warehouseId,
-  });
-
-  const onSpeciesSelected = async (taxon: Taxon) => {
+  const onSpeciesSelected = async (taxonUKSI: SearchTaxon) => {
     const model: Sample = subSample || sample;
     const subModel = subSubSample || subSample;
+
+    const taxon: Taxon = {
+      taxon: taxonUKSI.commonNames?.[0] || taxonUKSI.scientificName,
+      defaultCommonName: taxonUKSI.commonNames?.[0],
+      preferredTaxon: taxonUKSI.scientificName,
+      taxaTaxonListId: `${taxonUKSI.warehouseId}`,
+    };
 
     if (!subModel) {
       const modelSurvey = model.getSurvey();
@@ -55,10 +50,7 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
     }
 
     const [occ] = subModel.occurrences;
-    occ.attrs.taxon = {
-      ...occ.attrs.taxon,
-      ...transformUKSIToAppTaxon(taxon),
-    };
+    Object.assign(occ.attrs, taxon);
 
     model.save();
 

@@ -1,173 +1,201 @@
 /* eslint-disable no-param-reassign */
-import { chatboxOutline, listOutline, peopleOutline } from 'ionicons/icons';
+import { listOutline, locationOutline, peopleOutline } from 'ionicons/icons';
 import {
   RemoteConfig,
   MenuAttrItemFromModelMenuProps,
   PageProps,
-  dateFormat,
+  BlockT,
 } from '@flumens';
+import { IonIcon } from '@ionic/react';
 import locations, { bySurvey } from 'common/models/collections/locations';
 import Location from 'common/models/location';
 import Occurrence, { Grid, Taxon } from 'common/models/occurrence';
 import Media from 'models/image';
-import Sample from 'models/sample';
+import Sample, { Attrs as SampleAttrs } from 'models/sample';
 
-export const locationAttr = {};
+const peopleOutlineIcon = (
+  <IonIcon src={peopleOutline} className="size-6" />
+) as any;
 
-export const dateAttr = {
-  remote: { values: (date: number) => dateFormat.format(new Date(date)) },
-};
+const listOutlineIcon = (
+  <IonIcon src={listOutline} className="size-6" />
+) as any;
+
+const locationOutlineIcon = (
+  <IonIcon src={locationOutline} className="size-6" />
+) as any;
 
 export const commentAttr = {
-  menuProps: { icon: chatboxOutline, skipValueTranslation: true },
-  pageProps: {
-    attrProps: {
-      input: 'textarea',
-      info: 'Please add any extra info about this record.',
-    },
-  },
-};
+  id: 'comment',
+  type: 'text_input',
+  title: 'Comments',
+  appearance: 'multiline',
+} as const;
+
+export const MANAGEMENT_OTHER_VALUE = '1816';
 
 export const dominCoverValues = [
-  { value: '< 1% (1-2 indivs)', id: 3333 },
-  { value: '< 1% (several indivs)', id: 3334 },
-  { value: '1-4%', id: 3335 },
-  { value: '5-10%', id: 3336 },
-  { value: '11-25%', id: 3337 },
-  { value: '26-33%', id: 3338 },
-  { value: '34-50%', id: 3339 },
-  { value: '51-75%', id: 3340 },
-  { value: '76-90%', id: 3341 },
-  { value: '91-100%', id: 3342 },
-];
-
-const managementValues = [
-  { value: 'Arable cropping', id: 1799 },
-  { value: 'Burning', id: 1800 },
-  { value: 'Coppicing', id: 1801 },
-  { value: 'Cutting / mowing', id: 1802 },
-  { value: 'Ditch-clearance', id: 1803 },
-  { value: 'Fenced to exclude grazing', id: 1804 },
-  { value: 'Fertilised to improve soil fertility', id: 1805 },
-  { value: 'Grazing - livestock', id: 1806 },
-  { value: 'Grazing - rabbits / deer', id: 1807 },
-  { value: 'Hedge-laying', id: 1808 },
-  { value: 'Herbicides to control weeds', id: 1809 },
-  { value: 'Path, track or road works', id: 1810 },
-  { value: 'Quarrying', id: 1811 },
-  { value: 'Scrub clearance / tree felling', id: 1812 },
-  { value: 'Silage production', id: 1813 },
-  { value: 'Tree planting', id: 1814 },
-  { value: 'Water regime regulation', id: 1815 },
-  { value: 'Other', id: 1816 },
-];
-
-export const managementAttr = {
-  menuProps: { icon: listOutline },
-  pageProps: {
-    attrProps: {
-      input: 'checkbox',
-      inputProps: { options: managementValues },
-    },
-  },
-
-  remote: { id: 225, values: managementValues },
-};
-
-const grazingValues = [
-  { label: 'Not selected', value: '' },
-  { value: 'Low', id: 1817 },
-  { value: 'Moderate', id: 1818 },
-  { value: 'High', id: 1819 },
+  { title: '< 1% (1-2 indivs)', data_name: '3333' },
+  { title: '< 1% (several indivs)', data_name: '3334' },
+  { title: '1-4%', data_name: '3335' },
+  { title: '5-10%', data_name: '3336' },
+  { title: '11-25%', data_name: '3337' },
+  { title: '26-33%', data_name: '3338' },
+  { title: '34-50%', data_name: '3339' },
+  { title: '51-75%', data_name: '3340' },
+  { title: '76-90%', data_name: '3341' },
+  { title: '91-100%', data_name: '3342' },
 ];
 
 export const grazingAttr = {
-  menuProps: { icon: listOutline },
-  pageProps: {
-    attrProps: {
-      input: 'radio',
-      inputProps: { options: grazingValues },
-    },
-  },
-  remote: { id: 215, values: grazingValues },
-};
+  id: 'smpAttr:215',
+  type: 'choice_input',
+  title: 'Grazing',
+  prefix: listOutlineIcon,
+  appearance: 'button',
+  choices: [
+    { title: 'Not selected', data_name: '' },
+    { title: 'Low', data_name: '1817' },
+    { title: 'Moderate', data_name: '1818' },
+    { title: 'High', data_name: '1819' },
+  ],
+} as const;
 
-export const grazingAnimalsAttr = { remote: { id: 224 } };
+export const grazingAnimalsAttr = {
+  id: 'smpAttr:224',
+  type: 'text_input',
+  title: 'Grazing animals',
+  appearance: 'multiline',
+} as const;
 
-export const managementOtherAttr = { remote: { id: 226 } };
+export const coverAttr = {
+  id: 'occAttr:214',
+  type: 'choice_input',
+  container: 'inline',
+  choices: dominCoverValues,
+  //       id_wild: 104,
+  //       id: 214,
+  //       values(value, submission, occ) {
+  //         // wildflower uses different abundance attribute and values
+  //         if (
+  //           occ.parent.metadata.survey_id ===
+  //           CONFIG.indicia.sample.surveys.wildflower
+  //         ) {
+  //           // eslint-disable-next-line
+  //           submission.fields[this.id_wild] =
+  //             rangeValuesWildflower.indexOf(value) + 1; // eslint-disable-line
+  //           return null;
+  //         }
+  //         return rangeValues[value];
+  //       },
+} as const;
 
-export const soilAttr = {
-  menuProps: { label: 'Bare soil', icon: listOutline },
-  pageProps: {
-    headerProps: { title: 'Bare soil' },
-    attrProps: {
-      input: 'radio',
-      inputProps: { options: dominCoverValues },
-    },
-  },
-  remote: { id: 403, values: dominCoverValues },
-};
-
-export const rockAttr = {
-  menuProps: { label: 'Bare rock', icon: listOutline },
-  pageProps: {
-    headerProps: { title: 'Bare rock' },
-    attrProps: {
-      input: 'radio',
-      inputProps: { options: dominCoverValues },
-    },
-  },
-  remote: { id: 405, values: dominCoverValues },
-};
+export const rockCoverAttr = {
+  id: 'smpAttr:405',
+  type: 'choice_input',
+  title: 'Bare rock',
+  prefix: listOutlineIcon,
+  container: 'page',
+  choices: dominCoverValues,
+} as const;
 
 export const litterAttr = {
-  menuProps: { label: 'Litter', icon: listOutline },
-  pageProps: {
-    headerProps: { title: 'Litter' },
-    attrProps: {
-      input: 'radio',
-      inputProps: { options: dominCoverValues },
-    },
-  },
-  remote: { id: 404, values: dominCoverValues },
-};
+  id: 'smpAttr:404',
+  type: 'choice_input',
+  title: 'Litter',
+  prefix: listOutlineIcon,
+  container: 'page',
+  choices: dominCoverValues,
+} as const;
 
 export const lichensAttr = {
-  menuProps: { label: 'Mosses & Lichens', icon: listOutline },
-  pageProps: {
-    headerProps: { title: 'Mosses & Lichens' },
-    attrProps: {
-      input: 'radio',
-      inputProps: { options: dominCoverValues },
-    },
-  },
-  remote: { id: 408, values: dominCoverValues },
-};
+  id: 'smpAttr:408',
+  type: 'choice_input',
+  title: 'Mosses & Lichens',
+  prefix: listOutlineIcon,
+  container: 'page',
+  choices: dominCoverValues,
+} as const;
 
-const woodValues = [
-  { value: 'Woodland canopy', id: 1820 },
-  { value: 'Scattered trees or shrubs', id: 1821 },
-  { value: 'Hedgerow', id: 1822 },
-  { value: 'No trees or shrubs', id: 1823 },
-];
+export const managementAttr = {
+  id: 'smpAttr:225',
+  type: 'choice_input',
+  title: 'Management',
+  multiple: true,
+  prefix: listOutlineIcon,
+  container: 'page',
+  choices: [
+    { title: 'Arable cropping', data_name: '1799' },
+    { title: 'Burning', data_name: '1800' },
+    { title: 'Coppicing', data_name: '1801' },
+    { title: 'Cutting / mowing', data_name: '1802' },
+    { title: 'Ditch-clearance', data_name: '1803' },
+    { title: 'Fenced to exclude grazing', data_name: '1804' },
+    { title: 'Fertilised to improve soil fertility', data_name: '1805' },
+    { title: 'Grazing - livestock', data_name: '1806' },
+    { title: 'Grazing - rabbits / deer', data_name: '1807' },
+    { title: 'Hedge-laying', data_name: '1808' },
+    { title: 'Herbicides to control weeds', data_name: '1809' },
+    { title: 'Path, track or road works', data_name: '1810' },
+    { title: 'Quarrying', data_name: '1811' },
+    { title: 'Scrub clearance / tree felling', data_name: '1812' },
+    { title: 'Silage production', data_name: '1813' },
+    { title: 'Tree planting', data_name: '1814' },
+    { title: 'Water regime regulation', data_name: '1815' },
+    { title: 'Other', data_name: MANAGEMENT_OTHER_VALUE },
+  ],
+} as const;
+
+export const managementOtherAttr = {
+  id: 'smpAttr:226',
+  type: 'text_input',
+  title: 'Other management',
+  appearance: 'multiline',
+} as const;
+
+export const soilAttr = {
+  id: 'smpAttr:403',
+  type: 'choice_input',
+  title: 'Bare soil',
+  prefix: listOutlineIcon,
+  container: 'page',
+  choices: dominCoverValues,
+} as const;
+
+export const locationAttr = (attrs?: SampleAttrs) => {
+  const byId = (id?: string) => (loc: Location) => loc.id === id;
+  const location = locations.find(byId(attrs?.locationId));
+
+  return {
+    id: 'locationId',
+    type: 'choice_input',
+    title: 'Location',
+    prefix: locationOutlineIcon,
+    container: 'page',
+    choices: location
+      ? [{ data_name: location.id!, title: location.attrs.name! }] // only one is fine - using as a link to a custom page
+      : [],
+  } as const;
+};
 
 export const woodCoverAttr = {
-  menuProps: { label: 'Woody cover', icon: listOutline },
-  pageProps: {
-    headerProps: { title: 'Woody cover' },
-    attrProps: {
-      input: 'radio',
-      info: 'How wooded is your plot?',
-      inputProps: { options: woodValues },
-    },
-  },
-  remote: { id: 216, values: woodValues },
-};
+  id: 'smpAttr:216',
+  type: 'choice_input',
+  title: 'Woody cover',
+  prefix: listOutlineIcon,
+  appearance: 'button',
+  choices: [
+    { title: 'Woodland canopy', data_name: '1820' },
+    { title: 'Scattered trees or shrubs', data_name: '1821' },
+    { title: 'Hedgerow', data_name: '1822' },
+    { title: 'No trees or shrubs', data_name: '1823' },
+  ],
+} as const;
 
 export const byGroup = (group?: string) => (loc: Location) =>
   group ? loc.attrs.projectId === group : true;
 
-const getGroups = (survey: Survey['name']) => {
+export const getGroups = (survey: Survey['name']) => {
   const groups: any = {};
   locations.filter(bySurvey(survey)).forEach((location: Location) => {
     if (!location.attrs.projectId) return;
@@ -176,55 +204,56 @@ const getGroups = (survey: Survey['name']) => {
   return groups;
 };
 
-export const groupAttr = {
-  menuProps: { label: 'Project', icon: peopleOutline },
-  pageProps: {
-    headerProps: { title: 'Project' },
-    attrProps: {
-      input: 'radio',
-      inputProps: (sample: Sample) => {
-        const groups: any = getGroups(sample.getSurvey().name);
-        const getOption = ([value, label]: any) => ({ value, label });
-        return { options: Object.entries(groups).map(getOption) };
-      },
-      set(id: any, sample: Sample) {
-        const groups: any = getGroups(sample.getSurvey().name);
-        const name = groups[id];
-        if (!name) {
-          console.warn(`Group with ID ${id} was not found`);
-          return;
-        }
-        sample.attrs.location = undefined; // unset
-        sample.attrs.plotGroup = undefined; // unset
-        sample.attrs.group = { id, name };
-      },
-      get(sample: Sample) {
-        return sample.attrs.group?.id;
-      },
-    },
-  },
-  remote: { id: 'group_id', values: (val: any) => val.id },
+export const recorderAttr = {
+  id: 'recorderNames',
+  type: 'text_input',
+  title: 'Recorder names',
+  // description: 'Please only add additional recorders here.',
+  appearance: 'multiline',
+} as const;
+
+export const gridAttr = {
+  id: 'occAttr:153',
+  type: 'text_input',
+} as const;
+
+const getGroupChoices = (surveyName: Survey['name']) => {
+  const groups: any = getGroups(surveyName);
+  const getOption = ([value, title]: any) => ({ title, data_name: value });
+  return Object.entries(groups).map(getOption);
 };
 
-export const recorderAttr = {
-  menuProps: { label: 'Recorder names', icon: peopleOutline },
-  pageProps: {
-    headerProps: { title: 'Recorder names' },
-    attrProps: {
-      input: 'input',
-      info: 'Please only add additional recorders here.',
-    },
-  },
-  remote: { id: 'recorder_names' },
-};
+export const groupAttr = () =>
+  ({
+    id: 'groupId',
+    type: 'choice_input',
+    title: 'Project',
+    prefix: peopleOutlineIcon,
+    container: 'page',
+    choices: getGroupChoices('standard'),
+    //       set(id: any, sample: Sample) {
+    //         sample.attrs.location = undefined; // unset
+    //         sample.attrs.plotGroup = undefined; // unset
+    //         sample.attrs.group = { id, name };
+    //       },
+  } as const);
 
 export type Level = 'wildflower' | 'indicator' | 'inventory';
 
+type AttrType = { [x: string]: { block: BlockT | ((record?: any) => BlockT) } };
+export const blockToAttr = (blockOrFn: BlockOrFn): AttrType =>
+  typeof blockOrFn === 'function'
+    ? { [blockOrFn().id]: { block: blockOrFn } }
+    : { [blockOrFn.id]: { block: blockOrFn } };
+
 type MenuProps = MenuAttrItemFromModelMenuProps;
+
+export type BlockOrFn = BlockT | ((record?: any) => BlockT);
 
 export type AttrConfig = {
   menuProps?: MenuProps;
   pageProps?: Omit<PageProps, 'attr' | 'model'>;
+  block?: BlockOrFn;
   remote?: RemoteConfig;
 };
 
@@ -244,7 +273,7 @@ type OccurrenceConfig = {
   render?: any[] | ((model: Occurrence) => any[]);
   attrs: Attrs;
   create?: (options: OccurrenceCreateOptions) => Occurrence;
-  verify?: (attrs: any) => any;
+  verify?: (attrs: any, model: any) => any;
   modifySubmission?: (submission: any, model: any) => any;
   /**
    * Set to true if multi-species surveys shouldn't auto-increment it to 1 when adding to lists.

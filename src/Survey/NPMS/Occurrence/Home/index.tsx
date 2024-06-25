@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router';
 import { NavContext } from '@ionic/react';
 import { Header, Page } from 'common/flumens';
 import Occurrence from 'common/models/occurrence';
+import { coverAttr } from 'Survey/common/config';
 import Main from './Main';
 
 type Props = { occurrence: Occurrence };
@@ -12,10 +13,12 @@ const OccurrenceHome = ({ occurrence }: Props) => {
   const { navigate, goBack } = useContext(NavContext);
 
   const onCoverChange = (cover: any) => {
-    const isUpdating = occurrence.attrs.cover;
+    if (occurrence.isDisabled()) return;
+
+    const isUpdating = occurrence.attrs[coverAttr.id];
 
     // eslint-disable-next-line no-param-reassign
-    occurrence.attrs.cover = cover;
+    occurrence.attrs[coverAttr.id] = cover;
 
     let baseUrl: any = match.url.split('/');
     baseUrl.pop();

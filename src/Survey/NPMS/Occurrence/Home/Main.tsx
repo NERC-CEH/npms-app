@@ -1,8 +1,8 @@
-import { Main, RadioInput } from '@flumens';
+import { Main, Block } from '@flumens';
 import { IonList } from '@ionic/react';
 import Occurrence from 'models/occurrence';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
-import { dominCoverValues } from 'Survey/common/config';
+import { coverAttr } from 'Survey/common/config';
 
 type Props = {
   occurrence: Occurrence;
@@ -19,11 +19,14 @@ const OccurrenceHomeMain = ({ occurrence, onCoverChange }: Props) => {
         </div>
 
         <h3 className="list-title">Species cover</h3>
-        <RadioInput
-          options={dominCoverValues}
-          onChange={onCoverChange}
-          value={occurrence.attrs.cover}
-        />
+        <div className="-mx-3">
+          <Block
+            block={coverAttr}
+            record={occurrence.attrs}
+            isDisabled={occurrence.isDisabled()}
+            onChange={onCoverChange}
+          />
+        </div>
       </IonList>
     </Main>
   );

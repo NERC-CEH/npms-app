@@ -71,6 +71,8 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
     sample.upload().catch(toast.error);
   };
 
+  const surveyLevel = sample.metadata.level;
+
   return (
     <IonItemSliding className="survey-list-item" style={style}>
       <IonItem routerLink={href} detail={false}>
@@ -79,6 +81,11 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
             <h3 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-bold">
               <T>{survey.label}</T>
             </h3>
+            {surveyLevel && (
+              <h4 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                <T>{surveyLevel}</T>
+              </h4>
+            )}
           </div>
 
           <OnlineStatus

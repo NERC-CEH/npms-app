@@ -1,16 +1,14 @@
 import { useContext } from 'react';
-import { addOutline } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useToast, getRelativeDate, VirtualList } from '@flumens';
 import {
   IonButton,
-  IonIcon,
   IonItemDivider,
   IonLabel,
   IonList,
   NavContext,
 } from '@ionic/react';
-import samplesCollection from 'models/collections/samples';
+import samplesCollection, { byPortal } from 'models/collections/samples';
 import Sample, { bySurveyDate } from 'models/sample';
 import userModel from 'models/user';
 import InfoBackgroundMessage from 'Components/InfoBackgroundMessage';
@@ -115,7 +113,10 @@ const Pending = () => {
   const { t } = useTranslation();
 
   const notUploaded = (sample: Sample) => !sample.metadata.syncedOn;
-  const surveys = samplesCollection.filter(notUploaded).sort(bySurveyDate);
+  const surveys = samplesCollection
+    .filter(byPortal(userModel.isPlantPortal() ? 'pp' : 'npms'))
+    .filter(notUploaded)
+    .sort(bySurveyDate);
 
   const isFinished = (sample: Sample) => sample.metadata.saved;
   const hasManyPending = () => surveys.filter(isFinished).length > 4;
@@ -134,10 +135,6 @@ const Pending = () => {
     return (
       <InfoBackgroundMessage className="mb-[10vh] mt-[20vh]">
         No finished pending surveys.
-        <br />
-        <br />
-        Press <IonIcon icon={addOutline} className="start-survey-icon" /> to
-        add.
       </InfoBackgroundMessage>
     );
   }

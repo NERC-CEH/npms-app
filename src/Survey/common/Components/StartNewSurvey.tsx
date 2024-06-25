@@ -58,11 +58,8 @@ async function getNewSample(
   draftIdKey: keyof SurveyDraftKeys,
   params?: Params
 ) {
-  const recorder = userModel.getPrettyName();
-
   const sample = await survey.create!({
     Sample,
-    recorder,
     level: params?.level,
   });
   await sample.save();

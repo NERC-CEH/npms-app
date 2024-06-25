@@ -1,17 +1,20 @@
 import { observer } from 'mobx-react';
-import { Main, NumberInput, RadioInput } from '@flumens';
+import { Block, ChoiceValues, Main } from '@flumens';
 import { IonList } from '@ionic/react';
 import Occurrence from 'models/occurrence';
 import {
-  AbundanceType,
-  bbCoverValues,
-  presenceCoverValues,
+  abundanceAttr,
+  bbCoverAttr,
+  countCoverAttr,
+  dominCoverAttr,
+  frequencyCoverAttr,
+  percentageCoverAttr,
+  presenceCoverAttr,
 } from 'Survey/Standard/config';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
-import { dominCoverValues } from 'Survey/common/config';
 
 type Props = {
-  abundanceType: AbundanceType;
+  abundanceType: ChoiceValues<typeof abundanceAttr.choices>;
   occurrence: Occurrence;
   onCoverChange: any;
 };
@@ -21,12 +24,17 @@ const OccurrenceHomeMain = ({
   occurrence,
   onCoverChange,
 }: Props) => {
-  const isDomin = abundanceType === 'Domin';
-  const isPresence = abundanceType === 'Present/Absent';
-  const isBB = abundanceType === 'Braun-Blanquet';
-  const isPercentage = abundanceType === 'Percentage';
-  const isFrequency = abundanceType === 'Cell frequency';
-  const isCount = abundanceType === 'Individual plant count';
+  const isDomin = abundanceType === '18881';
+  const isBB = abundanceType === '18882';
+  const isPercentage = abundanceType === '18883';
+  const isCount = abundanceType === '18884';
+  const isFrequency = abundanceType === '18885';
+  const isPresence = abundanceType === '18892';
+
+  const recordAttrs = {
+    record: occurrence.attrs,
+    isDisabled: occurrence.isDisabled(),
+  };
 
   return (
     <Main>
@@ -35,63 +43,60 @@ const OccurrenceHomeMain = ({
         <div className="rounded-list">
           <PhotoPicker model={occurrence} />
         </div>
-
         <h3 className="list-title">Species cover</h3>
         {isDomin && (
-          <RadioInput
-            options={dominCoverValues}
-            onChange={onCoverChange('coverDomin')}
-            value={occurrence.attrs.coverDomin}
-          />
+          <div className="-mx-2">
+            <Block
+              onChange={onCoverChange(dominCoverAttr.id)}
+              block={dominCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
-
         {isBB && (
-          <RadioInput
-            options={bbCoverValues}
-            onChange={onCoverChange('coverBB')}
-            value={occurrence.attrs.coverBB}
-          />
+          <div className="-mx-2">
+            <Block
+              onChange={onCoverChange(bbCoverAttr.id)}
+              block={bbCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
-
         {isPresence && (
-          <RadioInput
-            options={presenceCoverValues}
-            onChange={onCoverChange('coverPresence')}
-            value={occurrence.attrs.coverPresence}
-          />
+          <div className="-mx-2">
+            <Block
+              onChange={onCoverChange(presenceCoverAttr.id)}
+              block={presenceCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
-
         {isPercentage && (
-          <NumberInput
-            label="Percentage"
-            className="rounded-md"
-            onChange={onCoverChange('coverPercentage')}
-            minValue={1}
-            maxValue={100}
-            value={Number.parseInt(occurrence.attrs.coverPercentage, 10)}
-          />
+          <div className="rounded-list">
+            <Block
+              onChange={onCoverChange(percentageCoverAttr.id)}
+              block={percentageCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
-
         {isFrequency && (
-          <NumberInput
-            label="Cell frequency"
-            className="rounded-md"
-            onChange={onCoverChange('coverFrequency')}
-            minValue={0}
-            maxValue={1}
-            value={Number.parseInt(occurrence.attrs.coverFrequency, 10)}
-          />
+          <div className="rounded-list">
+            <Block
+              onChange={onCoverChange(frequencyCoverAttr.id)}
+              block={frequencyCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
-
         {isCount && (
-          <NumberInput
-            label="Count"
-            className="rounded-md"
-            onChange={onCoverChange('coverCount')}
-            minValue={1}
-            maxValue={1000}
-            value={Number.parseInt(occurrence.attrs.coverCount, 10)}
-          />
+          <div className="rounded-list">
+            <Block
+              onChange={onCoverChange(countCoverAttr.id)}
+              block={countCoverAttr}
+              {...recordAttrs}
+            />
+          </div>
         )}
       </IonList>
     </Main>

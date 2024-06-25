@@ -103,16 +103,6 @@ html.ios.plt-hybrid #status-bar-background {
   z-index: 1000;
 }
 
-// info messages
-.attr-page .info-message {
-  @apply border-tertiary-300/40 bg-tertiary-50 text-tertiary-900;
-}
-
-// don't know why this is needed but it fixed location name being off
-.location-name-attr .auto-suggest-input-attr ion-input {
-  height: 30px;
-}
-
 // FONTS START
 @font-face {
   font-family: 'Museo';
@@ -166,11 +156,6 @@ ion-footer ion-tab-button {
   font-size: 0.8em;
 }
 
-// the background camera must see through it all
-body {
-  background-color: transparent;
-}
-
 h1,
 h2,
 h3 {
@@ -191,33 +176,6 @@ ion-toolbar {
     var(--color-primary-500) 100%
   );
 }
-
-/** Ionic 7 fixes START **/
-
-// Fix end-slot label placement
-ion-label[slot='end'] {
-  text-align: right;
-}
-
-// Fix cropped radio button icons
-ion-radio {
-  padding-right: 1px;
-}
-
-ion-list.apps-section {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.checkbox-input-attr .hasIcon ion-checkbox {
-  max-width: 85%;
-}
-
-ion-item.menu-attr-item ion-label[slot='end'] {
-  max-width: 33%;
-}
-
-/** Ionic 7 fixes END **/
 
 // list item picture
 .list-avatar {

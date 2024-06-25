@@ -16,7 +16,12 @@ import samples from 'models/collections/samples';
 import userModel from 'models/user';
 import App from './App';
 
-i18n.use(initReactI18next).init({ lng: 'en' });
+i18n.use(initReactI18next).init({
+  lng: 'en',
+  interpolation: {
+    escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
+  },
+});
 
 console.log('🚩 App starting.');
 

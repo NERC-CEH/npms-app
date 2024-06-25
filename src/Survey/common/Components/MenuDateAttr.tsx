@@ -1,5 +1,4 @@
 import { calendarOutline } from 'ionicons/icons';
-import { toISOTimezoneString } from '@flumens/ionic/dist/utils/date';
 import {
   IonDatetime,
   IonDatetimeButton,
@@ -31,9 +30,7 @@ const MenuDateAttr = ({ model }: Props) => {
               preferWheel
               onIonChange={(e: any) => {
                 // eslint-disable-next-line
-                (model.attrs as any).date = toISOTimezoneString(
-                  new Date(e.detail.value)
-                );
+                (model.attrs as any).date = e.detail.value.split('T')[0];
               }}
               value={(model.attrs as any).date}
               disabled={model.isDisabled()}

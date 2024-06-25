@@ -17,12 +17,15 @@ const routes = [
   [`${baseURL}`, StartNewSurvey.with(survey), true],
   [`${baseURL}/:smpId`, Home],
   [`${baseURL}/:smpId/:attr`, AttrPageFromRoute],
-  [`${baseURL}/:smpId/location`, Location],
-  [`${baseURL}/:smpId/details`, Details],
-  [`${baseURL}/:smpId/details/:attr`, AttrPageFromRoute],
+  [`${baseURL}/:smpId/locationId`, Location],
+  [`${baseURL}/:smpId/additional`, Details],
+  [`${baseURL}/:smpId/additional/:attr`, AttrPageFromRoute],
   [`${baseURL}/:smpId/:grid/occurrences`, OccurrenceList],
   [`${baseURL}/:smpId/:grid/occurrences/:occId`, OccurrenceHome],
   [`${baseURL}/:smpId/:grid/occurrences/search`, TaxonSearchPage],
+  [`${baseURL}/:smpId/additional/:grid/occurrences`, OccurrenceList],
+  [`${baseURL}/:smpId/additional/:grid/occurrences/:occId`, OccurrenceHome],
+  [`${baseURL}/:smpId/additional/:grid/occurrences/search`, TaxonSearchPage],
 ];
 
 export default RouteWithModels.fromArray(savedSamples, routes);

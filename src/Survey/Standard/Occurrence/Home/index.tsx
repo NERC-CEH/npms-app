@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { useRouteMatch } from 'react-router';
 import { NavContext } from '@ionic/react';
 import { Header, Page } from 'common/flumens';
-import Occurrence, { CoverKeys } from 'common/models/occurrence';
+import Occurrence from 'common/models/occurrence';
 import Sample from 'common/models/sample';
+import { abundanceAttr, getCover } from 'Survey/Standard/config';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
 import Main from './Main';
 
@@ -13,10 +14,10 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
   const match = useRouteMatch();
   const { navigate, goBack } = useContext(NavContext);
 
-  const abundanceType = sample.attrs.abundanceType!;
-  const isPercentage = abundanceType === 'Percentage';
-  const isCount = abundanceType === 'Individual plant count';
-  const isFrequency = abundanceType === 'Cell frequency';
+  const abundanceType = sample.attrs[abundanceAttr.id]!;
+  const isPercentage = abundanceType === '18883';
+  const isCount = abundanceType === '18884';
+  const isFrequency = abundanceType === '18885';
   const isNotSingleChoice = isPercentage || isCount || isFrequency;
 
   const navigateToNextSearch = () => {
@@ -27,11 +28,13 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
     navigate(`${baseUrl}/search`, 'none', 'replace');
   };
 
-  const isUpdating = occurrence.getCover();
+  const isUpdating = getCover(occurrence);
 
-  const onCoverChange = (coverType: CoverKeys) => (cover: any) => {
+  const onCoverChange = (coverType: string) => (cover: any) => {
+    if (sample.isDisabled()) return;
+
     // eslint-disable-next-line no-param-reassign
-    occurrence.attrs[coverType] = cover;
+    (occurrence.attrs as any)[coverType] = cover;
 
     if (isNotSingleChoice) return;
 

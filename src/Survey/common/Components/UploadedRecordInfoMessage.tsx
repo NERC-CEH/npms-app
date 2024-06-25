@@ -22,8 +22,8 @@ const UploadedRecordInfoMessage = () => {
       <Button
         href={`${url}`}
         fill="outline"
-        color="primary"
-        className="mx-auto mt-5 max-w-sm"
+        color="tertiary"
+        className="mx-auto mt-5 max-w-sm p-1"
       >
         Website
       </Button>

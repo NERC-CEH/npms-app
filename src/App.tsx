@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Route, Redirect } from 'react-router-dom';
-import { TailwindContext, TailwindContextValue } from '@flumens';
+import {
+  TailwindContext,
+  TailwindBlockContext,
+  TailwindContextValue,
+  defaultContext,
+} from '@flumens';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import userModel from 'common/models/user';
@@ -15,6 +20,11 @@ import User from './User/router';
 
 const platform = isPlatform('ios') ? 'ios' : 'android';
 const tailwindContext: TailwindContextValue = { platform };
+const tailwindBlockContext = {
+  ...defaultContext,
+  ...tailwindContext,
+  basePath: '',
+};
 
 const AuthHomeRedirect = () => {
   return !userModel.isLoggedIn() ? (
@@ -33,18 +43,20 @@ const App = () => {
   return (
     <IonApp>
       <TailwindContext.Provider value={tailwindContext}>
-        <Onboarding>
-          <IonReactRouter>
-            <IonRouterOutlet id="main">
-              <Route exact path="/" render={AuthHomeRedirect} />
-              <Route path="/home" component={Home} />
-              {User}
-              {Info}
-              {Survey}
-              {Settings}
-            </IonRouterOutlet>
-          </IonReactRouter>
-        </Onboarding>
+        <TailwindBlockContext.Provider value={tailwindBlockContext}>
+          <Onboarding>
+            <IonReactRouter>
+              <IonRouterOutlet id="main">
+                <Route exact path="/" render={AuthHomeRedirect} />
+                <Route path="/home" component={Home} />
+                {User}
+                {Info}
+                {Survey}
+                {Settings}
+              </IonRouterOutlet>
+            </IonReactRouter>
+          </Onboarding>
+        </TailwindBlockContext.Provider>
       </TailwindContext.Provider>
     </IonApp>
   );

@@ -98,7 +98,16 @@ export {
   default as RadioInput,
   type RadioOption,
 } from '@flumens/tailwind/dist/components/Radio';
+export {
+  type Block as BlockT,
+  type ChoiceValues,
+} from '@flumens/tailwind/dist/Survey';
 export { default as Select } from '@flumens/tailwind/dist/components/Select';
+export { default as Block } from '@flumens/tailwind/dist/components/Block';
+export {
+  default as TailwindBlockContext,
+  defaultContext,
+} from '@flumens/tailwind/dist/components/Block/Context';
 export { default as TextInput } from '@flumens/tailwind/dist/components/Input';
 export { default as Toggle } from '@flumens/tailwind/dist/components/Switch';
 export { default as NumberInput } from '@flumens/tailwind/dist/components/NumberInput';

@@ -1,8 +1,16 @@
 /* eslint-disable no-param-reassign */
 import { z, object } from 'zod';
+import userModel from 'common/models/user';
 import appModel from 'models/app';
-import { Level, Survey, groupAttr } from 'Survey/common/config';
-import npmsConfig from '../NPMS/config';
+import {
+  Level,
+  Survey,
+  blockToAttr,
+  coverAttr,
+  gridAttr,
+  groupAttr,
+} from 'Survey/common/config';
+import npmsConfig, { broadHabitatAttr } from '../NPMS/config';
 
 const surveys: { [key in Level]: number } = {
   wildflower: 650,
@@ -19,55 +27,45 @@ const survey: Survey = {
 
   attrs: {
     ...npmsConfig.attrs,
-
-    group: groupAttr,
+    ...blockToAttr(groupAttr),
   },
 
   occ: {
     attrs: {
       ...npmsConfig.occ!.attrs,
-
-      grid: { remote: { id: 153 } },
+      ...blockToAttr(gridAttr),
     },
 
-    create({ Occurrence: AppOccurrence, taxon, grid }) {
-      return new AppOccurrence({ attrs: { taxon, grid } });
-    },
+    create: ({ Occurrence: AppOccurrence, taxon, grid }) =>
+      new AppOccurrence({ attrs: { ...taxon, [gridAttr.id]: grid } }),
 
     verify: attrs =>
       object({
-        cover: z.string({ required_error: 'Cover is missing' }),
+        [coverAttr.id]: z.string({ required_error: 'Cover is missing' }),
       }).safeParse(attrs).error,
   },
 
   verify: attrs =>
     object({
-      date: z.string(), // TODO: check future dates
-      broadHabitat: z.string({ required_error: 'Habitat is missing' }),
-      recorder: z.string().min(1, { message: 'Recorder is missing' }),
-      location: object(
-        { id: z.string() },
-        { invalid_type_error: 'Please select plot.' }
-      ),
+      date: z.string(),
+      [broadHabitatAttr.id]: z.string({ required_error: 'Habitat is missing' }),
+      recorderNames: z.string().min(1, { message: 'Recorder is missing' }),
+      locationId: z.string({ required_error: 'Location is missing' }),
     }).safeParse(attrs).error,
 
-  create({ Sample, recorder, surveyName, level }) {
-    const sample = new Sample({
+  create: ({ Sample, surveyName, level }) =>
+    new Sample({
       metadata: {
-        surveyId: surveys[level!],
         survey: surveyName || survey.name,
         level,
       },
       attrs: {
+        surveyId: surveys[level!],
         training: appModel.attrs.useTraining,
-        location: null,
-        comment: null,
-        recorder,
+        date: new Date().toISOString().split('T')[0],
+        recorderNames: userModel.getPrettyName(),
       },
-    });
-
-    return sample;
-  },
+    }),
 };
 
 export default survey;

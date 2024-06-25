@@ -1,13 +1,7 @@
 import { observer } from 'mobx-react';
 import { device, getRelativeDate, VirtualList } from '@flumens';
-import {
-  IonItem,
-  IonItemDivider,
-  IonLabel,
-  IonList,
-  IonSpinner,
-} from '@ionic/react';
-import samplesCollection from 'models/collections/samples';
+import { IonItemDivider, IonLabel, IonList } from '@ionic/react';
+import samplesCollection, { byPortal } from 'models/collections/samples';
 import Sample, { bySurveyDate } from 'models/sample';
 import userModel from 'models/user';
 import InfoBackgroundMessage from 'Components/InfoBackgroundMessage';
@@ -34,7 +28,10 @@ const canFetch = () => userModel.isLoggedIn() && device.isOnline;
 
 const Uploaded = () => {
   const uploaded = (sample: Sample) => sample.metadata.syncedOn;
-  const uploadedSurveys = samplesCollection.filter(uploaded).sort(bySurveyDate);
+  const uploadedSurveys = samplesCollection
+    .filter(byPortal(userModel.isPlantPortal() ? 'pp' : 'npms'))
+    .filter(uploaded)
+    .sort(bySurveyDate);
 
   const surveys = uploadedSurveys;
 
@@ -75,14 +72,15 @@ const Uploaded = () => {
     }
 
     const sample = groupedSurveys[index];
-    if (!sample)
-      return (
-        <IonItem detail={false} {...itemProps} className="survey-list-loader">
-          <div>
-            <IonSpinner />
-          </div>
-        </IonItem>
-      );
+    if (!sample) return null;
+    //   return (
+    //     <IonItem detail={false} {...itemProps} className="survey-list-loader">
+    //       <div>
+    //         <IonSpinner />
+    //       </div>
+    //     </IonItem>
+    //   );
+    // }
 
     return <Survey key={sample.cid} sample={sample} {...itemProps} />;
   };

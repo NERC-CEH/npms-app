@@ -33,9 +33,9 @@ const OccurrenceList = ({ sample }: Props) => {
     occ.save();
   };
 
-  const addSpeciesButton = (
+  const addSpeciesButton = !sample.isDisabled() ? (
     <HeaderButton onPress={onSpeciesAdd}>Add</HeaderButton>
-  );
+  ) : null;
 
   return (
     <Page id="npms-occurrence-list">

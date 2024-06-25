@@ -19,7 +19,7 @@ const HomeController = () => {
       <IonRouterOutlet>
         <Redirect path="/home" to="/home/landing" exact />
         <Route path="/home/landing" component={LandingPage} exact />
-        <Route path="/home/surveys" component={UserSurveys} exact />
+        <Route path="/home/surveys/:id?" component={UserSurveys} exact />
         <Route path="/home/menu" component={Menu} exact />
       </IonRouterOutlet>
 

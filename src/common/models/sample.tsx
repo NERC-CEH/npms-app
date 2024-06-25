@@ -8,38 +8,50 @@ import {
   SampleAttrs,
   SampleOptions as SampleOptionsOriginal,
   SampleMetadata,
+  ChoiceValues,
 } from '@flumens';
 import config from 'common/config';
 import userModel from 'models/user';
-import npmsSurvey from 'Survey/NPMS/config';
+import npmsSurvey, { broadHabitatAttr } from 'Survey/NPMS/config';
 import npmsPlusSurvey from 'Survey/NPMSPlus/config';
-import standardSurvey, { AbundanceType } from 'Survey/Standard/config';
-import { Level, Survey } from 'Survey/common/config';
+import standardSurvey, {
+  abundanceAttr,
+  grazingAnimalNumberAttr,
+} from 'Survey/Standard/config';
+import {
+  Level,
+  Survey,
+  grazingAttr,
+  groupAttr,
+  managementAttr,
+  woodCoverAttr,
+} from 'Survey/common/config';
 import Media from './image';
 import Occurrence from './occurrence';
 import { modelStore } from './store';
 
 type Group = { id: string; name: string };
 type PlotGroup = { id: string; name: string };
+const groupAttrId = groupAttr().id;
 
 export type Attrs = SampleAttrs & {
   group?: Group;
   plotGroup?: PlotGroup;
   location: any;
-  broadHabitat: any;
-  fineHabitat: any;
-  management: any;
-  managementOther: any;
-  grazing: any;
-  grazingAnimals: any;
-  grazingAnimalsCount: any;
-  habitatDescription: any;
-  abundanceType?: AbundanceType;
-  vegetation10: any;
-  vegetation30: any;
-  vegetation100: any;
-  vegetation300: any;
-  vegetation300Plus: any;
+  locationId: string;
+  enteredSref: string;
+  enteredSrefSystem: string;
+  [managementAttr.id]?: ChoiceValues<typeof managementAttr.choices>[];
+  [abundanceAttr.id]?: ChoiceValues<typeof abundanceAttr.choices>;
+  [grazingAttr.id]?: ChoiceValues<typeof grazingAttr.choices>;
+  [woodCoverAttr.id]?: ChoiceValues<typeof woodCoverAttr.choices>;
+  [broadHabitatAttr.id]?: ChoiceValues<typeof broadHabitatAttr.choices>;
+  [grazingAnimalNumberAttr.id]?: number;
+  [groupAttrId]?: string;
+  /**
+   * For internal use. We don't need to store in the warehouse this one.
+   */
+  plotGroupId?: string;
   noSpecies: any;
 };
 
@@ -122,6 +134,14 @@ export default class Sample extends SampleOriginal<Attrs, Metadata> {
 
     return this.saveRemote();
   }
+
+  // getSubmission() {
+  //   const sub = super.getSubmission();
+  //   console.log(sub);
+
+  //   throw 1;
+  //   return sub;
+  // }
 }
 
 export const useValidateCheck = (sample: Sample) => {

@@ -25,11 +25,11 @@ class LocationModel extends Model {
      * Location type e.g. transect = 777, transect section = 778 etc.
      */
     locationTypeId: z.string(),
+    centroidSref: z.string(),
+    centroidSrefSystem: z.string(),
     parentId: z.string().nullable().optional(),
     boundaryGeom: z.string().nullable().optional(),
     code: z.string().nullable().optional(),
-    centroidSref: z.string().optional(),
-    centroidSrefSystem: z.string().optional(),
     createdById: z.string().nullable().optional(),
     updatedById: z.string().nullable().optional(),
     externalKey: z.string().nullable().optional(),
