@@ -50,9 +50,10 @@ export const bbCoverValues = [
   { title: '5,76-100%', data_name: '18891' },
 ];
 
+export const ABSENT_VALUE = '18894';
 export const presenceCoverValues = [
   { title: 'Present', data_name: '18893' },
-  { title: 'Absent', data_name: '18894' },
+  { title: 'Absent', data_name: ABSENT_VALUE },
 ];
 
 export const abundanceAttr = {

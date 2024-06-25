@@ -4,7 +4,13 @@ import { NavContext } from '@ionic/react';
 import { Header, Page } from 'common/flumens';
 import Occurrence from 'common/models/occurrence';
 import Sample from 'common/models/sample';
-import { abundanceAttr, getCover } from 'Survey/Standard/config';
+import {
+  ABSENT_VALUE,
+  abundanceAttr,
+  frequencyCoverAttr,
+  getCover,
+  presenceCoverAttr,
+} from 'Survey/Standard/config';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
 import Main from './Main';
 
@@ -35,6 +41,15 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
 
     // eslint-disable-next-line no-param-reassign
     (occurrence.attrs as any)[coverType] = cover;
+
+    if (
+      (coverType === presenceCoverAttr.id && cover === ABSENT_VALUE) ||
+      (coverType === frequencyCoverAttr.id && cover === 0)
+    ) {
+      occurrence.attrs.zeroAbundance = true; // eslint-disable-line no-param-reassign
+    } else {
+      delete occurrence.attrs.zeroAbundance; // eslint-disable-line no-param-reassign
+    }
 
     if (isNotSingleChoice) return;
 
