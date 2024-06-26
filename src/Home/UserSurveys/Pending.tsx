@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useToast, getRelativeDate, VirtualList } from '@flumens';
 import {
   IonButton,
@@ -14,7 +13,7 @@ import userModel from 'models/user';
 import InfoBackgroundMessage from 'Components/InfoBackgroundMessage';
 import Survey from './Survey';
 
-async function uploadAllSamples(toast: any, t: any) {
+async function uploadAllSamples(toast: any) {
   console.log('Settings:Menu:Controller: sending all samples.');
 
   if (!userModel.isLoggedIn()) {
@@ -23,11 +22,8 @@ async function uploadAllSamples(toast: any, t: any) {
   }
 
   try {
-    const affectedRecordsCount = await samplesCollection.remoteSaveAll();
-    toast.success(
-      t('Uploading {{count}} record', { count: affectedRecordsCount }),
-      { skipTranslation: true }
-    );
+    await samplesCollection.uploadAll();
+    toast.success('Success');
   } catch (e: any) {
     toast.error(e);
   }
@@ -110,7 +106,6 @@ const getSurveys = (surveys: Sample[], showUploadAll?: boolean) => {
 const Pending = () => {
   const { navigate } = useContext(NavContext);
   const toast = useToast();
-  const { t } = useTranslation();
 
   const notUploaded = (sample: Sample) => !sample.metadata.syncedOn;
   const surveys = samplesCollection
@@ -128,7 +123,7 @@ const Pending = () => {
       return null;
     }
 
-    return uploadAllSamples(toast, t);
+    return uploadAllSamples(toast);
   };
 
   if (!surveys.length) {
