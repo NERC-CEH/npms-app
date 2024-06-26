@@ -10,6 +10,7 @@ import {
   SPECIES_ID_INDEX,
   SPECIES_TAXON_INDEX,
   SPECIES_NAMES_INDEX,
+  SPECIES_FREQUENCY_INDEX,
 } from 'common/data/constants';
 import { Genera, Genus, Species, Taxon } from '.';
 import {
@@ -48,6 +49,7 @@ function addGenusToResults(
       group: genus[GENUS_GROUP_INDEX],
       scientificName: `${genus[GENUS_TAXON_INDEX]} ${species[SPECIES_TAXON_INDEX]}`,
       commonNames: species[SPECIES_NAMES_INDEX] || [],
+      frequency: species[SPECIES_FREQUENCY_INDEX],
     });
   });
 }
@@ -70,6 +72,7 @@ function addSpeciesToResults(
         group: genus[GENUS_GROUP_INDEX],
         scientificName: `${genus[GENUS_TAXON_INDEX]} ${species[SPECIES_TAXON_INDEX]}`,
         commonNames: species[SPECIES_NAMES_INDEX] || [],
+        frequency: species[SPECIES_FREQUENCY_INDEX],
       });
     }
   });
@@ -216,6 +219,11 @@ export default function searchSciNames(
     }
     return false;
   });
+
+  const byFrequency = (t1: Taxon, t2: Taxon) =>
+    (Number.isFinite(t2.frequency) ? t2.frequency! : -1) -
+    (Number.isFinite(t1.frequency) ? t1.frequency! : -1); // defaulting to -1 so that genera/species with no frequency value are pushed to the bottom
+  deDupedResults.sort(byFrequency);
 
   return deDupedResults;
 }

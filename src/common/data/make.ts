@@ -1,13 +1,37 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import axios from 'axios';
+import * as dotenv from 'dotenv';
 import fs from 'fs';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import fetchSheet from '@flumens/fetch-onedrive-excel';
-import makeCommonNameMap from './extractCommonNames.js';
-import optimise from './optimise.js';
+import camelCase from 'lodash/camelCase';
+import mapKeys from 'lodash/mapKeys';
+import { z, object } from 'zod';
+// import indicator from './cache/indicator.json';
+// import inventory from './cache/inventory.json';
+// import wildflower from './cache/wildflower.json';
+import makeCommonNameMap from './extractCommonNames';
+import optimise from './optimise';
 
-const drive =
-  'sites/flumensio.sharepoint.com,6230bb4b-9d52-4589-a065-9bebfdb9ce63,21520adc-6195-4b5f-91f6-7af0b129ff5c/drive';
+const remoteSchema = object({
+  id: z.string(),
+  taxonGroup: z.string(),
+  taxon: z.string(),
+  organismKey: z.string(),
+  frequency: z.string(),
+  difficulty: z.string().optional(),
+  commonName: z.record(z.string(), z.string()).optional(),
+  synonym: z.record(z.string(), z.string()).optional(),
+});
 
-const file = '01UPL42ZV7BRDOIRFZNJH3DVIAANZISEPX';
+export type RemoteAttributes = z.infer<typeof remoteSchema>;
+
+dotenv.config({ path: '../../../../.env' }); // eslint-disable-line
+
+const warehouseURL = 'https://warehouse1.indicia.org.uk';
+
+const { ANON_WAREHOUSE_TOKEN } = process.env;
+if (!ANON_WAREHOUSE_TOKEN) {
+  throw new Error('ANON_WAREHOUSE_TOKEN is missing from env.');
+}
 
 function saveToFile(data: any, fileName: string) {
   const saveSpeciesToFileWrap = (resolve: any, reject: any) => {
@@ -27,27 +51,56 @@ function saveToFile(data: any, fileName: string) {
   return new Promise(saveSpeciesToFileWrap);
 }
 
+async function fetch(listID: any): Promise<RemoteAttributes[]> {
+  const { data } = await axios({
+    method: 'GET',
+    url: `${warehouseURL}/index.php/services/rest/reports/projects/plant_portal/app_get_species_lists_4.xml?species_list=${listID}&count_website_list=106,32&occ_row_limit=30000&limit=10000000`,
+    headers: {
+      Authorization: `Bearer ${ANON_WAREHOUSE_TOKEN}`,
+    },
+  });
+
+  const getValues = (doc: any) =>
+    mapKeys(doc, (_, key) => (key.includes(':') ? key : camelCase(key)));
+  const parseNames = ({ commonName, synonym, ...doc }: any) => {
+    return {
+      ...doc,
+      synonym: synonym ? JSON.parse(synonym) : undefined,
+      commonName: commonName ? JSON.parse(commonName) : undefined,
+    };
+  };
+  const byTaxon = (s1: any, s2: any) => s1.taxon.localeCompare(s2.taxon);
+  const docs = data.data.map(getValues).map(parseNames).sort(byTaxon);
+
+  docs.forEach(remoteSchema.parse);
+
+  return docs;
+}
+
 (async () => {
-  let sheetData = await fetchSheet({ drive, file, sheet: 'wildflower' });
-  saveToFile(sheetData, `./cache/wildflower.json`);
-  let normalized = await optimise(sheetData);
-  saveToFile(normalized, `./wildflower.data.json`);
+  let reportData = await fetch('wildflower');
+  await saveToFile(reportData, `./cache/wildflower.json`);
+  let normalized: any = await optimise(reportData);
+  // let normalized: any = await optimise(wildflower);
+  await saveToFile(normalized, `./wildflower.data.json`);
   let commonNames = makeCommonNameMap(normalized);
-  saveToFile(commonNames, `./wildflower_names.data.json`);
+  await saveToFile(commonNames, `./wildflower_names.data.json`);
 
-  sheetData = await fetchSheet({ drive, file, sheet: 'indicator' });
-  saveToFile(sheetData, `./cache/indicator.json`);
-  normalized = await optimise(sheetData);
-  saveToFile(normalized, `./indicator.data.json`);
+  reportData = await fetch('indicator');
+  await saveToFile(reportData, `./cache/indicator.json`);
+  normalized = await optimise(reportData);
+  // normalized = await optimise(indicator);
+  await saveToFile(normalized, `./indicator.data.json`);
   commonNames = makeCommonNameMap(normalized);
-  saveToFile(commonNames, `./indicator_names.data.json`);
+  await saveToFile(commonNames, `./indicator_names.data.json`);
 
-  sheetData = await fetchSheet({ drive, file, sheet: 'inventory' });
-  saveToFile(sheetData, `./cache/inventory.json`);
-  normalized = await optimise(sheetData);
-  saveToFile(normalized, `./inventory.data.json`);
+  reportData = await fetch('inventory');
+  await saveToFile(reportData, `./cache/inventory.json`);
+  normalized = await optimise(reportData);
+  // normalized = await optimise(inventory);
+  await saveToFile(normalized, `./inventory.data.json`);
   commonNames = makeCommonNameMap(normalized);
-  saveToFile(commonNames, `./inventory_names.data.json`);
+  await saveToFile(commonNames, `./inventory_names.data.json`);
 
   console.log('All done! 🚀');
 })();

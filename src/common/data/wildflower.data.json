@@ -1,113 +1,941 @@
 [
-  [0, 89, "Achillea", [[362108, "millefolium", ["Yarrow"]]]],
-  [0, 89, "Ajuga", [[362121, "reptans", ["Bugle"]]]],
-  [0, 89, "Alchemilla", [[362131, "alpina", ["Alpine Lady's-mantle"]]]],
-  [0, 89, "Alisma", [[362137, "plantago-aquatica", ["Water-plantain"]]]],
-  [0, 89, "Allium", [[362144, "ursinum", ["Ramsons"]]]],
-  [0, 89, "Alnus", [[362151, "glutinosa", ["Alder"]]]],
+  [
+    0,
+    89,
+    "Achillea",
+    [
+      [
+        123831,
+        148,
+        "millefolium",
+        [
+          "Yarrow",
+          "Milddail",
+          "Gwilffrai",
+          "Llys y Gwaedlif",
+          "Llysiau Marwolaeth",
+          "Llysiau'r Gwaedlin",
+          "Llysiau'r Gwaedlif",
+          "Milfydd",
+          "Minfel",
+          "Wrisgan Llwyd",
+          "Milfyd Achillea millefolium",
+          "Lus chasgadh na fala",
+          "Lusan casgadh na fala",
+          "Milddail"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Ajuga",
+    [
+      [
+        243151,
+        25,
+        "reptans",
+        [
+          "Bugle",
+          "Glesyn y Coed",
+          "Bual",
+          "Corn Glas",
+          "Glesyn y Mynydd",
+          "Golchenid",
+          "Golchenid Cyffredin",
+          "Llys Mair",
+          "Glesyn y Coed"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Alchemilla",
+    [
+      [
+        177006,
+        4,
+        "alpina",
+        [
+          "Alpine Lady's-mantle",
+          "Mantell Fair y Mynydd",
+          "Mantell Fair Fynyddig",
+          "Mantell-Fair y Mynydd",
+          "Alpine Lady's-Mantle"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Alisma",
+    [
+      [
+        137866,
+        3,
+        "plantago-aquatica",
+        [
+          "Common Water-Plantain",
+          "Llyriad y Dŵr",
+          "Water-plantain",
+          "Water-Plantain",
+          "Water Plantain"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Allium",
+    [
+      [
+        95897,
+        15,
+        "ursinum",
+        [
+          "Ramsons",
+          "Craf y Geifr",
+          "Cra Dynion",
+          "Craf y Geifr Llydan-Ddail",
+          "Garlleg y Geifr",
+          "Craf y Geifr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Alnus",
+    [
+      [
+        75501,
+        38,
+        "glutinosa",
+        ["Alder", "Gwernen", "Gwern", "Feàrna", "Gwernen"]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Anagallis",
     [
-      [362161, "arvensis", ["Scarlet Pimpernel"]],
-      [362176, "tenella", ["Bog Pimpernel"]]
+      [
+        214739,
+        22,
+        "arvensis",
+        [
+          "Llysiau'r Cryman",
+          "Llys y Cryman",
+          "Awrlais y Dyn Tlawd",
+          "Brathlys",
+          "Brathlys Gwryw",
+          "Coch y Tywydd",
+          "Diwythl Fedi",
+          "Gwlydd Mair",
+          "Gwlyddyn Mair Gwryw",
+          "Oriawr y Bugail",
+          "Scarlet Pimpernel",
+          "Llysiau'r Cryman"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Anemone", [[362183, "nemorosa", ["Wood Anemone"]]]],
-  [0, 89, "Angelica", [[362198, "sylvestris", ["Wild Angelica"]]]],
+  [
+    0,
+    89,
+    "Anagallis",
+    [
+      [
+        86019,
+        1,
+        "tenella",
+        [
+          "Bog Pimpernel",
+          "Gwlyddyn Mair y Gors",
+          "Brathlys Wridog y Gors",
+          "Gwlydd Mair y Gors",
+          "Gwlyddyn-Mair y Gors"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Anemone",
+    [
+      [
+        15013,
+        26,
+        "nemorosa",
+        [
+          "Wood Anemone",
+          "Blodyn y Gwynt",
+          "Bara Caws",
+          "Blodau'r Gwynt",
+          "Brithlys",
+          "Brithogen y Goedwig",
+          "Gwyntai",
+          "Gwyntai y Coed",
+          "Rhosyn Bach y Gwynt",
+          "Llys y Gwynt",
+          "Flùr na gaoithe",
+          "Flùraichean na gaoithe",
+          "Lus na gaoithe",
+          "Lusan na gaoithe",
+          "Blodau'r Gwynt",
+          "Blodyn y Gwynt"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Angelica",
+    [
+      [
+        91046,
+        50,
+        "sylvestris",
+        [
+          "Wild Angelica",
+          "Llysiau'r Angel",
+          "Llysiau'r Angel y Goedwig",
+          "Llys yr Angel",
+          "Angyles y Coed",
+          "Llys yr Angel y Goedwig",
+          "Llysiau'r Angel"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Antennaria",
-    [[362206, "dioica", ["Mountain Everlasting", "Common Catsfoot"]]]
+    [
+      [
+        231882,
+        1,
+        "dioica",
+        [
+          "Common Catsfoot",
+          "Mountain Everlasting",
+          "Edafeddog y Mynydd",
+          "Edafeddog Fynyddig",
+          "Edafeddog Ysgaredig",
+          "Edelweiss Gwyddelig",
+          "Pawen y Gath",
+          "Troed y Gath",
+          "Edafeddog y Mynydd"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Anthriscus", [[362222, "sylvestris", ["Cow Parsley"]]]],
-  [0, 89, "Anthyllis", [[362230, "vulneraria", ["Kidney Vetch"]]]],
-  [0, 89, "Apium", [[362240, "graveolens", ["Wild Celery"]]]],
-  [0, 89, "Arctium", [[368697, "minus/nemorosum"]]],
-  [0, 89, "Armeria", [[362255, "maritima", ["Thrift", "Sea Pink"]]]],
+  [
+    0,
+    89,
+    "Anthriscus",
+    [
+      [
+        146514,
+        182,
+        "sylvestris",
+        [
+          "Cow Parsley",
+          "Gorthyfail",
+          "Cegiden Fenyw",
+          "Gorthyfail Llyfn",
+          "Costag fhiadhain",
+          "Costagan fiadhain",
+          "Gorthyfail",
+          "Keck",
+          "Kecks"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Anthyllis",
+    [
+      [
+        141942,
+        9,
+        "vulneraria",
+        [
+          "Kidney Vetch",
+          "Plucen Felen",
+          "Meillionen Felen",
+          "Plucen",
+          "Pupus Melyn",
+          "Pys yr Aren",
+          "Plucen Felen",
+          "Kidney Vetch",
+          "Kidney Vetch"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Apium",
+    [
+      [
+        174635,
+        4,
+        "graveolens",
+        [
+          "Wild Celery",
+          "Perllys yr Hel",
+          "Perllys y Morfa",
+          "Helogan",
+          "Perllys yr Heli",
+          "Mers",
+          "Perllys y Môr",
+          "Smaelaes",
+          "Smalaes",
+          "Persli y Gors",
+          "Seleri Gwyllt"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Arctium", [[366052, 6, "minus/nemorosum"]]],
+  [
+    0,
+    89,
+    "Armeria",
+    [
+      [
+        331343,
+        8,
+        "maritima",
+        [
+          "Sea Pink",
+          "Clustog Fair",
+          "Archmain",
+          "Blodyn y Morwr",
+          "Cenrin Arfor",
+          "Clustog Mair",
+          "Thrift",
+          "Clustogau Mair",
+          "Tuinn a' chladaich",
+          "Tonn a' chladaich",
+          "Neòineanan a' chladaich",
+          "Neòinean a' chladaich",
+          "Clustog Fair"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Arum",
-    [[362271, "maculatum", ["Lords-and-Ladies", "Lords-and-ladies"]]]
+    [
+      [
+        108549,
+        90,
+        "maculatum",
+        [
+          "Cuckoo Pint",
+          "Lords-And-Ladies",
+          "Wild Arum",
+          "Lords-and-Ladies",
+          "Lords-and-ladies",
+          "Lili'r Pasg",
+          "Pidyn y Gog",
+          "Cala Mwnci",
+          "Cala'r Cethlydd",
+          "Cala'r Gethlydd",
+          "Cala'r Mynach",
+          "Calwain Cala'r Gethlydd",
+          "Pig y Gog",
+          "Pregethwr Yn y Pulpud",
+          "Dail Robin Arum maculatum",
+          "Pidyn y Gog",
+          "Lords-And-Ladies",
+          "Lords-and-ladies"
+        ]
+      ]
+    ]
   ],
-  [0, 87, "Asplenium", [[362288, "trichomanes", ["Maidenhair Spleenwort"]]]],
-  [0, 89, "Aster", [[362294, "tripolium", ["Sea Aster"]]]],
-  [368912, 89, "Atriplex", [], ["Orache"]],
-  [0, 89, "Bellis", [[362303, "perennis", ["Daisy"]]]],
-  [0, 89, "Beta", [[362312, "vulgaris", ["Beet"]]]],
-  [0, 89, "Betula", [[368700, "pubescens/pendula"]]],
+  [
+    0,
+    87,
+    "Asplenium",
+    [
+      [
+        253946,
+        5,
+        "trichomanes",
+        [
+          "Maidenhair Spleenwort",
+          "Gwallt y Forwyn",
+          "Duegredynen Gwallt y Forwyn",
+          "Duegredyn Gwallt y Forwyn"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Aster",
+    [
+      [
+        65438,
+        13,
+        "tripolium",
+        [
+          "Sea Aster",
+          "Seren y Morfa",
+          "Llys y Tanewyn",
+          "Serenllys y Morfa",
+          "Ffarwel Haf Aster tripolium",
+          "Sêr y Morfa",
+          "Seren y Morfa"
+        ]
+      ]
+    ]
+  ],
+  [208655, 89, "Atriplex", [], ["Orache", "Orache", "Orache"]],
+  [
+    0,
+    89,
+    "Bellis",
+    [
+      [
+        239577,
+        100,
+        "perennis",
+        [
+          "Daisy",
+          "Llygad y Dydd",
+          "Briallu'r Dydd",
+          "Llygad y Dydd Cyffredin",
+          "Swynfri",
+          "Yswinfri",
+          "Aspygan Bellis perennis",
+          "Neòineanan",
+          "Neòinean",
+          "Llygad y Dydd"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Beta",
+    [[50103, 1, "vulgaris", ["Beet", "Betys", "Betysen", "Betys"]]]
+  ],
+  [0, 89, "Betula", [[367220, 1, "pubescens/pendula"]]],
   [
     0,
     89,
     "Blackstonia",
-    [[362317, "perfoliata", ["Yellow-wort", "Yellow-Wort"]]]
+    [
+      [
+        132277,
+        2,
+        "perfoliata",
+        [
+          "Yellow-Wort",
+          "Yellow-wort",
+          "Canri Felen",
+          "Y Ganrhi Felen",
+          "Yellow-Wort"
+        ]
+      ]
+    ]
   ],
-  [0, 87, "Blechnum", [[362325, "spicant", ["Hard-fern", "Hard Fern"]]]],
-  [0, 89, "Briza", [[362340, "media", ["Quaking-grass", "Quaking-Grass"]]]],
-  [0, 89, "Buddleja", [[362353, "davidii", ["Butterfly-bush", "Buddleia"]]]],
-  [0, 89, "Calluna", [[362361, "vulgaris", ["Heather", "Common Heather"]]]],
+  [
+    0,
+    87,
+    "Blechnum",
+    [
+      [
+        34708,
+        37,
+        "spicant",
+        [
+          "Hard Fern",
+          "Hard-fern",
+          "Gwibredyn",
+          "Gwibredynen",
+          "Rhedyn Bras",
+          "Rhedyn Gwib",
+          "Rainich cruaidh",
+          "Raineach chruaidh",
+          "Gwibredyn",
+          "Gwibredynen",
+          "Hard-Fern"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Briza",
+    [
+      [
+        101222,
+        27,
+        "media",
+        [
+          "Quaking-Grass",
+          "Quaking-grass",
+          "Crydwellt",
+          "Arian Byw",
+          "Dail Crynu",
+          "Eigryn",
+          "Gwenith yr Ysgyfarnog",
+          "Robin Grynwr",
+          "Hadau Sgwarnog",
+          "Bywlys Briza media",
+          "Ŷd Sant Pedr",
+          "Crydwellt",
+          "Quaking-Grass"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Buddleja",
+    [
+      [
+        39095,
+        0,
+        "davidii",
+        [
+          "Buddleia",
+          "Butterfly-bush",
+          "Llwyn Iâr Fach",
+          "Bwdleia",
+          "Y Gynffon Las",
+          "Butterfly-Bush"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Calluna",
+    [
+      [
+        62367,
+        96,
+        "vulgaris",
+        [
+          "Common Heather",
+          "Heather",
+          "Grug y Mêl",
+          "Amriwraeth Blewog",
+          "Eiddiar",
+          "Grug Cyffredin",
+          "Grug y Mynydd",
+          "Grug Ysgub",
+          "Myncog",
+          "Ling",
+          "Grug Calluna vulgaris",
+          "Ling",
+          "Grug",
+          "Fraoch",
+          "Fraoich"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Caltha",
-    [[362380, "palustris", ["Marsh-marigold", "Giant Kingcup"]]]
+    [
+      [
+        150706,
+        10,
+        "palustris",
+        [
+          "Marsh Marigold",
+          "Marsh-marigold",
+          "Giant Kingcup",
+          "Gold y Gors",
+          "Melyn y Gors",
+          "Aur y Gors",
+          "Cwpanau'r Brenin",
+          "Llysiau Mair",
+          "Rhuddlas y Gors",
+          "Rhuddos Mai",
+          "Rhuddos y Morfa",
+          "Troed yr Ebol y Gors",
+          "Rhuddos y Gors Caltha palustris",
+          "Sawdl y Fuwch Caltha palustris",
+          "Troed yr Ebol Caltha palustris",
+          "Gold Mair Caltha palustris",
+          "Lus buidhe Bealltainn",
+          "Lusan buidhe Bealltainn",
+          "Gold y Gors",
+          "Marsh Marigold",
+          "Marsh Marigold",
+          "Marsh Marigold"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Calystegia",
-    [[362410, "sepium", ["Hedge Bindweed", "Great Bindweed agg."]]]
+    [
+      [
+        89475,
+        27,
+        "sepium",
+        [
+          "Great Bindweed agg.",
+          "Hedge Bindweed",
+          "Taglys Mawr",
+          "Cloffrwym y Mwci",
+          "Boled Olwen",
+          "Clych y Perthi",
+          "Cap Nos Nain",
+          "Cloffrwym y Cythraul",
+          "Ladi Wen",
+          "Tagwydd",
+          "Cwlwm y Coed Calystegia sepium",
+          "Taglys y Perthi"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Campanula",
     [
-      [362425, "glomerata", ["Clustered Bellflower"]],
-      [362431, "rotundifolia", ["Harebell", "Harebell / Bluebell"]]
+      [
+        70288,
+        0,
+        "glomerata",
+        [
+          "Clustered Bellflower",
+          "Clychlys Clwstwr",
+          "Clychlys Sypddail",
+          "Clychlys Sypiog",
+          "Clychlys Clystyrog"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Campanula",
+    [
+      [
+        33742,
+        18,
+        "rotundifolia",
+        [
+          "Harebell",
+          "Clychau'r Eos",
+          "Cloch y Bugail",
+          "Cloch yr Eos",
+          "Clychau Babi",
+          "Clychau Gleision",
+          "Clychau y Tylwyth Teg",
+          "Clychlys Crwnddail",
+          "Clychlys Cyffredin",
+          "Clychlys Amryddail",
+          "Clychlys Deilgrwn",
+          "Croeso Haf",
+          "Harebell / Bluebell",
+          "Fuathan-mhuc",
+          "Bròg na cuthaige",
+          "Brògan na cuthaige",
+          "Fuath-mhuc",
+          "Clychau'r Eos"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Capsella",
-    [[362450, "bursa-pastoris", ["Shepherd's-purse", "Shepherd's-Purse"]]]
+    [
+      [
+        227721,
+        15,
+        "bursa-pastoris",
+        [
+          "Shepherd's-Purse",
+          "Shepherd's-purse",
+          "Shepherd's Purse",
+          "Pwrs y Bugail",
+          "Chwilotwr Llogell",
+          "Llys y Tryfal",
+          "Llysiau Tryfal",
+          "Pwrs Gwag",
+          "Pwrs y Bugail",
+          "Shepherd's-Purse",
+          "Shepherd's-Purse",
+          "Shepherd's Purse"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Cardamine", [[362467, "pratensis", ["Cuckooflower", "Milk-Maids"]]]],
+  [
+    0,
+    89,
+    "Cardamine",
+    [
+      [
+        133973,
+        44,
+        "pratensis",
+        [
+          "Cuckooflower",
+          "Lady's Smock",
+          "Milk-Maids",
+          "Cuckoo Flower",
+          "Blodyn Llefrith",
+          "Blodau'r Cegid Bychain",
+          "Blodau'r Gethlydd",
+          "Blodau'r Gog",
+          "Blodau'r Gwcw",
+          "Blodeuyn y Gog",
+          "Blodyn Llaeth",
+          "Esgidiau a Hosanau'r Gog",
+          "Llaethferch",
+          "Blodyn Llo Bach",
+          "Ffedog y Forwyn",
+          "Hydwf y Waun",
+          "Hydyf",
+          "Hydyf y Waun",
+          "Blodyn y Gog Cardamine pratensis",
+          "Hosanau'r Gog Cardamine pratensis",
+          "Blodau'r Llefrith",
+          "Blodyn Llefrith"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Carex",
     [
-      [362503, "paniculata", ["Greater Tussock-sedge", "Panicled Sedge"]],
-      [362510, "pendula", ["Pendulous Sedge", "Pendulus Sedge"]]
+      [
+        121508,
+        1,
+        "paniculata",
+        [
+          "Panicled Sedge",
+          "Tussock Sedge",
+          "Greater Tussock-sedge",
+          "Hesgen Rafunog Fwyaf",
+          "Hesgen Rafunog Fawr",
+          "Greater Tussock-Sedge"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Carpobrotus", [[368789, "edulis", ["Hottentot-fig", "Kaffir Fig"]]]],
-  [0, 89, "Centaurea", [[362518, "scabiosa", ["Greater Knapweed"]]]],
-  [0, 89, "Centranthus", [[362533, "ruber", ["Red Valerian"]]]],
+  [
+    0,
+    89,
+    "Carex",
+    [
+      [
+        35003,
+        20,
+        "pendula",
+        [
+          "Pendulous Sedge",
+          "Pendulus Sedge",
+          "Hesgen Bendrymus",
+          "Hesgen Ddibynnaidd Fwyaf",
+          "Hesgen Bendrom",
+          "Hesg Pendrwm"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Carpobrotus",
+    [
+      [
+        233908,
+        0,
+        "edulis",
+        [
+          "Kaffir Fig",
+          "Hottentot-fig",
+          "Ffigysen Felen",
+          "Ffigysen yr Hotentot",
+          "Hottentot-Fig",
+          "Hottentot-Fig"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Centaurea",
+    [
+      [
+        156067,
+        20,
+        "scabiosa",
+        [
+          "Greater Knapweed",
+          "Pengaled Mawr",
+          "Cramennog Fwyaf",
+          "Cramennog yr Ŷd",
+          "Gramedog Fwyaf",
+          "Llys y Tarw",
+          "Llysiau'r Tarw",
+          "Pengaled Fawr",
+          "Pengaled Fwyaf",
+          "Pengaled Coch Centaurea scabiosa",
+          "Y Bengaled Fawr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Centranthus",
+    [[235971, 12, "ruber", ["Red Valerian", "Triaglog Coch", "Triaglog Goch"]]]
+  ],
   [
     0,
     89,
     "Cerastium",
-    [[362538, "fontanum", ["Common Mouse-ear", "Common Mouse-Ear"]]]
+    [
+      [
+        211813,
+        217,
+        "fontanum",
+        [
+          "Common Mouse-Ear",
+          "Common Mouse-ear",
+          "Clust Llygoden Culddail",
+          "Cornwlydd Cyffredin",
+          "Corn-Wlyddyn Culddail",
+          "Llysiau y Dom",
+          "Gwlyddyn Blewog",
+          "Cornwlyddyn Cerastium fontanum",
+          "Gwlydd yr Ieir Cerastium fontanum",
+          "Clust y Llygoden Cerastium fontanum",
+          "Gwlydd y Dom Cerastium fontanum",
+          "Clust-y-Llygoden Gulddail",
+          "Common Mouse-Ear",
+          "Common Mouse-Ear"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Ceratocapnos", [[362554, "claviculata", ["Climbing Corydalis"]]]],
+  [
+    0,
+    89,
+    "Ceratocapnos",
+    [
+      [
+        198297,
+        0,
+        "claviculata",
+        ["Climbing Corydalis", "Mwg y Ddaear Gafaelgar", "Mwg-y-Ddaear Dringol"]
+      ]
+    ]
+  ],
   [
     0,
     87,
     "Ceterach",
-    [[362563, "officinarum", ["Rustyback", "Rusty-Back Fern"]]]
+    [
+      [
+        163175,
+        1,
+        "officinarum",
+        [
+          "Rusty-Back Fern",
+          "Rustyback",
+          "Rhedynen Gefngoch",
+          "Dueg-Redynen Feddygol",
+          "Rhedyn yr Ogofau",
+          "Duegredynen Gefngoch"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Chenopodium", [[362586, "album"]]],
+  [
+    0,
+    89,
+    "Chenopodium",
+    [
+      [
+        291148,
+        18,
+        "album",
+        [
+          "Fat Hen",
+          "Fat-hen",
+          "Blodau'r Domen",
+          "Gwydd-Droed Bwytadwy",
+          "Gwydd-Droed Gwyn",
+          "Gwydd-Droed Gwynaidd",
+          "Troed yr Wydd",
+          "Troed yr Wydd Gwynaidd",
+          "Tafod yr Oen Chenopodium album",
+          "Troed-yr-Ŵydd Gwyn",
+          "Fat-Hen",
+          "Fat Hen",
+          "Fat Hen"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Chrysosplenium",
-    [[362591, "oppositifolium", ["Opposite-leaved Golden-saxifrage"]]]
+    [
+      [
+        219222,
+        11,
+        "oppositifolium",
+        [
+          "Opposite-leaved Golden-saxifrage",
+          "Eglyn Cyferbynddail",
+          "Eglyn",
+          "Eglyn Melyn Cyffredin",
+          "Tormaen Euraid",
+          "Eglyn Cyferbynddail",
+          "Opposite-Leaved Golden-Saxifrage"
+        ]
+      ]
+    ]
   ],
   [
     0,
@@ -115,9 +943,28 @@
     "Circaea",
     [
       [
-        362599,
+        118344,
+        47,
         "lutetiana",
-        ["Enchanter's-nightshade", "Common Enchanter's Nightshade"]
+        [
+          "Common Enchanter's Nightshade",
+          "Enchanter's-Nightshade",
+          "Enchanter's-nightshade",
+          "Enchanter's Nightshade",
+          "Llysiau Steffan",
+          "Gedor-Wrach",
+          "Llysiau'r Swynwr",
+          "Llys Steffan",
+          "Llys Steffan Cyffredin",
+          "Llysiau Ystyffan",
+          "Mochlys Swynyddlys",
+          "Swynlys",
+          "Swynyddlys",
+          "Mochlys Duon Circaea lutetiana",
+          "Llysiau Steffan",
+          "Enchanter's-Nightshade",
+          "Enchanter's Nightshade"
+        ]
       ]
     ]
   ],
@@ -126,62 +973,569 @@
     89,
     "Cirsium",
     [
-      [362615, "acaule", ["Dwarf Thistle", "Stemless Thistle"]],
-      [362625, "arvense", ["Creeping Thistle"]],
-      [362639, "palustre", ["Marsh Thistle"]],
-      [362648, "vulgare", ["Spear Thistle"]]
+      [
+        200907,
+        15,
+        "acaule",
+        [
+          "Dwarf Thistle",
+          "Stemless Thistle",
+          "Ysgallen Ddigoes",
+          "Ysgall Di-Baladr",
+          "Ysgall Ddi-Goes",
+          "Ysgall Digoes",
+          "Ysgallen Ddigoes"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Cirsium",
+    [
+      [
+        230024,
+        209,
+        "arvense",
+        [
+          "Creeping Thistle",
+          "Ysgallen y Maes",
+          "Ysgallen Gyffredin",
+          "Llawegor",
+          "Ysgallen Gwraidd Rhedegog",
+          "Ysgallen Gyffredin yr Âr",
+          "Ysgallen Llusg-Wraidd",
+          "Ysgallen yr Ŷd Cirsium arvense",
+          "Ysgall y Maes",
+          "Ysgallen y Maes"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Cirsium",
+    [
+      [
+        188360,
+        106,
+        "palustre",
+        [
+          "Marsh Thistle",
+          "Ysgallen y Gors",
+          "Marchysgall y Gors",
+          "Ysgallen Gweirglodd Wlyb",
+          "Ysgall y Gors",
+          "Ysgallen y Gors"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Cirsium",
+    [
+      [
+        29223,
+        123,
+        "vulgare",
+        [
+          "Spear Thistle",
+          "Marchysgallen",
+          "March Ysgall",
+          "March Ysgallen",
+          "Marchysgall Berog",
+          "Ysgall Gwyllt",
+          "Ysgall Gwylltion",
+          "Ysgall y Tarw",
+          "Ysgall Wyllt",
+          "Ysgall y Blaidd",
+          "Ysgallen y Blaidd",
+          "Ysgallen Goronog",
+          "Marchysgall",
+          "Marchysgallen"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Clematis",
-    [[362667, "vitalba", ["Traveller's-joy", "Traveller's-Joy"]]]
+    [
+      [
+        118509,
+        33,
+        "vitalba",
+        [
+          "Old Man's Beard",
+          "Traveller's-Joy",
+          "Traveller's-joy",
+          "Barf yr Hen Ŵr",
+          "Hen Ŵr",
+          "Barf y Gŵr Hen",
+          "Coluddion y Diawl",
+          "Cudd y Coed",
+          "Dringiedydd",
+          "Barfhir",
+          "Llawenydd y Teithiwr",
+          "Locsyn Taid",
+          "Tripa'r Gŵr Drwg",
+          "Barf yr Hen Ŵr",
+          "Traveller's Joy",
+          "Traveller's-Joy"
+        ]
+      ]
+    ]
   ],
-  [368900, 89, "Cochlearia"],
+  [
+    229881,
+    89,
+    "Cochlearia",
+    [],
+    ["Scurveygrass", "Scurvygrass", "Scurvygrass"]
+  ],
   [
     0,
     89,
     "Colchicum",
-    [[362683, "autumnale", ["Meadow Saffron", "Naked Ladies"]]]
+    [
+      [
+        15967,
+        0,
+        "autumnale",
+        [
+          "Meadow Saffron",
+          "Naked Ladies",
+          "Meddyges Felen",
+          "Saffrwm Gweirgloddiau",
+          "Saffrwm y Gweunydd Colchicum autumnale",
+          "Saffrwm y Ddôl"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Corylus", [[362690, "avellana", ["Hazel"]]]],
-  [0, 89, "Crambe", [[362699, "maritima", ["Sea-kale", "Sea-Kale"]]]],
-  [0, 89, "Crataegus", [[362709, "monogyna", ["Hawthorn"]]]],
-  [0, 89, "Crithmum", [[362730, "maritimum", ["Rock Samphire"]]]],
-  [0, 89, "Cruciata", [[362738, "laevipes", ["Crosswort", "Maywort"]]]],
-  [0, 87, "Cryptogramma", [[362750, "crispa", ["Parsley Fern"]]]],
-  [0, 89, "Cuscuta", [[362769, "epithymum", ["Dodder", "Common Dodder"]]]],
+  [0, 81, "Conifer", [[366528, 0, "seedlings/saplings"]]],
+  [
+    0,
+    89,
+    "Corylus",
+    [
+      [
+        21801,
+        97,
+        "avellana",
+        [
+          "Hazel",
+          "Collen",
+          "Coll-Lwyn",
+          "Collwyn",
+          "Pren Cnau",
+          "Calltainn",
+          "Cyll",
+          "Hazelnut",
+          "Collen"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Crambe",
+    [
+      [
+        137584,
+        4,
+        "maritima",
+        [
+          "Sea-Kale",
+          "Sea-kale",
+          "Ysgedd Arfor",
+          "Ysgedd",
+          "Bresych Arfor",
+          "Môr Fresych",
+          "Bresych y Môr Crambe maritima",
+          "Sea Kale",
+          "Càl na mara",
+          "Praiseach-tràgha",
+          "Ysgedd Arfor",
+          "Sea-Kale"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Crataegus",
+    [
+      [
+        100127,
+        303,
+        "monogyna",
+        [
+          "Hawthorn",
+          "Crawel y Moch",
+          "Crawol y Moch",
+          "Criafol y Moch",
+          "Draenen Wen Un Golofn",
+          "Drain Ysbyddaid",
+          "Grawn yr Ysbyddad",
+          "Eirin Moch",
+          "Yspydat",
+          "Yspyddaden",
+          "Yspyddaid",
+          "Ysbyddaden Crataegus monogyna",
+          "Egfaenwydd Crataegus monogyna",
+          "Draenen Wen Crataegus monogyna",
+          "Draenen Wen",
+          "Sgitheach",
+          "Drain Gwyn",
+          "Craobhan-sgithich"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Crithmum",
+    [
+      [
+        83917,
+        1,
+        "maritimum",
+        [
+          "Rock Samphire",
+          "Corn Carw",
+          "Dail St. Pedr",
+          "Ffenigl y Môr",
+          "Sampier",
+          "Corn Carw'r Môr Crithmum maritimum",
+          "Corn-Carw'r Môr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Cruciata",
+    [
+      [
+        72935,
+        13,
+        "laevipes",
+        [
+          "Crosswort",
+          "Maywort",
+          "Briwydd Groes",
+          "Briwydden Groes",
+          "Croesoglys Felen",
+          "Croeslys Cruciata laevipes",
+          "Llysiau'r Groes Cruciata laevipes",
+          "Llysiau'r Groes"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    87,
+    "Cryptogramma",
+    [
+      [
+        235100,
+        1,
+        "crispa",
+        [
+          "Parsley Fern",
+          "Rhedynen Bersli",
+          "Adain-Redynen y Chwarelau",
+          "Rhedyn Perllys",
+          "Rhedyn Persli",
+          "Rhedynen Bersli"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Cuscuta",
+    [
+      [
+        59967,
+        0,
+        "epithymum",
+        [
+          "Common Dodder",
+          "Dodder",
+          "Lesser Dodder",
+          "Llindag Lleiaf",
+          "Llindro Lleiaf",
+          "Llinclwm",
+          "Cyfnydd Cuscuta epithymum",
+          "Llindag"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Cynosurus",
-    [[362780, "cristatus", ["Crested Dog's-tail", "Crested Dog's-Tail"]]]
+    [
+      [
+        129500,
+        88,
+        "cristatus",
+        [
+          "Crested Dog's-Tail",
+          "Crested Dog's-tail",
+          "Rhonwellt y Ci",
+          "Rhonell y Ci",
+          "Rhonwellt y Ci Cribog",
+          "Rhonwellt y Ci",
+          "Crested Dog's-Tail"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Deschampsia",
-    [[362787, "cespitosa", ["Tufted Hair-grass", "Tufted Hair-Grass"]]]
+    [
+      [
+        143472,
+        64,
+        "cespitosa",
+        [
+          "Tufted Hair-Grass",
+          "Tufted Hair-grass",
+          "Brigwellt Cudynnog",
+          "Brigwellt Mawnog",
+          "Brigwellt Tywarchaidd",
+          "Glaswellt Main y Waun",
+          "Brigwellt Garw",
+          "Tufted Hair-Grass",
+          "Tufted Hair-Grass"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Digitalis", [[362798, "purpurea", ["Foxglove"]]]],
-  [0, 89, "Dipsacus", [[362818, "fullonum s.l."]]],
+  [
+    0,
+    89,
+    "Digitalis",
+    [
+      [
+        91633,
+        53,
+        "purpurea",
+        [
+          "Foxglove",
+          "Bysedd y Cŵn",
+          "Bysedd Cochion",
+          "Bysedd Ellyllon",
+          "Clatsh y Cŵn",
+          "Cleci Coch",
+          "Gwniadur Mair",
+          "Dail Llwynog",
+          "Dail Bysedd Cochion",
+          "Maneg y Forwyn",
+          "Dail Ffion-Ffrwyth",
+          "Dail Crach",
+          "Ffiol y Ffridd",
+          "Ffion Ffrith",
+          "Ffion y Ffridd",
+          "Ffuon Cochaf",
+          "Menyg",
+          "Llwyn y Tewlaeth Digitalis purpurea",
+          "Ciochan nan cailleach marbha",
+          "Lus nam ban-sìth",
+          "Lusan nam ban-sìth",
+          "Meuran nan cailleachan marbha",
+          "Meuran-sìth",
+          "Meuran a' bhàis",
+          "Bysedd y Cŵn",
+          "Foxglove"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Dioscorea",
+    [
+      [
+        291302,
+        50,
+        "communis",
+        [
+          "Coedgwlwm",
+          "Afal Addaf",
+          "Erfinen Fair",
+          "Afal Adda",
+          "Cwlwm y Coed Tamus communis",
+          "Coed Rwym",
+          "Erfinen y Coed",
+          "Eirin Gwion Tamus communis",
+          "Maip Mair",
+          "Maip Adda",
+          "Meipen Fair Tamus communis",
+          "Taglys Tamus communis",
+          "Black Bryony",
+          "Rhwymyn y Gwydd",
+          "Gwion y Perthi Tamus communis",
+          "Paderau'r Gath",
+          "Cwlwm y Gwydd Tamus communis",
+          "Rhwymyn y Coed",
+          "Gwinwydden Ddu",
+          "Grawn y Perthi Tamus communis",
+          "Cwlwm y Coed"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Dipsacus",
+    [
+      [
+        291205,
+        11,
+        "fullonum",
+        [
+          "Wild Teasel",
+          "Teasel",
+          "Cribau'r Pannwr",
+          "Crib y Pannwr",
+          "Llysiau'r Cribau",
+          "Llysiau'r Pannwr",
+          "Teilai Gwyllt",
+          "Teilai Mawr",
+          "Teiliau Mawr",
+          "Ysgallen y Pannwr",
+          "Teilan Gwyllt",
+          "Cribau'r-Pannwr Gwyllt"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Drosera",
-    [[362820, "rotundifolia", ["Round-leaved Sundew", "Round-Leaved Sundew"]]]
+    [
+      [
+        54861,
+        20,
+        "rotundifolia",
+        [
+          "Common Sundew",
+          "Round-Leaved Sundew",
+          "Round-leaved Sundew",
+          "Gwlithlys",
+          "Chwys yr Haul",
+          "Chwys yr Huan",
+          "Gwlith yr Haul",
+          "Gwlithlys Crynddail",
+          "Tawddrudd Crynddail",
+          "Tawddrydd",
+          "Toddaidrudd Crynddail",
+          "Toddaidrudd",
+          "Toddaidd Crynddail",
+          "Gwlithlys",
+          "Round-Leaved Sundew"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Elodea", [[368898, "canadensis/nutallii"]]],
-  [0, 89, "Empetrum", [[362835, "nigrum", ["Crowberry agg."]]]],
-  [0, 89, "Epilobium", [[362839, "hirsutum", ["Great Willowherb"]]]],
+  [0, 89, "Elodea", [[366155, 0, "canadensis/nutallii"]]],
+  [
+    0,
+    89,
+    "Empetrum",
+    [
+      [
+        179993,
+        15,
+        "nigrum",
+        ["Crowberry agg.", "Creiglys y Mynydd", "Creiglusen Creiglus"]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Epilobium",
+    [
+      [
+        249658,
+        70,
+        "hirsutum",
+        [
+          "Great Willowherb",
+          "Helyglys Pêr",
+          "Helyglys Blewog Mawr",
+          "Helyglys Pannog",
+          "Helyglys Pêr Blewog Mwyaf",
+          "Helyglys Pêr"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Erica",
     [
-      [362846, "cinerea", ["Bell Heather", "Bell-Heather"]],
-      [362857, "tetralix", ["Cross-leaved Heath"]]
+      [
+        213632,
+        62,
+        "cinerea",
+        [
+          "Bell Heather",
+          "Clychau'r Grug",
+          "Blodau y Grug",
+          "Grug Cochlas",
+          "Grug Lledlwyd",
+          "Grug Lled Ledlwyd",
+          "Grug Llwydlas",
+          "Grug Erica cinerea",
+          "Bell-Heather",
+          "Fraoch a' bhadain",
+          "Fraoich a' bhadain",
+          "Grug y Mêl"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Erica",
+    [
+      [
+        214349,
+        46,
+        "tetralix",
+        [
+          "Cross-leaved Heath",
+          "Grug Deilgroes",
+          "Grug Croesddeiliog",
+          "Grug Croesddail",
+          "Cross-Leaved Heath"
+        ]
+      ]
     ]
   ],
   [
@@ -189,8 +1543,41 @@
     89,
     "Euphorbia",
     [
-      [362863, "amygdaloides", ["Wood Spurge"]],
-      [362870, "helioscopia", ["Sun Spurge"]]
+      [
+        25917,
+        13,
+        "amygdaloides",
+        [
+          "Wood Spurge",
+          "Llaethlys y Coed",
+          "Fflamgoed Gwigoedd",
+          "Fflamgoed y Coed",
+          "Llaethlys y Coed"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Euphorbia",
+    [
+      [
+        110304,
+        6,
+        "helioscopia",
+        [
+          "Sun Spurge",
+          "Llaeth Ysgyfarnog",
+          "Bwyd Sgwarnog",
+          "Fflamgoed",
+          "Dafadlys",
+          "Dalen Dda",
+          "Fflam yr Haul",
+          "Llaeth Cwningen",
+          "Llaethlys yr Ysgyfarnog"
+        ]
+      ]
     ]
   ],
   [
@@ -198,196 +1585,1554 @@
     89,
     "Filipendula",
     [
-      [362880, "ulmaria", ["Meadowsweet"]],
-      [362899, "vulgaris", ["Dropwort"]]
+      [
+        213522,
+        91,
+        "ulmaria",
+        [
+          "Meadowsweet",
+          "Erwain",
+          "Brenhines y Ddôl",
+          "Brenhines y Meysydd",
+          "Brenhines y Waun",
+          "Brenhines y Weirglodd",
+          "Bugeiles y Weirglodd",
+          "Erchwaint",
+          "Meddlys",
+          "Chwys Arthur",
+          "Erchwraid",
+          "Erchwreid",
+          "Erwaint",
+          "Llysiau Blodau'r Mêl",
+          "Llysiau'r Forwyn",
+          "Barf y Bwch Filipendula ulmaria",
+          "Crios Chù Chulainn",
+          "Criosan Chù Chulainn",
+          "Erwain"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Fragaria", [[362907, "vesca", ["Wild Strawberry"]]]],
-  [368909, 89, "Fumaria", [], ["Fumitory"]],
+  [
+    0,
+    89,
+    "Filipendula",
+    [[158558, 13, "vulgaris", ["Dropwort", "Crogedyf", "Y Grogedau"]]]
+  ],
+  [
+    0,
+    89,
+    "Fragaria",
+    [
+      [
+        99031,
+        23,
+        "vesca",
+        [
+          "Wild Strawberry",
+          "Mefusen y Goedwig",
+          "Mefus Gwyllt",
+          "Mefus Rhuddion",
+          "Syfi Cochion",
+          "Syfïen",
+          "Mefusen",
+          "Llwyn Mefus Gwyllt",
+          "Llwyn Mefus Gwylltion"
+        ]
+      ]
+    ]
+  ],
+  [17200, 89, "Fumaria", [], ["Fumitory"]],
   [
     0,
     89,
     "Galium",
     [
-      [362923, "aparine", ["Cleavers", "Goosegrass"]],
-      [362944, "mollugo", ["Hedge Bedstraw"]],
-      [362951, "odoratum", ["Woodruff", "Sweet Woodruff"]],
-      [362964, "saxatile", ["Heath Bedstraw"]],
-      [362974, "verum", ["Lady's Bedstraw"]]
+      [
+        62872,
+        330,
+        "aparine",
+        [
+          "Cleavers",
+          "Goosegrass",
+          "Llau'r Offeiriad",
+          "Bwyd Gwyddau",
+          "Cariadwyr",
+          "Cynga",
+          "Cyngaean",
+          "Cynghafan",
+          "Cynna",
+          "Llyffeiriad",
+          "Llys yr Hidl",
+          "Gwlydd y Perthi",
+          "Gwlyddyn Garw",
+          "Gwlyddyn y Perthi",
+          "Gwreiddrudd y Perthi",
+          "Llau'r Perthi",
+          "Llysiau'r Hidl",
+          "Cyngaf Galium aparine",
+          "Cynga'r Coed Galium aparine",
+          "Llau'r Offeiriad"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Galium",
+    [
+      [
+        27682,
+        44,
+        "mollugo",
+        [
+          "Hedge Bedstraw",
+          "Briwydd Wen",
+          "Briwydden y Clawdd",
+          "Brigwydd Unionsyth",
+          "Gwendon Ymlusgol ar Gloddiau",
+          "Briwydd y Clawdd"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Galium",
+    [
+      [
+        42838,
+        16,
+        "odoratum",
+        [
+          "Sweet Woodruff",
+          "Woodruff",
+          "Briwydden Bêr",
+          "Arlwys Beraidd y Coed",
+          "Blodyn Hen Ffasiwn",
+          "Briwydd Perarogl",
+          "Llys Te",
+          "Llys yr Eryr Perarogl",
+          "Wdron",
+          "Mandon",
+          "Briwydd Bêr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Galium",
+    [
+      [
+        76788,
+        98,
+        "saxatile",
+        [
+          "Heath Bedstraw",
+          "Briwydden y Rhosdir",
+          "Briwydden Wen",
+          "Gwendon Lefn",
+          "Gwenwlydd Lefn",
+          "Briwydd Wen"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Galium",
+    [
+      [
+        5588,
+        60,
+        "verum",
+        [
+          "Lady's Bedstraw",
+          "Briwydden Felen",
+          "Brigau'r Twynau",
+          "Briger y Twynau",
+          "Ceilion",
+          "Ceulion",
+          "Ceulon",
+          "Llys y Cywer",
+          "Cywer y Llaeth",
+          "Briwydd Felen"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Geranium",
-    [[362986, "robertianum", ["Herb-Robert", "Herb Robert"]]]
+    [
+      [
+        8403,
+        157,
+        "robertianum",
+        [
+          "Herb-Robert",
+          "Herb Robert",
+          "Blastlys",
+          "Llysiau Robert",
+          "Llygad Robin",
+          "Pig yr Aran Troedrudd",
+          "Llysiau'r Llwynog",
+          "Mynawyd y Bugail Geranium robertianum",
+          "Troedrudd Geranium robertianum",
+          "Llys y Llwynog Geranium robertianum",
+          "Coesgoch Geranium robertianum",
+          "Dail Robin Geranium robertianum",
+          "Y Goesgoch",
+          "Herb Robert"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Geum", [[363004, "urbanum", ["Herb Bennet", "Wood Avens"]]]],
+  [
+    0,
+    89,
+    "Geum",
+    [
+      [
+        172912,
+        178,
+        "urbanum",
+        [
+          "Herb Bennet",
+          "Wood Avens",
+          "Mapgoll",
+          "Bendigeidlys",
+          "F'Anwylyd",
+          "Llys Bened",
+          "Llys Benet",
+          "Mabgoll",
+          "Llysiau F'Anwylyd",
+          "Mabgoll Bendigeidlys",
+          "Mapgoll Bendigeidlyn Cyffredin",
+          "Mapgoll Bendigeidlys",
+          "Llys F'Anwylyd Geum urbanum",
+          "Afans Geum urbanum",
+          "Machall coille",
+          "Mapgoll"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Glaucium",
-    [[363020, "flavum", ["Yellow Horned-poppy", "Yellow Horned Poppy"]]]
+    [
+      [
+        6454,
+        1,
+        "flavum",
+        [
+          "Yellow Horned Poppy",
+          "Yellow Horned-poppy",
+          "Pabi Corniog Melyn",
+          "Pabi'r Môr",
+          "Cwsglys Felen",
+          "Llwydlas",
+          "Llwydlas Melyn",
+          "Pabi Corniog Melyn",
+          "Yellow Horned Poppy"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Glechoma", [[363031, "hederacea", ["Ground-ivy", "Ground Ivy"]]]],
-  [0, 89, "Hedera", [[363039, "helix", ["Ivy"]]]],
+  [
+    0,
+    89,
+    "Glechoma",
+    [
+      [
+        14831,
+        126,
+        "hederacea",
+        [
+          "Ground-Ivy",
+          "Ground-ivy",
+          "Ground Ivy",
+          "Eidral",
+          "Ground Ivy",
+          "Ground-Ivy"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Hedera",
+    [
+      [
+        117185,
+        216,
+        "helix",
+        ["Ivy", "Iorwg", "Eidheann", "Gort", "Eidhinn", "Ivy", "Ivy"]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Helianthemum",
-    [[363044, "nummularium", ["Common Rock-rose", "Common Rock-Rose"]]]
+    [
+      [
+        94548,
+        21,
+        "nummularium",
+        [
+          "Common Rock-Rose",
+          "Common Rock-rose",
+          "Blodyn yr Haul",
+          "Cor-Rosyn Cyffredin",
+          "Creig-Rosyn Cyffredin",
+          "Creigros Cyffredin",
+          "Heulros",
+          "Rhosyn y Graig",
+          "Cor-Rosyn Cyffredin",
+          "Common Rock-Rose"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Heracleum", [[363063, "sphondylium", ["Hogweed", "Cow Parsnip"]]]],
-  [0, 89, "Hippocrepis", [[363081, "comosa", ["Horseshoe Vetch"]]]],
-  [0, 89, "Hippuris", [[363091, "vulgaris", ["Mare's-tail", "Mare's-Tail"]]]],
+  [
+    0,
+    89,
+    "Heracleum",
+    [
+      [
+        102122,
+        244,
+        "sphondylium",
+        [
+          "Cow Parsnip",
+          "Hogweed",
+          "Keck",
+          "Efwr",
+          "Pannas Gwyllt",
+          "Efwr Cyffredin",
+          "Bras Gawl",
+          "Efyrllys",
+          "Cecsen",
+          "Cron",
+          "Moron y Meirch",
+          "Moron y Moch",
+          "Ewr",
+          "Moronen y Meirch",
+          "Panasen y Cawr",
+          "Pannas y Fuwch",
+          "Efwr",
+          "Hogweed",
+          "Hogweed",
+          "Kecks"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Hippocrepis",
+    [
+      [
+        60677,
+        7,
+        "comosa",
+        [
+          "Horseshoe Vetch",
+          "Pedol y March",
+          "Cam y March",
+          "Ewnof",
+          "Ewnof Gwyllt",
+          "Ewnofiau Gwyllt",
+          "Ewnofiau Gwylltion Pys y Bedol",
+          "Ffacbys Pedol",
+          "Ffacbysen Bedol"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Hippuris",
+    [
+      [
+        136466,
+        4,
+        "vulgaris",
+        [
+          "Mare's-Tail",
+          "Mare's-tail",
+          "Rhawn y Gaseg",
+          "Rhawn-y-Gaseg Cyffredin",
+          "Rhawn y March",
+          "Rhawn y Gaseg",
+          "Mare's-Tail"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Hyacinthoides",
-    [[363098, "non-scripta", ["Bluebell", "Wild Hyacinth"]]]
+    [
+      [
+        227939,
+        87,
+        "non-scripta",
+        [
+          "Wild Hyacinth",
+          "Clychau'r Gog",
+          "Bluebell",
+          "Lus nan coinnlean gorma",
+          "Lusan nan coinnlean gorma"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Hydrocharis", [[363109, "morsus-ranae", ["Frogbit"]]]],
-  [0, 89, "Hydrocotyle", [[363112, "vulgaris", ["Marsh Pennywort"]]]],
-  [0, 89, "Ilex", [[363129, "aquifolium", ["Holly"]]]],
+  [
+    0,
+    89,
+    "Hydrocharis",
+    [[22061, 0, "morsus-ranae", ["Frogbit", "Ffugalaw Bach"]]]
+  ],
+  [
+    0,
+    89,
+    "Hydrocotyle",
+    [
+      [
+        166500,
+        10,
+        "vulgaris",
+        [
+          "Marsh Pennywort",
+          "Ceiniog y Gors",
+          "Amrain",
+          "Cron y Waun",
+          "Arfeniaint",
+          "Bwrdd Ellyllon",
+          "Cron y Gweunydd",
+          "Dail y Geiniog",
+          "Dail y Gron Lleiaf",
+          "Dail y Clwy",
+          "Llys y Geiniog",
+          "Llysiau'r Geiniog",
+          "Toddaid Wen",
+          "Toddedig Wen",
+          "Dail-Ceiniog y Gors",
+          "White-Rot"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Ilex",
+    [
+      [
+        94790,
+        87,
+        "aquifolium",
+        [
+          "Holly",
+          "Celyn",
+          "Celynnen",
+          "Celyn Cyffredin",
+          "Cuilinn",
+          "Cuileann",
+          "Celyn",
+          "Celynnen"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Impatiens",
-    [[363137, "glandulifera", ["Indian Balsam", "Himalayan Balsam"]]]
+    [
+      [
+        184836,
+        39,
+        "glandulifera",
+        [
+          "Himalayan Balsam",
+          "Indian Balsam",
+          "Policeman's Helmet",
+          "Jac y Neidiwr",
+          "Cap Dur Heddwas",
+          "Ffromlys Chwarennog",
+          "Penwisg Ddur Heddwas",
+          "Jac y Neidiwr"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Iris", [[363147, "pseudacorus", ["Yellow Iris", "Flag Iris"]]]],
-  [0, 89, "Juncus", [[368919, "inflexus/effusus/conglomeratus"]]],
-  [0, 81, "Juniperus", [[363166, "communis", ["Juniper"]]]],
+  [
+    0,
+    89,
+    "Iris",
+    [
+      [
+        49104,
+        32,
+        "pseudacorus",
+        [
+          "Yellow Flag",
+          "Yellow Iris",
+          "Gellesgen",
+          "Iris Felen",
+          "Baner y Gors",
+          "Camined",
+          "Camined Melyn y Dŵr",
+          "Camined y Dŵr",
+          "Cellhesg",
+          "Enfys y Gors",
+          "Gelaets",
+          "Elestr",
+          "Gelyst",
+          "Gellesgen Gyffredin",
+          "Gellhesgen",
+          "Flag Iris",
+          "Bog-uisge",
+          "Sealastairean",
+          "Boghachan-uisge",
+          "Sealastair",
+          "Seileastairean",
+          "Gellesg",
+          "Seileastair (boireann/fireann)",
+          "Gellesgen"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Jacobaea",
+    [
+      [
+        473047,
+        71,
+        "vulgaris",
+        [
+          "Common Ragwort",
+          "Llysiau'r Gingroen",
+          "Creulys Lago",
+          "Carnedd Felen Wryw",
+          "'Cowmon' Bach Melyn",
+          "Eirin y Ci",
+          "Greulys Felen Wryw",
+          "Llys Jacob",
+          "Llys y Gingroen",
+          "Troed y Frân",
+          "Llys Lago",
+          "Llysiau Lago",
+          "Llysiau'r Ysgyfarnog",
+          "Ragwrt",
+          "Penfelen Senecio jacobaea",
+          "Greulys Senecio jacobaea",
+          "Llysiau'r Gingroen",
+          "Common Ragwort",
+          "Common Ragwort"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Juncus", [[366235, 1, "inflexus/effusus/conglomeratus"]]],
+  [
+    0,
+    81,
+    "Juniperus",
+    [
+      [
+        102651,
+        1,
+        "communis",
+        [
+          "Juniper",
+          "Meryw",
+          "Merywen",
+          "Beryw",
+          "Berywydd",
+          "Eithin Bêr",
+          "Eithin y Cwrw",
+          "Eithinen Bêr",
+          "Eithinen y Cwrw",
+          "Merywen Gyffredin",
+          "Staoin",
+          "Iubhar-beinne",
+          "Aiteann",
+          "Meryw",
+          "Merywen"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Kickxia",
-    [[363181, "elatine", ["Sharp-leaved Fluellen", "Sharp-Leaved Fluellen"]]]
+    [
+      [
+        123655,
+        0,
+        "elatine",
+        [
+          "Sharp-Leaved Fluellen",
+          "Sharp-leaved Fluellen",
+          "Llywelyn",
+          "Trwyn-y-Llo Blaenfeinddail",
+          "Llysiau Llywelyn Kickxia elatine",
+          "Llysiau Llywelyn",
+          "Sharp-Leaved Fluellen"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Lamiastrum", [[363201, "galeobdolon", ["Yellow Archangel"]]]],
+  [0, 89, "Lamiastrum", [[23760, 10, "galeobdolon"]]],
   [
     0,
     89,
-    "Lamium",
-    [[363190, "galeobdolon", ["Yellow Archangel", "Yellow Dead-Nettle"]]]
+    "Lathyrus",
+    [
+      [
+        179432,
+        79,
+        "pratensis",
+        [
+          "Meadow Vetchling",
+          "Ytbysen y Ddôl",
+          "Ffacbysen y Weirglodd",
+          "Pupys y Waun",
+          "Ydbys y Borfa",
+          "Ydbysen y Waun",
+          "Ytbysen y Waun",
+          "Ytbys y Ddôl",
+          "Ytbysen y Ddôl"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Lathyrus", [[363206, "pratensis", ["Meadow Vetchling"]]]],
-  [0, 89, "Lemna", [[363216, "trisulca", ["Ivy-leaved Duckweed"]]]],
+  [
+    0,
+    89,
+    "Lemna",
+    [
+      [
+        153045,
+        2,
+        "trisulca",
+        [
+          "Ivy-leaved Duckweed",
+          "Llinad Eiddew",
+          "Dail Meillion y Dwfr",
+          "Llinad y Dŵr Eiddewddail",
+          "Llinhad y Dŵr Eiddewddail",
+          "Bwyd Hwyaid Lemna trisulca",
+          "Llinad Dail Eiddew",
+          "Ivy-Leaved Duckweed"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Leucanthemum",
-    [[363226, "vulgare", ["Oxeye Daisy", "Ox-eye Daisy"]]]
+    [
+      [
+        65197,
+        43,
+        "vulgare",
+        [
+          "Oxeye Daisy",
+          "Ox-eye Daisy",
+          "Llygad Llo Mawr",
+          "Llygad Llo",
+          "Llygad y Dydd Mawr",
+          "Aspygan Leucanthemum vulgare",
+          "Llygad-Llo Mawr"
+        ]
+      ]
+    ]
   ],
-  [364619, 89, "Limonium", [], ["Rock sea-lavander", "Rock Sea-Lavender"]],
-  [0, 89, "Linum", [[363235, "catharticum", ["Fairy Flax", "Purging Flax"]]]],
-  [0, 89, "Littorella", [[363241, "uniflora", ["Shoreweed"]]]],
-  [0, 89, "Lonicera", [[363249, "periclymenum", ["Honeysuckle"]]]],
+  [468957, 89, "Limonium"],
+  [
+    0,
+    89,
+    "Linum",
+    [
+      [
+        57240,
+        24,
+        "catharticum",
+        [
+          "Fairy Flax",
+          "Purging Flax",
+          "Llin y Tylwyth Teg",
+          "Llin y Mynydd",
+          "Llin y Tylwyth Teg"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Littorella",
+    [
+      [
+        161702,
+        0,
+        "uniflora",
+        [
+          "Shoreweed",
+          "Beistonnell",
+          "Beisdonell Merllyn",
+          "Beistonnell Merllyn",
+          "Beistonnell Ferllyn"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Lonicera",
+    [
+      [
+        175205,
+        81,
+        "periclymenum",
+        [
+          "Honeysuckle",
+          "Gwyddfid",
+          "Crydnydd",
+          "Crydduydd",
+          "Gwinwydden Wyllt",
+          "Gwyddwydd",
+          "Gwynwydd",
+          "Llaeth y Gaseg",
+          "Llaeth y Geifr",
+          "Tethau'r Gaseg",
+          "Tethi'r Gaseg",
+          "Gwynwydd Aroglus",
+          "Llysiau Helgorn",
+          "Llysiau'r Gwynwydd",
+          "Mêl-Flodyn",
+          "Melys y Pia",
+          "Sugn y Geifr",
+          "Utgorn y Tylwyth Teg",
+          "Melog",
+          "Iadh-shlatan",
+          "Idha-shlat",
+          "Lus na meala",
+          "Lusan na meala",
+          "Gwyddfid"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Lotus",
     [
-      [363270, "corniculatus", ["Common Bird's-foot-trefoil"]],
       [
-        363291,
-        "pedunculatus",
-        ["Greater Bird's-foot-trefoil", "Large Bird's-Foot-Trefoil"]
+        162799,
+        103,
+        "corniculatus",
+        [
+          "Common Bird's-foot-trefoil",
+          "Bacwn ac Wy",
+          "Basged Bysgota",
+          "Blodau Ebol Bach",
+          "Cawell Bysgota",
+          "Troed y Deryn",
+          "Troed Y",
+          "Bysedd Traed y Frân",
+          "Carwbys Cyffredin",
+          "Corfeillion",
+          "Esgidiau a Sanau",
+          "Ewincdd y Gath",
+          "Pys y Ceirw",
+          "Pysen-y-Ceirw Grythog",
+          "Pysen y Ceirw Lotus corniculatus",
+          "Bysedd y Diafol Lotus corniculatus",
+          "Bacwn ac Wyau Lotus corniculatus",
+          "Pysen-y-Ceirw",
+          "Pys-y-Ceirw",
+          "Common Bird's-Foot-Trefoil"
+        ]
       ]
     ]
   ],
-  [0, 89, "Lycopus", [[363304, "europaeus", ["Gypsywort", "Gipsy wort"]]]],
+  [
+    0,
+    89,
+    "Lotus",
+    [
+      [
+        253426,
+        12,
+        "pedunculatus",
+        [
+          "Large Bird's-Foot-Trefoil",
+          "Greater Bird's-foot-trefoil",
+          "Pysen y Ceirw Fwyaf",
+          "Carwbys Mwyaf",
+          "Ffa'r Ieir",
+          "Pys y Ceirw Blewog",
+          "Bysedd y Diafol Lotus pedunculatus",
+          "Bacwn ac Wyau Lotus pedunculatus",
+          "Marsh Bird's-foot Trefoil",
+          "Pysen-y-Ceirw Fawr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Lycopus",
+    [
+      [
+        103556,
+        12,
+        "europaeus",
+        [
+          "Gipsywort",
+          "Gipsy wort",
+          "Gypsywort",
+          "Llys y Sipsiwn",
+          "Danadlen y Sipsi",
+          "Llys Copyn y Dwfr",
+          "Llys y Sipsi",
+          "Llys yr Hudolesau",
+          "Llysiau y Gwiblu",
+          "Llysiau'r Sipsiwn"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Lysichiton",
-    [[363315, "americanus", ["American Skunk-cabbage", "Skunk Cabbage"]]]
+    [
+      [
+        81273,
+        0,
+        "americanus",
+        [
+          "Skunk Cabbage",
+          "American Skunk-cabbage",
+          "Pidyn-y-Gog Americanaidd",
+          "American Skunk-Cabbage"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Lysimachia",
     [
-      [363321, "nemorum", ["Yellow Pimpernel"]],
-      [363332, "vulgaris", ["Yellow Loosestrife"]]
+      [
+        236249,
+        15,
+        "nemorum",
+        [
+          "Yellow Pimpernel",
+          "Gwlydd Melyn Mate",
+          "Aur y Tywydd",
+          "Melyn y Tywydd",
+          "Seren Felen",
+          "Seren Felyn",
+          "Seren y Cloddiau",
+          "Trewynyn y Coed",
+          "Trewynyn y Goedwig",
+          "Gwlyddyn Melyn Mair"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Lysimachia",
+    [
+      [
+        189280,
+        1,
+        "vulgaris",
+        [
+          "Yellow Loosestrife",
+          "Trewynyn",
+          "Llysiau'r Milwr Melynion",
+          "Trewynyn Cyffredin",
+          "Trewyn"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Lythrum",
-    [[363338, "salicaria", ["Purple-loosestrife", "Purple Loosestrife"]]]
+    [
+      [
+        144491,
+        9,
+        "salicaria",
+        [
+          "Purple-Loosestrife",
+          "Purple-loosestrife",
+          "Purple Loosestrife",
+          "Llys y Milwr",
+          "Gwyarllys",
+          "Gwaedlys Mawr",
+          "Gwaedllys Mawr",
+          "Gwarllys",
+          "Llys y Milwr Coch",
+          "Llysiau'r Milwr Coch",
+          "Gwyarllys Pigog",
+          "Gwaedlys Lythrum salicaria",
+          "Llysiau'r-Milwr Coch",
+          "Purple-Loosestrife",
+          "Purple-Loosestrife",
+          "Purple Loosestrife"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Melica", [[363352, "uniflora", ["Wood Melick"]]]],
-  [0, 89, "Mentha", [[363359, "aquatica", ["Water Mint", "Mintys y dwr"]]]],
-  [0, 89, "Menyanthes", [[363365, "trifoliata", ["Bogbean"]]]],
-  [0, 89, "Mercurialis", [[363376, "perennis", ["Dog's Mercury"]]]],
+  [
+    0,
+    89,
+    "Melica",
+    [
+      [
+        61602,
+        11,
+        "uniflora",
+        [
+          "Wood Melick",
+          "Meligwellt",
+          "Melic-Wellt y Coed",
+          "Melic-Wellt y Goedwig",
+          "Meligwellt y Goedwig",
+          "Meligwellt y Coed"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Mentha",
+    [
+      [
+        218143,
+        30,
+        "aquatica",
+        [
+          "Water Mint",
+          "Mintys y Dŵr",
+          "Mintys y dwr",
+          "Mintys Blewog",
+          "Mintys y Pysgod",
+          "Mintys y Dŵr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Menyanthes",
+    [
+      [
+        231850,
+        4,
+        "trifoliata",
+        [
+          "Bogbean",
+          "Ffa'r Gors",
+          "Ffaen y Gors Teirdalen",
+          "Ffa'r Gors Teirdalen",
+          "Ffa'r Corsydd",
+          "Ffaen y Gors",
+          "Maill y Gors",
+          "Meillion y Gors",
+          "Ffeuen y Gors",
+          "Ffa'r Gors"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Mercurialis",
+    [
+      [
+        225797,
+        62,
+        "perennis",
+        [
+          "Dog's Mercury",
+          "Bresych y Cŵn",
+          "Blaen yr Iwrch",
+          "Clais yr Hydd",
+          "Bresych y Cŵn Parhaus",
+          "Cawl y Cŵn",
+          "Cifresych",
+          "Cwlwm yr Asgwrn",
+          "Clais yr Hydd Barhaus",
+          "Dail Cwlwm yr Asgwrn Mercurialis perennis",
+          "Bresychen y Cŵn",
+          "Bresych y Cŵn"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Moehringia",
-    [[363389, "trinervia", ["Three-nerved Sandwort", "Three-Nerved Sandwort"]]]
+    [
+      [
+        257458,
+        3,
+        "trinervia",
+        [
+          "Three-Nerved Sandwort",
+          "Three-nerved Sandwort",
+          "Tywodlys Trinerf",
+          "Gwlyddyn Tair-Giau",
+          "Gwlyddyn Tri Gewynog",
+          "Tywodwlydd Llyriad-Ddail",
+          "Tywodwlydd y Coed",
+          "Tywodlys Teirnerf",
+          "Three-Nerved Sandwort"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Narthecium", [[363399, "ossifragum", ["Bog Asphodel", "Asphodel"]]]],
+  [
+    0,
+    89,
+    "Narthecium",
+    [
+      [
+        21261,
+        25,
+        "ossifragum",
+        [
+          "Bog Asphodel",
+          "Llafn y Bladur",
+          "Bladurwellt y Fawnog",
+          "Brenhines y Gors",
+          "Gwayw'r Brain",
+          "Gwayw'r Brenin",
+          "Serllys y Gors",
+          "Asphodel",
+          "Bliochan",
+          "Llafn y Bladur"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Nuphar",
-    [[363411, "lutea", ["Yellow Water-lily", "Yellow Water-Lily"]]]
+    [
+      [
+        200573,
+        0,
+        "lutea",
+        [
+          "Yellow Water-Lily",
+          "Yellow water-lily",
+          "Yellow Water-lily",
+          "Lili Ddŵr Felen",
+          "Bwltis Lili Melyn y Dŵr",
+          "Bwltys",
+          "Godowydd",
+          "Lili Felen y Dŵr",
+          "Lili Melyn y Dŵr",
+          "Mwltws",
+          "Melyn y Dŵr",
+          "Myltys",
+          "Bwltis Nuphar lutea",
+          "Lili'r-Dŵr Felen",
+          "Yellow Water-Lily"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Nymphaea", [[363428, "alba", ["White Water-lily", "Waterlily"]]]],
-  [0, 87, "Ophioglossum", [[537884, "vulgatum s.l."]]],
+  [
+    0,
+    89,
+    "Nymphaea",
+    [
+      [
+        18676,
+        0,
+        "alba",
+        [
+          "White Water-Lily",
+          "White Water-lily",
+          "Alaw",
+          "Lili Ddŵr Wen",
+          "Ala y Dŵr",
+          "Alaw y Llyn",
+          "Godywydd",
+          "Lili-Ddŵr Wen",
+          "Magwyr Wen",
+          "Lili Gwyn y Dŵr",
+          "Bwltis Nymphaea alba",
+          "Waterlily",
+          "Duilleag-bhàthte",
+          "Duilleagan-bàthte",
+          "Alaw",
+          "White Water-Lily",
+          "White Water-Lily"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    87,
+    "Ophioglossum",
+    [
+      [
+        290705,
+        2,
+        "vulgatum",
+        [
+          "Adder's-Tongue Fern",
+          "Adder's-tongue",
+          "Tafod y Neidr",
+          "Gwaew Crist",
+          "Gwayw Crist",
+          "Tafod y Neidr",
+          "Adder's Tongue",
+          "Adder's-Tongue"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Orchis",
-    [[363455, "mascula", ["Early-purple Orchid", "Early-Purple Orchid"]]]
+    [
+      [
+        167989,
+        10,
+        "mascula",
+        [
+          "Early-Purple Orchid",
+          "Early-purple Orchid",
+          "Tegeirian Coch y Gwanwyn",
+          "Tegeirian Coch",
+          "Caill y Ci",
+          "Tegeirian Glasgoch y Gwanwyn",
+          "Tegeirian Borffor",
+          "Tegeirian y Gwanwyn",
+          "Hosanau'r Gog Orchis mascula",
+          "Tegeirian Coch y Gwanwyn",
+          "Early-Purple Orchid"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Origanum", [[363467, "vulgare", ["Wild Marjoram"]]]],
-  [0, 87, "Osmunda", [[363477, "regalis", ["Royal Fern"]]]],
-  [0, 89, "Oxalis", [[363494, "acetosella", ["Wood-sorrel", "Wood-Sorrel"]]]],
-  [0, 89, "Oxyria", [[363515, "digyna", ["Mountain Sorrel"]]]],
+  [
+    0,
+    89,
+    "Origanum",
+    [
+      [
+        31365,
+        13,
+        "vulgare",
+        [
+          "Wild Marjoram",
+          "Penrhudd",
+          "Mesuriad",
+          "Mesuriad Cyffredin",
+          "Mintys Pêr",
+          "Mintys Peraidd",
+          "Mintys y Creigiau",
+          "Mintys y Graig",
+          "Penrhudd"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    87,
+    "Osmunda",
+    [
+      [
+        99912,
+        2,
+        "regalis",
+        [
+          "Royal Fern",
+          "Rhedyn Cyfrdwy",
+          "Rhedynen Gyfrdwy",
+          "Cyfrdwy",
+          "Cyfrdwy Breiniawl",
+          "Lloer-Redynen Gyfrdwy",
+          "Rhedyn Blodeuog",
+          "Rhedyn Crist",
+          "Rhedyn y Cyfrdwy",
+          "Rhedyn y Cadno Osmunda regalis",
+          "Rhedyn Mair Osmunda regalis",
+          "Lloerlys Osmunda regalis",
+          "Rhedyn Cyfrdwy",
+          "Rhedynen Gyfrdwy"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Oxalis",
+    [
+      [
+        249509,
+        32,
+        "acetosella",
+        [
+          "Wood-Sorrel",
+          "Wood-sorrel",
+          "Suran y Coed",
+          "Aleliwia",
+          "Bara Can y Gog",
+          "Aleluia",
+          "Aleluya",
+          "Bara a Chaws y Gwcw",
+          "Bara'r Gog",
+          "Blodau'r Drindod",
+          "Suran y Gog",
+          "Surran y Coed",
+          "Bara Can y Gwcw",
+          "Bwyd y Gwcw",
+          "Suran Deirdalen",
+          "Suran Teirdalen",
+          "Suran-y-Coed Gyffredin",
+          "Surran",
+          "Clychau'r Tylwyth Teg Oxalis acetosella",
+          "Suran y Coed",
+          "Wood-Sorrel"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Oxyria",
+    [
+      [
+        141369,
+        1,
+        "digyna",
+        [
+          "Mountain Sorrel",
+          "Suran y Mynydd",
+          "Suran â Dalen Arennaidd",
+          "Suran y Mynydd"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Persicaria",
     [
-      [363521, "amphibia", ["Amphibious Bistort"]],
-      [363532, "bistorta", ["Common Bistort", "Snakeweed"]]
+      [
+        115331,
+        13,
+        "amphibia",
+        [
+          "Amphibious Bistort",
+          "Canwraidd Goch",
+          "Beidiog Goch",
+          "Beidiog Rudd",
+          "Canwraidd Bengoch",
+          "Pengoch",
+          "Canwraidd y Dŵr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Persicaria",
+    [
+      [
+        21972,
+        0,
+        "bistorta",
+        [
+          "Bistort",
+          "Common Bistort",
+          "Snakeweed",
+          "Llys y Neidr",
+          "Blodau Powdr",
+          "Neidrlys",
+          "Pigwrn y Pinwydd",
+          "Llysiau'r Neidr"
+        ]
+      ]
     ]
   ],
   [
     0,
     87,
     "Phyllitis",
-    [[363544, "scolopendrium", ["Hart's-tongue", "Hart's-Tongue"]]]
+    [
+      [
+        21949,
+        46,
+        "scolopendrium",
+        [
+          "Hart's-Tongue",
+          "Hartstongue Fern",
+          "Hart's-tongue",
+          "Tafod yr Hydd",
+          "Dail Llosg y Tân",
+          "Duegredynen Feddygol",
+          "Rhedyn y Gogofau",
+          "Tafod y Carw",
+          "Tafod yr Elain",
+          "Tafod yr Hydd Cyffredin",
+          "Tafod yr Hydd",
+          "Hart's-Tongue"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Pilosella",
-    [[363568, "officinarum", ["Mouse-ear-hawkweed", "Mouse-Ear-Hawkweed"]]]
+    [
+      [
+        24334,
+        19,
+        "officinarum",
+        [
+          "Mouse-Ear-Hawkweed",
+          "Mouse-ear-hawkweed",
+          "Heboglys",
+          "Blewynnog",
+          "Heboglys Blewynnog",
+          "Heboglys Torllwyd",
+          "Torllwydig",
+          "Torllwyd Pilosella officinarum",
+          "Clust y Llygoden Pilosella officinarum",
+          "Clust y Llygoden",
+          "Mouse-Ear-Hawkweed"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Pinguicula", [[363607, "vulgaris", ["Common Butterwort"]]]],
+  [
+    0,
+    89,
+    "Pinguicula",
+    [
+      [
+        116892,
+        14,
+        "vulgaris",
+        [
+          "Common Butterwort",
+          "Tafod y Gors",
+          "Crinllys y Gors",
+          "Eiryfedig",
+          "Eiryfedig Wen",
+          "Toddaid Melyn Cyffredin",
+          "Toddaidd Melyn Cyffredin",
+          "Toddedig Felen",
+          "Toddaidd Cyffredin",
+          "Toddyn Cyffredin",
+          "Golchwraidd Pinguicula vulgaris",
+          "Mòthain",
+          "Mòthan",
+          "Tafod y Gors"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Plantago",
     [
-      [363620, "coronopus", ["Buck's-horn Plantain", "Buck's-Horn Plantain"]],
-      [363638, "lanceolata", ["Ribwort Plantain"]],
-      [363660, "maritima", ["Sea Plantain"]],
-      [363674, "media", ["Hoary Plantain"]]
+      [
+        65521,
+        15,
+        "coronopus",
+        [
+          "Buck's-Horn Plantain",
+          "Buck's-horn Plantain",
+          "Llwynhidydd Corn Carw",
+          "Corn y Carw",
+          "Dail Llwynhidl",
+          "Efa",
+          "Erllyriad",
+          "Llyriad Corn y Carw",
+          "Llys Efa",
+          "Seren y Ddaear",
+          "Henllydan Plantago coronopus",
+          "Llydan y Ffordd Plantago coronopus",
+          "Llwyn y Neidr Plantago coronopus",
+          "Llyriad Corn Carw",
+          "Llyriaid Corn Carw",
+          "Buck's-Horn Plantain"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Polygala", [[368899, "serpyllifolia/vulgaris"]]],
+  [
+    0,
+    89,
+    "Plantago",
+    [
+      [
+        227038,
+        341,
+        "lanceolata",
+        [
+          "Ribwort Plantain",
+          "Astyllenes",
+          "Astyllenlys",
+          "Aslyllynes",
+          "Ceiliog a'r Iâr",
+          "Dail Ceiliog",
+          "Dalen Gryman",
+          "Estyllenlys",
+          "Pennau'r Gwyr",
+          "Sawdl Crist",
+          "Dail Llwyn y Neidr",
+          "Llwyn Hidl",
+          "Llwyndidill",
+          "Llyriad Llwynhidydd",
+          "Llysiau yr Ais",
+          "Traeturiaid y Bugeilyd",
+          "Llwyn y Neidr Plantago lanceolata",
+          "Llwynhidydd Plantago lanceolata",
+          "Llyriaid yr Ais",
+          "Llyriad yr Ais"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Plantago",
+    [
+      [
+        146388,
+        11,
+        "maritima",
+        [
+          "Sea Plantain",
+          "Llwynhidydd Arfor",
+          "Bara-Can y Defaid",
+          "Gwerog",
+          "Llyriad y Defaid",
+          "Llyriaid y Môr",
+          "Sampier y Defaid",
+          "Mân y Don",
+          "Llyriad y Môr Plantago maritima",
+          "Llyriad Arfor",
+          "Llyriaid Arfor"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Plantago",
+    [
+      [
+        89005,
+        23,
+        "media",
+        [
+          "Hoary Plantain",
+          "Llyriad Llwyd",
+          "Llwynhidydd Llwyd",
+          "Llwynhidydd Blewog",
+          "Tafod yr Oen Plantago media",
+          "Llyriaid Llwyd",
+          "Llyriad Llwyd"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Polygala", [[367433, 4, "serpyllifolia/vulgaris"]]],
   [
     0,
     89,
     "Potamogeton",
     [
-      [363682, "crispus", ["Curled Pondweed", "Curly Pondweed"]],
-      [363690, "polygonifolius", ["Bog Pondweed"]]
+      [
+        64434,
+        0,
+        "crispus",
+        [
+          "Curled Pondweed",
+          "Curly Pondweed",
+          "Dyfrllys Crych",
+          "Dyfrllys Crychlyd",
+          "Dyfrllys Danhe",
+          "Dyfrllys Crychion",
+          "Dyfrllys Crych"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Potamogeton",
+    [
+      [
+        223905,
+        4,
+        "polygonifolius",
+        ["Bog Pondweed", "Dyfrllys y Gors", "Dyfrllys y Gors"]
+      ]
     ]
   ],
   [
@@ -395,40 +3140,370 @@
     89,
     "Potentilla",
     [
-      [363697, "anserina"],
-      [363699, "erecta", ["Tormentil"]],
-      [363715, "palustris", ["Marsh Cinquefoil"]],
-      [363723, "reptans", ["Creeping Cinquefoil"]],
-      [363738, "sterilis", ["Barren Strawberry"]]
+      [
+        340579,
+        17,
+        "anserina",
+        [
+          "Silverweed",
+          "Dail Arian",
+          "Bwyd y Gwyddau",
+          "Dinllwyd",
+          "Dorllwyd",
+          "Llwyd y Din",
+          "Tinllwyd",
+          "Llwydwen Fach",
+          "Tansi Gwyllt",
+          "Gwyn y Merched Potentilla anserina",
+          "Torllwyd Potentilla anserina",
+          "Dail Arian"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Poterium", [[363967, "sanguisorba", ["Salad Burnet"]]]],
+  [
+    0,
+    89,
+    "Potentilla",
+    [
+      [
+        182983,
+        119,
+        "erecta",
+        [
+          "Tormentil",
+          "Tresgl y Moch",
+          "Blodyn Lesu Grist",
+          "Melyn y Gweunydd",
+          "Melyn y Twynau",
+          "Melyn yr Eithin",
+          "Tresgl",
+          "Tresgl yr Eithin",
+          "Tresgl Cyffredin",
+          "Tresgl Melyn",
+          "Ysgras",
+          "Tresgl y Moch",
+          "Tormentil"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Potentilla",
+    [
+      [
+        252488,
+        6,
+        "palustris",
+        [
+          "Marsh Cinquefoil",
+          "Pumdalen y Gors",
+          "Corsgudyn",
+          "Llygad Ysgyfarnog",
+          "Pumnalen y Gors"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Potentilla",
+    [
+      [
+        215500,
+        75,
+        "reptans",
+        [
+          "Creeping Cinquefoil",
+          "Pumdalen Ymlusgol",
+          "Dail y Pumbys",
+          "Llysiau Pumbys",
+          "Llysiau y Bumpys",
+          "Pumbys Rhedegog",
+          "Meillionen Pumbys",
+          "Pumbys",
+          "Pumdalen Gyffredin",
+          "Pumdalen Gyffredin Ymlusgaidd",
+          "Traeturiaid y Bugeilydd",
+          "Llwynhidydd Potentilla reptans",
+          "Gwyn y Merched Potentilla reptans",
+          "Pumnalen Ymlusgol"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Potentilla",
+    [
+      [
+        168857,
+        18,
+        "sterilis",
+        [
+          "Barren Strawberry",
+          "Coegfefusen",
+          "Mefus Anffrwythlon",
+          "Syfïen Goeg",
+          "Llwyn Coeg-Fefus",
+          "Llwyni Coeg-Fefus"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Poterium", [[28264, 41, "sanguisorba", ["Salad Burnet"]]]],
   [
     0,
     89,
     "Primula",
     [
-      [363747, "veris", ["Cowslip"]],
-      [363759, "vulgaris", ["Primrose"]]
+      [
+        176820,
+        37,
+        "veris",
+        [
+          "Cowslip",
+          "Briallu Mair Allweddau Pedr",
+          "Briallu Mair Sawrus",
+          "Llysiau'r Parlys",
+          "Symwl Primula veris",
+          "Tewbanog Fechan Primula veris",
+          "Sawdl y Fuwch Primula veris",
+          "Symylen Primula veris",
+          "Dagrau Mair Primula veris",
+          "Briallu Mair",
+          "Briallen Fair",
+          "Mùisean",
+          "Mùiseanan"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Prunella", [[363778, "vulgaris", ["Selfheal"]]]],
-  [0, 89, "Prunus", [[363788, "spinosa", ["Blackthorn", "Sloe Berry"]]]],
-  [0, 87, "Pteridium", [[363806, "aquilinum", ["Bracken", "Brake"]]]],
+  [
+    0,
+    89,
+    "Primula",
+    [
+      [
+        135625,
+        38,
+        "vulgaris",
+        [
+          "Briallen",
+          "Briallu",
+          "Birlli",
+          "Birllig",
+          "Briallen Gyffredin",
+          "Briallu Cyffredin",
+          "Llysiau Paul",
+          "Symylen Primula vulgaris",
+          "Primrose",
+          "Symwl Primula vulgaris",
+          "Tewbanog Fechan Primula vulgaris",
+          "Sòbhrach",
+          "Sòbhraichean",
+          "Sòbhragan",
+          "Sòbhrag",
+          "Briallen",
+          "Briallu"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Prunella",
+    [
+      [
+        146597,
+        105,
+        "vulgaris",
+        [
+          "Selfheal",
+          "Craith-Un-Nos",
+          "Meddyg y Medwr",
+          "Meddyges Benlas",
+          "Meddyges Las",
+          "Meddyges Lwydlas",
+          "Craith Unnos Prunella vulgaris",
+          "Danhogen y Dŵr Prunella vulgaris",
+          "Y Feddyges Las"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Prunus",
+    [
+      [
+        182291,
+        140,
+        "spinosa",
+        [
+          "Blackthorn",
+          "Draenen Ddu",
+          "Blodau'r Draen",
+          "Eirin Berthi",
+          "Eirin Duon Bach",
+          "Eirin Duon Tag",
+          "Eirin Ddu Fach",
+          "Eirin Surion",
+          "Eirin Mân y Llwyni Gwylltion",
+          "Eirin Sur Fach",
+          "Eirin Tagu",
+          "Eirin y Perthi",
+          "Eirinberth",
+          "Sloe Berry",
+          "Sgitheach dubh Blackthorn",
+          "Droigheann dubh Sloe Berry",
+          "Drain Duon",
+          "Àirneagan Sloe Berry",
+          "Àirneag Sloe Berry",
+          "Droigheann dubh Blackthorn",
+          "Sloe",
+          "Droighinn dubha",
+          "Draenen Ddu"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    87,
+    "Pteridium",
+    [
+      [
+        126582,
+        198,
+        "aquilinum",
+        [
+          "Brake",
+          "Rhedyn Ungoes",
+          "Rhedynen Gyffredin",
+          "Adain-Redynen Eryraidd",
+          "Adainredyn Cyffredin",
+          "Bracken / Fern",
+          "Bracken",
+          "Rhedynen Ungoes",
+          "Rainich",
+          "Raineach",
+          "Rhedyn Ungoes"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Ranunculus",
     [
-      [363832, "acris", ["Meadow Buttercup"]],
-      [363845, "bulbosus", ["Bulbous Buttercup"]],
-      [363856, "repens", ["Creeping Buttercup"]],
       [
-        363864,
+        13897,
+        174,
+        "acris",
+        [
+          "Meadow Buttercup",
+          "Crafanc-y-Frân Boethus y Gweunydd",
+          "Crafanc-y-Frân Syth-Boeth",
+          "Crafanc-y-Frân Syth-Boeth y Gweunydd",
+          "Crafanc-y-Frân Syth-Boethus y Gweunydd",
+          "Crafanc Ysol",
+          "Egyllt",
+          "Egyllt y Gweunydd",
+          "Egyllt y Frân Syth-Boethus y Gweunydd",
+          "Blodyn Ymenyn Ranunculus acris",
+          "Blodyn Ymenyn",
+          "Blodau Ymenyn"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Ranunculus",
+    [
+      [
+        194176,
+        67,
+        "bulbosus",
+        [
+          "Bulbous Buttercup",
+          "Blodau Ymenyn",
+          "Chwys Mair",
+          "Egyllt Cnapwreiddiog",
+          "Pupus Brain",
+          "Blodyn Ymenyn Ranunculus bulbosus",
+          "Blodyn-Ymenyn Bondew"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Ranunculus",
+    [
+      [
+        208298,
+        299,
+        "repens",
+        [
+          "Creeping Buttercup",
+          "Crafanc y Frân",
+          "Crafanc Orweddol",
+          "Crafanc y Frân Ymlusgaidd",
+          "Crafanc y Frân Ymlusgedd",
+          "Egyllt Ymlusgol",
+          "Blodyn-Ymenyn Ymlusgol"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Ranunculus",
+    [
+      [
+        162160,
+        2,
         "sceleratus",
-        ["Celery-leaved Buttercup", "Celery-Leaved Buttercup"]
-      ],
-      [368940, "spp."]
+        [
+          "Celery-Leaved Buttercup",
+          "Celery-leaved Buttercup",
+          "Crafanc yr Eryr",
+          "Troed yr Eryr",
+          "Crafanc yr Eryr",
+          "Celery-Leaved Buttercup"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Ranunculus", [[366254, 1, "spp."]]],
+  [
+    0,
+    89,
+    "Reseda",
+    [
+      [
+        103634,
+        2,
+        "lutea",
+        [
+          "Wild Mignonette",
+          "Melengu Wyllt Ddisawr",
+          "Melengu Wyllt Diarogl",
+          "Melengu Wyllt Ddi-Sawr"
+        ]
+      ]
     ]
   ],
   [
@@ -436,127 +3511,938 @@
     89,
     "Reseda",
     [
-      [363871, "lutea", ["Wild Mignonette"]],
-      [363877, "luteola", ["Weld"]]
+      [
+        28560,
+        0,
+        "luteola",
+        [
+          "Weld",
+          "Cynffon Titw",
+          "Melen-Gu",
+          "Melyngu Reseda luteola",
+          "Melengu"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Rhinanthus",
-    [[363883, "minor", ["Yellow-rattle", "Yellow Rattle"]]]
+    [
+      [
+        132696,
+        33,
+        "minor",
+        [
+          "Yellow-Rattle",
+          "Yellow-rattle",
+          "Yellow Rattle",
+          "Cribell Felen",
+          "Arian Cor",
+          "Arian Gweirwyr",
+          "Arian Gwion",
+          "Arian y Bladurwr",
+          "Arian y Meirch",
+          "Coden Grimp",
+          "Cribell Ceiliog",
+          "Clych y Meirch",
+          "Pensiarad",
+          "Tegan y Baban",
+          "Bainne nan Luch",
+          "Bodach nan claigeann",
+          "Bodaich nan claigeann",
+          "Modhalan buidhe",
+          "Cribellau Melyn",
+          "Cribell Felen",
+          "Yellow-Rattle",
+          "Yellow-Rattle",
+          "Yellow Rattle"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Rhododendron", [[363906, "ponticum"]]],
-  [0, 89, "Rosa", [[363915, "rugosa", ["Japanese Rose"]]]],
+  [0, 89, "Rhododendron", [[34498, 4, "ponticum", ["Rhododendron Wyllt"]]]],
+  [
+    0,
+    89,
+    "Rosa",
+    [
+      [
+        42809,
+        2,
+        "rugosa",
+        ["Japanese Rose", "Rhosyn Japan", "Rhosynau Japan", "Rhosyn Japan"]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Rubus",
-    [[364595, "fruticosus agg.", ["Bramble", "Blackberry / Bramble"]]]
+    [
+      [
+        176122,
+        380,
+        "fruticosus agg.",
+        [
+          "Blackberry",
+          "Dris",
+          "Mwyaren Ddu",
+          "Drysien",
+          "Dyryslwyn",
+          "Miaren",
+          "Draen Mieri",
+          "Drain Morddyon",
+          "Dyrysien",
+          "Mieren",
+          "Mafon Duon",
+          "Mierien",
+          "Mierllwyn",
+          "Mierynllwyn",
+          "Mwyar Duon",
+          "Mwyaren",
+          "Bramble",
+          "Blackberry / Bramble",
+          "Smeuran",
+          "Llwyni Mwyar Duon",
+          "Llwyn Mwyar Duon",
+          "Smeur Blackberry / Bramble",
+          "Mwyaren Ddu",
+          "Bramble"
+        ]
+      ]
+    ]
   ],
   [
     0,
     89,
     "Rumex",
     [
-      [363921, "acetosa", ["Common Sorrel"]],
-      [363929, "acetosella", ["Sheep's Sorrel", "Sheep's Sorrel agg."]],
-      [363941, "crispus", ["Curled Dock"]],
-      [368920, "crispus/obtusifolius"]
+      [
+        55529,
+        163,
+        "acetosa",
+        [
+          "Common Sorrel",
+          "Suran y Cŵn",
+          "Main Suran",
+          "Suran y Frân",
+          "Suran y Maes",
+          "Suran y Waun",
+          "Suran y Cŵn"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Sagittaria", [[363948, "sagittifolia", ["Arrowhead"]]]],
-  [0, 89, "Salix", [[363954, "repens", ["Creeping Willow"]]]],
+  [
+    0,
+    89,
+    "Rumex",
+    [
+      [
+        247416,
+        44,
+        "acetosella",
+        [
+          "Sheep's Sorrel agg.",
+          "Suran yr Ŷd",
+          "Dail Surion Bach",
+          "Drigon",
+          "Dringol",
+          "Tringol",
+          "Suran Culddail",
+          "Sheep's Sorrel",
+          "Suran yr Ŷd"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Rumex",
+    [
+      [
+        57432,
+        50,
+        "crispus",
+        [
+          "Curled Dock",
+          "Tafol Crych",
+          "Tafol Crychion",
+          "Tafolen Grych",
+          "Tafolen Grech",
+          "Tafol Crych",
+          "Curled Dock"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Rumex", [[367146, 5, "crispus/obtusifolius"]]],
+  [
+    0,
+    89,
+    "Sagittaria",
+    [
+      [
+        225388,
+        0,
+        "sagittifolia",
+        [
+          "Arrowhead",
+          "Saethlys",
+          "Saeth y Dwfr",
+          "Saethlys Saethddeilaidd",
+          "Saethlys"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Salix",
+    [
+      [
+        142912,
+        8,
+        "repens",
+        [
+          "Creeping Willow",
+          "Corhelygen",
+          "Cor Helygen",
+          "Cors Helygen",
+          "Helyg Rhedegog",
+          "Helygen y Cŵn",
+          "Corhelyg",
+          "Corhelygen"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Sanguisorba",
     [
-      [363966, "minor", ["Salad Burnet"]],
-      [363969, "officinalis", ["Great Burnet"]]
+      [
+        233979,
+        4,
+        "officinalis",
+        [
+          "Great Burnet",
+          "Clust yr Arth",
+          "Deilen Dda",
+          "Golcheuraid",
+          "Golcheuraid y Coed",
+          "Golchyddes",
+          "Gwengraith",
+          "Olch-Euraidd",
+          "Golchwraidd Sanguisorba officinalis",
+          "Bwrned Mawr"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Sanicula", [[363982, "europaea", ["Sanicle", "Wood Sanicle"]]]],
+  [
+    0,
+    89,
+    "Sanicula",
+    [
+      [
+        137305,
+        21,
+        "europaea",
+        ["Sanicle", "Wood Sanicle", "Llwyn Cotymog", "Clust yr Arth"]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Saxifraga",
     [
-      [363987, "granulata", ["Meadow Saxifrage"]],
-      [363995, "oppositifolia", ["Purple Saxifrage"]],
-      [364003, "tridactylites", ["Rue-leaved Saxifrage"]]
+      [
+        52925,
+        0,
+        "granulata",
+        [
+          "Meadow Saxifrage",
+          "Tormaen Gwyn y Gweunydd",
+          "Clôr y Brain",
+          "Llyfenwy",
+          "Tormaen Gwyn",
+          "Tormaen y Weirglodd",
+          "Tormaen y Gweunydd"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Scutellaria", [[364010, "minor", ["Lesser Skullcap"]]]],
-  [0, 89, "Sedum", [[364018, "rosea", ["Roseroot"]]]],
-  [0, 89, "Senecio", [[364030, "jacobaea", ["Common Ragwort"]]]],
-  [0, 89, "Sherardia", [[364050, "arvensis", ["Field Madder"]]]],
+  [
+    0,
+    89,
+    "Saxifraga",
+    [
+      [
+        79848,
+        2,
+        "oppositifolia",
+        [
+          "Purple Saxifrage",
+          "Tormaen Porffor",
+          "Tormaen Cyferbynddail",
+          "Tormaen",
+          "Tormaen Glasgoch",
+          "Tormaen y Mynydd",
+          "Tormaen Porffor"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Saxifraga",
+    [
+      [
+        217197,
+        0,
+        "tridactylites",
+        [
+          "Rue-leaved Saxifrage",
+          "Tormaen Tribys",
+          "Llyfenwy Bach Tribys",
+          "Tormaen Torwenwynddail",
+          "Tormaen Tribys",
+          "Rue-Leaved Saxifrage"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Scutellaria",
+    [
+      [
+        53512,
+        4,
+        "minor",
+        [
+          "Lesser Skullcap",
+          "Cycyllog Bach",
+          "Cwcwll Bach",
+          "Cycyll-Lys Lleiaf",
+          "Cycyllog Lleiaf",
+          "Cycyllog Bach"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Sedum",
+    [
+      [
+        118198,
+        1,
+        "rosea",
+        [
+          "Roseroot",
+          "Pren y Ddannoedd",
+          "Pren y Ddanodd Rhoslys",
+          "Pren y Ddannoedd"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Sherardia",
+    [
+      [
+        249275,
+        9,
+        "arvensis",
+        [
+          "Field Madder",
+          "Mandon Las yr Ŷd",
+          "Sherardia Glas",
+          "Corwreiddrudd",
+          "Mandon Las yr Ŷd"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Silene",
     [
-      [364057, "dioica", ["Red Campion"]],
-      [368785, "flos-cuculi", ["Ragged-Robin", "Ragged-robin"]],
-      [364081, "latifolia", ["White Campion"]]
+      [
+        230419,
+        83,
+        "dioica",
+        [
+          "Red Campion",
+          "Blodyn Neidr",
+          "Gludlys Coch",
+          "Blodeuyn Rhudd",
+          "Blodyn Crach",
+          "Blodyn Taranau",
+          "Blodyn y Neidr",
+          "Botwm Mab Leuanc",
+          "Coch y Taranau",
+          "Ceiliog Coch",
+          "Lluglys Blodeuyn Rhudd",
+          "Lluglys Ysgar",
+          "Llys yr Ychain",
+          "Llys yr Ychen",
+          "Llysiau Robin",
+          "Cìrean-choilich",
+          "Cìrein-choilich",
+          "Blodau Neidr",
+          "Blodyn Neidr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Silene",
+    [
+      [
+        302761,
+        11,
+        "flos-cuculi",
+        [
+          "Ragged Robin",
+          "Ragged-Robin",
+          "Ragged-robin",
+          "Carpiog y Gors",
+          "Blodau'r Brain",
+          "Blodeuyn y Frân",
+          "Blodyn y Frân",
+          "Cochyn Bratiog",
+          "Ffrils y Merched",
+          "Robin Fratiog",
+          "Blodyn y Gog Lychnis flos-cuculi",
+          "Caorag lèana",
+          "Curraicean-cuthaige",
+          "Caoragan lèana",
+          "Carpiog y Gors",
+          "Ragged-robin"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Silene",
+    [
+      [
+        72858,
+        9,
+        "latifolia",
+        [
+          "White Campion",
+          "Gludlys Gwyn",
+          "Amrywiaeth Gwynflodeuog",
+          "Gludlys Hwyrol",
+          "Lluglys Gwyn",
+          "Lluglys Gwyn Blodeuog",
+          "Lluglys Hwyrol",
+          "Coirean bàn",
+          "Coireanan bàna",
+          "Gludlys Gwyn",
+          "White Campion"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Solanum",
-    [[364092, "dulcamara", ["Bittersweet", "Woody Nightshade"]]]
+    [
+      [
+        24952,
+        27,
+        "dulcamara",
+        [
+          "Bittersweet",
+          "Woody Nightshade",
+          "Elinog",
+          "Manyglog",
+          "Mynyglog Chwerw-Melys",
+          "Codwarth Caled Solanum dulcamara",
+          "Elinog"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Sorbus", [[364100, "aucuparia", ["Rowan", "Mountain Ash"]]]],
-  [0, 89, "Stachys", [[364119, "officinalis", ["Betony"]]]],
+  [
+    0,
+    89,
+    "Sorbus",
+    [
+      [
+        10546,
+        52,
+        "aucuparia",
+        [
+          "Mountain Ash",
+          "Rowan",
+          "Criafol",
+          "Cerddinen",
+          "Cerdin",
+          "Cerddin",
+          "Ceri",
+          "Criafallen",
+          "Cyriawol",
+          "Cyrawel",
+          "Pren Ceri",
+          "Pren Criafol",
+          "Quicken-tree",
+          "Criafolen Sorbus aucuparia",
+          "Criafolen",
+          "Luis Quicken-tree",
+          "Caorann Rowan",
+          "Criafol"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Stachys",
+    [
+      [
+        178902,
+        1,
+        "officinalis",
+        [
+          "Betony",
+          "Llys Dwyfog",
+          "Cribau San Ffraid Cribau Shôn Ffred",
+          "Danhogen",
+          "Dannogen y Coed",
+          "Dwyfog",
+          "Meddyges Lwyd",
+          "Cribau San Ffraid"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Stellaria",
     [
-      [364131, "graminea", ["Lesser Stitchwort"]],
-      [364138, "holostea", ["Greater Stitchwort"]],
-      [364152, "media", ["Common Chickweed", "Chickweed"]]
+      [
+        241578,
+        42,
+        "graminea",
+        [
+          "Lesser Stitchwort",
+          "Serenllys Gwelltog",
+          "Manllys y Neidr",
+          "Serenllys y Bryniau",
+          "Tafod yr Edn Lleiaf",
+          "Serenllys Bach"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Stellaria",
+    [
+      [
+        143956,
+        65,
+        "holostea",
+        [
+          "Greater Stitchwort",
+          "Serenllys Mawr",
+          "Bara Can a Llaeth",
+          "Bara Caws a Llaeth",
+          "Blodau'r Neidr",
+          "Bwyd y Gog",
+          "Bwyd Yneidr",
+          "Llysiau Clee",
+          "Serenllys Mwyaf",
+          "Llysiau'r Glust",
+          "Serenllys y Gwrych",
+          "Tafod yr Edn Mwyaf",
+          "Serenllys Mawr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Stellaria",
+    [
+      [
+        41733,
+        62,
+        "media",
+        [
+          "Chickweed",
+          "Common Chickweed",
+          "Brechlys",
+          "Gwlydd y Cywion",
+          "Gwlydd y Gwyddau",
+          "Llynorlys",
+          "Tafod yr Edn Canolig",
+          "Llysiau'r Dom Stellaria media",
+          "Gwlydd yr Ieir Stellaria media",
+          "Gwlydd y Dom Stellaria media",
+          "Gwlyddyn y Dom Gwlydd y Dom"
+        ]
+      ]
     ]
   ],
   [
     0,
     89,
     "Succisa",
-    [[364168, "pratensis", ["Devil's-bit Scabious", "Devil's-Bit Scabious"]]]
+    [
+      [
+        234977,
+        42,
+        "pratensis",
+        [
+          "Devil's-Bit Scabious",
+          "Devil's-bit Scabious",
+          "Tamaid y Cythraul",
+          "Bara y Cythraul",
+          "Bara'r Cythraul",
+          "Calon Afal",
+          "Caswenwyn",
+          "Clafrllys Gwreidd-Don",
+          "Claiswenwyn",
+          "Coryn Afal",
+          "Glaswenwyn",
+          "Gwreidd-Don",
+          "Gwreidd-Dwn",
+          "Tamaid y Diafol",
+          "Poer y Diafol",
+          "Clais Succisa pratensis",
+          "Tamaid y Cythraul",
+          "Devil's-Bit Scabious"
+        ]
+      ]
+    ]
   ],
-  [0, 89, "Symphoricarpos", [[364187, "albus", ["Snowberry"]]]],
-  [0, 89, "Teucrium", [[364218, "scorodonia", ["Wood Sage"]]]],
-  [0, 89, "Thymus", [[368897, "polytrichus/pulegioides"]]],
+  [
+    0,
+    89,
+    "Symphoricarpos",
+    [
+      [
+        173742,
+        7,
+        "albus",
+        [
+          "Snowberry",
+          "Llus Eira",
+          "Llys Eira",
+          "Pêl-Eira'r Perthi",
+          "Llusen Eira"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Teucrium",
+    [
+      [
+        62414,
+        57,
+        "scorodonia",
+        [
+          "Wood Sage",
+          "Chwerwlys yr Eithin",
+          "Chwilys yr Eithin",
+          "Baddon y Coed",
+          "Chwerwlys Chwerwlys y Twyn",
+          "Chwerwyn y Twyn",
+          "Chwrlas yr Eithin",
+          "Derlysy Goedwig",
+          "Yscordiwm",
+          "Llwyd yr Eithin",
+          "Milrym",
+          "Saeds y Coed",
+          "Saeds yr Eithin",
+          "Ysgyrr",
+          "Derlys y Dŵr Teucrium scorodonia",
+          "Derwlys y Dŵr Teucrium scorodonia",
+          "Triagl y Cymro Teucrium scorodonia",
+          "Derwen y Ddaear Teucrium scorodonia",
+          "Chwerwlys yr Eithin"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Thymus", [[366722, 0, "polytrichus/pulegioides"]]],
   [
     0,
     89,
     "Trifolium",
     [
-      [364257, "pratense", ["Red Clover"]],
-      [364265, "repens", ["White Clover"]]
+      [
+        189669,
+        105,
+        "pratense",
+        [
+          "Red Clover",
+          "Meillionen Goch",
+          "Clofer Coch",
+          "Maill Coch",
+          "Marchfeillionen",
+          "Meillion Coch",
+          "Seamragan dearga",
+          "Seamrag-chapaill",
+          "Seamrag dhearg",
+          "Seamragan-capaill",
+          "Meillionen Goch"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Trollius", [[364277, "europaeus", ["Globeflower"]]]],
-  [0, 89, "Typha", [[364289, "latifolia", ["Bulrush", "False Bulrush"]]]],
+  [
+    0,
+    89,
+    "Trifolium",
+    [
+      [
+        88950,
+        235,
+        "repens",
+        [
+          "White Clover",
+          "Meillionen Wen",
+          "Bara Caws y Defaid",
+          "Maillgwyn",
+          "Meillion Gwyn",
+          "Meillion Rhedegog",
+          "Meillionen Olwen",
+          "Millfeillionen",
+          "Meillionen Wen y Waun",
+          "Meillionen Wen"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Trollius",
+    [
+      [
+        202502,
+        0,
+        "europaeus",
+        [
+          "Globeflower",
+          "Cronnell",
+          "Blodeuyn y Gronnell",
+          "Cronnell yr Afon",
+          "Lamp y Wig",
+          "Melyn Euraidd",
+          "Peneuraid",
+          "Ymenyn y Coed",
+          "Olbrain Trollius europaeus",
+          "Globe-Flower",
+          "Cronnell Cronellau"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Typha",
+    [
+      [
+        78396,
+        20,
+        "latifolia",
+        [
+          "Bulrush",
+          "False Bulrush",
+          "Great Reedmace",
+          "Hesgen Felfedog Fwyaf",
+          "Penmelfed",
+          "Tapr y Dŵr Typha latifolia",
+          "Ffon y Plant Typha latifolia",
+          "Ffynwewyr Ellyllon Typha latifolia",
+          "Cynffon y Gath Typha latifolia",
+          "Rhodell Typha latifolia",
+          "Llafrwynen Typha latifolia",
+          "Rholbren Calfelfed Typha latifolia",
+          "Ffynwewyr y Plant Typha latifolia",
+          "Cynffon y Gath"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Ulex",
     [
-      [364304, "europaeus", ["Gorse", "Furze"]],
-      [368788, "gallii/minor"]
+      [
+        212746,
+        26,
+        "europaeus",
+        [
+          "Furze",
+          "Eithinen Ffrengig",
+          "Eithin",
+          "Eithinen",
+          "Eithin Bigog",
+          "Eithin y Fro",
+          "Aith Ulex europaeus",
+          "Eithin Ffreinig Ulex europaeus",
+          "Gorse",
+          "Eithin Ffrengig",
+          "Eithinen Ffrengig",
+          "Gorse"
+        ]
+      ]
     ]
   ],
-  [0, 89, "Urtica", [[364330, "dioica", ["Common Nettle", "Nettle"]]]],
+  [0, 89, "Ulex", [[366520, 0, "gallii/minor"]]],
+  [
+    0,
+    89,
+    "Urtica",
+    [
+      [
+        113836,
+        481,
+        "dioica",
+        [
+          "Common Nettle",
+          "Stinging Nettle",
+          "Danadl Poethion",
+          "Danhadlen",
+          "Dail Poethion",
+          "Danadl Cyffredin",
+          "Danadl Ysgar",
+          "Danadlen Fwyaf",
+          "Dynhaden Ysgar",
+          "Danadlen Ysgar",
+          "Dynaid",
+          "Dynat",
+          "Dynhaden Fwyaf",
+          "Nettle",
+          "Dynent Urtica dioica",
+          "Dryned Urtica dioica",
+          "Dyned Urtica dioica",
+          "Danadlen Urtica dioica",
+          "Dynhaden Urtica dioica",
+          "Feanntag",
+          "Danhadlen Boeth",
+          "Deanntagan",
+          "Feanntagan",
+          "Deanntag",
+          "Danadl Poethion"
+        ]
+      ]
+    ]
+  ],
   [
     0,
     89,
     "Vaccinium",
     [
-      [364357, "myrtillus", ["Bilberry", "Whortleberry"]],
-      [364370, "oxycoccos", ["Cranberry"]],
-      [364385, "vitis-idaea", ["Cowberry"]]
+      [
+        76075,
+        74,
+        "myrtillus",
+        [
+          "Bilberry",
+          "Blaeberry",
+          "Whortleberry",
+          "Llus",
+          "Llusen",
+          "Llusi Duon Bach",
+          "Lluswydd Cyffredin",
+          "Lluswydden",
+          "Llysau Duon Bach",
+          "Mwyar y Brain",
+          "Dearcag Blaeberry",
+          "Braoileag Bilberry",
+          "Dearcan Blaeberry",
+          "Dearcan-fhraoich",
+          "Braoileagan",
+          "Lus nan dearcag Bilberry",
+          "Lusan nan dearcag Bilberry",
+          "Dearcagan Blaeberry",
+          "Dearc-fhraoich",
+          "Dearc Blaeberry",
+          "Llus",
+          "Llusen"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Vaccinium",
+    [
+      [
+        99583,
+        2,
+        "oxycoccos",
+        [
+          "Cranberry",
+          "Llyg Eirinen",
+          "Llygad Aeron",
+          "Llygad Eirian",
+          "Llygad Eirin",
+          "Llygad yr Aeron",
+          "Llygaeron",
+          "Llygaeren"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Vaccinium",
+    [
+      [
+        228206,
+        7,
+        "vitis-idaea",
+        [
+          "Cowberry",
+          "Llus Coch",
+          "Llus y Geifr",
+          "Lluswydden y Geifr",
+          "Llusen Goch",
+          "Lus nam braoileag",
+          "Lusan nam braoileag",
+          "Llus Coch"
+        ]
+      ]
     ]
   ],
   [
@@ -564,8 +4450,46 @@
     89,
     "Valeriana",
     [
-      [364393, "dioica", ["Marsh Valerian"]],
-      [364401, "officinalis", ["Common Valerian"]]
+      [
+        154598,
+        0,
+        "dioica",
+        [
+          "Marsh Valerian",
+          "Triaglog y Gors",
+          "Bychan y Dors",
+          "Driacloc",
+          "Triaglog Bychan y Gors",
+          "Triaglog Fechan y Gors",
+          "Triaglog y Gors"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Valeriana",
+    [
+      [
+        58141,
+        7,
+        "officinalis",
+        [
+          "Common Valerian",
+          "Triaglog",
+          "Cynffon y Cabwllt",
+          "Cynffon y Capwllt",
+          "Cynffon y Ceiliog",
+          "Falerian",
+          "Gwell Na'r Aur",
+          "Llysiau Cadwgan",
+          "Yr Efail Arian",
+          "Llys Cadwgan",
+          "Triaglog",
+          "Common Valerian"
+        ]
+      ]
     ]
   ],
   [
@@ -573,8 +4497,47 @@
     89,
     "Veronica",
     [
-      [364418, "arvensis", ["Wall Speedwell"]],
-      [364426, "officinalis", ["Heath Speedwell", "Common Speedwell"]]
+      [
+        140474,
+        15,
+        "arvensis",
+        [
+          "Wall Speedwell",
+          "Rhwyddlwyn y Fagwyr",
+          "Rhwyddlwyn y Mur",
+          "Mur-Rwyddlwyn",
+          "Rhwyddlwyn y Sychdir",
+          "Rhwyddlwyni'r Fagwyr",
+          "Rhwyddlwyn y Fagwyr"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Veronica",
+    [
+      [
+        102962,
+        21,
+        "officinalis",
+        [
+          "Common Speedwell",
+          "Heath Speedwell",
+          "Gwrnerth",
+          "Rhwyddlwyn Meddygol",
+          "Feronica Cyffredin",
+          "Llys Llewelyn",
+          "Rhwyddlwyn Cyffredin",
+          "Leudawdd",
+          "Leuawdd",
+          "Leutawdd",
+          "Leutawd",
+          "Rhwyddlwyni Meddygol",
+          "Rhwyddlwyn Meddygol"
+        ]
+      ]
     ]
   ],
   [
@@ -582,8 +4545,41 @@
     89,
     "Vicia",
     [
-      [364440, "cracca", ["Tufted Vetch"]],
-      [364450, "hirsuta", ["Hairy Tare"]]
+      [
+        72391,
+        33,
+        "cracca",
+        [
+          "Tufted Vetch",
+          "Gwygbysen",
+          "Tagwyg Bysen",
+          "Ffacbysen y Berth Gwyg",
+          "Pys y Gath",
+          "Pys y Llygod Bach",
+          "Tagwyg",
+          "Ffacbysen y Berth",
+          "Ffacbys y Berth"
+        ]
+      ]
+    ]
+  ],
+  [
+    0,
+    89,
+    "Vicia",
+    [
+      [
+        231208,
+        25,
+        "hirsuta",
+        [
+          "Hairy Tare",
+          "Corbysen Flewog",
+          "Corbys Blewog",
+          "Ffacbys Blewog",
+          "Ffacbysen Flewog"
+        ]
+      ]
     ]
   ],
   [
@@ -591,9 +4587,45 @@
     89,
     "Viola",
     [
-      [364457, "arvensis", ["Field Pansy"]],
-      [364478, "palustris", ["Marsh Violet"]],
-      [368997, "reichenbachiana/riviniana"]
+      [
+        236466,
+        6,
+        "arvensis",
+        [
+          "Field Pansy",
+          "Ofergaru",
+          "Blodyn Wyneb Mwnci",
+          "Cennin Trilliw",
+          "Llysiau y Drindod",
+          "Trilliw yr Âr",
+          "Trilliw'r Tir Âr"
+        ]
+      ]
     ]
-  ]
+  ],
+  [
+    0,
+    89,
+    "Viola",
+    [
+      [
+        234640,
+        10,
+        "palustris",
+        [
+          "Marsh Violet",
+          "Fioled y Gors",
+          "Gwiolydd y Gors",
+          "Millyn y Gors",
+          "Gwythdydd Viola palustris",
+          "Fioledau'r Gors",
+          "Dail-chuachan lèana",
+          "Dail-chuach lèana",
+          "Fioled y Gors",
+          "Marsh Violet"
+        ]
+      ]
+    ]
+  ],
+  [0, 89, "Viola", [[84312, 2, "reichenbachiana/riviniana"]]]
 ]

@@ -13,9 +13,15 @@ import searchSciNames from './scientificNamesSearch';
 import { isPhraseScientific } from './searchHelpers';
 
 type SpeciesId = number;
+type SpeciesFrequency = number;
 type SpeciesName = string;
 type SpeciesCommonName = string;
-export type Species = { 0: SpeciesId; 1: SpeciesName; 2?: SpeciesCommonName[] };
+export type Species = {
+  0: SpeciesId;
+  1: SpeciesFrequency;
+  2: SpeciesName;
+  3?: SpeciesCommonName[];
+};
 
 type GenusId = number;
 type GroupId = number;
@@ -92,6 +98,10 @@ export type Taxon = {
    * Which common_names array index to use if any.
    */
   foundInName?: number;
+  /**
+   * Records with the species.
+   */
+  frequency?: number;
 };
 
 export type SearchResults = Taxon[];
@@ -140,6 +150,7 @@ export default async function search(
       false,
       informalGroups
     );
+
     results = [...results, ...foundSciNames];
   }
 
