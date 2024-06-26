@@ -6,6 +6,7 @@ import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
+import { noSpeciesAttr } from '../config';
 import Main from './Main';
 
 const useEmptySpeciesCheck = () => {
@@ -50,10 +51,10 @@ const Controller = ({ sample }: Props) => {
       const finish = await showEmptySpeciesCheck();
       if (!finish) return true;
       // eslint-disable-next-line no-param-reassign
-      sample.attrs.noSpecies = true;
+      sample.attrs[noSpeciesAttr.id] = true;
     } else {
       // eslint-disable-next-line no-param-reassign
-      sample.attrs.noSpecies = false;
+      sample.attrs[noSpeciesAttr.id] = false;
     }
 
     return false;

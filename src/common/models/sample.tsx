@@ -12,7 +12,10 @@ import {
 } from '@flumens';
 import config from 'common/config';
 import userModel from 'models/user';
-import npmsSurvey, { broadHabitatAttr } from 'Survey/NPMS/config';
+import npmsSurvey, {
+  broadHabitatAttr,
+  noSpeciesAttr,
+} from 'Survey/NPMS/config';
 import npmsPlusSurvey from 'Survey/NPMSPlus/config';
 import standardSurvey, {
   abundanceAttr,
@@ -47,6 +50,7 @@ export type Attrs = SampleAttrs & {
   [woodCoverAttr.id]?: ChoiceValues<typeof woodCoverAttr.choices>;
   [broadHabitatAttr.id]?: ChoiceValues<typeof broadHabitatAttr.choices>;
   [grazingAnimalNumberAttr.id]?: number;
+  [noSpeciesAttr.id]?: boolean;
   [groupAttrId]?: string;
   /**
    * For internal use. We don't need to store in the warehouse this one.

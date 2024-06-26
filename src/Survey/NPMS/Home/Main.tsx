@@ -52,7 +52,9 @@ const MainComponent = ({ sample }: Props) => {
         <div className="rounded-list">
           <MenuDateAttr model={sample} />
 
-          {isNPMSPlus && <Block block={groupAttr()} {...recordAttrs} />}
+          {isNPMSPlus && (
+            <Block block={groupAttr(sample.attrs)} {...recordAttrs} />
+          )}
 
           <Block
             record={sample.attrs}

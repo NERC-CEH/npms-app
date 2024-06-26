@@ -217,26 +217,30 @@ export const gridAttr = {
   type: 'text_input',
 } as const;
 
-const getGroupChoices = (surveyName: Survey['name']) => {
+export const STANDARD_SURVEY_ID = 599;
+const getGroupChoices = (surveyId: number) => {
+  const surveyName = surveyId === STANDARD_SURVEY_ID ? 'standard' : 'npmsPlus';
+
   const groups: any = getGroups(surveyName);
   const getOption = ([value, title]: any) => ({ title, data_name: value });
   return Object.entries(groups).map(getOption);
 };
 
-export const groupAttr = () =>
-  ({
+export const groupAttr = (attrs?: any) => {
+  return {
     id: 'groupId',
     type: 'choice_input',
     title: 'Project',
     prefix: peopleOutlineIcon,
     container: 'page',
-    choices: getGroupChoices('standard'),
+    choices: attrs ? getGroupChoices(attrs.surveyId) : [],
     //       set(id: any, sample: Sample) {
     //         sample.attrs.location = undefined; // unset
     //         sample.attrs.plotGroup = undefined; // unset
     //         sample.attrs.group = { id, name };
     //       },
-  } as const);
+  } as const;
+};
 
 export type Level = 'wildflower' | 'indicator' | 'inventory';
 

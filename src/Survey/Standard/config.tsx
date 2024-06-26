@@ -27,6 +27,7 @@ import {
   soilAttr,
   Survey,
   dominCoverValues,
+  STANDARD_SURVEY_ID,
 } from 'Survey/common/config';
 
 const peopleOutlineIcon = (
@@ -1368,7 +1369,7 @@ const canopyAttr = {
 };
 
 const survey: Survey = {
-  id: 599,
+  id: STANDARD_SURVEY_ID,
   name: 'standard',
   label: 'Standard',
 

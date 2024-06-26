@@ -238,6 +238,11 @@ export const vegetation300PlusAttr = {
   choices: vegetationValues,
 } as const;
 
+export const noSpeciesAttr = {
+  id: 'smpAttr:1461',
+  type: 'yes_no_input',
+} as const;
+
 const surveys: { [key in Level]: number } = {
   indicator: 155,
   inventory: 154,
@@ -273,7 +278,7 @@ const survey: Survey = {
     ...blockToAttr(rockCoverAttr),
     ...blockToAttr(litterAttr),
     ...blockToAttr(lichensAttr),
-    noSpecies: { remote: { id: 1461 } },
+    ...blockToAttr(noSpeciesAttr),
   },
 
   occ: {

@@ -36,7 +36,7 @@ const MainComponent = ({ sample }: Props) => {
       <IonList lines="full">
         <div className="rounded-list">
           <MenuDateAttr model={sample} />
-          <Block block={groupAttr()} {...recordAttrs} />
+          <Block block={groupAttr(sample.attrs)} {...recordAttrs} />
           <Block block={plotGroupAttr()} {...recordAttrs} />
           <Block
             record={sample.attrs}

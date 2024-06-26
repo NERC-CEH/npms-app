@@ -23,7 +23,7 @@ const FancyButton = ({ label, description, icon, ...otherProps }: Props) => (
 
       <IonIcon
         src={icon}
-        className="ml-2.5 size-12 rounded-md bg-[#FFF4D7] p-1.5"
+        className="sh ml-2.5 size-12 shrink-0 rounded-md bg-[#FFF4D7] p-1.5"
       />
     </div>
   </Button>
