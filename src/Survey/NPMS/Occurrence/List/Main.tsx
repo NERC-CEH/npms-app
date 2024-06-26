@@ -58,7 +58,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
           className="[--inner-padding-end:0px] [--padding-start:0px]"
         >
           <div className="flex w-full items-center gap-2 px-1">
-            <div className="list-avatar">
+            <div className="list-avatar my-1">
               {image ? (
                 <img src={image.getURL()} alt="" />
               ) : (
@@ -74,7 +74,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
               <div className="font-semibold">{occ.attrs.defaultCommonName}</div>
               <div className="italic">{occ.attrs.preferredTaxon}</div>
 
-              {!image && (
+              {!image && !sample.isDisabled() && (
                 <Badge color="warning" className="mt-2">
                   Provide a photo to aid ID
                 </Badge>

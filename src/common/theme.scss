@@ -95,7 +95,7 @@
 
 // status bar
 html.ios.plt-hybrid #status-bar-background {
-  background: #443553;
+  background: var(--color-primary-800);
   width: 100vw;
   height: env(safe-area-inset-top);
   position: fixed;
