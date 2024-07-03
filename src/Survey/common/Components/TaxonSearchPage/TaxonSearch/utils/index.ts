@@ -14,13 +14,15 @@ import { isPhraseScientific } from './searchHelpers';
 
 type SpeciesId = number;
 type SpeciesFrequency = number;
+type SpeciesDifficulty = number;
 type SpeciesName = string;
 type SpeciesCommonName = string;
 export type Species = {
   0: SpeciesId;
   1: SpeciesFrequency;
-  2: SpeciesName;
-  3?: SpeciesCommonName[];
+  2: SpeciesDifficulty;
+  3: SpeciesName;
+  4?: SpeciesCommonName[];
 };
 
 type GenusId = number;
@@ -102,6 +104,10 @@ export type Taxon = {
    * Records with the species.
    */
   frequency?: number;
+  /**
+   * ID difficulty level.
+   */
+  difficulty?: number;
 };
 
 export type SearchResults = Taxon[];

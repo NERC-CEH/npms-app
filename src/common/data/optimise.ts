@@ -15,6 +15,8 @@ import {
   ID,
   FREQUENCY,
   SPECIES_FREQUENCY_INDEX,
+  SPECIES_DIFFICULTY_INDEX,
+  DIFFICULTY,
 } from './constants';
 import { groups as speciesInformalGroups } from './informalGroups';
 import { RemoteAttributes } from './make';
@@ -57,6 +59,9 @@ const flattenSpeciesReport = (speciesFromReport: RemoteAttributes[]) =>
     // }
     if (s.frequency) {
       flattened[FREQUENCY] = parseInt(s.frequency, 10);
+    }
+    if (s.difficulty) {
+      flattened[DIFFICULTY] = parseInt(s.difficulty, 10);
     }
 
     return flattened;
@@ -149,7 +154,8 @@ function addSpecies(optimised: any[], taxa: any[][], taxaNameSplitted: any[]) {
     species[SPECIES_NAMES_INDEX] = commonNames;
   }
 
-  species[SPECIES_FREQUENCY_INDEX] = taxa[FREQUENCY];
+  species[SPECIES_FREQUENCY_INDEX] = taxa[FREQUENCY] || 0;
+  species[SPECIES_DIFFICULTY_INDEX] = taxa[DIFFICULTY] || 0;
 
   speciesArray.push(species);
 }

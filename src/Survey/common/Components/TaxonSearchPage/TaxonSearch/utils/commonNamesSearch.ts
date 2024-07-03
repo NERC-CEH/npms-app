@@ -11,6 +11,7 @@ import {
   SPECIES_TAXON_INDEX,
   SPECIES_NAMES_INDEX,
   SPECIES_FREQUENCY_INDEX,
+  SPECIES_DIFFICULTY_INDEX,
 } from 'common/data/constants';
 import {
   Genera,
@@ -61,6 +62,7 @@ function addSpeciesToResults(
     scientificName: `${genus[GENUS_TAXON_INDEX]} ${speciesEntry[SPECIES_TAXON_INDEX]}`,
     commonNames: speciesEntry[SPECIES_NAMES_INDEX] || [],
     frequency: speciesEntry[SPECIES_FREQUENCY_INDEX],
+    difficulty: speciesEntry[SPECIES_DIFFICULTY_INDEX],
   });
 }
 

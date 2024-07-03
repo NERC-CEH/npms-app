@@ -11,6 +11,7 @@ import {
   SPECIES_TAXON_INDEX,
   SPECIES_NAMES_INDEX,
   SPECIES_FREQUENCY_INDEX,
+  SPECIES_DIFFICULTY_INDEX,
 } from 'common/data/constants';
 import { Genera, Genus, Species, Taxon } from '.';
 import {
@@ -50,6 +51,7 @@ function addGenusToResults(
       scientificName: `${genus[GENUS_TAXON_INDEX]} ${species[SPECIES_TAXON_INDEX]}`,
       commonNames: species[SPECIES_NAMES_INDEX] || [],
       frequency: species[SPECIES_FREQUENCY_INDEX],
+      difficulty: species[SPECIES_DIFFICULTY_INDEX],
     });
   });
 }
@@ -73,6 +75,7 @@ function addSpeciesToResults(
         scientificName: `${genus[GENUS_TAXON_INDEX]} ${species[SPECIES_TAXON_INDEX]}`,
         commonNames: species[SPECIES_NAMES_INDEX] || [],
         frequency: species[SPECIES_FREQUENCY_INDEX],
+        difficulty: species[SPECIES_DIFFICULTY_INDEX],
       });
     }
   });
