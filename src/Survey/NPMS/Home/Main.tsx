@@ -1,5 +1,10 @@
 import { observer } from 'mobx-react';
-import { bookOutline, listOutline, openOutline } from 'ionicons/icons';
+import {
+  addOutline,
+  bookOutline,
+  listOutline,
+  openOutline,
+} from 'ionicons/icons';
 import { useRouteMatch } from 'react-router-dom';
 import { Block, Button, Main } from '@flumens';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
@@ -10,13 +15,14 @@ import MenuDateAttr from 'Survey/common/Components/MenuDateAttr';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
 import UploadedRecordInfoMessage from 'Survey/common/Components/UploadedRecordInfoMessage';
 import { groupAttr, locationAttr } from 'Survey/common/config';
-import { broadHabitatAttr, fineHabitatAttr } from '../config';
+import { broadHabitatAttr, fineHabitatAttr, firstSurveyAttr } from '../config';
 
 type Props = {
   sample: Sample;
+  onAddSecondSurvey: any;
 };
 
-const MainComponent = ({ sample }: Props) => {
+const MainComponent = ({ sample, onAddSecondSurvey }: Props) => {
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
 
   const match = useRouteMatch();
@@ -31,12 +37,26 @@ const MainComponent = ({ sample }: Props) => {
 
   const recordAttrs = {
     record: sample.attrs,
-    isDisabled: sample.isDisabled(),
+    isDisabled,
   };
+
+  const allowSecondSurvey =
+    isDisabled && !isNPMSPlus && !sample.attrs[firstSurveyAttr.id];
 
   return (
     <Main>
       {isDisabled && <UploadedRecordInfoMessage />}
+
+      {allowSecondSurvey && (
+        <Button
+          onPress={onAddSecondSurvey}
+          prefix={<IonIcon icon={addOutline} className="size-6" />}
+          color="secondary"
+          className="mx-auto my-4"
+        >
+          Add Survey 2
+        </Button>
+      )}
 
       <div className="rounded-list mx-auto mb-2 mt-2 max-w-[600px]">
         <Button
@@ -48,6 +68,7 @@ const MainComponent = ({ sample }: Props) => {
           NPMS resources
         </Button>
       </div>
+
       <IonList lines="full">
         <div className="rounded-list">
           <MenuDateAttr model={sample} />

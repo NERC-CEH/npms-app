@@ -243,6 +243,10 @@ export const noSpeciesAttr = {
   type: 'yes_no_input',
 } as const;
 
+export const firstSurveyAttr = {
+  id: 'smpAttr:227',
+} as const;
+
 const surveys: { [key in Level]: number } = {
   indicator: 155,
   inventory: 154,
@@ -257,11 +261,6 @@ const survey: Survey = {
   label: 'NPMS',
 
   attrs: {
-    // TODO:
-    //     survey_1: {
-    //       id: 227,
-    //     },
-
     //     plot: { id: 417 }, ?????
 
     ...blockToAttr(locationAttr),
@@ -305,7 +304,7 @@ const survey: Survey = {
       locationId: z.string({ required_error: 'Location is missing' }),
     }).safeParse(attrs).error,
 
-  create: ({ Sample, surveyName, level }) =>
+  create: ({ Sample, surveyName, level, firstSurvey }) =>
     new Sample({
       metadata: {
         survey: surveyName || survey.name,
@@ -314,6 +313,7 @@ const survey: Survey = {
       attrs: {
         surveyId: surveys[level!],
         training: appModel.attrs.useTraining,
+        [firstSurveyAttr.id]: firstSurvey,
         date: new Date().toISOString().split('T')[0],
         recorderNames: userModel.getPrettyName(),
       },

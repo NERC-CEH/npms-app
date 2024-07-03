@@ -295,6 +295,8 @@ type SampleCreateOptions = {
   recorder?: string;
   location?: any;
   level?: Level;
+  // NPMS-only
+  firstSurvey?: string;
 };
 
 export type SampleConfig = {

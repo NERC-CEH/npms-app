@@ -62,6 +62,16 @@ const Controller = ({ sample }: Props) => {
     navigate(`/home/surveys`, 'root');
   };
 
+  const addSecondSurvey = () => {
+    console.log('Creating a linked survey', sample.metadata.level, sample.id);
+
+    navigate(
+      `/survey/npms?level=${sample.metadata.level}&firstSurvey=${sample.id}`,
+      'none',
+      'replace'
+    );
+  };
+
   const isDisabled = sample.isUploaded();
 
   const isInvalid = sample.validateRemote();
@@ -89,7 +99,7 @@ const Controller = ({ sample }: Props) => {
         rightSlot={uploadButton}
         subheader={trainingModeSubheader}
       />
-      <Main sample={sample} />
+      <Main sample={sample} onAddSecondSurvey={addSecondSurvey} />
     </Page>
   );
 };

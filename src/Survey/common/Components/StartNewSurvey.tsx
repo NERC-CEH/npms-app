@@ -52,7 +52,7 @@ async function getDraft(draftIdKey: keyof SurveyDraftKeys, alert: any) {
   return null;
 }
 
-type Params = { level?: Level };
+type Params = { level?: Level; firstSurvey?: string };
 async function getNewSample(
   survey: Survey,
   draftIdKey: keyof SurveyDraftKeys,
@@ -61,6 +61,7 @@ async function getNewSample(
   const sample = await survey.create!({
     Sample,
     level: params?.level,
+    firstSurvey: params?.firstSurvey,
   });
   await sample.save();
 
@@ -79,7 +80,10 @@ function StartNewSurvey({ survey }: Props): null {
   const context = useContext(NavContext);
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
-  const params = { level: searchParams.get('level') as any };
+  const params = {
+    level: searchParams.get('level') as any,
+    firstSurvey: searchParams.get('firstSurvey') as any,
+  };
 
   const alert = useAlert();
 

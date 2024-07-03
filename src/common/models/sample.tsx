@@ -14,6 +14,7 @@ import config from 'common/config';
 import userModel from 'models/user';
 import npmsSurvey, {
   broadHabitatAttr,
+  firstSurveyAttr,
   noSpeciesAttr,
 } from 'Survey/NPMS/config';
 import npmsPlusSurvey from 'Survey/NPMSPlus/config';
@@ -50,6 +51,7 @@ export type Attrs = SampleAttrs & {
   [woodCoverAttr.id]?: ChoiceValues<typeof woodCoverAttr.choices>;
   [broadHabitatAttr.id]?: ChoiceValues<typeof broadHabitatAttr.choices>;
   [grazingAnimalNumberAttr.id]?: number;
+  [firstSurveyAttr.id]?: string;
   [noSpeciesAttr.id]?: boolean;
   [groupAttrId]?: string;
   /**
