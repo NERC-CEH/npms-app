@@ -18,7 +18,7 @@ const remoteSchema = object({
   organismKey: z.string(),
   frequency: z.string(),
   difficulty: z.string().optional(),
-  commonName: z.record(z.string(), z.string()).optional(),
+  commonName: z.string().optional(),
   synonym: z.record(z.string(), z.string()).optional(),
 });
 
@@ -54,7 +54,7 @@ function saveToFile(data: any, fileName: string) {
 async function fetch(listID: any): Promise<RemoteAttributes[]> {
   const { data } = await axios({
     method: 'GET',
-    url: `${warehouseURL}/index.php/services/rest/reports/projects/plant_portal/app_get_species_lists_4.xml?species_list=${listID}&count_website_list=106,32&occ_row_limit=30000&limit=10000000`,
+    url: `${warehouseURL}/index.php/services/rest/reports/projects/plant_portal/app_get_species_lists_4.xml?species_list=${listID}&count_website_list=106,32,23&occ_row_limit=30000&limit=10000000`,
     headers: {
       Authorization: `Bearer ${ANON_WAREHOUSE_TOKEN}`,
     },
@@ -62,11 +62,10 @@ async function fetch(listID: any): Promise<RemoteAttributes[]> {
 
   const getValues = (doc: any) =>
     mapKeys(doc, (_, key) => (key.includes(':') ? key : camelCase(key)));
-  const parseNames = ({ commonName, synonym, ...doc }: any) => {
+  const parseNames = ({ synonym, ...doc }: any) => {
     return {
       ...doc,
       synonym: synonym ? JSON.parse(synonym) : undefined,
-      commonName: commonName ? JSON.parse(commonName) : undefined,
     };
   };
   const byTaxon = (s1: any, s2: any) => s1.taxon.localeCompare(s2.taxon);

@@ -50,7 +50,7 @@ const flattenSpeciesReport = (speciesFromReport: RemoteAttributes[]) =>
     flattened[COMMON_NAMES] = [];
     // in the order of importance
     if (s.commonName) {
-      flattened[COMMON_NAMES].push(...Object.values(s.commonName));
+      flattened[COMMON_NAMES].push(s.commonName);
     }
     // if (s.synonym) {
     //   flattened[COMMON_NAMES].push(...Object.values(s.synonym));
