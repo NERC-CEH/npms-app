@@ -27,18 +27,18 @@ export class UserModel extends DrupalUserModel {
   // @ts-ignore
   attrs: Attrs = DrupalUserModel.extendAttrs(this.attrs, defaults);
 
-  static registerSchema: any = object({
+  static registerSchema = object({
     email: z.string().email('Please fill in'),
     password: z.string().min(1, 'Please fill in'),
     firstName: z.string().min(1, 'Please fill in'),
     lastName: z.string().min(1, 'Please fill in'),
   });
 
-  static resetSchema: any = object({
+  static resetSchema = object({
     email: z.string().email('Please fill in'),
   });
 
-  static loginSchema: any = object({
+  static loginSchema = object({
     email: z.string().email('Please fill in'),
     password: z.string().min(1, 'Please fill in'),
   });

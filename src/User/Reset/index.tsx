@@ -7,9 +7,9 @@ import { NavContext } from '@ionic/react';
 import userModel, { Portal, UserModel } from 'models/user';
 import Main from './Main';
 
-type Details = TypeOf<typeof UserModel.loginSchema>;
+type Details = TypeOf<typeof UserModel.resetSchema>;
 
-const LoginController = () => {
+const ResetController = () => {
   const { navigate } = useContext(NavContext);
   const alert = useAlert();
   const match = useRouteMatch<{ portal: Portal }>();
@@ -64,4 +64,4 @@ const LoginController = () => {
   );
 };
 
-export default LoginController;
+export default ResetController;
