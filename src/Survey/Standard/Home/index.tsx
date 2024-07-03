@@ -6,6 +6,7 @@ import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
+import { useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
 import Main from './Main';
 
 type Props = {
@@ -15,12 +16,24 @@ type Props = {
 const Controller = ({ sample }: Props) => {
   const { navigate } = useContext(NavContext);
   const toast = useToast();
+
+  const showEmptySpeciesCheck = useEmptySpeciesCheck();
   const checkUserStatus = useUserStatusCheck();
   const checkSampleStatus = useValidateCheck(sample);
+
+  const checkAndSetEmptySpecies = async () => {
+    if (!sample.occurrences.length) {
+      const finish = await showEmptySpeciesCheck();
+      if (!finish) return true;
+    }
+    return false;
+  };
 
   const onUpload = async () => {
     const isUserOK = await checkUserStatus();
     if (!isUserOK) return;
+
+    if (await checkAndSetEmptySpecies()) return;
 
     const isUploading = await sample.upload().catch(toast.error);
     if (!isUploading) return;
@@ -31,6 +44,8 @@ const Controller = ({ sample }: Props) => {
   const onFinish = async () => {
     const isValid = checkSampleStatus();
     if (!isValid) return;
+
+    if (await checkAndSetEmptySpecies()) return;
 
     // eslint-disable-next-line no-param-reassign
     sample.metadata.saved = true;

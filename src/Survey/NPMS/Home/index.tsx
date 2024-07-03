@@ -1,39 +1,14 @@
 import { useContext } from 'react';
 import { observer } from 'mobx-react';
-import { Header, Page, useAlert, useToast } from '@flumens';
+import { Header, Page, useToast } from '@flumens';
 import { NavContext } from '@ionic/react';
 import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
+import { useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
 import { noSpeciesAttr } from '../config';
 import Main from './Main';
-
-const useEmptySpeciesCheck = () => {
-  const alert = useAlert();
-
-  const showEmptySpeciesCheck = () =>
-    new Promise((resolve: any) => {
-      alert({
-        header: 'No species',
-        message:
-          'Are you sure you want to finish the survey without any species?',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => resolve(false),
-          },
-          {
-            text: 'Finish',
-            handler: () => resolve(true),
-          },
-        ],
-      });
-    });
-
-  return showEmptySpeciesCheck;
-};
 
 type Props = {
   sample: Sample;
