@@ -1282,7 +1282,7 @@ export const percentageCoverAttr = {
   type: 'number_input',
   title: 'Percentage',
   appearance: 'counter',
-  validations: { min: 0, max: 100 },
+  validations: { min: 1, max: 100 },
 } as const;
 
 export const frequencyCoverAttr = {
@@ -1298,7 +1298,7 @@ export const countCoverAttr = {
   type: 'number_input',
   title: 'Count',
   appearance: 'counter',
-  validations: { min: 0, max: 1000 },
+  validations: { min: 1, max: 1000 },
 } as const;
 
 export const getCover = (model: Occurrence) => {
