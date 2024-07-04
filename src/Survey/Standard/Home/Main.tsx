@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react';
 import clsx from 'clsx';
-import { listOutline } from 'ionicons/icons';
+import { listOutline, shareSocialOutline } from 'ionicons/icons';
 import { useRouteMatch } from 'react-router-dom';
-import { Block, Main } from '@flumens';
+import { Block, Button, Main } from '@flumens';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import flowerIcon from 'common/images/flower.svg';
 import { byGrid } from 'common/models/occurrence';
@@ -14,9 +14,10 @@ import { abundanceAttr, plotGroupAttr, speciesCommentsAttr } from '../config';
 
 type Props = {
   sample: Sample;
+  onShare: any;
 };
 
-const MainComponent = ({ sample }: Props) => {
+const MainComponent = ({ sample, onShare }: Props) => {
   const match = useRouteMatch();
   const isDisabled = sample.isUploaded();
 
@@ -32,6 +33,17 @@ const MainComponent = ({ sample }: Props) => {
   return (
     <Main>
       {isDisabled && <UploadedRecordInfoMessage />}
+
+      {!isDisabled && (
+        <Button
+          onPress={onShare}
+          prefix={<IonIcon icon={shareSocialOutline} className="size-6" />}
+          color="primary"
+          className="mx-auto my-4"
+        >
+          Share
+        </Button>
+      )}
 
       <IonList lines="full">
         <div className="rounded-list">

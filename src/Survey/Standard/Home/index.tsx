@@ -6,7 +6,8 @@ import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
-import { useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
+import { share, useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
+import { getCover } from '../config';
 import Main from './Main';
 
 type Props = {
@@ -56,6 +57,21 @@ const Controller = ({ sample }: Props) => {
     navigate(`/home/surveys`, 'root');
   };
 
+  const onShare = () => {
+    const occurrences = sample.occurrences.map(occ => {
+      const abundance = getCover(occ);
+      const name = occ.getPrettyName();
+      return `${name} - ${abundance}`;
+    });
+
+    const species = occurrences.length
+      ? occurrences.join(' / ')
+      : 'No species found';
+    const text = `#PlantPortal: ${species} `;
+
+    share(sample, text);
+  };
+
   const isDisabled = sample.isUploaded();
 
   const isInvalid = sample.validateRemote();
@@ -83,7 +99,7 @@ const Controller = ({ sample }: Props) => {
         rightSlot={uploadButton}
         subheader={trainingModeSubheader}
       />
-      <Main sample={sample} />
+      <Main sample={sample} onShare={onShare} />
     </Page>
   );
 };

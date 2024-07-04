@@ -1,13 +1,14 @@
 import { useContext } from 'react';
 import { observer } from 'mobx-react';
-import { Header, Page, useToast } from '@flumens';
+import { Choice, Header, Page, useToast } from '@flumens';
 import { NavContext } from '@ionic/react';
 import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
-import { useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
-import { noSpeciesAttr } from '../config';
+import { share, useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
+import { coverAttr } from 'Survey/common/config';
+import { broadHabitatAttr, noSpeciesAttr } from '../config';
 import Main from './Main';
 
 type Props = {
@@ -72,6 +73,25 @@ const Controller = ({ sample }: Props) => {
     );
   };
 
+  const onShare = () => {
+    const byId = (id?: string) => (c: Choice) => c.data_name === id;
+    const habitatId = sample.attrs[broadHabitatAttr.id];
+    const habitat = broadHabitatAttr.choices.find(byId(habitatId))?.title;
+    const occurrences = sample.occurrences.map(occ => {
+      const abundanceId = occ.attrs[coverAttr.id];
+      const abundance = coverAttr.choices.find(byId(abundanceId))?.title;
+      const name = occ.getPrettyName();
+      return `${name} - ${abundance}`;
+    });
+
+    const species = occurrences.length
+      ? occurrences.join(' / ')
+      : 'No species found';
+    const text = `#NPMS ${habitat}: ${species} `;
+
+    share(sample, text);
+  };
+
   const isDisabled = sample.isUploaded();
 
   const isInvalid = sample.validateRemote();
@@ -99,7 +119,11 @@ const Controller = ({ sample }: Props) => {
         rightSlot={uploadButton}
         subheader={trainingModeSubheader}
       />
-      <Main sample={sample} onAddSecondSurvey={addSecondSurvey} />
+      <Main
+        sample={sample}
+        onAddSecondSurvey={addSecondSurvey}
+        onShare={onShare}
+      />
     </Page>
   );
 };

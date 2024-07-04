@@ -1,4 +1,6 @@
-import { useAlert } from 'common/flumens';
+import { Share } from '@capacitor/share';
+import { Media, useAlert } from 'common/flumens';
+import Sample from 'common/models/sample';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useEmptySpeciesCheck = () => {
@@ -25,4 +27,21 @@ export const useEmptySpeciesCheck = () => {
     });
 
   return showEmptySpeciesCheck;
+};
+
+export const share = async (sample: Sample, text: string) => {
+  if (!(await Share.canShare()).value) return;
+
+  const { date } = sample.attrs;
+
+  const getFilePath = (img: Media) => img.getURL();
+
+  const surveyName = sample.getSurvey().label;
+  const options = {
+    text,
+    title: `My ${surveyName} survey on ${date}`,
+    files: sample.media.map(getFilePath),
+  };
+
+  Share.share(options);
 };

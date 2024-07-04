@@ -1,7 +1,6 @@
 {
   "appId": "uk.ac.ceh.npms",
   "appName": "NPMS/PP App",
-  "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
   "cordova": {}

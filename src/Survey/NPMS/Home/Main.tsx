@@ -4,6 +4,7 @@ import {
   bookOutline,
   listOutline,
   openOutline,
+  shareSocialOutline,
 } from 'ionicons/icons';
 import { useRouteMatch } from 'react-router-dom';
 import { Block, Button, Main } from '@flumens';
@@ -20,9 +21,10 @@ import { broadHabitatAttr, fineHabitatAttr, firstSurveyAttr } from '../config';
 type Props = {
   sample: Sample;
   onAddSecondSurvey: any;
+  onShare: any;
 };
 
-const MainComponent = ({ sample, onAddSecondSurvey }: Props) => {
+const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
 
   const match = useRouteMatch();
@@ -55,6 +57,17 @@ const MainComponent = ({ sample, onAddSecondSurvey }: Props) => {
           className="mx-auto my-4"
         >
           Add Survey 2
+        </Button>
+      )}
+
+      {!isDisabled && (
+        <Button
+          onPress={onShare}
+          prefix={<IonIcon icon={shareSocialOutline} className="size-6" />}
+          color="primary"
+          className="mx-auto my-4"
+        >
+          Share
         </Button>
       )}
 

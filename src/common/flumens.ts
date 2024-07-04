@@ -100,6 +100,7 @@ export {
 } from '@flumens/tailwind/dist/components/Radio';
 export {
   type Block as BlockT,
+  type Choice,
   type ChoiceValues,
 } from '@flumens/tailwind/dist/Survey';
 export { default as Select } from '@flumens/tailwind/dist/components/Select';
