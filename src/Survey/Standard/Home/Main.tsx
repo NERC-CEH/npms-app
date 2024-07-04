@@ -32,7 +32,12 @@ const MainComponent = ({ sample, onShare }: Props) => {
 
   return (
     <Main>
-      {isDisabled && <UploadedRecordInfoMessage />}
+      {isDisabled && (
+        <UploadedRecordInfoMessage
+          sampleId={sample.id}
+          groupId={sample.attrs.groupId}
+        />
+      )}
 
       {isDisabled && (
         <Button

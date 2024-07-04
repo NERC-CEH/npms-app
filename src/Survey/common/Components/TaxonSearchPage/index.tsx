@@ -57,7 +57,11 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
     goBack();
   };
 
-  const { level } = sample.metadata;
+  let { level } = sample.metadata;
+
+  if (grid === 'additional-species-grid') {
+    level = 'inventory';
+  }
 
   return (
     <Page id="taxon-search">

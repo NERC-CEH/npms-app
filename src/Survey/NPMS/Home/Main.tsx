@@ -16,7 +16,15 @@ import MenuDateAttr from 'Survey/common/Components/MenuDateAttr';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
 import UploadedRecordInfoMessage from 'Survey/common/Components/UploadedRecordInfoMessage';
 import { groupAttr, locationAttr } from 'Survey/common/config';
-import { broadHabitatAttr, fineHabitatAttr, firstSurveyAttr } from '../config';
+import {
+  broadHabitatAttr as portalBroadHabitatAttr,
+  fineHabitatAttr as portalFineHabitatAttr,
+} from '../../NPMSPlus/config';
+import {
+  broadHabitatAttr as npmsBroadHabitatAttr,
+  fineHabitatAttr as npmsFineHabitatAttr,
+  firstSurveyAttr,
+} from '../config';
 
 type Props = {
   sample: Sample;
@@ -26,6 +34,14 @@ type Props = {
 
 const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
+
+  const broadHabitatAttr = isNPMSPlus
+    ? portalBroadHabitatAttr
+    : npmsBroadHabitatAttr;
+
+  const fineHabitatAttr = isNPMSPlus
+    ? portalFineHabitatAttr
+    : npmsFineHabitatAttr;
 
   const match = useRouteMatch();
   const isDisabled = sample.isUploaded();
@@ -47,7 +63,13 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
 
   return (
     <Main>
-      {isDisabled && <UploadedRecordInfoMessage />}
+      {isDisabled && (
+        <UploadedRecordInfoMessage
+          sampleId={sample.id}
+          groupId={sample.attrs.groupId}
+          level={sample.metadata.level}
+        />
+      )}
 
       {allowSecondSurvey && (
         <Button

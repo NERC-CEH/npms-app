@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 
 /* eslint-disable no-return-assign */
+import { observer } from 'mobx-react';
 import { useRouteMatch } from 'react-router';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
 import { Block, Header, Main, Page } from 'common/flumens';
@@ -101,4 +102,4 @@ const Details = ({ sample }: Props) => {
   );
 };
 
-export default Details;
+export default observer(Details);

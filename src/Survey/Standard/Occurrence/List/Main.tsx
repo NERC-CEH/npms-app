@@ -55,7 +55,11 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
           <div className="flex w-full items-center gap-2 px-1">
             <div className="list-avatar my-1">
               {image ? (
-                <img src={image.getURL()} alt="" />
+                <img
+                  src={image.getURL()}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
               ) : (
                 <IonIcon
                   src={cameraOutline}

@@ -136,22 +136,18 @@ const habitats = [
   },
 ] as const;
 
-const broadHabitatOptions = habitats.map(({ value, id }) => ({
-  data_name: `${id}`,
-  title: value,
-}));
-
 export const broadHabitatAttr = {
   id: 'parent-smpAttr:565',
-  //   parent-smpAttr:565:35426809: 4876
-  // smpAttr:565:35426809: 4881
   type: 'choice_input',
   title: 'Broad Habitat',
   prefix: landIconIcon,
   description:
     'Please ensure your choice of habitat matches the species list you are using.',
   container: 'page',
-  choices: broadHabitatOptions,
+  choices: habitats.map(({ value, id }) => ({
+    data_name: `${id}`,
+    title: value,
+  })),
   onChange(newValue: any, _: any, { record }: any) {
     record[broadHabitatAttr.id] = newValue;
     delete record[fineHabitatAttr().id]; // eslint-disable-line @typescript-eslint/no-use-before-define
@@ -159,9 +155,12 @@ export const broadHabitatAttr = {
   },
 } as const;
 
-const getFineHabitatOptions = (broadHabitat: any) => {
+export const getFineHabitatOptions = (
+  broadHabitat: any,
+  broadHabitats: any
+) => {
   const byId = (h: any) => `${h.id}` === broadHabitat;
-  const broadHabitatValues = habitats.find(byId)?.values || {};
+  const broadHabitatValues = broadHabitats.find(byId)?.values || {};
   return Object.entries(broadHabitatValues).map(([value, id]: any) => ({
     data_name: `${id}`,
     title: value,
@@ -175,7 +174,7 @@ export const fineHabitatAttr = (attrs?: Attrs) =>
     title: 'Fine Habitat',
     prefix: landIconIcon,
     container: 'page',
-    choices: getFineHabitatOptions(attrs?.[broadHabitatAttr.id]),
+    choices: getFineHabitatOptions(attrs?.[broadHabitatAttr.id], habitats),
   } as const);
 
 export const identifierAttr = {
