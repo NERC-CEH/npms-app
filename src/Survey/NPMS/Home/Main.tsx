@@ -60,7 +60,7 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
         </Button>
       )}
 
-      {!isDisabled && (
+      {isDisabled && (
         <Button
           onPress={onShare}
           prefix={<IonIcon icon={shareSocialOutline} className="size-6" />}

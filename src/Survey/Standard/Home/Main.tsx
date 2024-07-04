@@ -34,7 +34,7 @@ const MainComponent = ({ sample, onShare }: Props) => {
     <Main>
       {isDisabled && <UploadedRecordInfoMessage />}
 
-      {!isDisabled && (
+      {isDisabled && (
         <Button
           onPress={onShare}
           prefix={<IonIcon icon={shareSocialOutline} className="size-6" />}

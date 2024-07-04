@@ -1,4 +1,5 @@
 import { Share } from '@capacitor/share';
+import config from 'common/config';
 import { Media, useAlert } from 'common/flumens';
 import Sample from 'common/models/sample';
 
@@ -34,7 +35,11 @@ export const share = async (sample: Sample, text: string) => {
 
   const { date } = sample.attrs;
 
-  const getFilePath = (img: Media) => img.getURL();
+  const getFilePath = (img: Media) => {
+    const { data: name } = img.attrs;
+
+    return `${config.dataPath}/${name}`;
+  };
 
   const surveyName = sample.getSurvey().label;
   const options = {
