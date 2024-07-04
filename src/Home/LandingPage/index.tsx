@@ -18,7 +18,7 @@ const LandingPage = () => {
 
   return (
     <Page id="home-landing">
-      <Main className="[--padding-top:0]">
+      <Main className="[--padding-bottom:0] [--padding-top:0]">
         <img
           src={backgroundImage}
           alt=""

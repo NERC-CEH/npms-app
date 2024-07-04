@@ -1,4 +1,6 @@
 .app-menu {
+  padding-top: env(safe-area-inset-top);
+
   .verification-warning {
     --background: #fffff2;
 
