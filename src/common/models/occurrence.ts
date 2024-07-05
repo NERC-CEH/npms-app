@@ -41,17 +41,21 @@ export type Taxon = {
    */
   taxaTaxonListId: string;
   /**
-   * Picked by user name.
+   * Picked by user name. The value is not stored in the warehouse.
    */
   taxon: string;
   /**
-   * Scientific name.
+   * Scientific name. The value is not stored in the warehouse.
    */
   preferredTaxon?: string;
   /**
-   * Common name.
+   * Common name. The value is not stored in the warehouse.
    */
   defaultCommonName?: string;
+  /**
+   * ID difficulty. The value is not stored in the warehouse.
+   */
+  taxonDifficulty?: number;
 };
 
 export type Attrs = OccurrenceAttrs & { [key in CoverKeys]?: any } & Taxon & {

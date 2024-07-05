@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react';
-import { cameraOutline } from 'ionicons/icons';
 import { useRouteMatch } from 'react-router';
-import { Badge, Main, usePromptImageSource } from '@flumens';
+import { Badge, Main } from '@flumens';
 import {
   IonItemSliding,
   IonItem,
@@ -11,6 +10,7 @@ import {
   IonIcon,
 } from '@ionic/react';
 import InfoBackgroundMessage from 'common/Components/InfoBackgroundMessage';
+import flower from 'common/images/flower.svg';
 import Occurrence, { Grid, byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
 import { getCover } from 'Survey/Standard/config';
@@ -18,32 +18,21 @@ import { getCover } from 'Survey/Standard/config';
 type Props = {
   sample: Sample;
   onDelete: any;
-  onAddPhoto: any;
+
   grid: Grid;
 };
 
-const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
+const OccurrenceListMain = ({ sample, onDelete, grid }: Props) => {
   const match = useRouteMatch();
-  const promptImageSource = usePromptImageSource();
 
   const getItem = (occ: Occurrence) => {
     const onDeleteWrap = () => onDelete(occ);
-    const onAddPhotoWrap = async (e: any) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (sample.isDisabled()) return;
-
-      const shouldUseCamera = await promptImageSource();
-      const cancelled = shouldUseCamera === null;
-      if (cancelled) return;
-
-      onAddPhoto(occ, shouldUseCamera);
-    };
 
     const [image] = occ.media;
 
     const isCoverPresent = Number.isFinite(getCover(occ)) || !!getCover(occ);
+
+    const taxonDifficulty = occ.attrs.taxonDifficulty || 0;
 
     return (
       <IonItemSliding disabled={occ.isDisabled()} key={occ.cid}>
@@ -61,11 +50,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <IonIcon
-                  src={cameraOutline}
-                  className="size-6 opacity-70"
-                  onClick={onAddPhotoWrap}
-                />
+                <IonIcon src={flower} className="size-6 opacity-70" />
               )}
             </div>
 
@@ -73,7 +58,7 @@ const OccurrenceListMain = ({ sample, onDelete, onAddPhoto, grid }: Props) => {
               <div className="font-semibold">{occ.attrs.defaultCommonName}</div>
               <div className="italic">{occ.attrs.preferredTaxon}</div>
 
-              {!image && !sample.isDisabled() && (
+              {!image && taxonDifficulty > 1 && !sample.isDisabled() && (
                 <Badge color="warning" className="mt-2">
                   Provide a photo to aid ID
                 </Badge>

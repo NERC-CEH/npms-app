@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { observer } from 'mobx-react';
 import { Trans as T } from 'react-i18next';
 import { useToast, useAlert } from '@flumens';
@@ -6,6 +7,7 @@ import {
   IonItemSliding,
   IonItemOptions,
   IonItemOption,
+  NavContext,
 } from '@ionic/react';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
@@ -48,6 +50,8 @@ type Props = {
 };
 
 const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
+  const { navigate } = useContext(NavContext);
+
   const toast = useToast();
   const checkSampleStatus = useValidateCheck(sample);
   const checkUserStatus = useUserStatusCheck();
@@ -73,9 +77,14 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
 
   const surveyLevel = sample.metadata.level;
 
+  const openItem = () => {
+    if (sample.remote.synchronising) return; // fixes button onPressUp and other accidental navigation
+    navigate(href);
+  };
+
   return (
     <IonItemSliding className="survey-list-item" style={style}>
-      <IonItem routerLink={href} detail={false}>
+      <IonItem onClick={openItem} detail={false}>
         <div className="flex w-full flex-nowrap items-center gap-2">
           <div className="flex w-full flex-col content-center gap-1 overflow-hidden">
             <h3 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-bold">

@@ -24,6 +24,7 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
 
     const taxon: Taxon = {
       taxon: taxonUKSI.commonNames?.[0] || taxonUKSI.scientificName,
+      taxonDifficulty: taxonUKSI.difficulty,
       defaultCommonName: taxonUKSI.commonNames?.[0],
       preferredTaxon: taxonUKSI.scientificName,
       taxaTaxonListId: `${taxonUKSI.warehouseId}`,
