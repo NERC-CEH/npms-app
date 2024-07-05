@@ -28,6 +28,7 @@ workflows:
       - change-android-versioncode-and-versionname@1:
           inputs:
             - build_gradle_path: $BITRISE_SOURCE_DIR/android/app/build.gradle
+            - version_code_offset: '3000000'
             - new_version_name: $NPM_PACKAGE_VERSION
       - android-build@1:
           inputs:
