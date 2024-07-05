@@ -3,9 +3,5 @@
   "appName": "NPMS/PP App",
   "npmClient": "npm",
   "webDir": "build",
-  "server": {
-    "url": "http://192.168.1.4:8000",
-    "cleartext": true
-  },
   "cordova": {}
 }
