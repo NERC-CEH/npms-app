@@ -63,11 +63,13 @@ const Controller = ({ sample }: Props) => {
     navigate(`/home/surveys`, 'root');
   };
 
+  const { level } = sample.metadata;
+
   const addSecondSurvey = () => {
-    console.log('Creating a linked survey', sample.metadata.level, sample.id);
+    console.log('Creating a linked survey', level, sample.id);
 
     navigate(
-      `/survey/npms?level=${sample.metadata.level}&firstSurvey=${sample.id}`,
+      `/survey/npms?level=${level}&firstSurvey=${sample.id}`,
       'none',
       'replace'
     );
@@ -115,8 +117,9 @@ const Controller = ({ sample }: Props) => {
   return (
     <Page id="npms-home">
       <Header
-        title="Survey"
+        title={`${level} Survey`}
         rightSlot={uploadButton}
+        className="capitalize"
         subheader={trainingModeSubheader}
       />
       <Main
