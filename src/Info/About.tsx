@@ -37,11 +37,7 @@ const About = () => (
           <a href="http://www.npms.org.uk/square-near-me-public">
             available near you
           </a>{' '}
-          now! Or, if you are signed in to your NPMS account, visit the{' '}
-          <a href="http://www.npms.org.uk/content/request-square">
-            'Request a square'
-          </a>{' '}
-          page.
+          now!
         </P>
       </Section>
       <Section>
@@ -56,7 +52,7 @@ const About = () => (
         </P>
       </Section>
       <Section>
-        <H>Who can take part?</H>
+        <H>More information</H>
         <P>
           Please first see the{' '}
           <a href="http://www.npms.org.uk/content/how-get-involved">
