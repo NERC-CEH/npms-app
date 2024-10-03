@@ -51,7 +51,7 @@ const Details = ({ sample }: Props) => {
 
   return (
     <Page id="npms-details">
-      <Header title="Additional" />
+      <Header title="Plot info" />
       <Main>
         <IonList lines="full">
           <h3 className="list-title">Vegetation</h3>

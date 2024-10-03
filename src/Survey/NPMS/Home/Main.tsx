@@ -131,7 +131,7 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
 
           <IonItem routerLink={`${match.url}/additional`}>
             <IonIcon src={listOutline} slot="start" />
-            <IonLabel>Additional info</IonLabel>
+            <IonLabel>Plot info</IonLabel>
           </IonItem>
         </div>
 
