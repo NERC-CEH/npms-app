@@ -29,10 +29,7 @@ const Credits = () => (
           <b>Andrew van Breda</b> (AVB IT)
         </P>
         <P skipTranslation>
-          <b>Hayley New</b> (Plantlife)
-        </P>
-        <P skipTranslation>
-          <b>Felicity Harris</b> (Plantlife)
+          <b>Rachel Murphy</b> (Plantlife)
         </P>
         <P skipTranslation>
           <b>Kevin Walker</b> (BSBI)
