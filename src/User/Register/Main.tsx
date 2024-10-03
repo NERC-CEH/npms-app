@@ -78,7 +78,7 @@ const RegisterMain = ({ onSubmit, isPlantPortal }: Props) => {
 
           <div className="mt-4 px-5 text-sm">
             <T>I agree to</T>{' '}
-            <IonRouterLink href={`${url}/privacy-notice`}>
+            <IonRouterLink href={`${url}/privacy-policy`}>
               <T>Privacy Policy</T>
             </IonRouterLink>{' '}
             <T>and</T>{' '}

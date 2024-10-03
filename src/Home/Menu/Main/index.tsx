@@ -107,7 +107,7 @@ const MenuMain = ({
             <T>Credits</T>
           </IonItem>
           <IonItem
-            href={`${backendUrl}/privacy-notice`}
+            href={`${backendUrl}/privacy-policy`}
             target="_blank"
             detail
             detailIcon={openOutline}
