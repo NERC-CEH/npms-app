@@ -93,6 +93,7 @@ const TaxonSearch: ForwardRefRenderFunction<any, Props> = (
         searchResults={searchResults}
         searchPhrase={searchPhrase}
         onSpeciesSelected={onSpeciesSelected}
+        level={level}
       />
     </>
   );

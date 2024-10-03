@@ -1,5 +1,6 @@
 import { IonList } from '@ionic/react';
 import InfoBackgroundMessage from 'common/Components/InfoBackgroundMessage';
+import { Level } from 'Survey/common/config';
 import Species from './components/Species';
 
 /**
@@ -34,6 +35,16 @@ function deDuplicateSuggestions(suggestions: any) {
   return results;
 }
 
+const getNPMSLevelInfo = (level?: Level) => {
+  if (!level || level === 'inventory') return null;
+  return (
+    <InfoBackgroundMessage className="text-left">
+      Remember that if you are surveying at the Wildflower or Indicator levels,
+      then only NPMS indicator species will be available for selection.
+    </InfoBackgroundMessage>
+  );
+};
+
 const getSearchInfo = () => (
   <InfoBackgroundMessage className="text-left">
     For quicker searching of the taxa you can use different shortcuts. For
@@ -54,15 +65,18 @@ type Props = {
   searchResults?: any[];
   searchPhrase: string;
   onSpeciesSelected: any;
+  level?: Level;
 };
 const Suggestions = ({
   searchResults,
   searchPhrase,
   onSpeciesSelected,
+  level,
 }: Props) => {
   if (!searchResults) {
     return (
       <IonList id="suggestions" lines="none">
+        {getNPMSLevelInfo(level)}
         {getSearchInfo()}
       </IonList>
     );
