@@ -23,12 +23,17 @@ const Portal = ({ children }: Props) => {
             className="absolute bottom-0 left-0 -z-10 h-full w-full object-cover"
           />
           <div className="z-10 flex h-full flex-col justify-between">
-            <h1 className="m-0 mx-auto flex h-full w-full items-center justify-center pb-40 text-3xl text-white shadow-sm">
+            <h1 className="m-0 mx-auto flex h-full w-full items-center justify-center pb-10 text-3xl text-white shadow-sm">
               Choose your portal
             </h1>
 
             <div className="bg-white">
-              <div className="mx-auto flex w-full max-w-xl flex-col gap-4 p-4  py-10 font-bold">
+              <h3 className="mx-auto flex w-full items-center justify-center p-5 pb-3 text-base opacity-80">
+                For core NPMS choose the NPMS button. For NPMS+ and standard
+                Plant Portal usage, choose the Plant Portal button.
+              </h3>
+
+              <div className="mx-auto flex w-full max-w-xl flex-col gap-4 p-4  py-5 font-bold">
                 <Link
                   to="/user/login/npms"
                   className="flex items-center justify-between gap-3 rounded-xl border border-solid border-[#1D224C]/20 bg-[#BFC3E6]/30 p-1 !text-[#1D224C]"
@@ -55,6 +60,11 @@ const Portal = ({ children }: Props) => {
                   </div>
                   <IonIcon src={chevronForward} className="size-6" />
                 </Link>
+              </div>
+
+              <div className="mx-auto flex w-full items-center justify-center p-5 text-sm opacity-70">
+                Logging out of your chosen website will return you to this
+                screen.
               </div>
             </div>
           </div>
