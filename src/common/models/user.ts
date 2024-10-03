@@ -39,7 +39,7 @@ export class UserModel extends DrupalUserModel {
   });
 
   static loginSchema = object({
-    email: z.string().email('Please fill in'),
+    username: z.string().min(1, 'Please fill in'),
     password: z.string().min(1, 'Please fill in'),
   });
 

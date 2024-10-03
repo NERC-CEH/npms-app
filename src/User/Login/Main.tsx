@@ -29,7 +29,7 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
   const togglePassword = () => setShowPassword(!showPassword);
 
   const { formState, handleSubmit, control } = useForm<Details>({
-    defaultValues: { email: '', password: '' },
+    defaultValues: { username: '', password: '' },
     resolver: zodResolver(UserModel.loginSchema),
   });
 
@@ -47,10 +47,10 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
           <div className="rounded-list">
             <ControlledInput
               control={control}
-              name="email"
+              name="username"
               prefix={<IonIcon icon={mailOutline} className="size-5" />}
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="Email or username"
             />
             <ControlledInput
               control={control}

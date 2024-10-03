@@ -33,7 +33,7 @@ const LoginController = () => {
     navigate('/home/landing', 'root');
   };
 
-  async function onLogin({ email, password }: Details) {
+  async function onLogin({ username, password }: Details) {
     if (!device.isOnline) {
       toast.warn("Sorry, looks like you're offline.");
       return;
@@ -42,7 +42,7 @@ const LoginController = () => {
     await loader.show('Please wait...');
 
     try {
-      await userModel.logIn(email.trim(), password, isPlantPortal);
+      await userModel.logIn(username.trim(), password, isPlantPortal);
 
       onSuccessReturn();
     } catch (err) {
