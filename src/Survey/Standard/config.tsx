@@ -1339,7 +1339,10 @@ export const plotGroupAttr = (attrs?: Attrs) => {
     });
 
   const getOption = ([value, title]: any) => ({ data_name: value, title });
+
   const choices = Object.entries(plotGroups).map(getOption);
+  const none = { data_name: null, title: 'All' };
+  choices.push(none);
 
   return {
     id: 'plotGroupId',
