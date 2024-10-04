@@ -6,7 +6,7 @@
     "commonName": "Yarrow",
     "organismKey": "NBNORG0000008568",
     "difficulty": "1",
-    "frequency": "538"
+    "frequency": "554"
   },
   {
     "id": "243151",
@@ -15,7 +15,7 @@
     "commonName": "Bugle",
     "organismKey": "NBNORG0000008427",
     "difficulty": "1",
-    "frequency": "75"
+    "frequency": "76"
   },
   {
     "id": "177006",
@@ -24,7 +24,7 @@
     "commonName": "Alpine Lady's-mantle",
     "organismKey": "NBNORG0000007889",
     "difficulty": "2",
-    "frequency": "5"
+    "frequency": "6"
   },
   {
     "id": "137866",
@@ -33,7 +33,7 @@
     "commonName": "Water-plantain",
     "organismKey": "NBNORG0000007115",
     "difficulty": "2",
-    "frequency": "19",
+    "frequency": "28",
     "synonym": {
       "434979": "Alisma gluckii"
     }
@@ -45,7 +45,7 @@
     "commonName": "Ramsons",
     "organismKey": "NBNORG0000007180",
     "difficulty": "2",
-    "frequency": "192"
+    "frequency": "137"
   },
   {
     "id": "75501",
@@ -54,7 +54,7 @@
     "commonName": "Alder",
     "organismKey": "NBNORG0000053047",
     "difficulty": "2",
-    "frequency": "406",
+    "frequency": "395",
     "synonym": {
       "75503": "Alnus alnus",
       "75504": "Alnus rotundifolia",
@@ -68,7 +68,7 @@
     "commonName": "Scarlet Pimpernel",
     "organismKey": "NBNORG0000008215",
     "difficulty": "1",
-    "frequency": "57"
+    "frequency": "66"
   },
   {
     "id": "86019",
@@ -77,7 +77,7 @@
     "commonName": "Bog Pimpernel",
     "organismKey": "NBNORG0000008214",
     "difficulty": "2",
-    "frequency": "5",
+    "frequency": "10",
     "synonym": {
       "86020": "Lysimachia tenella"
     }
@@ -89,7 +89,7 @@
     "commonName": "Wood Anemone",
     "organismKey": "NBNORG0000007431",
     "difficulty": "1",
-    "frequency": "112",
+    "frequency": "88",
     "synonym": {
       "15014": "Anemonoides nemorosa"
     }
@@ -101,7 +101,7 @@
     "commonName": "Wild Angelica",
     "organismKey": "NBNORG0000008065",
     "difficulty": "2",
-    "frequency": "90"
+    "frequency": "98"
   },
   {
     "id": "231882",
@@ -110,7 +110,7 @@
     "commonName": "Mountain Everlasting",
     "organismKey": "NBNORG0000053122",
     "difficulty": "2",
-    "frequency": "4",
+    "frequency": "2",
     "synonym": {
       "231884": "Antennaria hibernica",
       "231885": "Antennaria hyperborea",
@@ -126,7 +126,7 @@
     "commonName": "Cow Parsley",
     "organismKey": "NBNORG0000008018",
     "difficulty": "1",
-    "frequency": "820",
+    "frequency": "813",
     "synonym": {
       "146515": "Cerefolium sylvestre",
       "146516": "Chaerophyllum sylvestre"
@@ -139,7 +139,7 @@
     "commonName": "Kidney Vetch",
     "organismKey": "NBNORG0000007805",
     "difficulty": "2",
-    "frequency": "89",
+    "frequency": "95",
     "synonym": {
       "141943": "Anthyllis maritima",
       "141944": "Anthyllis rubra"
@@ -152,7 +152,7 @@
     "commonName": "Wild Celery",
     "organismKey": "NBNORG0000008037",
     "difficulty": "2",
-    "frequency": "1",
+    "frequency": "2",
     "synonym": {
       "302937": "Apium graveolens subsp. dulce nom. inval.",
       "310912": "Apium graveolens subsp. dulce"
@@ -177,7 +177,7 @@
     "commonName": "Thrift",
     "organismKey": "NBNORG0000053186",
     "difficulty": "1",
-    "frequency": "135",
+    "frequency": "137",
     "synonym": {
       "238306": "Statice armeria",
       "238307": "Statice maritima"
@@ -190,7 +190,7 @@
     "commonName": "Lords-and-Ladies",
     "organismKey": "NBNORG0000007254",
     "difficulty": "1",
-    "frequency": "164"
+    "frequency": "138"
   },
   {
     "id": "253946",
@@ -199,7 +199,7 @@
     "commonName": "Maidenhair Spleenwort",
     "organismKey": "NBNORG0000007087",
     "difficulty": "2",
-    "frequency": "111",
+    "frequency": "109",
     "synonym": {
       "253947": "Asplenium trichomanoides nom. illegit."
     }
@@ -211,7 +211,7 @@
     "commonName": "Sea Aster",
     "organismKey": "NBNORG0000008547",
     "difficulty": "3",
-    "frequency": "17",
+    "frequency": "21",
     "synonym": {
       "65439": "Tripolium pannonicum subsp. maritimum"
     }
@@ -222,7 +222,7 @@
     "taxon": "Atriplex",
     "commonName": "Orache",
     "organismKey": "NBNORG0000053255",
-    "frequency": "5",
+    "frequency": "6",
     "synonym": {
       "298026": "Obione",
       "304993": "Halimione",
@@ -237,7 +237,7 @@
     "commonName": "Daisy",
     "organismKey": "NBNORG0000008562",
     "difficulty": "1",
-    "frequency": "958"
+    "frequency": "966"
   },
   {
     "id": "50103",
@@ -265,7 +265,7 @@
     "commonName": "Yellow-wort",
     "organismKey": "NBNORG0000053355",
     "difficulty": "2",
-    "frequency": "25",
+    "frequency": "30",
     "synonym": {
       "132279": "Chlora perfoliata",
       "132280": "Gentiana perfoliata"
@@ -278,7 +278,7 @@
     "commonName": "Hard-fern",
     "organismKey": "NBNORG0000007079",
     "difficulty": "2",
-    "frequency": "36",
+    "frequency": "35",
     "synonym": {
       "34709": "Lomaria spicant",
       "34710": "Acrostichum spicant",
@@ -294,7 +294,7 @@
     "commonName": "Quaking-grass",
     "organismKey": "NBNORG0000007361",
     "difficulty": "2",
-    "frequency": "28"
+    "frequency": "31"
   },
   {
     "id": "39095",
@@ -303,7 +303,7 @@
     "commonName": "Butterfly-bush",
     "organismKey": "NBNORG0000053434",
     "difficulty": "1",
-    "frequency": "263"
+    "frequency": "271"
   },
   {
     "id": "62367",
@@ -312,7 +312,7 @@
     "commonName": "Heather",
     "organismKey": "NBNORG0000008185",
     "difficulty": "1",
-    "frequency": "155",
+    "frequency": "139",
     "synonym": {
       "62368": "Erica vulgaris"
     }
@@ -324,7 +324,7 @@
     "commonName": "Marsh-marigold",
     "organismKey": "NBNORG0000007424",
     "difficulty": "1",
-    "frequency": "102",
+    "frequency": "86",
     "synonym": {
       "150707": "Caltha palustris subsp. radicans",
       "150708": "Caltha palustris subsp. palustris",
@@ -346,7 +346,7 @@
     "commonName": "Hedge Bindweed",
     "organismKey": "NBNORG0000053279",
     "difficulty": "2",
-    "frequency": "111",
+    "frequency": "125",
     "synonym": {
       "89477": "Convolvulus sepium",
       "534453": "Convolvulus sepium"
@@ -368,7 +368,7 @@
     "commonName": "Harebell",
     "organismKey": "NBNORG0000008442",
     "difficulty": "2",
-    "frequency": "43",
+    "frequency": "42",
     "synonym": {
       "33744": "Campanula gieseckiana",
       "299274": "Campanula giesekiana auct., non Vest",
@@ -382,7 +382,7 @@
     "commonName": "Shepherd's-purse",
     "organismKey": "NBNORG0000053464",
     "difficulty": "1",
-    "frequency": "192",
+    "frequency": "195",
     "synonym": {
       "227723": "Bursa pastoris",
       "227724": "Bursa penarthae",
@@ -399,7 +399,7 @@
     "commonName": "Cuckooflower",
     "organismKey": "NBNORG0000007547",
     "difficulty": "1",
-    "frequency": "241",
+    "frequency": "200",
     "synonym": {
       "133974": "Cardamine crassifolia",
       "133975": "Cardamine hayneana",
@@ -432,7 +432,7 @@
     "commonName": "Pendulous Sedge",
     "organismKey": "NBNORG0000053501",
     "difficulty": "2",
-    "frequency": "207"
+    "frequency": "193"
   },
   {
     "id": "233908",
@@ -457,7 +457,7 @@
     "commonName": "Greater Knapweed",
     "organismKey": "NBNORG0000008605",
     "difficulty": "2",
-    "frequency": "17",
+    "frequency": "19",
     "synonym": {
       "156068": "Acrocentron scabiosa",
       "156069": "Colymbada scabiosa",
@@ -471,7 +471,7 @@
     "commonName": "Red Valerian",
     "organismKey": "NBNORG0000008489",
     "difficulty": "2",
-    "frequency": "118",
+    "frequency": "117",
     "synonym": {
       "235972": "Valeriana rubra"
     }
@@ -496,7 +496,7 @@
     "commonName": "Climbing Corydalis",
     "organismKey": "NBNORG0000053590",
     "difficulty": "2",
-    "frequency": "26",
+    "frequency": "27",
     "synonym": {
       "198299": "Capnoides claviculata",
       "198300": "Corydalis claviculata",
@@ -510,7 +510,7 @@
     "taxon": "Ceterach officinarum",
     "commonName": "Rustyback",
     "organismKey": "NBNORG0000107933",
-    "frequency": "12",
+    "frequency": "11",
     "synonym": {
       "163177": "Asplenium ceterach",
       "163178": "Ceterach ceterach nom. illegit.",
@@ -536,7 +536,7 @@
     "commonName": "Fat-hen",
     "organismKey": "NBNORG0000053643",
     "difficulty": "2",
-    "frequency": "37",
+    "frequency": "44",
     "synonym": {
       "71402": "Chenopodium album subsp. reticulatum",
       "71403": "Chenopodium reticulatum",
@@ -553,7 +553,7 @@
     "commonName": "Opposite-leaved Golden-saxifrage",
     "organismKey": "NBNORG0000007959",
     "difficulty": "2",
-    "frequency": "61"
+    "frequency": "56"
   },
   {
     "id": "118344",
@@ -562,7 +562,7 @@
     "commonName": "Enchanter's-nightshade",
     "organismKey": "NBNORG0000007991",
     "difficulty": "2",
-    "frequency": "102"
+    "frequency": "117"
   },
   {
     "id": "200907",
@@ -571,7 +571,7 @@
     "commonName": "Dwarf Thistle",
     "organismKey": "NBNORG0000008599",
     "difficulty": "2",
-    "frequency": "19",
+    "frequency": "22",
     "synonym": {
       "200908": "Carduus acaulos",
       "200909": "Cnicus acaulos",
@@ -585,7 +585,7 @@
     "commonName": "Creeping Thistle",
     "organismKey": "NBNORG0000008597",
     "difficulty": "1",
-    "frequency": "676",
+    "frequency": "705",
     "synonym": {
       "230025": "Carduus arvensis",
       "230026": "Cnicus arvensis",
@@ -599,7 +599,7 @@
     "commonName": "Marsh Thistle",
     "organismKey": "NBNORG0000008596",
     "difficulty": "2",
-    "frequency": "109",
+    "frequency": "110",
     "synonym": {
       "188361": "Carduus palustris",
       "188362": "Cnicus palustris"
@@ -612,7 +612,7 @@
     "commonName": "Spear Thistle",
     "organismKey": "NBNORG0000008595",
     "difficulty": "1",
-    "frequency": "598",
+    "frequency": "607",
     "synonym": {
       "29224": "Carduus lanceolatus",
       "29225": "Cirsium lanceolatum non Hill",
@@ -634,7 +634,7 @@
     "taxonGroup": "89",
     "taxon": "Cochlearia",
     "organismKey": "NBNORG0000053719",
-    "frequency": "3",
+    "frequency": "2",
     "synonym": {
       "636060": "Scurvygrasses"
     }
@@ -672,7 +672,7 @@
     "commonName": "Sea-kale",
     "organismKey": "NBNORG0000007511",
     "difficulty": "2",
-    "frequency": "48"
+    "frequency": "53"
   },
   {
     "id": "100127",
@@ -681,7 +681,7 @@
     "commonName": "Hawthorn",
     "organismKey": "NBNORG0000007919",
     "difficulty": "1",
-    "frequency": "979",
+    "frequency": "964",
     "synonym": {
       "100128": "Crataegus laciniata",
       "100129": "Crataegus monogyna subsp. mongyna",
@@ -695,7 +695,7 @@
     "commonName": "Rock Samphire",
     "organismKey": "NBNORG0000008054",
     "difficulty": "2",
-    "frequency": "74"
+    "frequency": "73"
   },
   {
     "id": "72935",
@@ -704,7 +704,7 @@
     "commonName": "Crosswort",
     "organismKey": "NBNORG0000008457",
     "difficulty": "2",
-    "frequency": "36",
+    "frequency": "29",
     "synonym": {
       "72936": "Cruciata chersonensis auct., non (Willd.) Ehrend.",
       "72937": "Galium cruciata",
@@ -718,7 +718,7 @@
     "commonName": "Parsley Fern",
     "organismKey": "NBNORG0000053904",
     "difficulty": "2",
-    "frequency": "6",
+    "frequency": "5",
     "synonym": {
       "235102": "Acrostichum crispum",
       "235103": "Allosorus crispus",
@@ -740,7 +740,7 @@
     "commonName": "Dodder",
     "organismKey": "NBNORG0000008263",
     "difficulty": "2",
-    "frequency": "3",
+    "frequency": "7",
     "synonym": {
       "59968": "Cuscuta trifolii",
       "59969": "Cuscuta europaea var. epithymum"
@@ -753,7 +753,7 @@
     "commonName": "Crested Dog's-tail",
     "organismKey": "NBNORG0000007359",
     "difficulty": "2",
-    "frequency": "82"
+    "frequency": "89"
   },
   {
     "id": "143472",
@@ -762,7 +762,7 @@
     "commonName": "Tufted Hair-grass",
     "organismKey": "NBNORG0000054034",
     "difficulty": "2",
-    "frequency": "63",
+    "frequency": "64",
     "synonym": {
       "143473": "Deschampsia caespitosa",
       "143474": "Aira cespitosa"
@@ -775,7 +775,7 @@
     "commonName": "Foxglove",
     "organismKey": "NBNORG0000008307",
     "difficulty": "1",
-    "frequency": "203"
+    "frequency": "207"
   },
   {
     "id": "291302",
@@ -784,7 +784,7 @@
     "commonName": "Black Bryony",
     "organismKey": "NBNORG0000105189",
     "difficulty": "2",
-    "frequency": "55",
+    "frequency": "56",
     "synonym": {
       "307439": "Tamus communis"
     }
@@ -796,7 +796,7 @@
     "commonName": "Wild Teasel",
     "organismKey": "NBNORG0000107960",
     "difficulty": "2",
-    "frequency": "200",
+    "frequency": "217",
     "synonym": {
       "105683": "Dipsacus sylvestris",
       "105684": "Dipsacus fullonum subsp. sylvestris",
@@ -810,7 +810,7 @@
     "commonName": "Round-leaved Sundew",
     "organismKey": "NBNORG0000007967",
     "difficulty": "2",
-    "frequency": "21"
+    "frequency": "23"
   },
   {
     "id": "366155",
@@ -829,7 +829,7 @@
     "commonName": "Crowberry agg.",
     "organismKey": "NBNORG0000008665",
     "difficulty": "2",
-    "frequency": "27"
+    "frequency": "19"
   },
   {
     "id": "249658",
@@ -838,7 +838,7 @@
     "commonName": "Great Willowherb",
     "organismKey": "NBNORG0000007976",
     "difficulty": "2",
-    "frequency": "350"
+    "frequency": "358"
   },
   {
     "id": "213632",
@@ -847,7 +847,7 @@
     "commonName": "Bell Heather",
     "organismKey": "NBNORG0000008189",
     "difficulty": "2",
-    "frequency": "32"
+    "frequency": "38"
   },
   {
     "id": "214349",
@@ -856,7 +856,7 @@
     "commonName": "Cross-leaved Heath",
     "organismKey": "NBNORG0000008186",
     "difficulty": "2",
-    "frequency": "28"
+    "frequency": "30"
   },
   {
     "id": "25917",
@@ -865,7 +865,7 @@
     "commonName": "Wood Spurge",
     "organismKey": "NBNORG0000008096",
     "difficulty": "2",
-    "frequency": "27",
+    "frequency": "23",
     "synonym": {
       "25918": "Euphorbia turneri"
     }
@@ -877,7 +877,7 @@
     "commonName": "Sun Spurge",
     "organismKey": "NBNORG0000008089",
     "difficulty": "2",
-    "frequency": "41"
+    "frequency": "46"
   },
   {
     "id": "213522",
@@ -886,7 +886,7 @@
     "commonName": "Meadowsweet",
     "organismKey": "NBNORG0000007855",
     "difficulty": "1",
-    "frequency": "212",
+    "frequency": "211",
     "synonym": {
       "213523": "Spiraea ulmaria"
     }
@@ -898,7 +898,7 @@
     "commonName": "Dropwort",
     "organismKey": "NBNORG0000007854",
     "difficulty": "2",
-    "frequency": "11",
+    "frequency": "17",
     "synonym": {
       "158560": "Spiraea filipendula",
       "294619": "Filipendula hexapetala nom. inval.",
@@ -912,7 +912,7 @@
     "commonName": "Wild Strawberry",
     "organismKey": "NBNORG0000007881",
     "difficulty": "2",
-    "frequency": "59"
+    "frequency": "50"
   },
   {
     "id": "17200",
@@ -929,7 +929,7 @@
     "commonName": "Cleavers",
     "organismKey": "NBNORG0000008468",
     "difficulty": "1",
-    "frequency": "818"
+    "frequency": "820"
   },
   {
     "id": "27682",
@@ -937,7 +937,7 @@
     "taxon": "Galium mollugo",
     "commonName": "Hedge Bedstraw",
     "organismKey": "NBNORG0000008460",
-    "frequency": "67"
+    "frequency": "75"
   },
   {
     "id": "42838",
@@ -946,7 +946,7 @@
     "commonName": "Woodruff",
     "organismKey": "NBNORG0000008458",
     "difficulty": "2",
-    "frequency": "27",
+    "frequency": "21",
     "synonym": {
       "42839": "Asperula odorata"
     }
@@ -958,7 +958,7 @@
     "commonName": "Heath Bedstraw",
     "organismKey": "NBNORG0000008462",
     "difficulty": "2",
-    "frequency": "51",
+    "frequency": "52",
     "synonym": {
       "76789": "Galium harcynicum",
       "76790": "Galium hercynicum",
@@ -972,7 +972,7 @@
     "commonName": "Lady's Bedstraw",
     "organismKey": "NBNORG0000008461",
     "difficulty": "2",
-    "frequency": "140",
+    "frequency": "163",
     "synonym": {
       "5589": "Galium verum subsp. maritimum"
     }
@@ -984,7 +984,7 @@
     "commonName": "Herb-Robert",
     "organismKey": "NBNORG0000007740",
     "difficulty": "1",
-    "frequency": "540"
+    "frequency": "535"
   },
   {
     "id": "172912",
@@ -993,7 +993,7 @@
     "commonName": "Herb Bennet",
     "organismKey": "NBNORG0000007882",
     "difficulty": "1",
-    "frequency": "568"
+    "frequency": "574"
   },
   {
     "id": "6454",
@@ -1015,7 +1015,7 @@
     "commonName": "Ground-ivy",
     "organismKey": "NBNORG0000008418",
     "difficulty": "1",
-    "frequency": "158",
+    "frequency": "154",
     "synonym": {
       "14832": "Nepeta glechoma",
       "14833": "Nepeta hederacea",
@@ -1029,7 +1029,7 @@
     "commonName": "Ivy",
     "organismKey": "NBNORG0000008008",
     "difficulty": "1",
-    "frequency": "506"
+    "frequency": "493"
   },
   {
     "id": "94548",
@@ -1038,7 +1038,7 @@
     "commonName": "Common Rock-rose",
     "organismKey": "NBNORG0000054578",
     "difficulty": "2",
-    "frequency": "25",
+    "frequency": "26",
     "synonym": {
       "94550": "Helianthemum bickhami",
       "94551": "Helianthemum chamaecistus",
@@ -1056,7 +1056,7 @@
     "commonName": "Hogweed",
     "organismKey": "NBNORG0000008070",
     "difficulty": "1",
-    "frequency": "719"
+    "frequency": "717"
   },
   {
     "id": "60677",
@@ -1065,7 +1065,7 @@
     "commonName": "Horseshoe Vetch",
     "organismKey": "NBNORG0000007824",
     "difficulty": "2",
-    "frequency": "14"
+    "frequency": "13"
   },
   {
     "id": "136466",
@@ -1083,7 +1083,7 @@
     "commonName": "Bluebell",
     "organismKey": "NBNORG0000007168",
     "difficulty": "1",
-    "frequency": "240",
+    "frequency": "197",
     "synonym": {
       "227940": "Endymion non-scripta",
       "227941": "Endymion non-scriptus",
@@ -1108,7 +1108,7 @@
     "commonName": "Marsh Pennywort",
     "organismKey": "NBNORG0000008011",
     "difficulty": "2",
-    "frequency": "17"
+    "frequency": "20"
   },
   {
     "id": "94790",
@@ -1117,7 +1117,7 @@
     "commonName": "Holly",
     "organismKey": "NBNORG0000007758",
     "difficulty": "1",
-    "frequency": "613"
+    "frequency": "591"
   },
   {
     "id": "184836",
@@ -1126,7 +1126,7 @@
     "commonName": "Indian Balsam",
     "organismKey": "NBNORG0000007754",
     "difficulty": "1",
-    "frequency": "233",
+    "frequency": "254",
     "synonym": {
       "184837": "Impatiens roylei nom. illegit."
     }
@@ -1138,7 +1138,7 @@
     "commonName": "Yellow Iris",
     "organismKey": "NBNORG0000007225",
     "difficulty": "2",
-    "frequency": "221"
+    "frequency": "225"
   },
   {
     "id": "473047",
@@ -1146,7 +1146,7 @@
     "taxon": "Jacobaea vulgaris",
     "commonName": "Common Ragwort",
     "organismKey": "NBNORG0000008503",
-    "frequency": "679",
+    "frequency": "714",
     "synonym": {
       "246045": "Senecio jacobaea",
       "246046": "Senecio jacobaea subsp. dunensis",
@@ -1182,7 +1182,7 @@
     "commonName": "Sharp-leaved Fluellen",
     "organismKey": "NBNORG0000008292",
     "difficulty": "2",
-    "frequency": "1",
+    "frequency": "4",
     "synonym": {
       "123656": "Linaria elatine",
       "123657": "Antirrhinum elatine"
@@ -1195,7 +1195,7 @@
     "commonName": "Yellow Archangel",
     "organismKey": "NBNORG0000055006",
     "difficulty": "2",
-    "frequency": "22",
+    "frequency": "15",
     "synonym": {
       "295964": "Galeobdolon luteum"
     }
@@ -1207,7 +1207,7 @@
     "commonName": "Meadow Vetchling",
     "organismKey": "NBNORG0000007844",
     "difficulty": "2",
-    "frequency": "117"
+    "frequency": "130"
   },
   {
     "id": "153045",
@@ -1216,7 +1216,7 @@
     "commonName": "Ivy-leaved Duckweed",
     "organismKey": "NBNORG0000007255",
     "difficulty": "2",
-    "frequency": "3",
+    "frequency": "4",
     "synonym": {
       "153046": "Lemna trisculca"
     }
@@ -1228,7 +1228,7 @@
     "commonName": "Oxeye Daisy",
     "organismKey": "NBNORG0000008577",
     "difficulty": "2",
-    "frequency": "211",
+    "frequency": "223",
     "synonym": {
       "65198": "Chrysanthemum leucanthemum"
     }
@@ -1248,7 +1248,7 @@
     "commonName": "Fairy Flax",
     "organismKey": "NBNORG0000007725",
     "difficulty": "2",
-    "frequency": "20"
+    "frequency": "23"
   },
   {
     "id": "161702",
@@ -1257,7 +1257,7 @@
     "commonName": "Shoreweed",
     "organismKey": "NBNORG0000008436",
     "difficulty": "2",
-    "frequency": "5",
+    "frequency": "4",
     "synonym": {
       "161703": "Littorella lacustris",
       "161704": "Plantago uniflora"
@@ -1270,7 +1270,7 @@
     "commonName": "Honeysuckle",
     "organismKey": "NBNORG0000008480",
     "difficulty": "2",
-    "frequency": "175"
+    "frequency": "170"
   },
   {
     "id": "162799",
@@ -1279,7 +1279,7 @@
     "commonName": "Common Bird's-foot-trefoil",
     "organismKey": "NBNORG0000007807",
     "difficulty": "1",
-    "frequency": "439"
+    "frequency": "456"
   },
   {
     "id": "253426",
@@ -1288,7 +1288,7 @@
     "commonName": "Greater Bird's-foot-trefoil",
     "organismKey": "NBNORG0000007808",
     "difficulty": "2",
-    "frequency": "59",
+    "frequency": "75",
     "synonym": {
       "253427": "Lotus major auct.",
       "253428": "Lotus uliginosus",
@@ -1302,7 +1302,7 @@
     "commonName": "Gypsywort",
     "organismKey": "NBNORG0000008379",
     "difficulty": "2",
-    "frequency": "58"
+    "frequency": "74"
   },
   {
     "id": "81273",
@@ -1311,7 +1311,7 @@
     "commonName": "American Skunk-cabbage",
     "organismKey": "NBNORG0000055222",
     "difficulty": "3",
-    "frequency": "8"
+    "frequency": "6"
   },
   {
     "id": "236249",
@@ -1320,7 +1320,7 @@
     "commonName": "Yellow Pimpernel",
     "organismKey": "NBNORG0000008207",
     "difficulty": "2",
-    "frequency": "36"
+    "frequency": "30"
   },
   {
     "id": "189280",
@@ -1329,7 +1329,7 @@
     "commonName": "Yellow Loosestrife",
     "organismKey": "NBNORG0000008209",
     "difficulty": "2",
-    "frequency": "22"
+    "frequency": "24"
   },
   {
     "id": "144491",
@@ -1338,7 +1338,7 @@
     "commonName": "Purple-loosestrife",
     "organismKey": "NBNORG0000007970",
     "difficulty": "1",
-    "frequency": "103"
+    "frequency": "113"
   },
   {
     "id": "61602",
@@ -1347,7 +1347,7 @@
     "commonName": "Wood Melick",
     "organismKey": "NBNORG0000007364",
     "difficulty": "2",
-    "frequency": "35"
+    "frequency": "32"
   },
   {
     "id": "218143",
@@ -1356,7 +1356,7 @@
     "commonName": "Water Mint",
     "organismKey": "NBNORG0000008376",
     "difficulty": "2",
-    "frequency": "119"
+    "frequency": "120"
   },
   {
     "id": "231850",
@@ -1365,7 +1365,7 @@
     "commonName": "Bogbean",
     "organismKey": "NBNORG0000008231",
     "difficulty": "2",
-    "frequency": "19"
+    "frequency": "21"
   },
   {
     "id": "225797",
@@ -1374,7 +1374,7 @@
     "commonName": "Dog's Mercury",
     "organismKey": "NBNORG0000008079",
     "difficulty": "1",
-    "frequency": "119"
+    "frequency": "98"
   },
   {
     "id": "257458",
@@ -1383,7 +1383,7 @@
     "commonName": "Three-nerved Sandwort",
     "organismKey": "NBNORG0000007666",
     "difficulty": "2",
-    "frequency": "41",
+    "frequency": "37",
     "synonym": {
       "257459": "Arenaria trinervia"
     }
@@ -1395,7 +1395,7 @@
     "commonName": "Bog Asphodel",
     "organismKey": "NBNORG0000055395",
     "difficulty": "2",
-    "frequency": "15",
+    "frequency": "16",
     "synonym": {
       "21263": "Anthericum ossifragum"
     }
@@ -1407,7 +1407,7 @@
     "commonName": "Yellow Water-lily",
     "organismKey": "NBNORG0000055473",
     "difficulty": "1",
-    "frequency": "41",
+    "frequency": "42",
     "synonym": {
       "200575": "Nymphaea lutea"
     }
@@ -1419,7 +1419,7 @@
     "commonName": "White Water-lily",
     "organismKey": "NBNORG0000007473",
     "difficulty": "1",
-    "frequency": "26",
+    "frequency": "28",
     "synonym": {
       "18677": "Castalia alba"
     }
@@ -1431,7 +1431,7 @@
     "commonName": "Adder's-tongue",
     "organismKey": "NBNORG0000007111",
     "difficulty": "2",
-    "frequency": "17",
+    "frequency": "13",
     "synonym": {
       "39067": "Ophioglossum vulgatum subsp. vulgatum",
       "39068": "Ophioglossum ovatum nom. illegit.",
@@ -1445,7 +1445,7 @@
     "commonName": "Early-purple Orchid",
     "organismKey": "NBNORG0000007250",
     "difficulty": "2",
-    "frequency": "98",
+    "frequency": "67",
     "synonym": {
       "167990": "Orchis morio var. mascula"
     }
@@ -1457,7 +1457,7 @@
     "commonName": "Wild Marjoram",
     "organismKey": "NBNORG0000008380",
     "difficulty": "2",
-    "frequency": "33"
+    "frequency": "27"
   },
   {
     "id": "99912",
@@ -1466,7 +1466,7 @@
     "commonName": "Royal Fern",
     "organismKey": "NBNORG0000007072",
     "difficulty": "2",
-    "frequency": "8",
+    "frequency": "7",
     "synonym": {
       "99913": "Ophioglossum osmunda nom. illegit.",
       "99914": "Struthiopteris regalis"
@@ -1479,7 +1479,7 @@
     "commonName": "Wood-sorrel",
     "organismKey": "NBNORG0000007741",
     "difficulty": "1",
-    "frequency": "101"
+    "frequency": "91"
   },
   {
     "id": "141369",
@@ -1500,7 +1500,7 @@
     "commonName": "Amphibious Bistort",
     "organismKey": "NBNORG0000055702",
     "difficulty": "2",
-    "frequency": "43",
+    "frequency": "49",
     "synonym": {
       "115333": "Polygonum amphibia",
       "115334": "Polygonum amphibium"
@@ -1513,7 +1513,7 @@
     "commonName": "Common Bistort",
     "organismKey": "NBNORG0000008100",
     "difficulty": "2",
-    "frequency": "9",
+    "frequency": "10",
     "synonym": {
       "21973": "Polygonum bistorta",
       "21974": "Bistorta officinalis",
@@ -1526,7 +1526,7 @@
     "taxon": "Phyllitis scolopendrium",
     "commonName": "Hart's-tongue",
     "organismKey": "NBNORG0000007080",
-    "frequency": "251",
+    "frequency": "223",
     "synonym": {
       "21950": "Aspelenium scolopendrium",
       "21951": "Asplenium scolopendrium",
@@ -1549,7 +1549,7 @@
     "commonName": "Mouse-ear-hawkweed",
     "organismKey": "NBNORG0000055584",
     "difficulty": "2",
-    "frequency": "81",
+    "frequency": "75",
     "synonym": {
       "24336": "Hieracium pilosella",
       "24337": "Pilosella officinarum subsp. euronota",
@@ -1593,7 +1593,7 @@
     "commonName": "Common Butterwort",
     "organismKey": "NBNORG0000008368",
     "difficulty": "2",
-    "frequency": "9"
+    "frequency": "15"
   },
   {
     "id": "65521",
@@ -1602,7 +1602,7 @@
     "commonName": "Buck's-horn Plantain",
     "organismKey": "NBNORG0000008434",
     "difficulty": "2",
-    "frequency": "279",
+    "frequency": "276",
     "synonym": {
       "65522": "Plantago sabrinae",
       "305199": "Plantago sabrinae"
@@ -1615,7 +1615,7 @@
     "commonName": "Ribwort Plantain",
     "organismKey": "NBNORG0000008432",
     "difficulty": "1",
-    "frequency": "962",
+    "frequency": "990",
     "synonym": {
       "227039": "Plantago timbali"
     }
@@ -1627,7 +1627,7 @@
     "commonName": "Sea Plantain",
     "organismKey": "NBNORG0000008433",
     "difficulty": "2",
-    "frequency": "106",
+    "frequency": "107",
     "synonym": {
       "146389": "Plantago edmondstonii",
       "146390": "Plantago hudsoniana"
@@ -1640,7 +1640,7 @@
     "commonName": "Hoary Plantain",
     "organismKey": "NBNORG0000008431",
     "difficulty": "2",
-    "frequency": "22"
+    "frequency": "13"
   },
   {
     "id": "367433",
@@ -1659,7 +1659,7 @@
     "commonName": "Curled Pondweed",
     "organismKey": "NBNORG0000007142",
     "difficulty": "2",
-    "frequency": "0"
+    "frequency": "1"
   },
   {
     "id": "223905",
@@ -1681,7 +1681,7 @@
     "commonName": "Silverweed",
     "organismKey": "NBNORG0000007871",
     "difficulty": "1",
-    "frequency": "238"
+    "frequency": "235"
   },
   {
     "id": "182983",
@@ -1690,7 +1690,7 @@
     "commonName": "Tormentil",
     "organismKey": "NBNORG0000007877",
     "difficulty": "2",
-    "frequency": "81",
+    "frequency": "82",
     "synonym": {
       "182984": "Potentilla silvestris",
       "182985": "Potentilla tormentilla",
@@ -1703,7 +1703,7 @@
     "taxon": "Potentilla palustris",
     "commonName": "Marsh Cinquefoil",
     "organismKey": "NBNORG0000007868",
-    "frequency": "19",
+    "frequency": "11",
     "synonym": {
       "252489": "Comarum palustre",
       "252490": "Potentilla comarum"
@@ -1716,7 +1716,7 @@
     "commonName": "Creeping Cinquefoil",
     "organismKey": "NBNORG0000007878",
     "difficulty": "1",
-    "frequency": "148"
+    "frequency": "162"
   },
   {
     "id": "168857",
@@ -1725,7 +1725,7 @@
     "commonName": "Barren Strawberry",
     "organismKey": "NBNORG0000007869",
     "difficulty": "2",
-    "frequency": "67",
+    "frequency": "59",
     "synonym": {
       "168858": "Potentilla fragariastrum",
       "168859": "Fragaria sterilis"
@@ -1737,7 +1737,7 @@
     "taxon": "Poterium sanguisorba",
     "commonName": "Salad Burnet",
     "organismKey": "NBNORG0000008763",
-    "frequency": "39",
+    "frequency": "40",
     "synonym": {
       "28263": "Sanguisorba minor"
     }
@@ -1749,7 +1749,7 @@
     "commonName": "Cowslip",
     "organismKey": "NBNORG0000008203",
     "difficulty": "1",
-    "frequency": "156"
+    "frequency": "142"
   },
   {
     "id": "135625",
@@ -1758,7 +1758,7 @@
     "commonName": "Primrose",
     "organismKey": "NBNORG0000055871",
     "difficulty": "1",
-    "frequency": "154",
+    "frequency": "123",
     "synonym": {
       "135627": "Primula acaulis",
       "135628": "Primula veris var. acaulis"
@@ -1771,7 +1771,7 @@
     "commonName": "Selfheal",
     "organismKey": "NBNORG0000008395",
     "difficulty": "1",
-    "frequency": "228"
+    "frequency": "264"
   },
   {
     "id": "182291",
@@ -1780,7 +1780,7 @@
     "commonName": "Blackthorn",
     "organismKey": "NBNORG0000007909",
     "difficulty": "2",
-    "frequency": "494"
+    "frequency": "483"
   },
   {
     "id": "126582",
@@ -1789,7 +1789,7 @@
     "commonName": "Bracken",
     "organismKey": "NBNORG0000007075",
     "difficulty": "1",
-    "frequency": "223",
+    "frequency": "222",
     "synonym": {
       "126583": "Eupteris aquilina",
       "126584": "Pteris aquilina",
@@ -1814,7 +1814,7 @@
     "commonName": "Meadow Buttercup",
     "organismKey": "NBNORG0000007438",
     "difficulty": "2",
-    "frequency": "278"
+    "frequency": "289"
   },
   {
     "id": "194176",
@@ -1823,7 +1823,7 @@
     "commonName": "Bulbous Buttercup",
     "organismKey": "NBNORG0000007440",
     "difficulty": "2",
-    "frequency": "59",
+    "frequency": "54",
     "synonym": {
       "194177": "Ranunculus aleae auct.",
       "194178": "Ranunculus bulbosus subsp. bulbifer",
@@ -1837,7 +1837,7 @@
     "commonName": "Creeping Buttercup",
     "organismKey": "NBNORG0000007439",
     "difficulty": "1",
-    "frequency": "706"
+    "frequency": "719"
   },
   {
     "id": "162160",
@@ -1868,7 +1868,7 @@
     "commonName": "Wild Mignonette",
     "organismKey": "NBNORG0000007583",
     "difficulty": "2",
-    "frequency": "17",
+    "frequency": "18",
     "synonym": {
       "103635": "Reseda stricta auct."
     }
@@ -1880,7 +1880,7 @@
     "commonName": "Weld",
     "organismKey": "NBNORG0000007582",
     "difficulty": "2",
-    "frequency": "42"
+    "frequency": "38"
   },
   {
     "id": "132696",
@@ -1889,7 +1889,7 @@
     "commonName": "Yellow-rattle",
     "organismKey": "NBNORG0000008333",
     "difficulty": "2",
-    "frequency": "92",
+    "frequency": "99",
     "synonym": {
       "132697": "Rhinanthus borealis",
       "132698": "Rhinanthus crista-galli auct.",
@@ -1905,7 +1905,7 @@
     "taxon": "Rhododendron ponticum",
     "organismKey": "NBNORG0000008176",
     "difficulty": "2",
-    "frequency": "180",
+    "frequency": "177",
     "synonym": {
       "439598": "Rhododendron",
       "439599": "Rhododendron ponticum ponticum",
@@ -1919,7 +1919,7 @@
     "commonName": "Japanese Rose",
     "organismKey": "NBNORG0000056025",
     "difficulty": "2",
-    "frequency": "91"
+    "frequency": "93"
   },
   {
     "id": "176122",
@@ -1928,7 +1928,7 @@
     "commonName": "Bramble",
     "organismKey": "NBNORG0000007865",
     "difficulty": "1",
-    "frequency": "1334"
+    "frequency": "1331"
   },
   {
     "id": "55529",
@@ -1937,7 +1937,7 @@
     "commonName": "Common Sorrel",
     "organismKey": "NBNORG0000008109",
     "difficulty": "1",
-    "frequency": "178"
+    "frequency": "173"
   },
   {
     "id": "247416",
@@ -1946,7 +1946,7 @@
     "commonName": "Sheep's Sorrel",
     "organismKey": "NBNORG0000008108",
     "difficulty": "1",
-    "frequency": "79"
+    "frequency": "86"
   },
   {
     "id": "57432",
@@ -1955,7 +1955,7 @@
     "commonName": "Curled Dock",
     "organismKey": "NBNORG0000008118",
     "difficulty": "1",
-    "frequency": "303"
+    "frequency": "307"
   },
   {
     "id": "367146",
@@ -1974,7 +1974,7 @@
     "commonName": "Arrowhead",
     "organismKey": "NBNORG0000007118",
     "difficulty": "2",
-    "frequency": "8"
+    "frequency": "5"
   },
   {
     "id": "142912",
@@ -1983,7 +1983,7 @@
     "commonName": "Creeping Willow",
     "organismKey": "NBNORG0000008166",
     "difficulty": "2",
-    "frequency": "21",
+    "frequency": "16",
     "synonym": {
       "142913": "Salix arenaria",
       "142914": "Salix repens subsp. argentea",
@@ -1997,7 +1997,7 @@
     "commonName": "Great Burnet",
     "organismKey": "NBNORG0000007900",
     "difficulty": "2",
-    "frequency": "19",
+    "frequency": "17",
     "synonym": {
       "233980": "Poterium officinale",
       "295029": "Poterium officinale"
@@ -2010,7 +2010,7 @@
     "commonName": "Sanicle",
     "organismKey": "NBNORG0000008012",
     "difficulty": "2",
-    "frequency": "42"
+    "frequency": "39"
   },
   {
     "id": "52925",
@@ -2019,7 +2019,7 @@
     "commonName": "Meadow Saxifrage",
     "organismKey": "NBNORG0000007951",
     "difficulty": "2",
-    "frequency": "26"
+    "frequency": "19"
   },
   {
     "id": "79848",
@@ -2028,7 +2028,7 @@
     "commonName": "Purple Saxifrage",
     "organismKey": "NBNORG0000007958",
     "difficulty": "2",
-    "frequency": "3"
+    "frequency": "1"
   },
   {
     "id": "217197",
@@ -2037,7 +2037,7 @@
     "commonName": "Rue-leaved Saxifrage",
     "organismKey": "NBNORG0000007950",
     "difficulty": "2",
-    "frequency": "30"
+    "frequency": "16"
   },
   {
     "id": "53512",
@@ -2046,7 +2046,7 @@
     "commonName": "Lesser Skullcap",
     "organismKey": "NBNORG0000056411",
     "difficulty": "2",
-    "frequency": "3"
+    "frequency": "4"
   },
   {
     "id": "118198",
@@ -2070,7 +2070,7 @@
     "commonName": "Field Madder",
     "organismKey": "NBNORG0000008454",
     "difficulty": "2",
-    "frequency": "37",
+    "frequency": "26",
     "synonym": {
       "249276": "Sherardia arvensis subsp. maritima"
     }
@@ -2082,7 +2082,7 @@
     "commonName": "Red Campion",
     "organismKey": "NBNORG0000007628",
     "difficulty": "1",
-    "frequency": "428",
+    "frequency": "407",
     "synonym": {
       "230420": "Lychnis dioica",
       "230421": "Melandrium dioicum",
@@ -2098,7 +2098,7 @@
     "taxon": "Silene flos-cuculi",
     "commonName": "Ragged-Robin",
     "organismKey": "NBNORG0000007631",
-    "frequency": "73",
+    "frequency": "81",
     "synonym": {
       "159941": "Lychnis flos-cuculi"
     }
@@ -2110,7 +2110,7 @@
     "commonName": "White Campion",
     "organismKey": "NBNORG0000056485",
     "difficulty": "1",
-    "frequency": "64",
+    "frequency": "70",
     "synonym": {
       "72860": "Lychnis vespertina"
     }
@@ -2122,7 +2122,7 @@
     "commonName": "Bittersweet",
     "organismKey": "NBNORG0000008268",
     "difficulty": "1",
-    "frequency": "95"
+    "frequency": "102"
   },
   {
     "id": "10546",
@@ -2131,7 +2131,7 @@
     "commonName": "Rowan",
     "organismKey": "NBNORG0000007923",
     "difficulty": "2",
-    "frequency": "277",
+    "frequency": "274",
     "synonym": {
       "10547": "Pyrus aucuparia"
     }
@@ -2142,7 +2142,7 @@
     "taxon": "Stachys officinalis",
     "commonName": "Betony",
     "organismKey": "NBNORG0000056615",
-    "frequency": "36",
+    "frequency": "48",
     "synonym": {
       "178904": "Betonica officinalis",
       "178905": "Stachys betonica"
@@ -2155,7 +2155,7 @@
     "commonName": "Lesser Stitchwort",
     "organismKey": "NBNORG0000007657",
     "difficulty": "1",
-    "frequency": "58"
+    "frequency": "72"
   },
   {
     "id": "143956",
@@ -2164,7 +2164,7 @@
     "commonName": "Greater Stitchwort",
     "organismKey": "NBNORG0000007656",
     "difficulty": "1",
-    "frequency": "120"
+    "frequency": "99"
   },
   {
     "id": "41733",
@@ -2173,7 +2173,7 @@
     "commonName": "Common Chickweed",
     "organismKey": "NBNORG0000056621",
     "difficulty": "2",
-    "frequency": "297",
+    "frequency": "296",
     "synonym": {
       "41735": "Alsine media",
       "41736": "Alsinula media nom. inval.",
@@ -2187,7 +2187,7 @@
     "commonName": "Devil's-bit Scabious",
     "organismKey": "NBNORG0000008493",
     "difficulty": "2",
-    "frequency": "48",
+    "frequency": "44",
     "synonym": {
       "234978": "Scabiosa succisa"
     }
@@ -2199,7 +2199,7 @@
     "commonName": "Snowberry",
     "organismKey": "NBNORG0000056650",
     "difficulty": "2",
-    "frequency": "80",
+    "frequency": "89",
     "synonym": {
       "173744": "Symphoricarpos racemosus",
       "173745": "Symphoricarpos rivularis",
@@ -2219,7 +2219,7 @@
     "commonName": "Wood Sage",
     "organismKey": "NBNORG0000008426",
     "difficulty": "2",
-    "frequency": "71"
+    "frequency": "76"
   },
   {
     "id": "366722",
@@ -2238,7 +2238,7 @@
     "commonName": "Red Clover",
     "organismKey": "NBNORG0000007784",
     "difficulty": "1",
-    "frequency": "243"
+    "frequency": "269"
   },
   {
     "id": "88950",
@@ -2247,7 +2247,7 @@
     "commonName": "White Clover",
     "organismKey": "NBNORG0000007798",
     "difficulty": "1",
-    "frequency": "502",
+    "frequency": "540",
     "synonym": {
       "88951": "Amoria repens"
     }
@@ -2268,7 +2268,7 @@
     "commonName": "Bulrush",
     "organismKey": "NBNORG0000007261",
     "difficulty": "2",
-    "frequency": "131"
+    "frequency": "136"
   },
   {
     "id": "212746",
@@ -2277,7 +2277,7 @@
     "commonName": "Gorse",
     "organismKey": "NBNORG0000007770",
     "difficulty": "1",
-    "frequency": "260"
+    "frequency": "244"
   },
   {
     "id": "366520",
@@ -2296,7 +2296,7 @@
     "commonName": "Common Nettle",
     "organismKey": "NBNORG0000008131",
     "difficulty": "1",
-    "frequency": "1251",
+    "frequency": "1268",
     "synonym": {
       "113837": "Urtica hispida",
       "113838": "Urtica dioica intermediate ssp.",
@@ -2312,7 +2312,7 @@
     "commonName": "Bilberry",
     "organismKey": "NBNORG0000008194",
     "difficulty": "1",
-    "frequency": "80"
+    "frequency": "64"
   },
   {
     "id": "99583",
@@ -2321,7 +2321,7 @@
     "commonName": "Cranberry",
     "organismKey": "NBNORG0000008196",
     "difficulty": "2",
-    "frequency": "8",
+    "frequency": "5",
     "synonym": {
       "99584": "Oxycoccos oxycoccos",
       "99585": "Oxycoccos palustris",
@@ -2338,7 +2338,7 @@
     "commonName": "Cowberry",
     "organismKey": "NBNORG0000008193",
     "difficulty": "2",
-    "frequency": "12",
+    "frequency": "6",
     "synonym": {
       "228207": "Rhodococcum vitis-idaea"
     }
@@ -2359,7 +2359,7 @@
     "commonName": "Common Valerian",
     "organismKey": "NBNORG0000008486",
     "difficulty": "2",
-    "frequency": "35",
+    "frequency": "47",
     "synonym": {
       "58142": "Valeriana officinalis subsp. sambucifolia",
       "58143": "Valeriana officinalis subsp. collina",
@@ -2375,7 +2375,7 @@
     "commonName": "Wall Speedwell",
     "organismKey": "NBNORG0000008323",
     "difficulty": "2",
-    "frequency": "58"
+    "frequency": "57"
   },
   {
     "id": "102962",
@@ -2384,7 +2384,7 @@
     "commonName": "Heath Speedwell",
     "organismKey": "NBNORG0000008313",
     "difficulty": "2",
-    "frequency": "42"
+    "frequency": "30"
   },
   {
     "id": "72391",
@@ -2393,7 +2393,7 @@
     "commonName": "Tufted Vetch",
     "organismKey": "NBNORG0000007828",
     "difficulty": "2",
-    "frequency": "129"
+    "frequency": "141"
   },
   {
     "id": "231208",
@@ -2402,7 +2402,7 @@
     "commonName": "Hairy Tare",
     "organismKey": "NBNORG0000007826",
     "difficulty": "2",
-    "frequency": "66",
+    "frequency": "72",
     "synonym": {
       "231209": "Ervum hirsutum"
     }
@@ -2414,7 +2414,7 @@
     "commonName": "Field Pansy",
     "organismKey": "NBNORG0000007593",
     "difficulty": "1",
-    "frequency": "22",
+    "frequency": "25",
     "synonym": {
       "236467": "Viola agrestis auct.",
       "236468": "Viola anglica",
@@ -2436,16 +2436,13 @@
     "commonName": "Marsh Violet",
     "organismKey": "NBNORG0000007590",
     "difficulty": "2",
-    "frequency": "15"
+    "frequency": "12"
   },
   {
     "id": "84312",
     "taxonGroup": "89",
     "taxon": "Viola reichenbachiana/riviniana",
     "organismKey": "NBNORG0000091471",
-    "frequency": "0",
-    "synonym": {
-      "636067": "Common Dog-violet / Early Dog-violet"
-    }
+    "frequency": "0"
   }
 ]
