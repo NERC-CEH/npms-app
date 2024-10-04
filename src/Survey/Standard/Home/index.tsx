@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { observer } from 'mobx-react';
 import { Header, Page, useToast } from '@flumens';
 import { NavContext } from '@ionic/react';
-import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
