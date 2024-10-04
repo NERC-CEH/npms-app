@@ -4,7 +4,7 @@
 import { observer } from 'mobx-react';
 import { useRouteMatch } from 'react-router';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
-import { Block, Header, Main, Page } from 'common/flumens';
+import { Block, Header, InfoMessage, Main, Page } from 'common/flumens';
 import flowerIcon from 'common/images/flower.svg';
 import { byGrid } from 'common/models/occurrence';
 import Sample from 'common/models/sample';
@@ -68,8 +68,9 @@ const Details = ({ sample }: Props) => {
             <Block block={woodCoverAttr} {...recordAttrs} />
             <Block block={soilAttr} {...recordAttrs} />
             <Block block={rockCoverAttr} {...recordAttrs} />
-            <Block block={litterAttr} {...recordAttrs} />
             <Block block={lichensAttr} {...recordAttrs} />
+            <Block block={litterAttr} {...recordAttrs} />
+            <InfoMessage inline>Dead stems, leaves, twigs and wood</InfoMessage>
           </div>
 
           <h3 className="list-title">Other</h3>

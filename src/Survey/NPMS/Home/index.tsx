@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { observer } from 'mobx-react';
 import { Choice, Header, Page, useToast } from '@flumens';
 import { NavContext } from '@ionic/react';
-import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
@@ -23,6 +22,7 @@ const Controller = ({ sample }: Props) => {
   const { navigate, goBack } = useContext(NavContext);
   const showFinishPrompt = useFinishPrompt();
   const toast = useToast();
+
   const showEmptySpeciesCheck = useEmptySpeciesCheck();
   const checkUserStatus = useUserStatusCheck();
   const checkSampleStatus = useValidateCheck(sample);

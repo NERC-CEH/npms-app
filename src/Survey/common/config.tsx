@@ -93,7 +93,7 @@ export const coverAttr = {
 export const rockCoverAttr = {
   id: 'smpAttr:405',
   type: 'choice_input',
-  title: 'Bare rock',
+  title: 'Bare Rock/Gravel',
   prefix: listOutlineIcon,
   container: 'page',
   choices: dominCoverValues,

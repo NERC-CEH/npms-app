@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign, no-param-reassign */
 import { observer } from 'mobx-react';
-import { Header, Main, Page, Block } from 'common/flumens';
+import { Header, Main, Page, Block, InfoMessage } from 'common/flumens';
 import Sample from 'common/models/sample';
 import {
   MANAGEMENT_OTHER_VALUE,
@@ -32,8 +32,9 @@ const Management = ({ sample }: Props) => {
         <div className="rounded-list m-2">
           <Block block={soilAttr} {...recordAttrs} />
           <Block block={rockCoverAttr} {...recordAttrs} />
-          <Block block={litterAttr} {...recordAttrs} />
           <Block block={lichensAttr} {...recordAttrs} />
+          <Block block={litterAttr} {...recordAttrs} />
+          <InfoMessage inline>Dead stems, leaves, twigs and wood</InfoMessage>
           <Block block={managementAttr} {...recordAttrs} />
           {hasManagementOther && (
             <Block block={managementOtherAttr} {...recordAttrs} />
