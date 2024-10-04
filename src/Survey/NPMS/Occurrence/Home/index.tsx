@@ -10,12 +10,12 @@ type Props = { occurrence: Occurrence };
 
 const OccurrenceHome = ({ occurrence }: Props) => {
   const match = useRouteMatch();
-  const { navigate, goBack } = useContext(NavContext);
+  const { goBack } = useContext(NavContext);
 
   const onCoverChange = (cover: any) => {
     if (occurrence.isDisabled()) return;
 
-    const isUpdating = occurrence.attrs[coverAttr.id];
+    // const isUpdating = occurrence.attrs[coverAttr.id];
 
     // eslint-disable-next-line no-param-reassign
     occurrence.attrs[coverAttr.id] = cover;
@@ -23,11 +23,12 @@ const OccurrenceHome = ({ occurrence }: Props) => {
     let baseUrl: any = match.url.split('/');
     baseUrl.pop();
     baseUrl = baseUrl.join('/');
-    if (isUpdating) {
-      goBack();
-      return;
-    }
-    navigate(`${baseUrl}/search`, 'none', 'replace');
+    // if (isUpdating) {
+    //   goBack();
+    //   return;
+    // }
+    goBack();
+    // navigate(`${baseUrl}/search`, 'none', 'replace');
   };
 
   return (

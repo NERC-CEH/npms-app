@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useRouteMatch } from 'react-router';
+// import { useRouteMatch } from 'react-router';
 import { NavContext } from '@ionic/react';
 import { Header, Page } from 'common/flumens';
 import Occurrence from 'common/models/occurrence';
@@ -17,8 +17,8 @@ import Main from './Main';
 type Props = { sample: Sample; occurrence: Occurrence };
 
 const OccurrenceHome = ({ sample, occurrence }: Props) => {
-  const match = useRouteMatch();
-  const { navigate, goBack } = useContext(NavContext);
+  // const match = useRouteMatch();
+  const { goBack } = useContext(NavContext);
 
   const abundanceType = sample.attrs[abundanceAttr.id]!;
   const isPercentage = abundanceType === '18883';
@@ -26,13 +26,13 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
   const isFrequency = abundanceType === '18885';
   const isNotSingleChoice = isPercentage || isCount || isFrequency;
 
-  const navigateToNextSearch = () => {
-    let baseUrl: any = match.url.split('/');
-    baseUrl.pop();
-    baseUrl = baseUrl.join('/');
+  // const navigateToNextSearch = () => {
+  //   let baseUrl: any = match.url.split('/');
+  //   baseUrl.pop();
+  //   baseUrl = baseUrl.join('/');
 
-    navigate(`${baseUrl}/search`, 'none', 'replace');
-  };
+  //   navigate(`${baseUrl}/search`, 'none', 'replace');
+  // };
 
   const isUpdating = getCover(occurrence);
 
@@ -53,17 +53,16 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
 
     if (isNotSingleChoice) return;
 
-    if (isUpdating) {
-      goBack();
-      return;
-    }
+    // if (isUpdating) {
+    //   goBack();
+    //   return;
+    // }
+    goBack();
 
-    navigateToNextSearch();
+    // navigateToNextSearch();
   };
 
-  const nextButton = (
-    <HeaderButton onPress={navigateToNextSearch}>Next</HeaderButton>
-  );
+  const nextButton = <HeaderButton onPress={() => goBack()}>Done</HeaderButton>;
 
   return (
     <Page id="npms-occurrence-home">
