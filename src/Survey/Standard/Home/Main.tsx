@@ -9,6 +9,7 @@ import { byGrid } from 'common/models/occurrence';
 import Sample from 'models/sample';
 import MenuDateAttr from 'Survey/common/Components/MenuDateAttr';
 import UploadedRecordInfoMessage from 'Survey/common/Components/UploadedRecordInfoMessage';
+import { useTrainingAlert } from 'Survey/common/Components/hooks';
 import { groupAttr, locationAttr } from 'Survey/common/config';
 import { abundanceAttr, plotGroupAttr, speciesCommentsAttr } from '../config';
 
@@ -20,6 +21,7 @@ type Props = {
 const MainComponent = ({ sample, onShare }: Props) => {
   const match = useRouteMatch();
   const isDisabled = sample.isUploaded();
+  useTrainingAlert(sample.attrs.training);
 
   const hasGroup = !!sample.attrs[groupAttr().id];
 

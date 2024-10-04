@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Share } from '@capacitor/share';
 import config from 'common/config';
 import { Media, useAlert } from 'common/flumens';
@@ -74,4 +75,24 @@ export const useFinishPrompt = () => {
     });
 
   return showFinishPrompt;
+};
+
+export const useTrainingAlert = (isTraining?: boolean) => {
+  const alert = useAlert();
+
+  const showTrainingSurveyAlert = () => {
+    if (isTraining)
+      alert({
+        header: 'Training survey',
+        message:
+          'This is a training survey and will be excluded from all reports. To disable this for new surveys, visit the Settings page.',
+        buttons: [
+          {
+            text: 'OK',
+            role: 'cancel',
+          },
+        ],
+      });
+  };
+  useEffect(showTrainingSurveyAlert, []);
 };

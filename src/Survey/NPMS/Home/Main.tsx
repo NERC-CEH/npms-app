@@ -15,6 +15,7 @@ import Sample from 'models/sample';
 import MenuDateAttr from 'Survey/common/Components/MenuDateAttr';
 import PhotoPicker from 'Survey/common/Components/PhotoPicker';
 import UploadedRecordInfoMessage from 'Survey/common/Components/UploadedRecordInfoMessage';
+import { useTrainingAlert } from 'Survey/common/Components/hooks';
 import { groupAttr, locationAttr } from 'Survey/common/config';
 import {
   broadHabitatAttr as portalBroadHabitatAttr,
@@ -33,6 +34,8 @@ type Props = {
 };
 
 const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
+  useTrainingAlert(sample.attrs.training);
+
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
 
   const broadHabitatAttr = isNPMSPlus

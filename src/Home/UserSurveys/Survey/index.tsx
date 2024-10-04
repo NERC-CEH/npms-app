@@ -82,10 +82,17 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
     navigate(href);
   };
 
+  const isTraining = !!sample.attrs.training;
+
   return (
     <IonItemSliding className="survey-list-item" style={style}>
-      <IonItem onClick={openItem} detail={false}>
-        <div className="flex w-full flex-nowrap items-center gap-2">
+      <IonItem
+        onClick={openItem}
+        detail={false}
+        className="[--padding-start:0]"
+      >
+        {isTraining && <div className="h-full w-2 bg-black" />}
+        <div className="ml-5 flex w-full flex-nowrap items-center gap-2">
           <div className="flex w-full flex-col content-center gap-1 overflow-hidden">
             <h3 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-bold">
               <T>{survey.label}</T>

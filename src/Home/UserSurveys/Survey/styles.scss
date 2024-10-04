@@ -7,7 +7,6 @@ ion-item-sliding.survey-list-item {
   & > ion-item {
     --border-style: none;
     --min-height: var(--survey-item-height);
-    --padding-start: 12px;
     --inner-padding-end: 5px;
     --border-radius: var(--theme-border-radius);
   }
