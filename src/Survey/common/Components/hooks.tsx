@@ -61,7 +61,7 @@ export const useFinishPrompt = () => {
         message: 'Would you like to finish the survey?',
         buttons: [
           {
-            text: 'Cancel',
+            text: 'Leave',
             role: 'cancel',
             handler: () => resolve(false),
           },

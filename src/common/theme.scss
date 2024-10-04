@@ -95,47 +95,47 @@
 
 // status bar
 html.ios.plt-hybrid #status-bar-background {
-  background: var(--color-primary-800);
-  width: 100vw;
-  height: env(safe-area-inset-top);
   position: fixed;
   top: 0;
   z-index: 1000;
+  background: var(--color-primary-800);
+  width: 100vw;
+  height: env(safe-area-inset-top);
 }
 
 // FONTS START
 @font-face {
-  font-family: 'Museo';
-  src: url('./fonts/Museo100-Regular.ttf');
   font-weight: 300;
+  src: url('./fonts/Museo100-Regular.ttf');
+  font-family: 'Museo';
 }
 @font-face {
-  font-family: 'Museo';
-  src: url('./fonts/Museo300-Regular.ttf');
   font-weight: 100;
+  src: url('./fonts/Museo300-Regular.ttf');
+  font-family: 'Museo';
 }
 @font-face {
-  font-family: 'Museo';
-  src: url('./fonts/Museo500-Regular.ttf');
   font-weight: 500;
+  src: url('./fonts/Museo500-Regular.ttf');
+  font-family: 'Museo';
 }
 @font-face {
-  font-family: 'Museo';
-  src: url('./fonts/Museo700-Regular.ttf');
   font-weight: 700;
+  src: url('./fonts/Museo700-Regular.ttf');
+  font-family: 'Museo';
 }
 @font-face {
-  font-family: 'Museo';
-  src: url('./fonts/Museo900-Regular.ttf');
   font-weight: 900;
+  src: url('./fonts/Museo900-Regular.ttf');
+  font-family: 'Museo';
 }
 
 h1,
 ion-title,
 ion-card-title,
 .gallery-modal .title {
-  font-family: 'Museo';
   font-weight: 500;
+  font-family: 'Museo';
 }
 
 h2,
@@ -150,10 +150,10 @@ ion-footer ion-tab-button {
 // training subheader
 .training-survey {
   background: black;
-  text-align: center;
   padding: 4px;
   color: white;
   font-size: 0.8em;
+  text-align: center;
 }
 
 h1,

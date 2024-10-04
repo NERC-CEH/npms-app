@@ -7,7 +7,7 @@ const { P, H } = Section;
 const Credits = () => (
   <Page id="credits">
     <Header title="Credits" />
-    <Main className="ion-padding">
+    <Main >
       <Section>
         <img src={sponsorLogo} className="mx-auto block w-full max-w-xl" />
       </Section>

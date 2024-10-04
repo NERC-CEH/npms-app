@@ -120,7 +120,7 @@ const Controller = ({ sample }: Props) => {
   );
 
   const navigateBack = async (setIsLeaving: any) => {
-    if (isInvalid) {
+    if (isDisabled || isInvalid) {
       goBack();
       return;
     }

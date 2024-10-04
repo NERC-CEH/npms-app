@@ -7,33 +7,32 @@
       justify-content: end;
 
       .with-shadow {
+        position: relative;
         flex-grow: 1;
         width: 100%;
         overflow: hidden;
-        position: relative;
 
         img {
           position: absolute;
-          left: 0;
           top: 0;
+          left: 0;
           z-index: 1;
-          height: calc(100% - 11vw);
           width: 100%;
+          height: calc(100% - 11vw);
 
           &.shadow {
-            opacity: 0.5;
-            z-index: 0;
             transform: translateX(0px);
             transform: scale(1.23);
-            filter: blur(12px);
+            opacity: 0.5;
             opacity: 0.4;
+            z-index: 0;
+            filter: blur(12px);
           }
         }
       }
 
       img {
         flex-grow: 1;
-        object-fit: cover;
         // https://wave.novoselski.net/
         // Width: 509
         // Height: 437
@@ -98,6 +97,7 @@
           98% 94.48%,
           100% 93.98%
         );
+        object-fit: cover;
       }
 
       .message {

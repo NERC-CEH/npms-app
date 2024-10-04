@@ -76,7 +76,7 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
           onPress={onAddSecondSurvey}
           prefix={<IonIcon icon={addOutline} className="size-6" />}
           color="secondary"
-          className="mx-auto my-4"
+          className="mx-auto my-4 min-w-[200px]"
         >
           Add Survey 2
         </Button>
@@ -87,7 +87,7 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
           onPress={onShare}
           prefix={<IonIcon icon={shareSocialOutline} className="size-6" />}
           color="primary"
-          className="mx-auto my-4"
+          className="mx-auto my-4 min-w-[200px]"
         >
           Share
         </Button>

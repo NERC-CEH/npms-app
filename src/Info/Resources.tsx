@@ -5,7 +5,7 @@ const { H, P } = Section;
 export default () => (
   <Page id="resources">
     <Header title="Resources" />
-    <Main className="ion-padding">
+    <Main >
       <Section>
         <H>NPMS Resources</H>
         <P>

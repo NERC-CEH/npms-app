@@ -54,6 +54,7 @@ export {
   usePromptImageSource,
 } from '@flumens/ionic/dist/components/PhotoPicker';
 export { default as MenuAttrItem } from '@flumens/ionic/dist/components/MenuAttrItem';
+export { default as Gallery } from '@flumens/ionic/dist/components/Gallery';
 export {
   default as MenuAttrItemFromModel,
   type MenuProps as MenuAttrItemFromModelMenuProps,

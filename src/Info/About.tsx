@@ -5,7 +5,7 @@ const { P, H } = Section;
 const About = () => (
   <Page id="about">
     <Header title="About" />
-    <Main className="ion-padding">
+    <Main >
       <Section>
         <P>
           The National Plant Monitoring Scheme (NPMS) is a new habitat-based
