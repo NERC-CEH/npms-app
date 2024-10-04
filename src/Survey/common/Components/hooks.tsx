@@ -50,3 +50,28 @@ export const share = async (sample: Sample, text: string) => {
 
   Share.share(options);
 };
+
+export const useFinishPrompt = () => {
+  const alert = useAlert();
+
+  const showFinishPrompt = () =>
+    new Promise((resolve: any) => {
+      alert({
+        header: 'Finish survey',
+        message: 'Would you like to finish the survey?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => resolve(false),
+          },
+          {
+            text: 'Finish',
+            handler: () => resolve(true),
+          },
+        ],
+      });
+    });
+
+  return showFinishPrompt;
+};

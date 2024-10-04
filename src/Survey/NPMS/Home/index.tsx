@@ -6,7 +6,11 @@ import appModel from 'models/app';
 import Sample, { useValidateCheck } from 'models/sample';
 import { useUserStatusCheck } from 'models/user';
 import HeaderButton from 'Survey/common/Components/HeaderButton';
-import { share, useEmptySpeciesCheck } from 'Survey/common/Components/hooks';
+import {
+  share,
+  useEmptySpeciesCheck,
+  useFinishPrompt,
+} from 'Survey/common/Components/hooks';
 import { coverAttr } from 'Survey/common/config';
 import { broadHabitatAttr, noSpeciesAttr } from '../config';
 import Main from './Main';
@@ -16,7 +20,8 @@ type Props = {
 };
 
 const Controller = ({ sample }: Props) => {
-  const { navigate } = useContext(NavContext);
+  const { navigate, goBack } = useContext(NavContext);
+  const showFinishPrompt = useFinishPrompt();
   const toast = useToast();
   const showEmptySpeciesCheck = useEmptySpeciesCheck();
   const checkUserStatus = useUserStatusCheck();
@@ -114,11 +119,27 @@ const Controller = ({ sample }: Props) => {
     </div>
   );
 
+  const navigateBack = async (setIsLeaving: any) => {
+    if (isInvalid) {
+      goBack();
+      return;
+    }
+
+    const shouldFinish = await showFinishPrompt();
+    if (!shouldFinish) {
+      goBack();
+      return;
+    }
+    setIsLeaving(false);
+    onFinish();
+  };
+
   return (
     <Page id="npms-home">
       <Header
         title={`${level} Survey`}
         rightSlot={uploadButton}
+        onLeave={navigateBack}
         className="capitalize"
         subheader={trainingModeSubheader}
       />
