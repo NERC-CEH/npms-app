@@ -7,12 +7,64 @@ import {
   informationCircleOutline,
   helpBuoyOutline,
   openOutline,
+  fileTrayFullOutline,
 } from 'ionicons/icons';
 import { Trans as T } from 'react-i18next';
-import { Main, InfoMessage } from '@flumens';
+import { Main, InfoMessage, useAlert } from '@flumens';
 import { IonIcon, IonList, IonItem, IonButton } from '@ionic/react';
 import config from 'common/config';
 import './styles.scss';
+
+const useMyDataInfoAlert = (isPlantPortal: boolean) => {
+  const alert = useAlert();
+
+  function showMyDataInfo() {
+    if (isPlantPortal) {
+      alert({
+        header: 'My Data',
+        message: (
+          <>
+            If you are already signed in to your Plant Portal account online,
+            you can access all of your submitted data via the following link:
+            <br />
+            <br />
+            <a
+              href="https://plantportal.ceh.ac.uk/data-download"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://plantportal.ceh.ac.uk/data-download
+            </a>
+          </>
+        ),
+        buttons: [{ text: 'OK', role: 'cancel' }],
+      });
+      return;
+    }
+
+    alert({
+      header: 'My Data',
+      message: (
+        <>
+          If you are already signed in to your NPMS account online, you can
+          access all of your submitted data via the following link:
+          <br />
+          <br />
+          <a
+            href="https://www.npms.org.uk/content/my-visits"
+            target="_blank"
+            rel="noreferrer"
+          >
+            https://www.npms.org.uk/content/my-visits
+          </a>
+        </>
+      ),
+      buttons: [{ text: 'OK', role: 'cancel' }],
+    });
+  }
+
+  return showMyDataInfo;
+};
 
 type Props = {
   isPlantPortal: boolean;
@@ -29,6 +81,7 @@ const MenuMain = ({
   refreshAccount,
   resendVerificationEmail,
 }: Props) => {
+  const showMyDataInfo = useMyDataInfoAlert(isPlantPortal);
   const userName = `${user.firstName} ${user.lastName}`;
 
   const backendUrl = isPlantPortal
@@ -93,6 +146,10 @@ const MenuMain = ({
           <IonItem routerLink="/info/help" detail>
             <IonIcon icon={helpBuoyOutline} size="small" slot="start" />
             <T>Help</T>
+          </IonItem>
+          <IonItem onClick={showMyDataInfo} detail>
+            <IonIcon icon={fileTrayFullOutline} size="small" slot="start" />
+            <T>My Data</T>
           </IonItem>
           <IonItem routerLink="/info/resources" detail>
             <IonIcon
