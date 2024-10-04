@@ -3,67 +3,26 @@ import {
   personRemoveOutline,
   schoolOutline,
   shareOutline,
-  warningOutline,
 } from 'ionicons/icons';
-import { Main, useAlert, Toggle, InfoMessage } from '@flumens';
+import { Main, Toggle, InfoMessage } from '@flumens';
 import { IonIcon, IonList, IonItem, IonLabel } from '@ionic/react';
 import config from 'common/config';
-
-function useUserDeleteDialog(deleteUser: any, isPlantPortal: boolean) {
-  const alert = useAlert();
-  const url = isPlantPortal ? config.backend.ppUrl : config.backend.npmsUrl;
-
-  const showUserDeleteDialog = () => {
-    alert({
-      header: 'Account delete',
-      message: (
-        <>
-          Are you sure you want to delete your account?
-          <InfoMessage
-            color="danger"
-            prefix={<IonIcon src={warningOutline} />}
-            skipTranslation
-          >
-            This will remove your account on the <b>{{ url } as any}</b>{' '}
-            website. You will lose access to any records that you have
-            previously submitted using the app or website.
-          </InfoMessage>
-        </>
-      ),
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-        },
-        {
-          text: 'Delete',
-          role: 'destructive',
-          handler: deleteUser,
-        },
-      ],
-    });
-  };
-
-  return showUserDeleteDialog;
-}
 
 type Props = {
   onToggle: (prop: string, checked: boolean) => void;
   sendAnalytics: boolean;
   useTraining: boolean;
+  userId: any;
   isPlantPortal: boolean;
-  deleteUser: any;
 };
 
 const Menu = ({
   onToggle,
   useTraining,
-  isPlantPortal,
   sendAnalytics,
-  deleteUser,
+  isPlantPortal,
+  userId,
 }: Props) => {
-  const showUserDeleteDialog = useUserDeleteDialog(deleteUser, isPlantPortal);
-
   const onTrainingToggle = (checked: boolean) =>
     onToggle('useTraining', checked);
 
@@ -100,7 +59,12 @@ const Menu = ({
           <h3 className="list-title">Account</h3>
           <div className="destructive-item rounded-list">
             <>
-              <IonItem onClick={showUserDeleteDialog} className="!text-danger">
+              <IonItem
+                href={`mailto:support%40npms.org.uk?subject=Delete%20User%20Account%20Request&body=Please%20delete%20my%20${
+                  isPlantPortal ? 'PlantPortal' : 'NPMS'
+                }%20user%20account%20ID=${userId}.`}
+                className="!text-danger"
+              >
                 <IonIcon icon={personRemoveOutline} size="small" slot="start" />
                 <IonLabel>Delete account</IonLabel>
               </IonItem>
