@@ -82,7 +82,7 @@ const SurveyLocationMain = ({
                   href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
                   className="px-2 py-1 text-sm"
                 >
-                  Map
+                  Map PDF
                 </Button>
               )}
             </div>
