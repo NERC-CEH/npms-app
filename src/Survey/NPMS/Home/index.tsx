@@ -63,8 +63,6 @@ const Controller = ({ sample }: Props) => {
     sample.metadata.saved = true;
     sample.save();
 
-    appModel.attrs['draftId:npms'] = '';
-
     navigate(`/home/surveys`, 'root');
   };
 
