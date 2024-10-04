@@ -7,6 +7,21 @@ export default () => (
     <Header title="Resources" />
     <Main className="ion-padding">
       <Section>
+        <H>NPMS Resources</H>
+        <P>
+          <p>
+            <a href="https://www.npms.org.uk/content/resources">
+              Survey resources
+            </a>
+          </p>
+          <p>
+            <a href="https://www.npms.org.uk/content/online-training">
+              Online training
+            </a>
+          </p>
+        </P>
+      </Section>
+      <Section>
         <H>
           You may find the below apps useful for plant ID and field navigation.
         </H>
