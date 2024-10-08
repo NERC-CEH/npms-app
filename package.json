@@ -43,7 +43,6 @@
     "@ionic/react": "^8.3.2",
     "@ionic/react-router": "^8.3.2",
     "@sentry/browser": "7.93.0",
-    "@sentry/capacitor": "0.17.0",
     "@sentry/integrations": "7.93.0",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",

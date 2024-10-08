@@ -8,7 +8,6 @@ import { StatusBar, Style as StatusBarStyle } from '@capacitor/status-bar';
 import { sentryOptions } from '@flumens';
 import { setupIonicReact, isPlatform } from '@ionic/react';
 import * as SentryBrowser from '@sentry/browser';
-import * as Sentry from '@sentry/capacitor';
 import config from 'common/config';
 import appModel from 'models/app';
 import locations from 'models/collections/locations';
@@ -36,20 +35,17 @@ mobxConfig({ enforceActions: 'never' });
   await locations.ready;
 
   appModel.attrs.sendAnalytics &&
-    Sentry.init(
-      {
-        ...sentryOptions,
-        dsn: config.sentryDNS,
-        environment: config.environment,
-        release: config.version,
-        dist: config.build,
-        initialScope: {
-          user: { id: userModel.id },
-          tags: { session: appModel.attrs.appSession },
-        },
+    SentryBrowser.init({
+      ...sentryOptions,
+      dsn: config.sentryDNS,
+      environment: config.environment,
+      release: config.version,
+      dist: config.build,
+      initialScope: {
+        user: { id: userModel.id },
+        tags: { session: appModel.attrs.appSession },
       },
-      SentryBrowser.init
-    );
+    });
 
   appModel.attrs.appSession += 1;
 
