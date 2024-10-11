@@ -30,7 +30,7 @@ const ResetMain = ({ onSubmit }: Props) => {
           Enter your email address to request a password reset.
         </InfoMessage>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <div className="rounded-list">
             <ControlledInput
               control={control}
@@ -44,7 +44,7 @@ const ResetMain = ({ onSubmit }: Props) => {
           <Button
             className={clsx('mx-auto my-8', !formState.isValid && 'opacity-50')}
             color="primary"
-            type="submit"
+            onPress={() => handleSubmit(onSubmit)()}
           >
             Reset
           </Button>

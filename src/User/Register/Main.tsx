@@ -39,7 +39,7 @@ const RegisterMain = ({ onSubmit, isPlantPortal }: Props) => {
   return (
     <Main>
       <div className="mx-auto max-w-md px-3">
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-8">
+        <form className="mt-8">
           <div className="rounded-list">
             <ControlledInput
               control={control}
@@ -90,7 +90,7 @@ const RegisterMain = ({ onSubmit, isPlantPortal }: Props) => {
           <Button
             className={clsx('mx-auto mt-8', !formState.isValid && 'opacity-50')}
             color="primary"
-            type="submit"
+            onPress={() => handleSubmit(onSubmit)()}
           >
             Register
           </Button>

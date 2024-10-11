@@ -43,7 +43,7 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
           Please sign in with your account or register.
         </InfoMessage>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <div className="rounded-list">
             <ControlledInput
               control={control}
@@ -71,7 +71,7 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
           <Button
             className={clsx('mx-auto mt-7', !formState.isValid && 'opacity-50')}
             color="primary"
-            type="submit"
+            onPress={() => handleSubmit(onSubmit)()}
           >
             Sign in
           </Button>
