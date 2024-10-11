@@ -7,7 +7,7 @@ import {
   device,
 } from '@flumens';
 import CONFIG from 'common/config';
-import { genericStore } from './store';
+import { mainStore } from './store';
 
 export type Portal = 'npms' | 'pp';
 
@@ -127,7 +127,7 @@ export class UserModel extends DrupalUserModel {
 
 const userModel = new UserModel({
   cid: 'user',
-  store: genericStore,
+  store: mainStore,
   config: { ...CONFIG.backend, url: CONFIG.backend.npmsUrl },
 });
 

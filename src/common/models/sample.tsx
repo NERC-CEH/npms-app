@@ -34,7 +34,7 @@ import {
 } from 'Survey/common/config';
 import Media from './image';
 import Occurrence from './occurrence';
-import { modelStore } from './store';
+import { samplesStore } from './store';
 
 type Group = { id: string; name: string };
 type PlotGroup = { id: string; name: string };
@@ -109,7 +109,7 @@ export default class Sample extends SampleOriginal<Attrs, Metadata> {
   declare survey: Survey;
 
   constructor(options: SampleOptions) {
-    super({ store: modelStore, ...options });
+    super({ store: samplesStore, ...options });
 
     this.remote.url = `${config.backend.indicia.url}/index.php/services/rest`;
     // eslint-disable-next-line

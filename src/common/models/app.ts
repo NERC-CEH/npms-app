@@ -1,5 +1,5 @@
 import { Model, ModelAttrs } from '@flumens';
-import { genericStore } from './store';
+import { mainStore } from './store';
 
 export interface Attrs extends ModelAttrs {
   appSession: number;
@@ -28,6 +28,6 @@ class AppModel extends Model {
   }
 }
 
-const appModel = new AppModel({ cid: 'app', store: genericStore });
+const appModel = new AppModel({ cid: 'app', store: mainStore });
 
 export { appModel as default, AppModel };

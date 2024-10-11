@@ -1,5 +1,5 @@
 import { RouteWithModels, AttrPage } from '@flumens';
-import savedSamples from 'models/collections/samples';
+import samples from 'models/collections/samples';
 import StartNewSurvey from 'Survey/common/Components/StartNewSurvey';
 import TaxonSearchPage from 'Survey/common/Components/TaxonSearchPage';
 import Location from '../common/Components/Location';
@@ -28,4 +28,4 @@ const routes = [
   [`${baseURL}/:smpId/additional/:grid/occurrences/search`, TaxonSearchPage],
 ];
 
-export default RouteWithModels.fromArray(savedSamples, routes);
+export default RouteWithModels.fromArray(samples, routes);

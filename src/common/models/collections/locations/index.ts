@@ -1,19 +1,15 @@
 import { reaction, observable, observe } from 'mobx';
-import { device, Store, Collection } from '@flumens';
+import { device, Collection, CollectionOptions } from '@flumens';
 import userModel from 'models/user';
 import { Survey } from 'Survey/common/config';
 import Location from '../../location';
 import { locationsStore as store } from '../../store';
 import fetch from './service';
 
-type constructorOptions = {
-  id: string;
-  store: Store;
-  Model: typeof Location;
-};
-
 export class Locations extends Collection<Location> {
-  Model: typeof Location;
+  Model = Location;
+
+  store = store;
 
   _fetchedFirstTime = false;
 
@@ -21,22 +17,19 @@ export class Locations extends Collection<Location> {
     isFetching: false,
   });
 
-  constructor(options: constructorOptions) {
+  constructor(options: CollectionOptions<Location>) {
     super(options);
 
-    this.Model = options.Model;
+    const attachCollectionToModels = (change: any) => {
+      if (change.addedCount)
+        change.added.forEach((model: Location) => (model.collection = this)); // eslint-disable-line no-return-assign, no-param-reassign
 
-    // eslint-disable-next-line @getify/proper-arrows/name
-    observe(this, (change: any) => {
-      if (change.addedCount) {
-        const attachCollection = (model: Location) => {
-          model.collection = this; // eslint-disable-line no-param-reassign
-        };
-        change.added.forEach(attachCollection);
-      }
-    });
+      if (change.removedCount)
+        change.removed.forEach((model: Location) => delete model.collection); // eslint-disable-line no-param-reassign
+    };
+    observe(this, attachCollectionToModels);
 
-    this.ready && this.ready.then(this._fetchFirstTime);
+    this.ready.then(this.fetchRemoteFirstTime);
 
     const onLoginChange = async (newEmail: any) => {
       if (!newEmail) return;
@@ -45,41 +38,55 @@ export class Locations extends Collection<Location> {
 
       console.log(`📚 Collection: ${this.id} collection email has changed`);
       const firstTimeFetch = !this.length && !this._fetchedFirstTime;
-      if (firstTimeFetch) this._fetchFirstTime();
-      else this.fetch();
+      if (firstTimeFetch) this.fetchRemoteFirstTime();
+      else this.fetchRemote();
     };
     const getEmail = () => userModel.attrs.email;
     reaction(getEmail, onLoginChange);
 
-    const superReset = this.reset;
-    // eslint-disable-next-line @getify/proper-arrows/name
+    const superReset = this.reset; // super.reset() doesn't exist, not in the prototype
     this.reset = async () => {
-      // super.reset() doesn't exist, not in the prototype
-      superReset.call(this);
       this._fetchedFirstTime = false;
+      return superReset.call(this);
     };
   }
 
   fetch = async () => {
-    const remoteDocs = await this._fetchDocs();
-
-    const drafts: Location[] = [];
-
-    while (this.length) {
-      const model = this.pop();
-      if (!model) continue; // eslint-disable-line no-continue
-      model.destroy();
+    if (!this.store || !this.Model) {
+      this.ready.resolve(false);
+      return;
     }
 
-    const initModel = (doc: any) => new this.Model(doc) as Location;
-    const newModelsFromRemote = remoteDocs.map(initModel);
+    const modelsJSON = await this.store.findAll();
 
-    this.push(...newModelsFromRemote, ...drafts);
+    const getModel = (json: any) =>
+      new this.Model({ ...json, attrs: json.data });
+    const models = modelsJSON.map(getModel);
+    this.push(...(models as any));
+
+    this.ready.resolve(true);
   };
 
-  private _fetchFirstTime = async () => {
-    if (!this.id) throw new Error('Collection fetching without id');
+  fetchRemote = async () => {
+    const remoteDocs = await this._fetchDocs();
 
+    await this.clear();
+    await this.store?.deleteAll();
+
+    const initModel = (doc: any) => new this.Model(doc);
+    const newModelsFromRemote = remoteDocs.map(initModel);
+
+    const jsonModels = newModelsFromRemote.map(m => {
+      const json = m.toJSON();
+      return { ...json, data: json.attrs };
+    });
+
+    await this.store.save(jsonModels as any);
+
+    this.push(...newModelsFromRemote);
+  };
+
+  private fetchRemoteFirstTime = async () => {
     const requiresSync = !this.length && !this._fetchedFirstTime;
     if (
       !requiresSync ||
@@ -92,11 +99,7 @@ export class Locations extends Collection<Location> {
     console.log(`📚 Collection: ${this.id} collection fetching first time`);
 
     try {
-      const docs = await this._fetchDocs();
-      const initModel = (doc: any) => new this.Model(doc) as Location;
-      const models = docs.map(initModel);
-
-      this.push(...models);
+      await this.fetchRemote();
 
       this._fetchedFirstTime = true;
     } catch (error: any) {
@@ -131,19 +134,9 @@ export class Locations extends Collection<Location> {
 
     return docs.map(this.Model.parseRemoteJSON);
   };
-
-  resetDefaults = () => {
-    const destroyLocation = (location: Location) => location.destroy();
-    const destroyAllLocations = this.map(destroyLocation);
-    return Promise.all(destroyAllLocations);
-  };
 }
 
-const collection = new Locations({
-  id: 'locations',
-  store,
-  Model: Location,
-});
+const collection = new Locations({});
 
 export const bySurvey = (surveyName: Survey['name']) => (l: Location) =>
   l.attrs.surveyName === surveyName;

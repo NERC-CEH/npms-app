@@ -33,7 +33,7 @@ const SurveyLocation = ({ sample }: Props) => {
     const location = locations.find(byId);
     if (!location) return;
 
-    sample.attrs.locationId = location.attrs.id; // eslint-disable-line
+    sample.attrs.locationId = location.id; // eslint-disable-line
     sample.attrs.enteredSref = location.attrs.centroidSref; // eslint-disable-line
     sample.attrs.enteredSrefSystem = location.attrs.centroidSrefSystem; // eslint-disable-line
     navigation.goBack();
@@ -52,7 +52,7 @@ const SurveyLocation = ({ sample }: Props) => {
 
     try {
       await loader.show('Please wait...');
-      await locations.fetch();
+      await locations.fetchRemote();
     } catch (err: any) {
       toast.error(err);
     }

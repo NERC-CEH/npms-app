@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavContext } from '@ionic/react';
-import savedSamples from 'models/collections/samples';
+import samples from 'models/collections/samples';
 import Sample from 'models/sample';
 import userModel from 'models/user';
 import { Level, Survey } from '../config';
@@ -15,7 +15,7 @@ async function getNewSample(survey: Survey, params?: Params) {
   });
   await sample.save();
 
-  savedSamples.push(sample);
+  samples.push(sample);
 
   return sample;
 }

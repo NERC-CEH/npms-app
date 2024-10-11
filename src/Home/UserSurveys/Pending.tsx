@@ -7,7 +7,10 @@ import {
   IonList,
   NavContext,
 } from '@ionic/react';
-import samplesCollection, { byPortal } from 'models/collections/samples';
+import samplesCollection, {
+  byPortal,
+  uploadAll,
+} from 'models/collections/samples';
 import Sample, { bySurveyDate } from 'models/sample';
 import userModel from 'models/user';
 import InfoBackgroundMessage from 'Components/InfoBackgroundMessage';
@@ -22,7 +25,7 @@ async function uploadAllSamples(toast: any) {
   }
 
   try {
-    await samplesCollection.uploadAll();
+    await uploadAll();
     toast.success('Success');
   } catch (e: any) {
     toast.error(e);
@@ -107,7 +110,7 @@ const Pending = () => {
   const { navigate } = useContext(NavContext);
   const toast = useToast();
 
-  const notUploaded = (sample: Sample) => !sample.metadata.syncedOn;
+  const notUploaded = (sample: Sample) => !sample.syncedAt;
   const surveys = samplesCollection
     .filter(byPortal(userModel.isPlantPortal() ? 'pp' : 'npms'))
     .filter(notUploaded)

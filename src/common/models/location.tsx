@@ -52,21 +52,21 @@ class LocationModel extends Model {
     plotGroupIdsAndNamesForUser: z.object({}).nullable().optional(),
   });
 
-  static parseRemoteJSON({ externalKey, ...attrs }: RemoteAttributes) {
-    const parsedRemoteJSON = {
-      cid: externalKey || UUID(),
-      id: attrs.id,
+  static parseRemoteJSON = ({
+    id,
+    externalKey,
+    createdOn,
+    updatedOn,
+    ...attrs
+  }: RemoteAttributes) => ({
+    cid: externalKey || UUID(),
+    id,
+    createdAt: new Date(createdOn).getTime(),
+    updatedAt: new Date(updatedOn).getTime(),
+    attrs,
+  });
 
-      attrs,
-
-      metadata: {
-        createdOn: new Date(attrs.createdOn).getTime(),
-        updatedOn: new Date(attrs.updatedOn).getTime(),
-      },
-    };
-
-    return parsedRemoteJSON;
-  }
+  store = locationsStore;
 
   collection?: Collection<LocationModel>;
 
@@ -75,10 +75,6 @@ class LocationModel extends Model {
   // eslint-disable-next-line
   // @ts-ignore
   attrs: Attrs = Model.extendAttrs(this.attrs, {});
-
-  constructor(options: any) {
-    super({ store: locationsStore, ...options });
-  }
 
   destroy() {
     if (this.collection) {

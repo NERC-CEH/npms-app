@@ -27,7 +27,7 @@ const reachedBottom = false;
 const canFetch = () => userModel.isLoggedIn() && device.isOnline;
 
 const Uploaded = () => {
-  const uploaded = (sample: Sample) => sample.metadata.syncedOn;
+  const uploaded = (sample: Sample) => sample.syncedAt;
   const uploadedSurveys = samplesCollection
     .filter(byPortal(userModel.isPlantPortal() ? 'pp' : 'npms'))
     .filter(uploaded)
