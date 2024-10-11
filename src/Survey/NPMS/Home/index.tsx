@@ -47,9 +47,7 @@ const Controller = ({ sample }: Props) => {
 
     if (await checkAndSetEmptySpecies()) return;
 
-    const isUploading = await sample.upload().catch(toast.error);
-    if (!isUploading) return;
-
+    sample.upload().catch(toast.error);
     navigate(`/home/surveys`, 'root');
   };
 
