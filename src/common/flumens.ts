@@ -105,7 +105,10 @@ export {
   type Choice,
   type ChoiceValues,
 } from '@flumens/tailwind/dist/Survey';
-export { default as Select } from '@flumens/tailwind/dist/components/Select';
+export {
+  default as Select,
+  type Props as SelectProps,
+} from '@flumens/tailwind/dist/components/Select';
 export { default as Block } from '@flumens/tailwind/dist/components/Block';
 export {
   default as TailwindBlockContext,

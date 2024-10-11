@@ -27,7 +27,20 @@ export class UserModel extends DrupalUserModel {
   // @ts-ignore
   attrs: Attrs = DrupalUserModel.extendAttrs(this.attrs, defaults);
 
-  static registerSchema = object({
+  static registerSchemaNPMS = object({
+    email: z.string().email('Please fill in'),
+    password: z.string().min(1, 'Please fill in'),
+    firstName: z.string().min(1, 'Please fill in'),
+    lastName: z.string().min(1, 'Please fill in'),
+    indiciaAddress: z.string().min(1, 'Please fill in'),
+    indiciaTown: z.string().min(1, 'Please fill in'),
+    indiciaPostCode: z.string().min(8, 'Please fill in'),
+    indiciaCounty: z.string().min(1, 'Please fill in'),
+    indiciaCountry: z.string().min(1, 'Please fill in'),
+    indiciaOver18: z.string().min(1, 'Please fill in'),
+  });
+
+  static registerSchemaPP = object({
     email: z.string().email('Please fill in'),
     password: z.string().min(1, 'Please fill in'),
     firstName: z.string().min(1, 'Please fill in'),

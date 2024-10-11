@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { snakeCase } from 'lodash';
 import { Trans as T } from 'react-i18next';
 import { useRouteMatch } from 'react-router';
 import { TypeOf } from 'zod';
@@ -7,7 +8,8 @@ import { NavContext } from '@ionic/react';
 import userModel, { Portal, UserModel } from 'models/user';
 import Main from './Main';
 
-type Details = TypeOf<typeof UserModel.registerSchema>;
+type DetailsNPMS = TypeOf<typeof UserModel.registerSchemaNPMS>;
+type DetailsPP = TypeOf<typeof UserModel.registerSchemaPP>;
 
 const RegisterContainer = () => {
   const match = useRouteMatch<{ portal: Portal }>();
@@ -23,14 +25,18 @@ const RegisterContainer = () => {
     context.navigate('/home/landing', 'root');
   };
 
-  async function onRegister(details: Details) {
-    const email = details.email.trim();
-    const { password, firstName, lastName } = details;
+  async function onRegister(details: DetailsNPMS | DetailsPP) {
+    const { email, password, ...otherFields } = details;
 
-    const otherDetails = {
-      field_first_name: [{ value: firstName?.trim() }],
-      field_last_name: [{ value: lastName?.trim() }],
-    };
+    const otherDetails = Object.entries(otherFields).reduce(
+      (agg: any, [field, value]: any) => {
+        // eslint-disable-next-line no-param-reassign
+        agg[`field_${snakeCase(field)}`] = [{ value }];
+
+        return agg;
+      },
+      {}
+    );
 
     if (!device.isOnline) {
       toast.warn("Sorry, looks like you're offline.");
@@ -41,8 +47,8 @@ const RegisterContainer = () => {
     try {
       await userModel.register(email, password, otherDetails, isPlantPortal);
 
-      userModel.attrs.firstName = firstName; // eslint-disable-line
-      userModel.attrs.lastName = lastName; // eslint-disable-line
+      userModel.attrs.firstName = details.firstName; // eslint-disable-line
+      userModel.attrs.lastName = details.lastName; // eslint-disable-line
       userModel.save();
 
       alert({
