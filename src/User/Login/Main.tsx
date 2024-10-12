@@ -43,7 +43,10 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
           Please sign in with your account or register.
         </InfoMessage>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Fake onSubmit on Enter */}
+          <input type="submit" className="hidden" />
+
           <div className="rounded-list">
             <ControlledInput
               control={control}

@@ -34,7 +34,7 @@ export class UserModel extends DrupalUserModel {
     lastName: z.string().min(1, 'Please fill in'),
     indiciaAddress: z.string().min(1, 'Please fill in'),
     indiciaTown: z.string().min(1, 'Please fill in'),
-    indiciaPostCode: z.string().min(8, 'Please fill in'),
+    indiciaPostCode: z.string().length(8, 'Must be 8 characters long'),
     indiciaCounty: z.string().min(1, 'Please fill in'),
     indiciaCountry: z.string().min(1, 'Please fill in'),
     indiciaOver18: z.string().min(1, 'Please fill in'),

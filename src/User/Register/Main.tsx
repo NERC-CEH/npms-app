@@ -65,7 +65,10 @@ const RegisterMain = ({ onSubmit, isPlantPortal }: Props) => {
   return (
     <Main>
       <div className="mx-auto max-w-md px-3">
-        <form className="mt-8">
+        <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
+          {/* Fake onSubmit on Enter */}
+          <input type="submit" className="hidden" />
+
           <div className="rounded-list">
             <ControlledInput
               control={control}
