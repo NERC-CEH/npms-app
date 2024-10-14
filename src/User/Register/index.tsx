@@ -5,6 +5,7 @@ import { useRouteMatch } from 'react-router';
 import { TypeOf } from 'zod';
 import { Page, Header, device, useToast, useAlert, useLoader } from '@flumens';
 import { NavContext } from '@ionic/react';
+import config from 'common/config';
 import userModel, { Portal, UserModel } from 'models/user';
 import Main from './Main';
 
@@ -49,6 +50,9 @@ const RegisterContainer = () => {
 
       userModel.attrs.firstName = details.firstName; // eslint-disable-line
       userModel.attrs.lastName = details.lastName; // eslint-disable-line
+
+      if (isPlantPortal) userModel.attrs.iss = config.backend.ppUrl; // registration doesn't set it
+
       userModel.save();
 
       alert({
