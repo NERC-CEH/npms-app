@@ -41,7 +41,7 @@ export class Locations extends Collection<Location> {
       if (firstTimeFetch) this.fetchRemoteFirstTime();
       else this.fetchRemote();
     };
-    const getEmail = () => userModel.attrs.email;
+    const getEmail = () => userModel.attrs.email && userModel.attrs.verified;
     reaction(getEmail, onLoginChange);
 
     const superReset = this.reset; // super.reset() doesn't exist, not in the prototype
@@ -92,6 +92,7 @@ export class Locations extends Collection<Location> {
       !requiresSync ||
       !device.isOnline ||
       !userModel.isLoggedIn() ||
+      !userModel.attrs.verified ||
       this.fetching.isFetching
     )
       return null;
@@ -136,9 +137,9 @@ export class Locations extends Collection<Location> {
   };
 }
 
-const collection = new Locations({});
+const locations = new Locations({});
 
 export const bySurvey = (surveyName: Survey['name']) => (l: Location) =>
   l.attrs.surveyName === surveyName;
 
-export default collection;
+export default locations;

@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { Trans as T } from 'react-i18next';
 import { Page, useAlert, useLoader, useToast } from '@flumens';
 import { NavContext } from '@ionic/react';
+import locations from 'common/models/collections/locations';
 import userModel from 'models/user';
 import Main from './Main';
 import './styles.scss';
@@ -44,6 +45,7 @@ const Controller = ({ ...restProps }) => {
     console.log('Info:Menu: logging out.');
     const resetWrap = async () => {
       userModel.logOut();
+      locations.reset();
       navigate('/user/portal', 'root', 'push');
     };
     showLogoutConfirmationDialog(resetWrap, alert);

@@ -22,11 +22,7 @@ const defaults: Attrs = {
   email: '',
 };
 
-export class UserModel extends DrupalUserModel {
-  // eslint-disable-next-line
-  // @ts-ignore
-  attrs: Attrs = DrupalUserModel.extendAttrs(this.attrs, defaults);
-
+export class UserModel extends DrupalUserModel<Attrs> {
   static registerSchemaNPMS = object({
     email: z.string().email('Please fill in'),
     password: z.string().min(1, 'Please fill in'),
@@ -47,17 +43,8 @@ export class UserModel extends DrupalUserModel {
     lastName: z.string().min(1, 'Please fill in'),
   });
 
-  static resetSchema = object({
-    email: z.string().email('Please fill in'),
-  });
-
-  static loginSchema = object({
-    username: z.string().min(1, 'Please fill in'),
-    password: z.string().min(1, 'Please fill in'),
-  });
-
   constructor(options: any) {
-    super(options);
+    super({ ...options, attrs: { ...defaults, ...options.attrs } });
 
     const updateBackendUrl = () => {
       if (this.isPlantPortal()) this.config.url = CONFIG.backend.ppUrl;
@@ -174,4 +161,5 @@ export const useUserStatusCheck = () => {
   };
 };
 
+(window as any).UserModel = UserModel;
 export default userModel;

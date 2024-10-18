@@ -18,10 +18,10 @@ const defaults: Attrs = {
   sendAnalytics: true,
 };
 
-class AppModel extends Model {
-  // eslint-disable-next-line
-  // @ts-ignore
-  attrs: Attrs = Model.extendAttrs(this.attrs, defaults);
+class AppModel extends Model<Attrs> {
+  constructor(options: any) {
+    super({ ...options, attrs: { ...defaults, ...options.attrs } });
+  }
 
   resetDefaults() {
     return super.resetDefaults(defaults);

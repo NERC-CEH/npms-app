@@ -10,7 +10,7 @@ import Main from './Main';
 type Details = TypeOf<typeof UserModel.resetSchema>;
 
 const ResetController = () => {
-  const { navigate } = useContext(NavContext);
+  const { goBack } = useContext(NavContext);
   const alert = useAlert();
   const match = useRouteMatch<{ portal: Portal }>();
   const { portal } = match.params;
@@ -19,9 +19,7 @@ const ResetController = () => {
   const toast = useToast();
   const loader = useLoader();
 
-  const onSuccess = () => {
-    navigate('/home/menu', 'root');
-  };
+  const onSuccess = () => goBack();
 
   async function onSubmit(details: Details) {
     const { email } = details;
