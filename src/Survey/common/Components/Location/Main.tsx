@@ -10,7 +10,7 @@ import {
   IonRefresherContent,
 } from '@ionic/react';
 import config from 'common/config';
-import { Button, InfoBackgroundMessage, Main } from 'common/flumens';
+import { InfoBackgroundMessage, Main } from 'common/flumens';
 import locations, { bySurvey } from 'common/models/collections/locations';
 import LocationModel from 'common/models/location';
 import { Survey, byGroup } from 'Survey/common/config';
@@ -78,12 +78,12 @@ const SurveyLocationMain = ({
               <span className="text-base">{parentName}</span>
 
               {isNPMS && (
-                <Button
+                <a
                   href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
-                  className="px-2 py-1 text-sm"
+                  className="flex h-fit items-center justify-center rounded-md border border-solid border-neutral-300 bg-white px-2 py-1 text-center text-sm shadow-sm"
                 >
                   Map PDF
-                </Button>
+                </a>
               )}
             </div>
           </IonItemDivider>
