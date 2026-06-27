@@ -1,7 +1,7 @@
-import { Model, ModelAttrs } from '@flumens';
+import { Model, ModelData } from '@flumens';
 import { mainStore } from './store';
 
-export interface Attrs extends ModelAttrs {
+export type Data = {
   appSession: number;
   showedWelcome: boolean;
   sendAnalytics: boolean;
@@ -9,25 +9,25 @@ export interface Attrs extends ModelAttrs {
    * Flag new samples for training.
    */
   useTraining: boolean;
-}
+} & ModelData;
 
-const defaults: Attrs = {
+const defaults: Data = {
   appSession: 0,
   showedWelcome: false,
   useTraining: false,
   sendAnalytics: true,
 };
 
-class AppModel extends Model<Attrs> {
+export class AppModel extends Model<Data> {
   constructor(options: any) {
-    super({ ...options, attrs: { ...defaults, ...options.attrs } });
+    super({ ...options, data: { ...defaults, ...options.data } });
   }
 
-  resetDefaults() {
-    return super.resetDefaults(defaults);
+  reset() {
+    return super.reset(defaults);
   }
 }
 
 const appModel = new AppModel({ cid: 'app', store: mainStore });
 
-export { appModel as default, AppModel };
+export default appModel;

@@ -16,7 +16,7 @@ const OccurrenceList = ({ sample }: Props) => {
   const onSpeciesAdd = () => navigate(`${match.url}/search`);
   const onSpeciesDelete = (occ: Occurrence) => occ.destroy();
 
-  const addSpeciesButton = !sample.isDisabled() ? (
+  const addSpeciesButton = !sample.isDisabled ? (
     <HeaderButton onPress={onSpeciesAdd}>Add</HeaderButton>
   ) : null;
 

@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { Share } from '@capacitor/share';
 import config from 'common/config';
-import { Media, useAlert } from 'common/flumens';
+import { MediaModel, useAlert } from 'common/flumens';
 import Sample from 'common/models/sample';
 
-// eslint-disable-next-line import/prefer-default-export
 export const useEmptySpeciesCheck = () => {
   const alert = useAlert();
 
@@ -34,10 +33,10 @@ export const useEmptySpeciesCheck = () => {
 export const share = async (sample: Sample, text: string) => {
   if (!(await Share.canShare()).value) return;
 
-  const { date } = sample.attrs;
+  const { date } = sample.data;
 
-  const getFilePath = (img: Media) => {
-    const { data: name } = img.attrs;
+  const getFilePath = (img: MediaModel) => {
+    const { data: name } = img.data;
 
     return `${config.dataPath}/${name}`;
   };

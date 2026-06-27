@@ -3,7 +3,7 @@ import {
   Filesystem,
   Directory as FilesystemDirectory,
 } from '@capacitor/filesystem';
-import { Media as MediaOriginal } from '@flumens';
+import { MediaModel as MediaOriginal } from '@flumens';
 import { isPlatform } from '@ionic/react';
 import CONFIG from 'common/config';
 import Occurrence from './occurrence';
@@ -28,10 +28,10 @@ export default class Media extends MediaOriginal {
       this.parent.save();
     }
 
-    const URL = this.attrs.data;
+    const URL = this.data.data;
 
     try {
-      if (this.attrs.path) {
+      if (this.data.path) {
         // backwards compatible - don't delete old media
         await Filesystem.deleteFile({
           path: URL,
@@ -56,7 +56,7 @@ export default class Media extends MediaOriginal {
   }
 
   getURL() {
-    const { data: name, path } = this.attrs;
+    const { data: name, path } = this.data;
 
     if (!isPlatform('hybrid') || process.env.NODE_ENV === 'test') {
       return name;

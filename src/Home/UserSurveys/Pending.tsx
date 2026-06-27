@@ -54,7 +54,7 @@ const getSurveys = (surveys: Sample[], showUploadAll?: boolean) => {
   let counter: any = {};
 
   [...surveys].forEach(survey => {
-    const date = roundDate(new Date(survey.attrs.date).getTime()).toString();
+    const date = roundDate(new Date(survey.data.date).getTime()).toString();
     if (!dates.includes(date) && date !== 'Invalid Date') {
       dates.push(date);
       dateIndices.push(groupedSurveys.length);
@@ -65,8 +65,6 @@ const getSurveys = (surveys: Sample[], showUploadAll?: boolean) => {
     counter.count += 1;
     groupedSurveys.push(survey);
   });
-
-  // eslint-disable-next-line react/no-unstable-nested-components
   const Item = ({ index, ...itemProps }: { index: number }) => {
     if (dateIndices.includes(index)) {
       const { date, count } = groupedSurveys[index];
@@ -97,8 +95,8 @@ const getSurveys = (surveys: Sample[], showUploadAll?: boolean) => {
 
   return (
     <VirtualList
-      itemCount={itemCount}
-      itemSize={getItemSize}
+      rowCount={itemCount}
+      rowHeight={getItemSize}
       Item={Item}
       topPadding={LIST_PADDING}
       bottomPadding={LIST_ITEM_HEIGHT / 2}
@@ -122,7 +120,7 @@ const Pending = () => {
   const onUploadAll = () => {
     const isLoggedIn = userModel.isLoggedIn();
     if (!isLoggedIn) {
-      navigate(`/user/login`);
+      navigate('/user/login');
       return null;
     }
 

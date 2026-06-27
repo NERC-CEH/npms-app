@@ -32,8 +32,8 @@ const OccurrenceHomeMain = ({
   const isPresence = abundanceType === '18892';
 
   const recordAttrs = {
-    record: occurrence.attrs,
-    isDisabled: occurrence.isDisabled(),
+    record: occurrence.data,
+    isDisabled: occurrence.isDisabled,
   };
 
   return (

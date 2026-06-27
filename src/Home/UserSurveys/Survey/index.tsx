@@ -58,11 +58,11 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
 
   const showDeleteSurveyPrompt = useDeleteSurveyPrompt(sample);
 
-  const { synchronising } = sample.remote;
+  const { isSynchronising } = sample;
 
   const survey = sample.getSurvey();
 
-  const canShowLink = !synchronising && !survey.deprecated;
+  const canShowLink = !isSynchronising && !survey.deprecated;
   const href = canShowLink ? getSurveyLink(sample) : '';
 
   const onUpload = async () => {
@@ -78,11 +78,11 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
   const surveyLevel = sample.metadata.level;
 
   const openItem = () => {
-    if (sample.remote.synchronising) return; // fixes button onPressUp and other accidental navigation
+    if (sample.isSynchronising) return; // fixes button onPressUp and other accidental navigation
     navigate(href);
   };
 
-  const isTraining = !!sample.attrs.training;
+  const isTraining = !!sample.data.training;
 
   return (
     <IonItemSliding className="survey-list-item" style={style}>
@@ -93,14 +93,14 @@ const Survey = ({ sample, uploadIsPrimary, style }: Props) => {
       >
         {isTraining && <div className="h-full w-2 bg-black" />}
         <div className="ml-5 flex w-full flex-nowrap items-center gap-2">
-          <div className="flex w-full flex-col content-center gap-1 overflow-hidden">
-            <h3 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-bold">
+          <div className="flex w-full flex-col content-center overflow-hidden">
+            <div className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap font-bold">
               <T>{survey.label}</T>
-            </h3>
+            </div>
             {surveyLevel && (
-              <h4 className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+              <div className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
                 <T>{surveyLevel}</T>
-              </h4>
+              </div>
             )}
           </div>
 

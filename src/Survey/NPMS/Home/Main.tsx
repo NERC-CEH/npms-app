@@ -34,7 +34,7 @@ type Props = {
 };
 
 const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
-  useTrainingAlert(sample.attrs.training);
+  useTrainingAlert(sample.data.training);
 
   const isNPMSPlus = sample.getSurvey().name === 'npmsPlus';
 
@@ -47,29 +47,29 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
     : npmsFineHabitatAttr;
 
   const match = useRouteMatch();
-  const isDisabled = sample.isUploaded();
+  const isDisabled = sample.isUploaded;
 
-  const hasBroadHabitat = !!sample.attrs[broadHabitatAttr.id];
-  const hasGroup = !!sample.attrs[groupAttr().id];
+  const hasBroadHabitat = !!sample.data[broadHabitatAttr.id];
+  const hasGroup = !!sample.data[groupAttr().id];
 
   const occCount = sample.occurrences.filter(
     byGrid('main-species-grid')
   ).length;
 
   const recordAttrs = {
-    record: sample.attrs,
+    record: sample.data,
     isDisabled,
   };
 
   const allowSecondSurvey =
-    isDisabled && !isNPMSPlus && !sample.attrs[firstSurveyAttr.id];
+    isDisabled && !isNPMSPlus && !sample.data[firstSurveyAttr.id];
 
   return (
     <Main>
       {isDisabled && (
         <UploadedRecordInfoMessage
           sampleId={sample.id}
-          groupId={sample.attrs.groupId}
+          groupId={sample.data.groupId}
           level={sample.metadata.level}
         />
       )}
@@ -96,12 +96,12 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
         </Button>
       )}
 
-      <div className="rounded-list mx-auto mb-2 mt-2 max-w-[600px]">
+      <div className="rounded-list m-2 flex justify-left bg-white! max-w-lg">
         <Button
           href="https://www.npms.org.uk/content/resources"
           prefix={<IonIcon icon={bookOutline} className="size-6" />}
           suffix={<IonIcon icon={openOutline} />}
-          className="mx-2 border-none text-left"
+          className="border-none! text-left shadow-none! w-full"
         >
           NPMS resources
         </Button>
@@ -112,18 +112,18 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
           <MenuDateAttr model={sample} />
 
           {isNPMSPlus && (
-            <Block block={groupAttr(sample.attrs)} {...recordAttrs} />
+            <Block block={groupAttr(sample.data)} {...recordAttrs} />
           )}
 
           <Block
-            record={sample.attrs}
-            block={locationAttr(sample.attrs)}
+            record={sample.data}
+            block={locationAttr(sample.data)}
             isDisabled={isDisabled || (isNPMSPlus && !hasGroup)}
           />
 
           <Block block={broadHabitatAttr} {...recordAttrs} />
           {hasBroadHabitat && (
-            <Block block={fineHabitatAttr(sample.attrs)} {...recordAttrs} />
+            <Block block={fineHabitatAttr(sample.data)} {...recordAttrs} />
           )}
 
           <IonItem routerLink={`${match.url}/main-species-grid/occurrences`}>

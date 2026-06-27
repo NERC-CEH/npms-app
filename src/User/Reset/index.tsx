@@ -30,7 +30,7 @@ const ResetController = () => {
     await loader.show('Please wait...');
 
     try {
-      await userModel.reset(email.trim(), isPlantPortal);
+      await userModel.resetPassword(email.trim(), isPlantPortal);
       alert({
         header: "We've sent an email to you",
         message: (

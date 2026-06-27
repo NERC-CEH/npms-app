@@ -1,4 +1,3 @@
-/* eslint-disable no-return-assign, no-param-reassign */
 import { observer } from 'mobx-react';
 import { Header, Main, Page, Block, InfoMessage } from 'common/flumens';
 import Sample from 'common/models/sample';
@@ -18,12 +17,12 @@ import { grazingAnimalNumberAttr } from './config';
 type Props = { sample: Sample };
 
 const Management = ({ sample }: Props) => {
-  const hasManagementOther = !!sample.attrs?.[managementAttr.id]?.includes(
+  const hasManagementOther = !!sample.data?.[managementAttr.id]?.includes(
     MANAGEMENT_OTHER_VALUE
   );
-  const hasGrazing = !!sample.attrs[grazingAttr.id];
+  const hasGrazing = !!sample.data[grazingAttr.id];
 
-  const recordAttrs = { record: sample.attrs, isDisabled: sample.isDisabled() };
+  const recordAttrs = { record: sample.data, isDisabled: sample.isDisabled };
 
   return (
     <Page id="standard-management">

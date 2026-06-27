@@ -10,7 +10,6 @@ import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Main, Page } from '@flumens';
 import { IonButtons, IonFooter, IonIcon, IonToolbar } from '@ionic/react';
-import '@ionic/react/css/ionic-swiper.css';
 import appModel from 'models/app';
 import './styles.scss';
 import slide1 from './welcome1.jpg';
@@ -23,26 +22,26 @@ const Onboarding = ({ children }: any) => {
   const [controlledSwiper, setControlledSwiper] = useState<SwiperCore>();
 
   const handleSlideChangeStart = async () => {
-    const isEnd = controlledSwiper && controlledSwiper.isEnd;
+    const isEnd = controlledSwiper?.isEnd;
     setMoreSlidesExist(!isEnd);
   };
 
   function exit() {
     console.log('Info:Welcome:Controller: exit.');
-    appModel.attrs.showedWelcome = true;
+    appModel.data.showedWelcome = true;
     appModel.save();
   }
 
   const slideNextOrClose = () => {
     if (moreSlidesExist) {
-      controlledSwiper && controlledSwiper.slideNext();
+      controlledSwiper?.slideNext();
       return;
     }
 
     exit();
   };
 
-  const { showedWelcome } = appModel.attrs;
+  const { showedWelcome } = appModel.data;
   if (showedWelcome) return children;
 
   return (
@@ -52,7 +51,7 @@ const Onboarding = ({ children }: any) => {
     >
       <Main
         scrollY={false}
-        className="[--background:transparent] [--padding-top:0]"
+        className="[--background:transparent]! [--padding-top:0]!"
       >
         <Swiper
           onSwiper={setControlledSwiper}

@@ -41,7 +41,7 @@ const Controller = ({ sample }: Props) => {
     if (await checkAndSetEmptySpecies()) return;
 
     sample.upload().catch(toast.error);
-    navigate(`/home/surveys`, 'root');
+    navigate('/home/surveys', 'root');
   };
 
   const onFinish = async () => {
@@ -49,12 +49,10 @@ const Controller = ({ sample }: Props) => {
     if (!isValid) return;
 
     if (await checkAndSetEmptySpecies()) return;
-
-    // eslint-disable-next-line no-param-reassign
     sample.metadata.saved = true;
     sample.save();
 
-    navigate(`/home/surveys`, 'root');
+    navigate('/home/surveys', 'root');
   };
 
   const onShare = () => {
@@ -72,11 +70,11 @@ const Controller = ({ sample }: Props) => {
     share(sample, text);
   };
 
-  const isDisabled = sample.isUploaded();
+  const isDisabled = sample.isUploaded;
 
   const isInvalid = sample.validateRemote();
   const uploadButton =
-    isDisabled || sample.remote.synchronising ? null : (
+    isDisabled || sample.isSynchronising ? null : (
       <HeaderButton
         onPress={sample.metadata.saved ? onUpload : onFinish}
         isInvalid={isInvalid}
@@ -85,7 +83,7 @@ const Controller = ({ sample }: Props) => {
       </HeaderButton>
     );
 
-  const isTraining = !!sample.attrs.training;
+  const isTraining = !!sample.data.training;
   const trainingModeSubheader = isTraining && (
     <div className="bg-black p-1 text-center text-sm text-white">
       Training Mode

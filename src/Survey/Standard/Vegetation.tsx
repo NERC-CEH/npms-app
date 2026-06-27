@@ -1,4 +1,3 @@
-/* eslint-disable no-return-assign, no-param-reassign */
 import { observer } from 'mobx-react';
 import { Block, Header, Main, Page } from 'common/flumens';
 import Sample from 'common/models/sample';
@@ -15,7 +14,7 @@ import {
 type Props = { sample: Sample };
 
 const Vegetation = ({ sample }: Props) => {
-  const recordAttrs = { record: sample.attrs, isDisabled: sample.isDisabled() };
+  const recordAttrs = { record: sample.data, isDisabled: sample.isDisabled };
 
   return (
     <Page id="standard-habitat">

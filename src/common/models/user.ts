@@ -1,7 +1,7 @@
 import { z, object } from 'zod';
 import {
   DrupalUserModel,
-  DrupalUserModelAttrs,
+  DrupalUserModelData,
   useToast,
   useLoader,
   device,
@@ -11,18 +11,18 @@ import { mainStore } from './store';
 
 export type Portal = 'npms' | 'pp';
 
-export interface Attrs extends DrupalUserModelAttrs {
+export type Data = {
   firstName?: string;
   lastName?: string;
-}
+} & DrupalUserModelData;
 
-const defaults: Attrs = {
+const defaults: Data = {
   firstName: '',
   lastName: '',
   email: '',
 };
 
-export class UserModel extends DrupalUserModel<Attrs> {
+export class UserModel extends DrupalUserModel<Data> {
   static registerSchemaNPMS = object({
     email: z.string().email('Please fill in'),
     password: z.string().min(1, 'Please fill in'),
@@ -43,8 +43,24 @@ export class UserModel extends DrupalUserModel<Attrs> {
     lastName: z.string().min(1, 'Please fill in'),
   });
 
+  static registerSchema: any = object({
+    email: z.string().email('Please fill in'),
+    password: z.string().min(1, 'Please fill in'),
+    firstName: z.string().min(1, 'Please fill in'),
+    secondName: z.string().min(1, 'Please fill in'),
+  });
+
+  static resetSchema: any = object({
+    email: z.string().email('Please fill in'),
+  });
+
+  static loginSchema: any = object({
+    email: z.string().email('Please fill in'),
+    password: z.string().min(1, 'Please fill in'),
+  });
+
   constructor(options: any) {
-    super({ ...options, attrs: { ...defaults, ...options.attrs } });
+    super({ ...options, data: { ...defaults, ...options.data } });
 
     const updateBackendUrl = () => {
       if (this.isPlantPortal()) this.config.url = CONFIG.backend.ppUrl;
@@ -52,7 +68,7 @@ export class UserModel extends DrupalUserModel<Attrs> {
     this.ready?.then(updateBackendUrl);
 
     const checkForValidation = () => {
-      if (this.isLoggedIn() && !this.attrs.verified) {
+      if (this.isLoggedIn() && !this.data.verified) {
         console.log('User: refreshing profile for validation');
         this.refreshProfile();
       }
@@ -79,49 +95,49 @@ export class UserModel extends DrupalUserModel<Attrs> {
     return super.register(email, password, otherFields);
   }
 
-  async reset(email: string, isPlantPortal?: boolean) {
+  async resetPassword(email: string, isPlantPortal?: boolean) {
     this.config.url = isPlantPortal
       ? CONFIG.backend.ppUrl
       : CONFIG.backend.npmsUrl;
-    return super.reset(email);
+    return super.resetPassword(email);
   }
 
   async checkActivation() {
     if (!this.isLoggedIn()) return false;
 
-    if (!this.attrs.verified) {
+    if (!this.data.verified) {
       try {
         await this.refreshProfile();
       } catch (e) {
         // do nothing
       }
 
-      if (!this.attrs.verified) return false;
+      if (!this.data.verified) return false;
     }
 
     return true;
   }
 
   async resendVerificationEmail() {
-    if (!this.isLoggedIn() || this.attrs.verified) return false;
+    if (!this.isLoggedIn() || this.data.verified) return false;
 
     await this._sendVerificationEmail();
 
     return true;
   }
 
-  resetDefaults() {
-    return super.resetDefaults(defaults);
+  reset() {
+    return super.reset(defaults);
   }
 
   isPlantPortal() {
-    return !!this.attrs.iss?.includes(CONFIG.backend.ppUrl);
+    return !!this.data.iss?.includes(CONFIG.backend.ppUrl);
   }
 
   getPrettyName = () => {
     if (!this.isLoggedIn()) return '';
 
-    return `${this.attrs.firstName} ${this.attrs.lastName}`;
+    return `${this.data.firstName} ${this.data.lastName}`;
   };
 }
 
@@ -146,7 +162,7 @@ export const useUserStatusCheck = () => {
       return false;
     }
 
-    if (!userModel.attrs.verified) {
+    if (!userModel.data.verified) {
       await loader.show('Please wait...');
       const isVerified = await userModel.checkActivation();
       loader.hide();
@@ -161,5 +177,4 @@ export const useUserStatusCheck = () => {
   };
 };
 
-(window as any).UserModel = UserModel;
 export default userModel;

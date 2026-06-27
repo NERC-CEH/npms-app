@@ -33,9 +33,9 @@ const SurveyLocation = ({ sample }: Props) => {
     const location = locations.find(byId);
     if (!location) return;
 
-    sample.attrs.locationId = location.id; // eslint-disable-line
-    sample.attrs.enteredSref = location.attrs.centroidSref; // eslint-disable-line
-    sample.attrs.enteredSrefSystem = location.attrs.centroidSrefSystem; // eslint-disable-line
+    sample.data.locationId = location.id!;
+    sample.data.enteredSref = location.data.centroidSref;
+    sample.data.enteredSrefSystem = location.data.centroidSrefSystem as any; // eslint-disable-line
     navigation.goBack();
   };
 
@@ -75,11 +75,11 @@ const SurveyLocation = ({ sample }: Props) => {
       <Header title="Plots" rightSlot={refreshButton} />
       <Main
         survey={sample.getSurvey().name}
-        group={sample.attrs.groupId}
-        plotGroup={sample.attrs.plotGroupId}
+        group={sample.data.groupId}
+        plotGroup={sample.data.plotGroupId}
         onSelect={setLocation}
         onRefresh={refreshGroups}
-        value={sample.attrs.locationId}
+        value={sample.data.locationId}
       />
     </Page>
   );

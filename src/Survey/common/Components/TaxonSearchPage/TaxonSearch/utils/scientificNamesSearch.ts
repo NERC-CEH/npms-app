@@ -40,8 +40,6 @@ function addGenusToResults(
   }
 
   const speciesArray = genus[GENUS_SPECIES_INDEX] || [];
-
-  // eslint-disable-next-line
   speciesArray.forEach((species: Species, speciesIndex: number) => {
     results.push({
       arrayId: generaIndex,
@@ -64,7 +62,6 @@ function addSpeciesToResults(
 ) {
   const speciesArray = genus[GENUS_SPECIES_INDEX] || [];
 
-  // eslint-disable-next-line
   speciesArray.forEach((species: Species, speciesIndex: number) => {
     if (otherWordsRegex.test(species[SPECIES_TAXON_INDEX])) {
       results.push({
@@ -90,7 +87,7 @@ function searchGeneraDictionary(
   firstWordRegex: RegExp,
   otherWordsRegex?: RegExp
 ) {
-  let generaIndex = findFirstMatching(genera, genera as any, firstWord);
+  let generaIndex = findFirstMatching(genera, genera, firstWord);
 
   const notFound = generaIndex < 0;
   if (notFound) return;
@@ -123,6 +120,7 @@ function searchGeneraDictionary(
 function search(
   genera: Genera,
   searchPhrase: string,
+  // eslint-disable-next-line @typescript-eslint/default-param-last
   results: Taxon[] = [],
   maxResults: number,
   hybridRun: boolean,
@@ -146,8 +144,7 @@ function search(
   }
 
   const informalGroupsMatch = (genus: Genus) =>
-    !informalGroups.length ||
-    informalGroups.indexOf(genus[GENUS_GROUP_INDEX]) >= 0;
+    !informalGroups.length || informalGroups.includes(genus[GENUS_GROUP_INDEX]);
 
   searchGeneraDictionary(
     results,

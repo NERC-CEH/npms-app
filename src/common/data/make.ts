@@ -1,6 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import axios from 'axios';
-import * as dotenv from 'dotenv';
+// eslint-disable-next-line import-x/no-extraneous-dependencies
+import { config } from 'dotenv';
 import fs from 'fs';
 import camelCase from 'lodash/camelCase';
 import mapKeys from 'lodash/mapKeys';
@@ -24,7 +24,7 @@ const remoteSchema = object({
 
 export type RemoteAttributes = z.infer<typeof remoteSchema>;
 
-dotenv.config({ path: '../../../../.env' }); // eslint-disable-line
+config({ path: '../../../../.env' });
 
 const warehouseURL = 'https://warehouse1.indicia.org.uk';
 
@@ -62,12 +62,10 @@ async function fetch(listID: any): Promise<RemoteAttributes[]> {
 
   const getValues = (doc: any) =>
     mapKeys(doc, (_, key) => (key.includes(':') ? key : camelCase(key)));
-  const parseNames = ({ synonym, ...doc }: any) => {
-    return {
-      ...doc,
-      synonym: synonym ? JSON.parse(synonym) : undefined,
-    };
-  };
+  const parseNames = ({ synonym, ...doc }: any) => ({
+    ...doc,
+    synonym: synonym ? JSON.parse(synonym) : undefined,
+  });
   const byTaxon = (s1: any, s2: any) => s1.taxon.localeCompare(s2.taxon);
   const docs = data.data.map(getValues).map(parseNames).sort(byTaxon);
 
@@ -78,28 +76,28 @@ async function fetch(listID: any): Promise<RemoteAttributes[]> {
 
 (async () => {
   let reportData = await fetch('wildflower');
-  await saveToFile(reportData, `./cache/wildflower.json`);
+  await saveToFile(reportData, './cache/wildflower.json');
   let normalized: any = await optimise(reportData);
   // let normalized: any = await optimise(wildflower);
-  await saveToFile(normalized, `./wildflower.data.json`);
+  await saveToFile(normalized, './wildflower.data.json');
   let commonNames = makeCommonNameMap(normalized);
-  await saveToFile(commonNames, `./wildflower_names.data.json`);
+  await saveToFile(commonNames, './wildflower_names.data.json');
 
   reportData = await fetch('indicator');
-  await saveToFile(reportData, `./cache/indicator.json`);
+  await saveToFile(reportData, './cache/indicator.json');
   normalized = await optimise(reportData);
   // normalized = await optimise(indicator);
-  await saveToFile(normalized, `./indicator.data.json`);
+  await saveToFile(normalized, './indicator.data.json');
   commonNames = makeCommonNameMap(normalized);
-  await saveToFile(commonNames, `./indicator_names.data.json`);
+  await saveToFile(commonNames, './indicator_names.data.json');
 
   reportData = await fetch('inventory');
-  await saveToFile(reportData, `./cache/inventory.json`);
+  await saveToFile(reportData, './cache/inventory.json');
   normalized = await optimise(reportData);
   // normalized = await optimise(inventory);
-  await saveToFile(normalized, `./inventory.data.json`);
+  await saveToFile(normalized, './inventory.data.json');
   commonNames = makeCommonNameMap(normalized);
-  await saveToFile(commonNames, `./inventory_names.data.json`);
+  await saveToFile(commonNames, './inventory_names.data.json');
 
   console.log('All done! 🚀');
 })();

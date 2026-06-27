@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 import { z, object } from 'zod';
-import { Model, ModelAttrs, UUID } from '@flumens';
-import { Locations } from './collections/locations';
+import { LocationModel, LocationData, UUIDv7 } from '@flumens';
+import { LocationsCollection } from './collections/locations';
 import { locationsStore } from './store';
 
 const remoteSchema = object({
@@ -50,30 +50,30 @@ const remoteSchema = object({
 
 export type RemoteAttributes = z.infer<typeof remoteSchema>;
 
-export type Attrs = RemoteAttributes & ModelAttrs;
+export type Data = RemoteAttributes & LocationData;
 
-class LocationModel extends Model<Attrs> {
+class Location extends LocationModel<Data> {
   static remoteSchema = remoteSchema;
+
+  store = locationsStore as any;
+
+  collection?: LocationsCollection;
+
+  remote = observable({ synchronising: false });
 
   static parseRemoteJSON = ({
     id,
     externalKey,
     createdOn,
     updatedOn,
-    ...attrs
+    ...data
   }: RemoteAttributes) => ({
-    cid: externalKey || UUID(),
+    cid: externalKey || UUIDv7(),
     id,
     createdAt: new Date(createdOn).getTime(),
     updatedAt: new Date(updatedOn).getTime(),
-    attrs,
+    data,
   });
-
-  store = locationsStore as any;
-
-  collection?: Locations;
-
-  remote = observable({ synchronising: false });
 
   destroy() {
     this.collection?.remove(this);
@@ -81,4 +81,4 @@ class LocationModel extends Model<Attrs> {
   }
 }
 
-export default LocationModel;
+export default Location;

@@ -55,7 +55,7 @@ const Controller = ({ ...restProps }) => {
     await loader.show('Please wait...');
     try {
       await userModel.checkActivation();
-      if (!userModel.attrs.verified) {
+      if (!userModel.data.verified) {
         toast.warn('The user has not been activated or is blocked.');
       }
     } catch (err: any) {
@@ -80,7 +80,7 @@ const Controller = ({ ...restProps }) => {
   return (
     <Page id="info-menu">
       <Main
-        user={userModel.attrs}
+        user={userModel.data}
         isPlantPortal={userModel.isPlantPortal()}
         logOut={logOut}
         refreshAccount={checkActivation}

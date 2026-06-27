@@ -1,14 +1,7 @@
 import { Fragment } from 'react';
 import clsx from 'clsx';
 import { checkmarkOutline } from 'ionicons/icons';
-import {
-  IonIcon,
-  IonItem,
-  IonItemDivider,
-  IonList,
-  IonRefresher,
-  IonRefresherContent,
-} from '@ionic/react';
+import { IonIcon, IonRefresher, IonRefresherContent } from '@ionic/react';
 import config from 'common/config';
 import { InfoBackgroundMessage, Main } from 'common/flumens';
 import locations, { bySurvey } from 'common/models/collections/locations';
@@ -16,9 +9,7 @@ import LocationModel from 'common/models/location';
 import { Survey, byGroup } from 'Survey/common/config';
 
 const byPlotGroup = (plotGroup?: string) => (loc: LocationModel) =>
-  plotGroup
-    ? (loc.attrs.plotGroupIdsAndNamesForPlot as any)?.[plotGroup]
-    : true;
+  plotGroup ? (loc.data.plotGroupIdsAndNamesForPlot as any)?.[plotGroup] : true;
 
 type Props = {
   survey: Survey['name'];
@@ -64,29 +55,24 @@ const SurveyLocationMain = ({
 
     const getItem = ({
       id,
-      attrs: { parentName, myPlotLabel, name, locationTypeTerm },
+      data: { parentName, myPlotLabel, name, locationTypeTerm },
     }: LocationModel) => {
       let squareDivider;
       if (parentName && !squareDividers.has(parentName)) {
         squareDividers.add(parentName);
         squareDivider = (
-          <IonItemDivider
-            className="rounded-md border border-solid border-neutral-300 !bg-[#ececec]"
-            sticky
-          >
-            <div className="flex w-full justify-between py-1 text-black">
-              <span className="text-base">{parentName}</span>
+          <div className="list-divider rounded-md border border-neutral-300 sticky flex w-full justify-between">
+            <div className="text-base">{parentName}</div>
 
-              {isNPMS && (
-                <a
-                  href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
-                  className="flex h-fit items-center justify-center rounded-md border border-solid border-neutral-300 bg-white px-2 py-1 text-center text-sm shadow-sm"
-                >
-                  Map PDF
-                </a>
-              )}
-            </div>
-          </IonItemDivider>
+            {isNPMS && (
+              <a
+                href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
+                className="rounded-md border border-solid border-neutral-300 bg-white! px-2 py-1 text-center font-medium!"
+              >
+                Map PDF
+              </a>
+            )}
+          </div>
         );
       }
 
@@ -96,39 +82,36 @@ const SurveyLocationMain = ({
         <Fragment key={id}>
           {squareDivider}
 
-          <IonItem
-            detail={false}
+          <div
             onClick={() => onSelect(id)}
             className={clsx(
-              'relative flex h-16 rounded-md border border-solid bg-white [--border-style:none]',
+              'relative h-16 rounded-md border border-solid bg-white [--border-style:none] flex w-full items-center justify-start gap-4 p-3',
               isSelected
-                ? 'border-[var(--form-value-color)] text-[var(--form-value-color)]'
+                ? 'border-(--form-value-color) text-(--form-value-color)'
                 : 'border-neutral-200'
             )}
           >
-            <div className="flex w-full items-center justify-start gap-4">
-              <div className="flex w-full flex-col gap-1 py-1">
-                <h4 className="line-clamp-2 font-semibold">
-                  {!!myPlotLabel && `${myPlotLabel}:`} {name}
-                </h4>
-                <span className="line-clamp-1 text-sm">{locationTypeTerm}</span>
+            <div className="flex w-full flex-col gap-1 py-1">
+              <div className="line-clamp-2 font-semibold">
+                {!!myPlotLabel && `${myPlotLabel}:`} {name}
               </div>
-
-              {isSelected && (
-                <div className="flex flex-col items-end justify-between gap-3">
-                  <IonIcon src={checkmarkOutline} className="size-6" />
-                </div>
-              )}
+              <span className="line-clamp-1 text-sm">{locationTypeTerm}</span>
             </div>
-          </IonItem>
+
+            {isSelected && (
+              <div className="flex flex-col items-end justify-between gap-3">
+                <IonIcon src={checkmarkOutline} className="size-6" />
+              </div>
+            )}
+          </div>
         </Fragment>
       );
     };
 
     return (
-      <IonList className="mt-2 flex flex-col gap-2">
+      <div className="m-2 flex flex-col gap-2">
         {surveyLocations.map(getItem)}
-      </IonList>
+      </div>
     );
   };
 

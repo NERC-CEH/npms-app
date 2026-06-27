@@ -1,3 +1,7 @@
+# 2.1.0
+
+Maintenance update.
+
 # 2.0.0
 
 Add PlantPortal integration.

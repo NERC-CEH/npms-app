@@ -20,7 +20,8 @@ const UserSurveyComponent = () => {
   const match = useRouteMatch<{ id?: 'pending' | 'uploaded' }>();
 
   useEffect(() => {
-    match.params?.id && setSegment(match.params?.id);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (match.params?.id) setSegment(match.params?.id);
   }, [match.params?.id]);
 
   const onSegmentClick = (e: any) => {

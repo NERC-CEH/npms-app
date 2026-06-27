@@ -13,12 +13,10 @@ const OccurrenceHome = ({ occurrence }: Props) => {
   const { goBack } = useContext(NavContext);
 
   const onCoverChange = (cover: any) => {
-    if (occurrence.isDisabled()) return;
+    if (occurrence.isDisabled) return;
 
-    // const isUpdating = occurrence.attrs[coverAttr.id];
-
-    // eslint-disable-next-line no-param-reassign
-    occurrence.attrs[coverAttr.id] = cover;
+    // const isUpdating = occurrence.data[coverAttr.id];
+    occurrence.data[coverAttr.id] = cover;
 
     let baseUrl: any = match.url.split('/');
     baseUrl.pop();

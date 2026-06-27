@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable no-return-assign */
 import { observer } from 'mobx-react';
 import { useRouteMatch } from 'react-router';
 import { IonIcon, IonItem, IonLabel, IonList } from '@ionic/react';
@@ -42,12 +39,12 @@ const Details = ({ sample }: Props) => {
     byGrid('additional-species-grid')
   ).length;
 
-  const hasManagementOther = !!sample.attrs?.[managementAttr.id]?.includes(
+  const hasManagementOther = !!sample.data?.[managementAttr.id]?.includes(
     MANAGEMENT_OTHER_VALUE
   );
-  const hasGrazing = !!sample.attrs[grazingAttr.id];
+  const hasGrazing = !!sample.data[grazingAttr.id];
 
-  const recordAttrs = { record: sample.attrs, isDisabled: sample.isDisabled() };
+  const recordAttrs = { record: sample.data, isDisabled: sample.isDisabled };
 
   return (
     <Page id="npms-details">

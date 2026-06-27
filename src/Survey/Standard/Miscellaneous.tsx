@@ -1,4 +1,3 @@
-/* eslint-disable no-return-assign, no-param-reassign */
 import { observer } from 'mobx-react';
 import { Header, Main, Page, Block } from 'common/flumens';
 import Sample from 'common/models/sample';
@@ -14,7 +13,7 @@ import {
 type Props = { sample: Sample };
 
 const Miscellaneous = ({ sample }: Props) => {
-  const recordAttrs = { record: sample.attrs, isDisabled: sample.isDisabled() };
+  const recordAttrs = { record: sample.data, isDisabled: sample.isDisabled };
 
   return (
     <Page id="standard-management">

@@ -7,7 +7,7 @@ const { P, H } = Section;
 const Credits = () => (
   <Page id="credits">
     <Header title="Credits" />
-    <Main >
+    <Main>
       <Section>
         <img src={sponsorLogo} className="mx-auto block w-full max-w-xl" />
       </Section>
@@ -51,12 +51,12 @@ const Credits = () => (
           />
         </a>
         <P>
+          This app was handcrafted with love by
           <a href="https://flumens.io" style={{ whiteSpace: 'nowrap' }}>
-            Flumens
-          </a>
-          , a technical consultancy specializing in creating customized
-          environmental science and community-focused solutions, created this
-          app with love.
+            {' '}
+            Flumens,
+          </a>{' '}
+          an agency specialising in building bespoke data-oriented solutions.
         </P>
       </Section>
       <Section>

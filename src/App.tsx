@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Route, Redirect } from 'react-router-dom';
 import {
+  SamplesContext,
   TailwindContext,
   TailwindBlockContext,
   TailwindContextValue,
@@ -9,8 +10,9 @@ import {
 } from '@flumens';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import samples from 'common/models/collections/samples';
 import userModel from 'common/models/user';
-import 'common/theme.scss';
+import 'common/theme.css';
 import Onboarding from 'Components/Onboarding';
 import Home from './Home';
 import Info from './Info/router';
@@ -26,13 +28,14 @@ const tailwindBlockContext = {
   basePath: '',
 };
 
-const AuthHomeRedirect = () => {
-  return !userModel.isLoggedIn() ? (
+const samplesContext = { samples };
+
+const AuthHomeRedirect = () =>
+  !userModel.isLoggedIn() ? (
     <Redirect to="/user/portal" />
   ) : (
     <Redirect to="/home/landing" />
   );
-};
 
 const App = () => {
   const isPP = userModel.isPlantPortal();
@@ -44,18 +47,20 @@ const App = () => {
     <IonApp>
       <TailwindContext.Provider value={tailwindContext}>
         <TailwindBlockContext.Provider value={tailwindBlockContext}>
-          <Onboarding>
-            <IonReactRouter>
-              <IonRouterOutlet id="main">
-                <Route exact path="/" render={AuthHomeRedirect} />
-                <Route path="/home" component={Home} />
-                {User}
-                {Info}
-                {Survey}
-                {Settings}
-              </IonRouterOutlet>
-            </IonReactRouter>
-          </Onboarding>
+          <SamplesContext.Provider value={samplesContext}>
+            <Onboarding>
+              <IonReactRouter>
+                <IonRouterOutlet id="main">
+                  <Route exact path="/" render={AuthHomeRedirect} />
+                  <Route path="/home" component={Home} />
+                  {User}
+                  {Info}
+                  {Survey}
+                  {Settings}
+                </IonRouterOutlet>
+              </IonReactRouter>
+            </Onboarding>
+          </SamplesContext.Provider>
         </TailwindBlockContext.Provider>
       </TailwindContext.Provider>
     </IonApp>

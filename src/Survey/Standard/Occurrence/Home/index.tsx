@@ -20,7 +20,7 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
   // const match = useRouteMatch();
   const { goBack } = useContext(NavContext);
 
-  const abundanceType = sample.attrs[abundanceAttr.id]!;
+  const abundanceType = sample.data[abundanceAttr.id]!;
   const isPercentage = abundanceType === '18883';
   const isCount = abundanceType === '18884';
   const isFrequency = abundanceType === '18885';
@@ -37,18 +37,16 @@ const OccurrenceHome = ({ sample, occurrence }: Props) => {
   const isUpdating = getCover(occurrence);
 
   const onCoverChange = (coverType: string) => (cover: any) => {
-    if (sample.isDisabled()) return;
-
-    // eslint-disable-next-line no-param-reassign
-    (occurrence.attrs as any)[coverType] = cover;
+    if (sample.isDisabled) return;
+    (occurrence.data as any)[coverType] = cover;
 
     if (
       (coverType === presenceCoverAttr.id && cover === ABSENT_VALUE) ||
       (coverType === frequencyCoverAttr.id && cover === 0)
     ) {
-      occurrence.attrs.zeroAbundance = true; // eslint-disable-line no-param-reassign
+      occurrence.data.zeroAbundance = true;
     } else {
-      delete occurrence.attrs.zeroAbundance; // eslint-disable-line no-param-reassign
+      delete occurrence.data.zeroAbundance;
     }
 
     if (isNotSingleChoice) return;

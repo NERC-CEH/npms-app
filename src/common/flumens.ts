@@ -1,30 +1,47 @@
 export {
   default as Model,
   type Options as ModelOptions,
-  type Attrs as ModelAttrs,
+  type Data as ModelData,
 } from '@flumens/models/dist/Model';
-export { default as UUID } from '@flumens/utils/dist/uuid';
+export * from '@flumens/utils/dist/uuid';
 export {
-  default as Sample,
-  type Attrs as SampleAttrs,
+  default as SampleModel,
+  type Data as SampleData,
   type Options as SampleOptions,
   type Metadata as SampleMetadata,
   type RemoteConfig,
 } from '@flumens/models/dist/Indicia/Sample';
 export {
-  default as Media,
-  type Attrs as MediaAttrs,
+  default as useSample,
+  withSample,
+  SamplesContext,
+} from '@flumens/ionic/dist/hooks/useSample';
+export {
+  default as LocationCollection,
+  byLocationType,
+  type Options as LocationCollectionOptions,
+} from '@flumens/models/dist/Indicia/LocationCollection';
+export {
+  default as LocationModel,
+  type Data as LocationData,
+  type Options as LocationOptions,
+  dtoSchema as locationDtoSchema,
+  LocationType,
+} from '@flumens/models/dist/Indicia/Location';
+export {
+  default as MediaModel,
+  type Data as MediaAttrs,
 } from '@flumens/models/dist/Indicia/Media';
 export { validateRemoteModel } from '@flumens/models/dist/Indicia/helpers';
 export {
-  default as Occurrence,
-  type Attrs as OccurrenceAttrs,
+  default as OccurrenceModel,
+  type Data as OccurrenceData,
   type Options as OccurrenceOptions,
   type Metadata as OccurrenceMetadata,
 } from '@flumens/models/dist/Indicia/Occurrence';
 export {
   default as DrupalUserModel,
-  type Attrs as DrupalUserModelAttrs,
+  type Data as DrupalUserModelData,
 } from '@flumens/models/dist/Drupal/User';
 export {
   default as Collection,
@@ -43,7 +60,7 @@ export {
   type AttrPropsExtended,
 } from '@flumens/ionic/dist/components/AttrPage';
 export { default as ModelValidationMessage } from '@flumens/ionic/dist/components/ModelValidationMessage';
-export { default as VirtualList } from '@flumens/ionic/dist/components/VirtualList';
+export { default as VirtualList } from '@flumens/tailwind/dist/components/VirtualList';
 // export { default as ImageWithBackground } from '@flumens/ionic/dist/components/ImageWithBackground';
 // export { default as Gallery } from '@flumens/ionic/dist/components/Gallery';
 // export { default as ModalHeader } from '@flumens/ionic/dist/components/ModalHeader';
@@ -70,7 +87,7 @@ export {
 export { useToast, useAlert, useLoader } from '@flumens/ionic/dist/hooks';
 export * from '@flumens/utils/dist/image';
 export * from '@flumens/utils/dist/errors';
-export * from '@flumens/utils/dist/type';
+export type * from '@flumens/utils/dist/type';
 export * from '@flumens/utils/dist/date';
 export { options as sentryOptions } from '@flumens/utils/dist/sentry';
 export { default as device } from '@flumens/utils/dist/device';
@@ -101,7 +118,7 @@ export {
   type RadioOption,
 } from '@flumens/tailwind/dist/components/Radio';
 export {
-  type Block as BlockT,
+  type BlockConf as BlockT,
   type Choice,
   type ChoiceValues,
 } from '@flumens/tailwind/dist/Survey';

@@ -3,7 +3,7 @@ import { Page, Main, Header, Collapse } from '@flumens';
 export default () => (
   <Page id="help">
     <Header title="Help" />
-    <Main className="ion-padding">
+    <Main className="[--padding-start:10px] [--padding-end:10px]">
       <h3 className="list-title">Records</h3>
       <div className="rounded-list">
         <Collapse title="Searching for species">

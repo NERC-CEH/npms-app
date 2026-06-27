@@ -1,8 +1,7 @@
-/* eslint-disable no-param-reassign */
 import { z, object } from 'zod';
 import { IonIcon } from '@ionic/react';
 import landIcon from 'common/images/habitat.svg';
-import { Attrs } from 'common/models/sample';
+import { Data } from 'common/models/sample';
 import userModel from 'common/models/user';
 import appModel from 'models/app';
 import {
@@ -133,14 +132,14 @@ const habitats = [
 
 export const broadHabitatAttr = {
   id: 'parent-smpAttr:1641',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Broad Habitat',
   prefix: landIconIcon,
   description:
     'Please ensure your choice of habitat matches the species list you are using.',
   container: 'page',
   choices: habitats.map(({ value, id }) => ({
-    data_name: `${id}`,
+    dataName: `${id}`,
     title: value,
   })),
   onChange(newValue: any, _: any, { record }: any) {
@@ -150,17 +149,17 @@ export const broadHabitatAttr = {
   },
 } as const;
 
-export const fineHabitatAttr = (attrs?: Attrs) =>
+export const fineHabitatAttr = (data?: Data) =>
   ({
     id: 'smpAttr:1641',
-    type: 'choice_input',
+    type: 'choiceInput',
     title: 'Fine Habitat',
     prefix: landIconIcon,
     container: 'page',
-    choices: getFineHabitatOptions(attrs?.[broadHabitatAttr.id], habitats),
-  } as const);
+    choices: getFineHabitatOptions(data?.[broadHabitatAttr.id], habitats),
+  }) as const;
 
-const surveys: { [key in Level]: number } = {
+const surveys: Record<Level, number> = {
   wildflower: 650,
   indicator: 651,
   inventory: 652,
@@ -187,21 +186,21 @@ const survey: Survey = {
     },
 
     create: ({ Occurrence: AppOccurrence, taxon, grid }) =>
-      new AppOccurrence({ attrs: { ...taxon, [gridAttr.id]: grid } }),
+      new AppOccurrence({ data: { ...taxon, [gridAttr.id]: grid } }),
 
-    verify: attrs =>
+    verify: data =>
       object({
-        [coverAttr.id]: z.string({ required_error: 'Cover is missing' }),
-      }).safeParse(attrs).error,
+        [coverAttr.id]: z.string({ error: 'Cover is missing' }),
+      }).safeParse(data).error,
   },
 
-  verify: attrs =>
+  verify: data =>
     object({
       date: z.string(),
-      [broadHabitatAttr.id]: z.string({ required_error: 'Habitat is missing' }),
+      [broadHabitatAttr.id]: z.string({ error: 'Habitat is missing' }),
       recorderNames: z.string().min(1, { message: 'Recorder is missing' }),
-      locationId: z.string({ required_error: 'Location is missing' }),
-    }).safeParse(attrs).error,
+      locationId: z.string({ error: 'Location is missing' }),
+    }).safeParse(data).error,
 
   create: ({ Sample, surveyName, level }) =>
     new Sample({
@@ -209,9 +208,9 @@ const survey: Survey = {
         survey: surveyName || survey.name,
         level,
       },
-      attrs: {
+      data: {
         surveyId: surveys[level!],
-        training: appModel.attrs.useTraining,
+        training: appModel.data.useTraining,
         date: new Date().toISOString().split('T')[0],
         recorderNames: userModel.getPrettyName(),
       },

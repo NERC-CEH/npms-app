@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { listOutline, locationOutline, peopleOutline } from 'ionicons/icons';
 import {
   RemoteConfig,
@@ -11,7 +10,7 @@ import locations, { bySurvey } from 'common/models/collections/locations';
 import Location from 'common/models/location';
 import Occurrence, { Grid, Taxon } from 'common/models/occurrence';
 import Media from 'models/image';
-import Sample, { Attrs as SampleAttrs } from 'models/sample';
+import Sample, { Data as SampleAttrs } from 'models/sample';
 
 const peopleOutlineIcon = (
   <IonIcon src={peopleOutline} className="size-6" />
@@ -27,7 +26,7 @@ const locationOutlineIcon = (
 
 export const commentAttr = {
   id: 'comment',
-  type: 'text_input',
+  type: 'textInput',
   title: 'Comments',
   appearance: 'multiline',
 } as const;
@@ -35,42 +34,42 @@ export const commentAttr = {
 export const MANAGEMENT_OTHER_VALUE = '1816';
 
 export const dominCoverValues = [
-  { title: '< 1% (1-2 indivs)', data_name: '3333' },
-  { title: '< 1% (several indivs)', data_name: '3334' },
-  { title: '1-4%', data_name: '3335' },
-  { title: '5-10%', data_name: '3336' },
-  { title: '11-25%', data_name: '3337' },
-  { title: '26-33%', data_name: '3338' },
-  { title: '34-50%', data_name: '3339' },
-  { title: '51-75%', data_name: '3340' },
-  { title: '76-90%', data_name: '3341' },
-  { title: '91-100%', data_name: '3342' },
+  { title: '< 1% (1-2 indivs)', dataName: '3333' },
+  { title: '< 1% (several indivs)', dataName: '3334' },
+  { title: '1-4%', dataName: '3335' },
+  { title: '5-10%', dataName: '3336' },
+  { title: '11-25%', dataName: '3337' },
+  { title: '26-33%', dataName: '3338' },
+  { title: '34-50%', dataName: '3339' },
+  { title: '51-75%', dataName: '3340' },
+  { title: '76-90%', dataName: '3341' },
+  { title: '91-100%', dataName: '3342' },
 ];
 
 export const grazingAttr = {
   id: 'smpAttr:215',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Grazing',
   prefix: listOutlineIcon,
   appearance: 'button',
   choices: [
-    { title: 'Not selected', data_name: '' },
-    { title: 'Low', data_name: '1817' },
-    { title: 'Moderate', data_name: '1818' },
-    { title: 'High', data_name: '1819' },
+    { title: 'Not selected', dataName: '' },
+    { title: 'Low', dataName: '1817' },
+    { title: 'Moderate', dataName: '1818' },
+    { title: 'High', dataName: '1819' },
   ],
 } as const;
 
 export const grazingAnimalsAttr = {
   id: 'smpAttr:224',
-  type: 'text_input',
+  type: 'textInput',
   title: 'Grazing animals',
   appearance: 'multiline',
 } as const;
 
 export const coverAttr = {
   id: 'occAttr:214',
-  type: 'choice_input',
+  type: 'choiceInput',
   container: 'inline',
   choices: dominCoverValues,
   //       id_wild: 104,
@@ -92,7 +91,7 @@ export const coverAttr = {
 
 export const rockCoverAttr = {
   id: 'smpAttr:405',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Bare Rock/Gravel',
   prefix: listOutlineIcon,
   container: 'page',
@@ -101,7 +100,7 @@ export const rockCoverAttr = {
 
 export const litterAttr = {
   id: 'smpAttr:404',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Litter',
   prefix: listOutlineIcon,
   container: 'page',
@@ -110,7 +109,7 @@ export const litterAttr = {
 
 export const lichensAttr = {
   id: 'smpAttr:408',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Mosses & Lichens',
   prefix: listOutlineIcon,
   container: 'page',
@@ -119,94 +118,94 @@ export const lichensAttr = {
 
 export const managementAttr = {
   id: 'smpAttr:225',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Management',
   multiple: true,
   prefix: listOutlineIcon,
   container: 'page',
   choices: [
-    { title: 'Arable cropping', data_name: '1799' },
-    { title: 'Burning', data_name: '1800' },
-    { title: 'Coppicing', data_name: '1801' },
-    { title: 'Cutting / mowing', data_name: '1802' },
-    { title: 'Ditch-clearance', data_name: '1803' },
-    { title: 'Fenced to exclude grazing', data_name: '1804' },
-    { title: 'Fertilised to improve soil fertility', data_name: '1805' },
-    { title: 'Grazing - livestock', data_name: '1806' },
-    { title: 'Grazing - rabbits / deer', data_name: '1807' },
-    { title: 'Hedge-laying', data_name: '1808' },
-    { title: 'Herbicides to control weeds', data_name: '1809' },
-    { title: 'Path, track or road works', data_name: '1810' },
-    { title: 'Quarrying', data_name: '1811' },
-    { title: 'Scrub clearance / tree felling', data_name: '1812' },
-    { title: 'Silage production', data_name: '1813' },
-    { title: 'Tree planting', data_name: '1814' },
-    { title: 'Water regime regulation', data_name: '1815' },
-    { title: 'Other', data_name: MANAGEMENT_OTHER_VALUE },
+    { title: 'Arable cropping', dataName: '1799' },
+    { title: 'Burning', dataName: '1800' },
+    { title: 'Coppicing', dataName: '1801' },
+    { title: 'Cutting / mowing', dataName: '1802' },
+    { title: 'Ditch-clearance', dataName: '1803' },
+    { title: 'Fenced to exclude grazing', dataName: '1804' },
+    { title: 'Fertilised to improve soil fertility', dataName: '1805' },
+    { title: 'Grazing - livestock', dataName: '1806' },
+    { title: 'Grazing - rabbits / deer', dataName: '1807' },
+    { title: 'Hedge-laying', dataName: '1808' },
+    { title: 'Herbicides to control weeds', dataName: '1809' },
+    { title: 'Path, track or road works', dataName: '1810' },
+    { title: 'Quarrying', dataName: '1811' },
+    { title: 'Scrub clearance / tree felling', dataName: '1812' },
+    { title: 'Silage production', dataName: '1813' },
+    { title: 'Tree planting', dataName: '1814' },
+    { title: 'Water regime regulation', dataName: '1815' },
+    { title: 'Other', dataName: MANAGEMENT_OTHER_VALUE },
   ],
 } as const;
 
 export const managementOtherAttr = {
   id: 'smpAttr:226',
-  type: 'text_input',
+  type: 'textInput',
   title: 'Other management',
   appearance: 'multiline',
 } as const;
 
 export const soilAttr = {
   id: 'smpAttr:403',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Bare soil',
   prefix: listOutlineIcon,
   container: 'page',
   choices: dominCoverValues,
 } as const;
 
-export const locationAttr = (attrs?: SampleAttrs) => {
+export const locationAttr = (data?: SampleAttrs) => {
   const byId = (id?: string) => (loc: Location) => loc.id === id;
-  const location = locations.find(byId(attrs?.locationId));
+  const location = locations.find(byId(data?.locationId));
 
   return {
     id: 'locationId',
-    type: 'choice_input',
+    type: 'choiceInput',
     title: 'Location',
     prefix: locationOutlineIcon,
     container: 'page',
     choices: location
-      ? [{ data_name: location.id!, title: location.attrs.name! }] // only one is fine - using as a link to a custom page
+      ? [{ dataName: location.id!, title: location.data.name }] // only one is fine - using as a link to a custom page
       : [],
   } as const;
 };
 
 export const woodCoverAttr = {
   id: 'smpAttr:216',
-  type: 'choice_input',
+  type: 'choiceInput',
   title: 'Woody cover',
   prefix: listOutlineIcon,
   appearance: 'button',
   choices: [
-    { title: 'Woodland canopy', data_name: '1820' },
-    { title: 'Scattered trees or shrubs', data_name: '1821' },
-    { title: 'Hedgerow', data_name: '1822' },
-    { title: 'No trees or shrubs', data_name: '1823' },
+    { title: 'Woodland canopy', dataName: '1820' },
+    { title: 'Scattered trees or shrubs', dataName: '1821' },
+    { title: 'Hedgerow', dataName: '1822' },
+    { title: 'No trees or shrubs', dataName: '1823' },
   ],
 } as const;
 
 export const byGroup = (group?: string) => (loc: Location) =>
-  group ? loc.attrs.projectId === group : true;
+  group ? loc.data.projectId === group : true;
 
 export const getGroups = (survey: Survey['name']) => {
   const groups: any = {};
   locations.filter(bySurvey(survey)).forEach((location: Location) => {
-    if (!location.attrs.projectId) return;
-    groups[location.attrs.projectId] = location.attrs.projectName;
+    if (!location.data.projectId) return;
+    groups[location.data.projectId] = location.data.projectName;
   });
   return groups;
 };
 
 export const recorderAttr = {
   id: 'recorderNames',
-  type: 'text_input',
+  type: 'textInput',
   title: 'Recorder names',
   // description: 'Please only add additional recorders here.',
   appearance: 'multiline',
@@ -214,7 +213,7 @@ export const recorderAttr = {
 
 export const gridAttr = {
   id: 'occAttr:153',
-  type: 'text_input',
+  type: 'textInput',
 } as const;
 
 export const STANDARD_SURVEY_ID = 599;
@@ -222,29 +221,28 @@ const getGroupChoices = (surveyId: number) => {
   const surveyName = surveyId === STANDARD_SURVEY_ID ? 'standard' : 'npmsPlus';
 
   const groups: any = getGroups(surveyName);
-  const getOption = ([value, title]: any) => ({ title, data_name: value });
+  const getOption = ([value, title]: any) => ({ title, dataName: value });
   return Object.entries(groups).map(getOption);
 };
 
-export const groupAttr = (attrs?: any) => {
-  return {
+export const groupAttr = (data?: any) =>
+  ({
     id: 'groupId',
-    type: 'choice_input',
+    type: 'choiceInput',
     title: 'Project',
     prefix: peopleOutlineIcon,
     container: 'page',
-    choices: attrs ? getGroupChoices(attrs.surveyId) : [],
+    choices: data ? getGroupChoices(data.surveyId) : [],
     //       set(id: any, sample: Sample) {
-    //         sample.attrs.location = undefined; // unset
-    //         sample.attrs.plotGroup = undefined; // unset
-    //         sample.attrs.group = { id, name };
+    //         sample.data.location = undefined; // unset
+    //         sample.data.plotGroup = undefined; // unset
+    //         sample.data.group = { id, name };
     //       },
-  } as const;
-};
+  }) as const;
 
 export type Level = 'wildflower' | 'indicator' | 'inventory';
 
-type AttrType = { [x: string]: { block: BlockT | ((record?: any) => BlockT) } };
+type AttrType = Record<string, { block: BlockT | ((record?: any) => BlockT) }>;
 export const blockToAttr = (blockOrFn: BlockOrFn): AttrType =>
   typeof blockOrFn === 'function'
     ? { [blockOrFn().id]: { block: blockOrFn } }
@@ -261,9 +259,7 @@ export type AttrConfig = {
   remote?: RemoteConfig;
 };
 
-interface Attrs {
-  [key: string]: AttrConfig;
-}
+type Attrs = Record<string, AttrConfig>;
 
 type OccurrenceCreateOptions = {
   Occurrence: typeof Occurrence;
@@ -277,7 +273,7 @@ type OccurrenceConfig = {
   render?: any[] | ((model: Occurrence) => any[]);
   attrs: Attrs;
   create?: (options: OccurrenceCreateOptions) => Occurrence;
-  verify?: (attrs: any, model: any) => any;
+  verify?: (data: any, model: any) => any;
   modifySubmission?: (submission: any, model: any) => any;
   /**
    * Set to true if multi-species surveys shouldn't auto-increment it to 1 when adding to lists.
@@ -303,13 +299,13 @@ export type SampleConfig = {
   render?: any[] | ((model: Sample) => any[]);
   attrs?: Attrs;
   create?: (options: SampleCreateOptions) => Sample;
-  verify?: (attrs: any, model: any) => any;
+  verify?: (data: any, model: any) => any;
   modifySubmission?: (submission: any, model: any) => any;
   smp?: SampleConfig;
   occ?: OccurrenceConfig;
 };
 
-export interface Survey extends SampleConfig {
+export type Survey = {
   /**
    * Remote warehouse survey ID.
    */
@@ -332,4 +328,4 @@ export interface Survey extends SampleConfig {
   metadata?: {
     speciesGroups: any;
   };
-}
+} & SampleConfig;

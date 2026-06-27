@@ -46,7 +46,7 @@ const Uploaded = () => {
     index: number,
     array: any[]
   ) => void = survey => {
-    const date = roundDate(new Date(survey.attrs.date).getTime()).toString();
+    const date = roundDate(new Date(survey.data.date).getTime()).toString();
     if (!dates.includes(date) && date !== 'Invalid Date') {
       dates.push(date);
       dateIndices.push(groupedSurveys.length);
@@ -104,8 +104,8 @@ const Uploaded = () => {
   return (
     <IonList>
       <VirtualList
-        itemCount={itemCount}
-        itemSize={getItemSize}
+        rowCount={itemCount}
+        rowHeight={getItemSize}
         Item={Item}
         topPadding={LIST_PADDING}
         bottomPadding={LIST_ITEM_HEIGHT / 2}

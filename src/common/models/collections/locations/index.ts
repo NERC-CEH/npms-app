@@ -1,15 +1,18 @@
-import { reaction, observable, observe } from 'mobx';
-import { device, Collection, CollectionOptions } from '@flumens';
+import { reaction, observable } from 'mobx';
+import {
+  device,
+  LocationCollection as LocationCollectionBase,
+  LocationCollectionOptions,
+} from '@flumens';
+import config from 'common/config';
 import userModel from 'models/user';
 import { Survey } from 'Survey/common/config';
 import Location from '../../location';
 import { locationsStore as store } from '../../store';
 import fetch from './service';
 
-export class Locations extends Collection<Location> {
-  Model = Location;
-
-  store = store;
+export class LocationsCollection extends LocationCollectionBase<Location> {
+  declare Model: typeof Location;
 
   _fetchedFirstTime = false;
 
@@ -17,19 +20,21 @@ export class Locations extends Collection<Location> {
     isFetching: false,
   });
 
-  constructor(options: CollectionOptions<Location>) {
+  constructor(options: LocationCollectionOptions<Location>) {
     super(options);
 
-    const attachCollectionToModels = (change: any) => {
-      if (change.addedCount)
-        change.added.forEach((model: Location) => (model.collection = this)); // eslint-disable-line no-return-assign, no-param-reassign
-
-      if (change.removedCount)
-        change.removed.forEach((model: Location) => delete model.collection); // eslint-disable-line no-param-reassign
+    const fetchFirstTime = () => {
+      if (
+        !this.data.length &&
+        device.isOnline &&
+        userModel.isLoggedIn() &&
+        !this.isSynchronising
+      ) {
+        this.fetchRemote().catch();
+      }
     };
-    observe(this, attachCollectionToModels);
 
-    this.ready.then(this.fetchRemoteFirstTime);
+    this.ready?.then(fetchFirstTime);
 
     const onLoginChange = async (newEmail: any) => {
       if (!newEmail) return;
@@ -37,11 +42,9 @@ export class Locations extends Collection<Location> {
       await this.ready;
 
       console.log(`📚 Collection: ${this.id} collection email has changed`);
-      const firstTimeFetch = !this.length && !this._fetchedFirstTime;
-      if (firstTimeFetch) this.fetchRemoteFirstTime();
-      else this.fetchRemote();
+      fetchFirstTime();
     };
-    const getEmail = () => userModel.attrs.email && userModel.attrs.verified;
+    const getEmail = () => userModel.data.email && userModel.data.verified;
     reaction(getEmail, onLoginChange);
 
     const superReset = this.reset; // super.reset() doesn't exist, not in the prototype
@@ -51,26 +54,10 @@ export class Locations extends Collection<Location> {
     };
   }
 
-  fetch = async () => {
-    if (!this.store || !this.Model) {
-      this.ready.resolve(false);
-      return;
-    }
-
-    const modelsJSON = await this.store.findAll();
-
-    const getModel = (json: any) =>
-      new this.Model({ ...json, attrs: json.data });
-    const models = modelsJSON.map(getModel);
-    this.push(...(models as any));
-
-    this.ready.resolve(true);
-  };
-
   fetchRemote = async () => {
     const remoteDocs = await this._fetchDocs();
 
-    await this.clear();
+    await this.data.clear();
     await this.store?.deleteAll();
 
     const initModel = (doc: any) => new this.Model(doc);
@@ -78,37 +65,12 @@ export class Locations extends Collection<Location> {
 
     const jsonModels = newModelsFromRemote.map(m => {
       const json = m.toJSON();
-      return { ...json, data: json.attrs };
+      return { ...json, data: json.data };
     });
 
-    await this.store.save(jsonModels as any);
+    await this.store!.save(jsonModels as any);
 
     this.push(...newModelsFromRemote);
-  };
-
-  private fetchRemoteFirstTime = async () => {
-    const requiresSync = !this.length && !this._fetchedFirstTime;
-    if (
-      !requiresSync ||
-      !device.isOnline ||
-      !userModel.isLoggedIn() ||
-      !userModel.attrs.verified ||
-      this.fetching.isFetching
-    )
-      return null;
-
-    console.log(`📚 Collection: ${this.id} collection fetching first time`);
-
-    try {
-      await this.fetchRemote();
-
-      this._fetchedFirstTime = true;
-    } catch (error: any) {
-      if (error.isHandled) return this;
-      throw error;
-    }
-
-    return this;
   };
 
   private _fetchDocs = async () => {
@@ -137,9 +99,14 @@ export class Locations extends Collection<Location> {
   };
 }
 
-const locations = new Locations({});
-
 export const bySurvey = (surveyName: Survey['name']) => (l: Location) =>
-  l.attrs.surveyName === surveyName;
+  l.data.surveyName === surveyName;
+
+const locations = new LocationsCollection({
+  store,
+  Model: Location,
+  url: config.backend.indicia.url,
+  getAccessToken: () => userModel.getAccessToken(),
+});
 
 export default locations;

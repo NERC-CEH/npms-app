@@ -32,10 +32,10 @@ const OccurrenceListMain = ({ sample, onDelete, grid }: Props) => {
 
     const isCoverPresent = Number.isFinite(getCover(occ)) || !!getCover(occ);
 
-    const taxonDifficulty = occ.attrs.taxonDifficulty || 0;
+    const taxonDifficulty = occ.data.taxonDifficulty || 0;
 
     return (
-      <IonItemSliding disabled={occ.isDisabled()} key={occ.cid}>
+      <IonItemSliding disabled={occ.isDisabled} key={occ.cid}>
         <IonItem
           detail={false}
           routerLink={`${match.url}/${occ.cid}`}
@@ -55,10 +55,10 @@ const OccurrenceListMain = ({ sample, onDelete, grid }: Props) => {
             </div>
 
             <div className="flex w-full flex-col overflow-hidden p-1">
-              <div className="font-semibold">{occ.attrs.defaultCommonName}</div>
-              <div className="italic">{occ.attrs.preferredTaxon}</div>
+              <div className="font-semibold">{occ.data.defaultCommonName}</div>
+              <div className="italic">{occ.data.preferredTaxon}</div>
 
-              {!image && taxonDifficulty > 1 && !sample.isDisabled() && (
+              {!image && taxonDifficulty > 1 && !sample.isDisabled && (
                 <Badge color="warning" className="mt-2">
                   Provide a photo to aid ID
                 </Badge>

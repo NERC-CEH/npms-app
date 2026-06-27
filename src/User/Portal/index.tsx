@@ -16,14 +16,14 @@ const Portal = ({ children }: Props) => {
 
   return (
     <Page id="user-portal">
-      <Main className="[--padding-bottom:0] [--padding-top:0]">
+      <Main className="[--padding-bottom:0]! [--padding-top:0]!">
         <div className="relative h-full w-full bg-black/20">
           <img
             src={backgroundImage}
             className="absolute bottom-0 left-0 -z-10 h-full w-full object-cover"
           />
           <div className="z-10 flex h-full flex-col justify-between">
-            <h1 className="m-0 mx-auto flex h-full w-full items-center justify-center pb-10 text-3xl text-white shadow-sm">
+            <h1 className="m-0 mx-auto flex h-full w-full items-center justify-center pb-10 text-3xl! text-white!">
               Choose your portal
             </h1>
 
@@ -36,7 +36,7 @@ const Portal = ({ children }: Props) => {
               <div className="mx-auto flex w-full max-w-xl flex-col gap-4 p-4  py-5 font-bold">
                 <Link
                   to="/user/login/npms"
-                  className="flex items-center justify-between gap-3 rounded-xl border border-solid border-[#1D224C]/20 bg-[#BFC3E6]/30 p-1 !text-[#1D224C]"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-solid border-[#1D224C]/20! bg-[#BFC3E6]/30! p-1 text-[#1D224C]!"
                 >
                   <div className="items flex w-full items-center justify-start gap-3">
                     <div className="list-avatar border border-solid border-white">
@@ -49,8 +49,7 @@ const Portal = ({ children }: Props) => {
 
                 <Link
                   to="/user/login/pp"
-                  className="90 flex items-center justify-between gap-3 rounded-xl border border-solid
-            border-[#002A1F]/20 bg-[#89FF5D]/20 p-1 !text-[#002A1F]"
+                  className="90 flex items-center justify-between gap-3 rounded-xl border border-solid border-[#002A1F]/20! bg-[#89FF5D]/20! p-1 text-[#002A1F]!"
                 >
                   <div className="items flex w-full items-center justify-start gap-3">
                     <div className="list-avatar">

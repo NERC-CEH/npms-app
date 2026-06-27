@@ -16,7 +16,7 @@ const FancyButton = ({ label, description, icon, ...otherProps }: Props) => (
   >
     <div className="flex w-full items-center justify-between px-0 py-2 text-primary-900">
       <div className="flex flex-col text-left font-normal normal-case">
-        <h4 className="m-0 font-bold">{label}</h4>
+        <div className="m-0 font-bold mb-1">{label}</div>
         {description && <span>{description}</span>}
       </div>
 

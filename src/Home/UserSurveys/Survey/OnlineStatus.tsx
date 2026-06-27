@@ -18,10 +18,9 @@ const OnlineStatus = ({ sample, onUpload, uploadIsPrimary }: Props) => {
   const { saved } = sample.metadata;
   if (!saved) return <Badge className="max-w-32">Draft</Badge>;
 
-  if (sample.remote.synchronising)
-    return <IonSpinner className="mr-2 size-4" />;
+  if (sample.isSynchronising) return <IonSpinner className="mr-2 size-4" />;
 
-  if (sample.isUploaded()) return null;
+  if (sample.isUploaded) return null;
 
   const isValid = !sample.validateRemote();
 

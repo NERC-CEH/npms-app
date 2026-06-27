@@ -22,10 +22,10 @@ const GalleryDefaultWrap = observer(
   ({ items: itemsProp, showGallery, ...props }: GalleryProps) => {
     const alert = useAlert();
     const getItem = (image: Media) => {
-      const { caption } = image.attrs;
+      const { caption } = image.data;
 
       const onCaptionChange = () => {
-        if (image.isDisabled()) return;
+        if (image.isDisabled) return;
         alert({
           header: 'Edit',
           skipTranslation: true,
@@ -39,8 +39,8 @@ const GalleryDefaultWrap = observer(
               text: 'Save',
               handler(values) {
                 const newValue = values[0] || '';
-                // eslint-disable-next-line no-param-reassign
-                image.attrs.caption = newValue;
+
+                image.data.caption = newValue;
               },
             },
           ],
@@ -79,7 +79,7 @@ const GalleryDefaultWrap = observer(
 );
 
 const AppPhotoPicker = ({ model }: Props) => {
-  const isUploaded = model.isUploaded();
+  const { isUploaded } = model;
 
   async function onAdd(shouldUseCamera: boolean) {
     const images = await captureImage(

@@ -20,24 +20,24 @@ type Props = {
 
 const MainComponent = ({ sample, onShare }: Props) => {
   const match = useRouteMatch();
-  const isDisabled = sample.isUploaded();
-  useTrainingAlert(sample.attrs.training);
+  const isDisabled = sample.isUploaded;
+  useTrainingAlert(sample.data.training);
 
-  const hasGroup = !!sample.attrs[groupAttr().id];
+  const hasGroup = !!sample.data[groupAttr().id];
 
   const canopySpecies = sample.occurrences.filter(byGrid('canopy-grid'));
   const groundSpecies = sample.occurrences.filter(byGrid('ground-layer-grid'));
   const hasSpecies = !!canopySpecies.length || !!groundSpecies.length;
-  const hasAbundanceType = !!sample.attrs[abundanceAttr.id];
+  const hasAbundanceType = !!sample.data[abundanceAttr.id];
 
-  const recordAttrs = { record: sample.attrs, isDisabled };
+  const recordAttrs = { record: sample.data, isDisabled };
 
   return (
     <Main>
       {isDisabled && (
         <UploadedRecordInfoMessage
           sampleId={sample.id}
-          groupId={sample.attrs.groupId}
+          groupId={sample.data.groupId}
         />
       )}
 
@@ -55,11 +55,11 @@ const MainComponent = ({ sample, onShare }: Props) => {
       <IonList lines="full">
         <div className="rounded-list">
           <MenuDateAttr model={sample} />
-          <Block block={groupAttr(sample.attrs)} {...recordAttrs} />
+          <Block block={groupAttr(sample.data)} {...recordAttrs} />
           <Block block={plotGroupAttr()} {...recordAttrs} />
           <Block
-            record={sample.attrs}
-            block={locationAttr(sample.attrs)}
+            record={sample.data}
+            block={locationAttr(sample.data)}
             isDisabled={isDisabled || !hasGroup}
           />
         </div>
@@ -67,7 +67,7 @@ const MainComponent = ({ sample, onShare }: Props) => {
         <h3 className="list-title">Species</h3>
         <div className="rounded-list">
           <Block
-            record={sample.attrs}
+            record={sample.data}
             block={abundanceAttr}
             isDisabled={isDisabled || hasSpecies}
           />

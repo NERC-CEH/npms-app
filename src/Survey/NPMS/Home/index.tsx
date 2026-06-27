@@ -31,11 +31,10 @@ const Controller = ({ sample }: Props) => {
     if (!sample.occurrences.length) {
       const finish = await showEmptySpeciesCheck();
       if (!finish) return true;
-      // eslint-disable-next-line no-param-reassign
-      sample.attrs[noSpeciesAttr.id] = true;
+
+      sample.data[noSpeciesAttr.id] = true;
     } else {
-      // eslint-disable-next-line no-param-reassign
-      sample.attrs[noSpeciesAttr.id] = false;
+      sample.data[noSpeciesAttr.id] = false;
     }
 
     return false;
@@ -48,7 +47,7 @@ const Controller = ({ sample }: Props) => {
     if (await checkAndSetEmptySpecies()) return;
 
     sample.upload().catch(toast.error);
-    navigate(`/home/surveys`, 'root');
+    navigate('/home/surveys', 'root');
   };
 
   const onFinish = async () => {
@@ -57,11 +56,10 @@ const Controller = ({ sample }: Props) => {
 
     if (await checkAndSetEmptySpecies()) return;
 
-    // eslint-disable-next-line no-param-reassign
     sample.metadata.saved = true;
     sample.save();
 
-    navigate(`/home/surveys`, 'root');
+    navigate('/home/surveys', 'root');
   };
 
   const { level } = sample.metadata;
@@ -77,11 +75,11 @@ const Controller = ({ sample }: Props) => {
   };
 
   const onShare = () => {
-    const byId = (id?: string) => (c: Choice) => c.data_name === id;
-    const habitatId = sample.attrs[broadHabitatAttr.id];
+    const byId = (id?: string) => (c: Choice) => c.dataName === id;
+    const habitatId = sample.data[broadHabitatAttr.id];
     const habitat = broadHabitatAttr.choices.find(byId(habitatId))?.title;
     const occurrences = sample.occurrences.map(occ => {
-      const abundanceId = occ.attrs[coverAttr.id];
+      const abundanceId = occ.data[coverAttr.id];
       const abundance = coverAttr.choices.find(byId(abundanceId))?.title;
       const name = occ.getPrettyName();
       return `${name} - ${abundance}`;
@@ -95,11 +93,11 @@ const Controller = ({ sample }: Props) => {
     share(sample, text);
   };
 
-  const isDisabled = sample.isUploaded();
+  const isDisabled = sample.isUploaded;
 
   const isInvalid = sample.validateRemote();
   const uploadButton =
-    isDisabled || sample.remote.synchronising ? null : (
+    isDisabled || sample.isSynchronising ? null : (
       <HeaderButton
         onPress={sample.metadata.saved ? onUpload : onFinish}
         isInvalid={isInvalid}
@@ -108,7 +106,7 @@ const Controller = ({ sample }: Props) => {
       </HeaderButton>
     );
 
-  const isTraining = !!sample.attrs.training;
+  const isTraining = !!sample.data.training;
   const trainingModeSubheader = isTraining && (
     <div className="bg-black p-1 text-center text-sm text-white">
       Training Mode

@@ -4,9 +4,9 @@ import {
   device,
   ModelValidationMessage,
   useAlert,
-  Sample as SampleOriginal,
-  SampleAttrs,
-  SampleOptions as SampleOptionsOriginal,
+  SampleModel,
+  SampleData,
+  SampleOptions,
   SampleMetadata,
   ChoiceValues,
 } from '@flumens';
@@ -40,7 +40,7 @@ type Group = { id: string; name: string };
 type PlotGroup = { id: string; name: string };
 const groupAttrId = groupAttr().id;
 
-export type Attrs = SampleAttrs & {
+export type Data = SampleData & {
   group?: Group;
   plotGroup?: PlotGroup;
   location: any;
@@ -91,30 +91,28 @@ type Metadata = SampleMetadata & {
   level: Level;
 };
 
-type SampleOptions = SampleOptionsOriginal;
-
-export default class Sample extends SampleOriginal<Attrs, Metadata> {
-  static fromJSON(json: any) {
-    return super.fromJSON(json, Occurrence, Sample, Media) as Sample;
-  }
-
+export default class Sample<T extends SampleData = Data> extends SampleModel<
+  T,
+  Metadata
+> {
   declare occurrences: IObservableArray<Occurrence>;
 
-  declare samples: IObservableArray<Sample>;
+  declare samples: IObservableArray<Sample<any>>;
 
   declare media: IObservableArray<Media>;
 
-  declare parent?: Sample;
+  declare parent?: Sample<any>;
 
   declare survey: Survey;
 
   constructor(options: SampleOptions) {
-    super({ store: samplesStore, ...options });
-
-    this.remote.url = `${config.backend.indicia.url}/index.php/services/rest`;
-    // eslint-disable-next-line
-    this.remote.headers = async () => ({
-      Authorization: `Bearer ${await userModel.getAccessToken()}`,
+    super({
+      ...options,
+      url: config.backend.indicia.url,
+      getAccessToken: () => userModel.getAccessToken(),
+      Occurrence,
+      Media,
+      store: samplesStore,
     });
 
     const surveyName = this.metadata.survey;
@@ -131,7 +129,7 @@ export default class Sample extends SampleOriginal<Attrs, Metadata> {
   }
 
   async upload() {
-    if (this.remote.synchronising || this.isUploaded()) {
+    if (this.isSynchronising || this.isUploaded) {
       return true;
     }
 
@@ -155,12 +153,12 @@ export default class Sample extends SampleOriginal<Attrs, Metadata> {
   // }
 }
 
-export const useValidateCheck = (sample: Sample) => {
+export const useValidateCheck = (sample?: Sample) => {
   const alert = useAlert();
   const { t } = useTranslation();
 
   return () => {
-    const invalids = sample.validateRemote();
+    const invalids = sample?.validateRemote();
     if (invalids) {
       alert({
         header: t('Survey incomplete'),
@@ -180,10 +178,10 @@ export const useValidateCheck = (sample: Sample) => {
 };
 
 export function bySurveyDate(sample1: Sample, sample2: Sample) {
-  const date1 = new Date(sample1.attrs.date);
+  const date1 = new Date(sample1.data.date);
   const moveToTop = !date1 || date1.toString() === 'Invalid Date';
   if (moveToTop) return -1;
 
-  const date2 = new Date(sample2.attrs.date);
+  const date2 = new Date(sample2.data.date);
   return date2.getTime() - date1.getTime();
 }

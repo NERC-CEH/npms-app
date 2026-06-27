@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import axios from 'axios';
 import { camelCase, mapKeys } from 'lodash';
 import { ZodError } from 'zod';
@@ -6,7 +5,7 @@ import { isAxiosNetworkError, HandledError } from '@flumens';
 import CONFIG from 'common/config';
 import LocationModel, { RemoteAttributes } from 'models/location';
 import userModel from 'models/user';
-import { type Survey } from 'Survey/common/config';
+import type { Survey } from 'Survey/common/config';
 
 export default async function fetch(
   surveyName: Survey['name']
@@ -19,9 +18,11 @@ export default async function fetch(
 
   const options = {
     params: {
-      warehouse_user_id: userModel.attrs.indiciaUserId,
+      /* eslint-disable @typescript-eslint/naming-convention */
+      warehouse_user_id: userModel.data.indiciaUserId,
       // warehouse_user_id: 5553,
       project_id: '', // the report crashes without this
+      /* eslint-enable @typescript-eslint/naming-convention */
     },
     headers: {
       Authorization: `Bearer ${await userModel.getAccessToken()}`,

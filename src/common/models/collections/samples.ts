@@ -1,13 +1,19 @@
 import { SampleCollection } from '@flumens';
+import config from 'common/config';
 import Sample from 'models/sample';
+import Occurrence from '../occurrence';
 import { samplesStore } from '../store';
 import userModel, { Portal } from '../user';
 
 console.log('SavedSamples: initializing');
-const samples = new SampleCollection({
+
+const samples: SampleCollection<Sample> = new SampleCollection({
   store: samplesStore,
   Model: Sample,
-});
+  Occurrence,
+  url: config.backend.indicia.url,
+  getAccessToken: () => userModel.getAccessToken(),
+}) as any;
 
 export const byPortal = (portal: Portal) => (sample: Sample) => {
   const isNPMS = sample.metadata.survey === 'npms';

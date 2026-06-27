@@ -1,9 +1,5 @@
 import { IObservableArray } from 'mobx';
-import {
-  Occurrence as OccurrenceOriginal,
-  OccurrenceAttrs,
-  validateRemoteModel,
-} from '@flumens';
+import { OccurrenceModel, OccurrenceData, validateRemoteModel } from '@flumens';
 import {
   dominCoverAttr,
   bbCoverAttr,
@@ -24,7 +20,7 @@ export type Grid =
   | 'additional-species-grid';
 
 export const byGrid = (grid: Grid) => (occ: Occurrence) =>
-  occ.attrs[gridAttr.id] === grid;
+  occ.data[gridAttr.id] === grid;
 
 export type CoverKeys =
   | 'cover'
@@ -58,15 +54,15 @@ export type Taxon = {
   taxonDifficulty?: number;
 };
 
-export type Attrs = OccurrenceAttrs & { [key in CoverKeys]?: any } & Taxon & {
+export type Data = OccurrenceData &
+  Partial<Record<CoverKeys, any>> &
+  Taxon & {
     [gridAttr.id]: Grid;
   };
 
-export default class Occurrence extends OccurrenceOriginal<Attrs> {
-  static fromJSON(json: any) {
-    return super.fromJSON(json, Media);
-  }
-
+export default class Occurrence<
+  T extends Data = Data,
+> extends OccurrenceModel<T> {
   declare media: IObservableArray<Media>;
 
   declare parent?: Sample;
@@ -75,11 +71,13 @@ export default class Occurrence extends OccurrenceOriginal<Attrs> {
 
   validateRemote = validateRemoteModel;
 
-  isDisabled = () => this.isUploaded();
+  constructor(options: any) {
+    super({ ...options, Media });
+  }
 
   getPrettyName = () =>
-    this.attrs.taxon ||
-    this.attrs.defaultCommonName ||
-    this.attrs.preferredTaxon ||
+    this.data.taxon ||
+    this.data.defaultCommonName ||
+    this.data.preferredTaxon ||
     '';
 }

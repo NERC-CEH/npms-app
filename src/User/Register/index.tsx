@@ -31,7 +31,6 @@ const RegisterContainer = () => {
 
     const otherDetails = Object.entries(otherFields).reduce(
       (agg: any, [field, value]: any) => {
-        // eslint-disable-next-line no-param-reassign
         agg[`field_${snakeCase(field)}`] = [{ value }];
 
         return agg;
@@ -48,10 +47,10 @@ const RegisterContainer = () => {
     try {
       await userModel.register(email, password, otherDetails, isPlantPortal);
 
-      userModel.attrs.firstName = details.firstName; // eslint-disable-line
-      userModel.attrs.lastName = details.lastName; // eslint-disable-line
+      userModel.data.firstName = details.firstName;
+      userModel.data.lastName = details.lastName;
 
-      if (isPlantPortal) userModel.attrs.iss = config.backend.ppUrl; // registration doesn't set it
+      if (isPlantPortal) userModel.data.iss = config.backend.ppUrl; // registration doesn't set it
 
       userModel.save();
 

@@ -85,7 +85,7 @@ const Image = {
     }
 
     const imageModel = new ImageModel({
-      attrs: {
+      data: {
         data,
         type: 'jpeg',
         width,
@@ -98,4 +98,4 @@ const Image = {
   },
 };
 
-export { Image as default };
+export default Image;

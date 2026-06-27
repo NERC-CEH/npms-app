@@ -51,7 +51,7 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
     }
 
     const [occ] = subModel.occurrences;
-    Object.assign(occ.attrs, taxon);
+    Object.assign(occ.data, taxon);
 
     model.save();
 

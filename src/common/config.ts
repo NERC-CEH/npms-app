@@ -17,7 +17,7 @@ const config = {
   version: process.env.APP_VERSION as string,
   build: process.env.APP_BUILD as string,
 
-  sentryDNS: process.env.APP_SENTRY_KEY as string,
+  sentryDSN: process.env.APP_SENTRY_KEY as string,
 
   backend: {
     npmsUrl: 'https://www.npms.org.uk',

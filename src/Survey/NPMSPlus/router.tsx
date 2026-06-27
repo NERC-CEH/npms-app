@@ -14,7 +14,7 @@ const baseURL = `/survey/${survey.name}`;
 const { AttrPageFromRoute } = AttrPage;
 
 const routes = [
-  [`${baseURL}`, StartNewSurvey.with(survey), true],
+  [baseURL, StartNewSurvey.with(survey), true],
   [`${baseURL}/:smpId`, Home],
   [`${baseURL}/:smpId/:attr`, AttrPageFromRoute],
   [`${baseURL}/:smpId/locationId`, Location],
@@ -28,4 +28,4 @@ const routes = [
   [`${baseURL}/:smpId/additional/:grid/occurrences/search`, TaxonSearchPage],
 ];
 
-export default RouteWithModels.fromArray(samples, routes);
+export default RouteWithModels.fromArray(samples as any, routes);
