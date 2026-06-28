@@ -17,13 +17,14 @@ export default async function fetch(
   };
 
   const options = {
+    /* eslint-disable @typescript-eslint/naming-convention */
     params: {
-      /* eslint-disable @typescript-eslint/naming-convention */
+      limit: 5000, // default limit is 100, so we need to increase it to get all the plots for the user
       warehouse_user_id: userModel.data.indiciaUserId,
-      // warehouse_user_id: 5553,
+      // warehouse_user_id: 84948,
       project_id: '', // the report crashes without this
-      /* eslint-enable @typescript-eslint/naming-convention */
     },
+    /* eslint-enable @typescript-eslint/naming-convention */
     headers: {
       Authorization: `Bearer ${await userModel.getAccessToken()}`,
     },
