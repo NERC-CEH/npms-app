@@ -37,7 +37,7 @@ const OccurrenceHomeMain = ({
   };
 
   return (
-    <Main>
+    <Main className="[--padding-bottom:50px]">
       <IonList>
         <h3 className="list-title">Photos</h3>
         <div className="rounded-list">

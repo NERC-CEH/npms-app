@@ -12,7 +12,7 @@ const Habitat = ({ sample }: Props) => {
   return (
     <Page id="standard-habitat">
       <Header title="Habitat" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <div className="rounded-list m-2">
           <Block block={communityAttr} {...recordAttrs} />
           <Block block={woodCoverAttr} {...recordAttrs} />

@@ -19,7 +19,7 @@ const Vegetation = ({ sample }: Props) => {
   return (
     <Page id="standard-habitat">
       <Header title="Vegetation" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <div className="rounded-list m-2">
           <Block block={vegetationHeight1Attr} {...recordAttrs} />
           <Block block={vegetationHeight2Attr} {...recordAttrs} />

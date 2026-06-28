@@ -116,7 +116,7 @@ const SurveyLocationMain = ({
   };
 
   return (
-    <Main className="[--padding-top:0]">
+    <Main className="[--padding-top:0] [--padding-bottom:50px]">
       <IonRefresher slot="fixed" onIonRefresh={refreshGroups}>
         <IonRefresherContent />
       </IonRefresher>

@@ -18,7 +18,7 @@ const Miscellaneous = ({ sample }: Props) => {
   return (
     <Page id="standard-management">
       <Header title="Miscellaneous" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <div className="rounded-list m-2">
           <Block block={partialSampleAttr} {...recordAttrs} />
           <Block block={bryophytesRecordedAttr} {...recordAttrs} />

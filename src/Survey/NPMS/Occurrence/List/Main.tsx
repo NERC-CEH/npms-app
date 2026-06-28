@@ -94,7 +94,7 @@ const OccurrenceListMain = ({ sample, onDelete, grid }: Props) => {
   const hasSpecies = !!gridSpecies.length;
 
   return (
-    <Main>
+    <Main className="[--padding-bottom:50px]">
       {hasSpecies && (
         <IonList>
           <div className="rounded-list">{gridSpecies.map(getItem)}</div>

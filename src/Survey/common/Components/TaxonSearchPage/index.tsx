@@ -67,7 +67,7 @@ const TaxonSearchPage = ({ sample, subSample, subSubSample }: Props) => {
   return (
     <Page id="taxon-search">
       <Header title="Species" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <TaxonSearch onSpeciesSelected={onSpeciesSelected} level={level} />
       </Main>
     </Page>

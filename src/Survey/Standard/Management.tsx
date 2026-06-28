@@ -27,7 +27,7 @@ const Management = ({ sample }: Props) => {
   return (
     <Page id="standard-management">
       <Header title="Management" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <div className="rounded-list m-2">
           <Block block={soilAttr} {...recordAttrs} />
           <Block block={rockCoverAttr} {...recordAttrs} />

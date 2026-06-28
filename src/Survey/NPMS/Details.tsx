@@ -49,7 +49,7 @@ const Details = ({ sample }: Props) => {
   return (
     <Page id="npms-details">
       <Header title="Plot info" />
-      <Main>
+      <Main className="[--padding-bottom:50px]">
         <IonList lines="full">
           <h3 className="list-title">Vegetation</h3>
           <div className="rounded-list">

@@ -33,7 +33,7 @@ const MainComponent = ({ sample, onShare }: Props) => {
   const recordAttrs = { record: sample.data, isDisabled };
 
   return (
-    <Main>
+    <Main className="[--padding-bottom:50px]">
       {isDisabled && (
         <UploadedRecordInfoMessage
           sampleId={sample.id}

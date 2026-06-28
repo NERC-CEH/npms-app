@@ -65,7 +65,7 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
     isDisabled && !isNPMSPlus && !sample.data[firstSurveyAttr.id];
 
   return (
-    <Main>
+    <Main className="[--padding-bottom:50px]">
       {isDisabled && (
         <UploadedRecordInfoMessage
           sampleId={sample.id}
