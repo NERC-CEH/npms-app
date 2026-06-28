@@ -2,7 +2,7 @@
   "name": "npms-app",
   "id": "uk.ac.ceh.npms",
   "title": "NPMS App",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "scripts": {
     "prepare": "husky",
     "start": "webpack serve --progress --port 8000",
