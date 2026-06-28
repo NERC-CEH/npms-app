@@ -61,17 +61,19 @@ const SurveyLocationMain = ({
       if (parentName && !squareDividers.has(parentName)) {
         squareDividers.add(parentName);
         squareDivider = (
-          <div className="list-divider rounded-md border border-neutral-300 sticky flex w-full justify-between">
-            <div className="text-base">{parentName}</div>
+          <div className="bg-white sticky top-2 z-10 rounded-md! border border-neutral-300 overflow-hidden">
+            <div className="list-divider flex w-full justify-between">
+              <div className="text-base">{parentName}</div>
 
-            {isNPMS && (
-              <a
-                href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
-                className="rounded-md border border-solid border-neutral-300 bg-white! px-2 py-1 text-center font-medium!"
-              >
-                Map PDF
-              </a>
-            )}
+              {isNPMS && (
+                <a
+                  href={`${config.backend.npmsUrl}/sites/default/files/PDF/squares/${parentName}.pdf`}
+                  className="rounded-md border border-solid border-neutral-300 bg-white! px-2 py-1 text-center font-medium!"
+                >
+                  Map PDF
+                </a>
+              )}
+            </div>
           </div>
         );
       }
