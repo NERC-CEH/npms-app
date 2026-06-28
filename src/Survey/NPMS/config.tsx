@@ -149,7 +149,8 @@ export const broadHabitatAttr = {
   })),
   onChange(newValue: any, _: any, { record }: any) {
     record[broadHabitatAttr.id] = newValue;
-    delete record[fineHabitatAttr().id]; // eslint-disable-line @typescript-eslint/no-use-before-define
+    // we need to upload the broad habitat if the fine one is missing, reusing the same attribute field for both
+    record[fineHabitatAttr().id] = newValue; // eslint-disable-line @typescript-eslint/no-use-before-define
     return newValue;
   },
 } as const;
