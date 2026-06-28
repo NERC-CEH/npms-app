@@ -233,11 +233,6 @@ export const groupAttr = (data?: any) =>
     prefix: peopleOutlineIcon,
     container: 'page',
     choices: data ? getGroupChoices(data.surveyId) : [],
-    //       set(id: any, sample: Sample) {
-    //         sample.data.location = undefined; // unset
-    //         sample.data.plotGroup = undefined; // unset
-    //         sample.data.group = { id, name };
-    //       },
   }) as const;
 
 export type Level = 'wildflower' | 'indicator' | 'inventory';

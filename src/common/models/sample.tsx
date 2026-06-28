@@ -28,7 +28,6 @@ import {
   Level,
   Survey,
   grazingAttr,
-  groupAttr,
   managementAttr,
   woodCoverAttr,
 } from 'Survey/common/config';
@@ -36,17 +35,7 @@ import Media from './image';
 import Occurrence from './occurrence';
 import { samplesStore } from './store';
 
-type Group = { id: string; name: string };
-type PlotGroup = { id: string; name: string };
-const groupAttrId = groupAttr().id;
-
 export type Data = SampleData & {
-  group?: Group;
-  plotGroup?: PlotGroup;
-  location: any;
-  locationId: string;
-  enteredSref: string;
-  enteredSrefSystem: string;
   [managementAttr.id]?: ChoiceValues<typeof managementAttr.choices>[];
   [abundanceAttr.id]?: ChoiceValues<typeof abundanceAttr.choices>;
   [grazingAttr.id]?: ChoiceValues<typeof grazingAttr.choices>;
@@ -60,12 +49,10 @@ export type Data = SampleData & {
   [grazingAnimalNumberAttr.id]?: number;
   [firstSurveyAttr.id]?: string;
   [noSpeciesAttr.id]?: boolean;
-  [groupAttrId]?: string;
   /**
    * For internal use. We don't need to store in the warehouse this one.
    */
   plotGroupId?: string;
-  noSpecies: any;
 };
 
 export const surveyConfigs = {
@@ -145,14 +132,6 @@ export default class Sample<T extends SampleData = Data> extends SampleModel<
 
     return this.saveRemote();
   }
-
-  // getSubmission() {
-  //   const sub = super.getSubmission();
-  //   console.log(sub);
-
-  //   throw 1;
-  //   return sub;
-  // }
 }
 
 export const useValidateCheck = (sample?: Sample) => {

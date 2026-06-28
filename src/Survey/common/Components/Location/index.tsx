@@ -79,7 +79,7 @@ const SurveyLocation = ({ sample }: Props) => {
         plotGroup={sample.data.plotGroupId}
         onSelect={setLocation}
         onRefresh={refreshGroups}
-        value={sample.data.locationId}
+        value={sample.data.locationId!}
       />
     </Page>
   );

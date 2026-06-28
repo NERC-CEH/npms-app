@@ -1350,19 +1350,6 @@ export const plotGroupAttr = (data?: Data) => {
     prefix: locationOutlineIcon,
     container: 'page',
     choices,
-    //       set(id: any, sample: SampleModel) {
-    //         const plotGroups: any = getPlotGroups(
-    //           sample.getSurvey().name,
-    //           sample.data.group?.id
-    //         );
-    //         const name = plotGroups[id];
-    //         if (!name) {
-    //           console.warn(`Plot Group with ID ${id} was not found`);
-    //           return;
-    //         }
-    //         sample.data.location = undefined; // unset
-    //         sample.data.plotGroup = { id, name };
-    //       },
   } as const;
 };
 
