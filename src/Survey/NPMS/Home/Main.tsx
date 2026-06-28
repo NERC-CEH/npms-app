@@ -43,13 +43,15 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
     : npmsBroadHabitatAttr;
 
   const fineHabitatAttr = isNPMSPlus
-    ? portalFineHabitatAttr
-    : npmsFineHabitatAttr;
+    ? portalFineHabitatAttr(sample.data)
+    : npmsFineHabitatAttr(sample.data);
 
   const match = useRouteMatch();
   const isDisabled = sample.isUploaded;
 
   const hasBroadHabitat = !!sample.data[broadHabitatAttr.id];
+  const hasFineHabitat =
+    sample.data[broadHabitatAttr.id] !== sample.data[fineHabitatAttr.id];
   const hasGroup = !!sample.data[groupAttr().id];
 
   const occCount = sample.occurrences.filter(
@@ -123,7 +125,11 @@ const MainComponent = ({ sample, onAddSecondSurvey, onShare }: Props) => {
 
           <Block block={broadHabitatAttr} {...recordAttrs} />
           {hasBroadHabitat && (
-            <Block block={fineHabitatAttr(sample.data)} {...recordAttrs} />
+            <Block
+              block={fineHabitatAttr}
+              isDisabled={isDisabled}
+              record={hasFineHabitat ? sample.data : {}} // we hide the fine habitat when only the broad habitat is selected
+            />
           )}
 
           <IonItem routerLink={`${match.url}/main-species-grid/occurrences`}>

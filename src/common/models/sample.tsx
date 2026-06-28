@@ -52,6 +52,8 @@ export type Data = SampleData & {
   [grazingAttr.id]?: ChoiceValues<typeof grazingAttr.choices>;
   [woodCoverAttr.id]?: ChoiceValues<typeof woodCoverAttr.choices>;
   [broadHabitatAttr.id]?: ChoiceValues<typeof broadHabitatAttr.choices>;
+  'smpAttr:565'?: string; // fine habitat
+  'smpAttr:1641'?: string; // fine habitat (plus)
   [portalBroadHabitatAttr.id]?: ChoiceValues<
     typeof portalBroadHabitatAttr.choices
   >;
