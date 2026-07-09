@@ -7,7 +7,7 @@ const web = !isPlatform('hybrid');
 export const db = new SQLiteDatabase({ web, debug: web });
 
 export const mainStore = new Store({
-  name: process.env.APP_DATABASE_NAME || 'indicia',
+  name: process.env.APP_DATABASE_NAME || 'main',
   db,
 });
 export const samplesStore = new Store({ name: 'samples', db });

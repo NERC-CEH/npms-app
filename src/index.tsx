@@ -57,8 +57,8 @@ mobxConfig({ enforceActions: 'never' });
   root.render(<App />);
 
   if (isPlatform('hybrid')) {
-    await SystemBars.setStyle({ style: SystemBarsStyle.Light });
-    await StatusBar.setStyle({ style: StatusBarStyle.Dark });
+    await SystemBars.setStyle({ style: SystemBarsStyle.Dark });
+    await StatusBar.setStyle({ style: StatusBarStyle.Light });
 
     SplashScreen.hide();
   }
