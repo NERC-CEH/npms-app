@@ -214,6 +214,7 @@ export const communityAttr = {
   prefix: listOutlineIcon,
   container: 'page',
   choices: [
+    { title: 'Not selected', dataName: '', className: 'text-gray-400' },
     { dataName: '20836', title: 'A10 - Polygonum amphibium community' },
     {
       dataName: '20837',

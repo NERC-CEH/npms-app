@@ -34,6 +34,7 @@ export const commentAttr = {
 export const MANAGEMENT_OTHER_VALUE = '1816';
 
 export const dominCoverValues = [
+  { title: 'Not selected', dataName: '', className: 'text-gray-400' },
   { title: '< 1% (1-2 indivs)', dataName: '3333' },
   { title: '< 1% (several indivs)', dataName: '3334' },
   { title: '1-4%', dataName: '3335' },
@@ -184,6 +185,7 @@ export const woodCoverAttr = {
   prefix: listOutlineIcon,
   appearance: 'button',
   choices: [
+    { title: 'Not selected', dataName: '' },
     { title: 'Woodland canopy', dataName: '1820' },
     { title: 'Scattered trees or shrubs', dataName: '1821' },
     { title: 'Hedgerow', dataName: '1822' },
