@@ -42,12 +42,12 @@ const locationOutlineIcon = (
 ) as any;
 
 export const bbCoverValues = [
-  { title: '+,<1%', dataName: '18886' },
-  { title: '1,1-5%', dataName: '18887' },
-  { title: '2,6-25%', dataName: '18888' },
-  { title: '3,26-50%', dataName: '18889' },
-  { title: '4,51-75%', dataName: '18890' },
-  { title: '5,76-100%', dataName: '18891' },
+  { title: '(+) <1%', dataName: '18886' },
+  { title: '(1) 1-5%', dataName: '18887' },
+  { title: '(2) 6-25%', dataName: '18888' },
+  { title: '(3) 26-50%', dataName: '18889' },
+  { title: '(4) 51-75%', dataName: '18890' },
+  { title: '(5) 76-100%', dataName: '18891' },
 ];
 
 export const ABSENT_VALUE = '18894';

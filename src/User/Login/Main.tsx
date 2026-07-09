@@ -53,7 +53,7 @@ const LoginMain = ({ onSubmit, portal }: Props) => {
               name="email"
               prefix={<IonIcon icon={mailOutline} className="size-5" />}
               type="text"
-              placeholder="Email or username"
+              placeholder="Email"
             />
             <ControlledInput
               control={control}
