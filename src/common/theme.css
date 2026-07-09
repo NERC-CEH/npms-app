@@ -260,3 +260,7 @@ ion-toolbar {
 .menu-attr-item .choice-input-block .field-label + span {
   font-weight: 500;
 }
+
+ion-content {
+  --padding-bottom: var(--ion-safe-area-bottom, 0);
+}
